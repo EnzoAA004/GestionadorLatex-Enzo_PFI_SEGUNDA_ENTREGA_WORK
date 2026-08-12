@@ -1,0 +1,403 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{\numberline {1}Introducci\'on}{7}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Planteamiento del problema}{8}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Justificaci\'on}{9}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Objetivos}{10}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Objetivo general}{10}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Objetivos espec\'ificos}{10}{section.4.2}%
+\contentsline {chapter}{\numberline {5}Alcance}{11}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Funcionalidades incluidas}{11}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Estructuras y mediciones contempladas}{11}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Validaci\'on incluida}{11}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Exclusiones del alcance}{12}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Alcance del documento final}{12}{section.5.5}%
+\contentsline {chapter}{\numberline {6}Descripci\'on de la soluci\'on propuesta}{13}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Descripci\'on general del flujo}{13}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Componentes principales del prototipo}{13}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Rol del profesional y resultado esperado}{14}{section.6.3}%
+\contentsline {chapter}{\numberline {7}Estado del arte}{15}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Propósito y alcance del estado del arte}{15}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Estrategia de búsqueda y criterios de selección}{15}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Datasets y benchmarks para RM lumbar}{16}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}SPIDER como dataset base del MVP}{16}{subsection.7.3.1}%
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {subsection}{\numberline {7.3.2}LumbarDISC como referencia complementaria}{17}{subsection.7.3.2}%
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {subsection}{\numberline {7.3.3}Dataset axial complementario identificado}{17}{subsection.7.3.3}%
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {subsection}{\numberline {7.3.4}Conclusión parcial sobre datasets}{18}{subsection.7.3.4}%
+\contentsline {section}{\numberline {7.4}Segmentación automática de estructuras lumbares}{18}{section.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}U-Net, nnU-Net y enfoques auto-configurables}{18}{subsection.7.4.1}%
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {subsection}{\numberline {7.4.2}SPINEPS y segmentación multi-estructura}{18}{subsection.7.4.2}%
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {subsection}{\numberline {7.4.3}Clasificación degenerativa y sistemas complementarios}{19}{subsection.7.4.3}%
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {subsection}{\numberline {7.4.4}Segmentación axial como antecedente preliminar}{19}{subsection.7.4.4}%
+\contentsline {subsection}{\numberline {7.4.5}Conclusión parcial sobre segmentación}{19}{subsection.7.4.5}%
+\contentsline {section}{\numberline {7.5}Mediciones cuantitativas derivadas de segmentaciones}{19}{section.7.5}%
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {7.6}Visualización, revisión profesional y salida estructurada}{20}{section.7.6}%
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {7.7}Soluciones comerciales y regulatorias}{20}{section.7.7}%
+\contentsline {subsection}{\numberline {7.7.1}CoLumbo}{21}{subsection.7.7.1}%
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {subsection}{\numberline {7.7.2}MSKai}{21}{subsection.7.7.2}%
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {subsection}{\numberline {7.7.3}RemedyLogic AI MRI Lumbar Spine Reader}{21}{subsection.7.7.3}%
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {subsection}{\numberline {7.7.4}Prenuvo}{21}{subsection.7.7.4}%
+\contentsline {subsection}{\numberline {7.7.5}Conclusión parcial sobre competencia}{22}{subsection.7.7.5}%
+\contentsline {section}{\numberline {7.8}Herramientas abiertas y sustitutos parciales}{23}{section.7.8}%
+\contentsline {section}{\numberline {7.9}Limitaciones detectadas en los antecedentes}{23}{section.7.9}%
+\contentsline {section}{\numberline {7.10}Brecha identificada y justificación del PFI}{23}{section.7.10}%
+\contentsline {section}{\numberline {7.11}Matriz comparativa de antecedentes}{25}{section.7.11}%
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {7.12}Conclusiones del estado del arte}{25}{section.7.12}%
+\contentsline {chapter}{\numberline {8}Marco teórico}{27}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Propósito y alcance del marco teórico}{27}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Resonancia magnética lumbar}{27}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}Principio general de la resonancia magnética}{27}{subsection.8.2.1}%
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {subsection}{\numberline {8.2.2}Secuencias T1 y T2 en columna lumbar}{28}{subsection.8.2.2}%
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {subsection}{\numberline {8.2.3}Planos sagital y axial}{28}{subsection.8.2.3}%
+\contentsline {section}{\numberline {8.3}Anatomía lumbar relevante para el prototipo}{29}{section.8.3}%
+\contentsline {subsection}{\numberline {8.3.1}Organización general de la región lumbar}{29}{subsection.8.3.1}%
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {subsection}{\numberline {8.3.2}Estructuras anatómicas de interés}{29}{subsection.8.3.2}%
+\contentsline {subsubsection}{\numberline {8.3.2.1}Cuerpos vertebrales}{29}{subsubsection.8.3.2.1}%
+\contentsline {subsubsection}{\numberline {8.3.2.2}Discos intervertebrales}{29}{subsubsection.8.3.2.2}%
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {subsubsection}{\numberline {8.3.2.3}Canal espinal y saco dural}{29}{subsubsection.8.3.2.3}%
+\contentsline {section}{\numberline {8.4}Representación computacional de imágenes médicas}{30}{section.8.4}%
+\contentsline {subsection}{\numberline {8.4.1}Imagen médica como matriz con metadatos}{30}{subsection.8.4.1}%
+\contentsline {subsection}{\numberline {8.4.2}Formatos DICOM y NIfTI}{30}{subsection.8.4.2}%
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {subsection}{\numberline {8.4.3}Normalización y preprocesamiento}{31}{subsection.8.4.3}%
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {8.5}Segmentación de imágenes médicas}{31}{section.8.5}%
+\contentsline {subsection}{\numberline {8.5.1}Definición}{31}{subsection.8.5.1}%
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {subsection}{\numberline {8.5.2}Tipos de segmentación relevantes}{31}{subsection.8.5.2}%
+\contentsline {subsection}{\numberline {8.5.3}Desafíos en RM lumbar}{31}{subsection.8.5.3}%
+\contentsline {section}{\numberline {8.6}Aprendizaje supervisado y anotaciones de referencia}{32}{section.8.6}%
+\contentsline {subsection}{\numberline {8.6.1}Concepto de ground truth}{32}{subsection.8.6.1}%
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {subsection}{\numberline {8.6.2}Entrenamiento, validación y prueba}{32}{subsection.8.6.2}%
+\contentsline {section}{\numberline {8.7}Modelos de aprendizaje profundo para segmentación}{32}{section.8.7}%
+\contentsline {subsection}{\numberline {8.7.1}Redes neuronales convolucionales}{32}{subsection.8.7.1}%
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {subsection}{\numberline {8.7.2}Arquitecturas encoder-decoder}{33}{subsection.8.7.2}%
+\contentsline {subsection}{\numberline {8.7.3}U-Net}{33}{subsection.8.7.3}%
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {subsection}{\numberline {8.7.4}nnU-Net}{33}{subsection.8.7.4}%
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {subsection}{\numberline {8.7.5}Attention U-Net y modelos híbridos CNN-Transformer}{33}{subsection.8.7.5}%
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {subsection}{\numberline {8.7.6}Frameworks especializados en imagen médica}{33}{subsection.8.7.6}%
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {8.8}Mediciones cuantitativas derivadas de máscaras}{34}{section.8.8}%
+\contentsline {subsection}{\numberline {8.8.1}Máscaras como base geométrica}{34}{subsection.8.8.1}%
+\contentsline {subsection}{\numberline {8.8.2}Mediciones posibles en RM lumbar}{34}{subsection.8.8.2}%
+\contentsline {subsection}{\numberline {8.8.3}Límites clínicos de las mediciones}{34}{subsection.8.8.3}%
+\contentsline {section}{\numberline {8.9}Métricas de evaluación de segmentación}{35}{section.8.9}%
+\contentsline {subsection}{\numberline {8.9.1}Necesidad de evaluación cuantitativa}{35}{subsection.8.9.1}%
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {subsection}{\numberline {8.9.2}Coeficiente Dice}{35}{subsection.8.9.2}%
+\contentsline {subsection}{\numberline {8.9.3}Intersección sobre Unión}{35}{subsection.8.9.3}%
+\contentsline {subsection}{\numberline {8.9.4}Distancia de Hausdorff y HD95}{35}{subsection.8.9.4}%
+\contentsline {subsection}{\numberline {8.9.5}Normalized Surface Dice}{36}{subsection.8.9.5}%
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {subsection}{\numberline {8.9.6}Interpretación responsable de métricas}{36}{subsection.8.9.6}%
+\contentsline {section}{\numberline {8.10}Visualización, interacción y salida estructurada}{36}{section.8.10}%
+\contentsline {subsection}{\numberline {8.10.1}Visualización superpuesta}{36}{subsection.8.10.1}%
+\contentsline {subsection}{\numberline {8.10.2}Salida estructurada editable}{36}{subsection.8.10.2}%
+\contentsline {subsection}{\numberline {8.10.3}Trazabilidad}{37}{subsection.8.10.3}%
+\contentsline {section}{\numberline {8.11}Inteligencia artificial asistiva y rol profesional}{37}{section.8.11}%
+\contentsline {subsection}{\numberline {8.11.1}Sistemas de apoyo a la decisión clínica}{37}{subsection.8.11.1}%
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {subsection}{\numberline {8.11.2}Humano en el circuito}{37}{subsection.8.11.2}%
+\contentsline {subsection}{\numberline {8.11.3}Diferencia entre asistencia y diagnóstico autónomo}{37}{subsection.8.11.3}%
+\contentsline {section}{\numberline {8.12}Privacidad, ética y límites normativos}{37}{section.8.12}%
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {8.13}Síntesis conceptual}{38}{section.8.13}%
+\contentsline {section}{\numberline {8.14}Conclusión del marco teórico}{38}{section.8.14}%
+\contentsline {chapter}{\numberline {A}Glosario de términos}{40}{appendix.Alph1}%
+\contentsline {chapter}{\numberline {B}Anatomía de la columna lumbar y los discos intervertebrales}{45}{appendix.Alph2}%
+\contentsline {section}{\numberline {B.1}Esquema simplificado de columna lumbar sagital}{45}{section.Alph2.1}%
+\contentsline {section}{\numberline {B.2}Esquema conceptual de segmentación}{46}{section.Alph2.2}%
+\contentsline {chapter}{\numberline {C}Ampliación preliminar del alcance: plano axial}{47}{appendix.Alph3}%
+\contentsline {section}{\numberline {C.1}Origen del ajuste de alcance}{47}{section.Alph3.1}%
+\contentsline {section}{\numberline {C.2}Dataset axial identificado}{47}{section.Alph3.2}%
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {C.3}Justificación técnica preliminar}{47}{section.Alph3.3}%
+\contentsline {section}{\numberline {C.4}Alcance preliminar del módulo axial}{48}{section.Alph3.4}%
+\contentsline {section}{\numberline {C.5}Limitaciones y decisión metodológica}{48}{section.Alph3.5}%
+\contentsline {section}{\numberline {C.6}Impacto sobre el alcance actual}{48}{section.Alph3.6}%
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{Referencias}{49}{appendix*.2}%
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{Bibliograf\'ia y recursos adicionales}{53}{appendix*.4}%
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 

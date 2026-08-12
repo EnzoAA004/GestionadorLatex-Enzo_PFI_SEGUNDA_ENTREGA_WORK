@@ -1,0 +1,157 @@
+\chapter{Cronograma del proyecto}
+\label{anexo:cronograma-proyecto}
+
+Este anexo reúne el cronograma pormenorizado del Proyecto Final de Ingeniería. La primera sección presenta el calendario académico con los hitos formales de la asignatura; la segunda, el diagrama de Gantt con la distribución temporal de las actividades técnicas y documentales; la tercera, los desvíos registrados respecto de la planificación original y su justificación técnica.
+
+\section{Calendario académico}
+
+\begingroup
+ootnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.16}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.20\textwidth}|>{\raggedright\arraybackslash}p{0.53\textwidth}|>{\raggedright\arraybackslash}p{0.18\textwidth}|}
+\caption{Hitos académicos del proyecto.}\label{tab:anexo-a-hitos}\\
+\hline
+\textbf{Fecha} & \textbf{Hito académico} & \textbf{Estado} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Fecha} & \textbf{Hito académico} & \textbf{Estado} \\
+\hline
+\endhead
+13/06/2026 & Entrega del avance del 25 \% & Cumplido \\
+\hline
+18/08/2026 & Carga de la presentación y del avance del 50 \% & En curso \\
+\hline
+25/08/2026 y 05/09/2026 & Instancias de exposición del avance del 50 \% & Previsto \\
+\hline
+20/10/2026 & Entrega recomendada del avance escrito del 75 \% & Previsto \\
+\hline
+27/10/2026 y 03/11/2026 & Exposiciones del avance del 75 \% & Previsto \\
+\hline
+Diciembre de 2026 & Corrección final, entrega y defensa según llamado & Previsto \\
+\hline
+\end{longtable}
+\endgroup
+
+\section{Diagrama de Gantt}
+
+\begin{figure}[H]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{0.42\textwidth}|*{10}{>{\centering\arraybackslash}p{0.045\textwidth}|}}
+\hline
+\textbf{Actividad} & \textbf{Mar} & \textbf{Abr} & \textbf{May} & \textbf{Jun} & \textbf{Jul} & \textbf{Ago} & \textbf{Sep} & \textbf{Oct} & \textbf{Nov} & \textbf{Dic} \\
+\hline
+Definición del tema, propuesta, objetivos y alcance & X & X &  &  &  &  &  &  &  &  \\
+\hline
+Revisión normativa y aspectos éticos & X & X &  &  &  &  &  &  &  &  \\
+\hline
+Relevamiento bibliográfico y datasets &  & X & X & X &  &  &  &  &  &  \\
+\hline
+Estado del arte y marco teórico &  &  & X & X & X &  &  &  &  &  \\
+\hline
+Entrega y correcciones del avance 25 \% &  &  &  & X &  &  &  &  &  &  \\
+\hline
+User research: encuestas y entrevistas profesionales &  &  & X & X & X & X &  &  &  &  \\
+\hline
+Análisis de feedback y definición de requerimientos &  &  &  & X & X & X &  &  &  &  \\
+\hline
+Diseño de arquitectura y contratos del sistema &  &  &  &  & X & X & X &  &  &  \\
+\hline
+Preparación de datasets y preprocesamiento &  &  &  &  & X & X &  &  &  &  \\
+\hline
+Entrenamiento y evaluación de modelos de IA &  &  &  &  & X & X &  &  &  &  \\
+\hline
+Segmentación sagital, axial y procesamiento volumétrico &  &  &  &  & X & X & X &  &  &  \\
+\hline
+Clasificación asistida de hallazgos degenerativos &  &  &  &  & X & X & X &  &  &  \\
+\hline
+Integración AI Module–Backend y persistencia &  &  &  &  & X & X & X &  &  &  \\
+\hline
+Visor, mediciones y revisión profesional &  &  &  &  &  & X & X & X &  &  \\
+\hline
+Integración final del Frontend y pruebas E2E &  &  &  &  &  & X & X & X &  &  \\
+\hline
+Presentación y correcciones del avance 50 \% &  &  &  &  &  & X & X &  &  &  \\
+\hline
+Despliegue y validación en Google Cloud &  &  &  &  &  & X & X & X &  &  \\
+\hline
+Validación técnica y revisión con profesionales &  &  &  &  &  &  & X & X &  &  \\
+\hline
+Presentación y exposición del avance 75 \% &  &  &  &  &  &  &  & X & X &  \\
+\hline
+Resultados, discusión y conclusiones &  &  &  &  &  &  &  & X & X &  \\
+\hline
+Correcciones finales, documentación y defensa &  &  &  &  &  &  &  &  & X & X \\
+\hline
+\end{tabular}
+\end{adjustbox}
+\caption{Diagrama de Gantt del Proyecto Final de Ingeniería, marzo a diciembre de 2026. Fuente: elaboración propia.}
+\label{fig:anexo-a-gantt}
+\end{figure}
+
+El cronograma distingue dos carriles coordinados, según el criterio de planificación expuesto en el Capítulo 14. El carril técnico agrupa el desarrollo del pipeline, los modelos, la integración multiplanar, la seguridad, el visor volumétrico y el despliegue. El carril documental organiza la producción de los capítulos, las matrices de trazabilidad, los diagramas y la evidencia asociada a cada instancia de entrega.
+
+\begingroup
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.16}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.18\textwidth}|>{\raggedright\arraybackslash}p{0.38\textwidth}|>{\raggedright\arraybackslash}p{0.38\textwidth}|}
+\caption{Distribución temporal de las actividades por carril.}\label{tab:anexo-a-actividades}\\
+\hline
+\textbf{Período} & \textbf{Carril técnico} & \textbf{Carril documental} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Período} & \textbf{Carril técnico} & \textbf{Carril documental} \\
+\hline
+\endhead
+Marzo – abril de 2026 & Relevamiento de datasets, verificación técnica de SPIDER y de Sudirman / Al-Kafri, definición del pipeline. & Propuesta, planteamiento del problema, objetivos y alcance. \\
+\hline
+Mayo – junio de 2026 & Primer MVP sagital: carga, preprocesamiento, segmentación, mediciones y visualización superpuesta. & Estado del arte, marco teórico y entrega del 25 \%. \\
+\hline
+Julio de 2026 & Módulo axial complementario e integración multiplanar. & User research, elicitación y análisis preliminar de requerimientos. \\
+\hline
+Julio – agosto de 2026 & Persistencia, reapertura, seguridad y visor volumétrico. & Requerimientos formalizados, arquitectura, modelo de datos y diagramas. \\
+\hline
+Agosto de 2026 & Consolidación de backend y módulo de IA; congelamiento para el traspaso al frontend. & Desarrollo del producto, metodología, implementación técnica y entrega del 50 \%. \\
+\hline
+Septiembre – octubre de 2026 & Integración final en el frontend, recorrido extremo a extremo con interfaz y validación profesional sobre el producto integrado. & Resultados, validación y entrega del 75 \%. \\
+\hline
+Noviembre – diciembre de 2026 & Despliegue objetivo, observabilidad y consolidación de la evidencia final. & Discusión, conclusiones, trabajos futuros y defensa. \\
+\hline
+\end{longtable}
+\endgroup
+
+\section{Desvíos respecto de la planificación original}
+
+\begingroup
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.16}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.18\textwidth}|>{\raggedright\arraybackslash}p{0.25\textwidth}|>{\raggedright\arraybackslash}p{0.25\textwidth}|>{\raggedright\arraybackslash}p{0.25\textwidth}|}
+\caption{Desvíos registrados y justificación técnica.}\label{tab:anexo-a-desvios}\\
+\hline
+\textbf{Desvío} & \textbf{Planificación original} & \textbf{Situación real} & \textbf{Justificación} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Desvío} & \textbf{Planificación original} & \textbf{Situación real} & \textbf{Justificación} \\
+\hline
+\endhead
+Incorporación del plano axial & El alcance inicial contemplaba únicamente el plano sagital. & Se incorporó un módulo axial complementario sobre los niveles discales inferiores. & Hallazgo del relevamiento con profesionales y disponibilidad de un dataset público con anotaciones axiales nativas y co-registro T1-T2 verificado. \\
+\hline
+Adelanto de la integración multiplanar & Se preveía completar el plano sagital y evaluar el axial en una etapa posterior. & La integración de producto avanzó más rápido y permitió cerrar capacidades previstas para etapas siguientes. & El uso de contratos compartidos entre repositorios redujo el costo de integración respecto de lo estimado. \\
+\hline
+Incorporación de un tercer dataset & Se preveían dos datasets base. & RSNA / LumbarDISC se incorporó como dataset complementario. & Habilitó la línea de hallazgos degenerativos por nivel y aportó un estudio DICOM real para la validación técnica de la ingesta. \\
+\hline
+Región de interés axial automática & Se preveía disponible para la entrega del 50 \%. & El clasificador subarticular quedó entrenado y evaluado, pero la generación automática de la región de interés permanece pendiente. & La capacidad depende de una etapa de localización anatómica no contemplada en la estimación inicial. Se documenta como línea paralela que no condiciona el recorrido principal. \\
+\hline
+Recorrido extremo a extremo con interfaz & Se preveía cerrado para la entrega del 50 \%. & El backend y el módulo de IA quedaron consolidados; resta la integración final en el frontend. & La ampliación del alcance al visor volumétrico y a la navegación por cortes desplazó la integración final del frontend al tramo siguiente. \\
+\hline
+\end{longtable}
+\endgroup

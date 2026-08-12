@@ -1,0 +1,68 @@
+\chapter{Alcance}
+
+El proyecto se limita a un MVP académico para análisis asistido de RM lumbar en los planos sagital y axial. Su propósito es automatizar tareas operativas de segmentación, medición, visualización y documentación estructurada, manteniendo la revisión profesional como condición central.
+
+\section{Funcionalidades incluidas}
+
+El prototipo contempla:
+
+\begin{itemize}
+  \item carga de estudios de RM lumbar en formatos estándar (DICOM, .ima o .mha), en los planos sagital y axial, provenientes de datasets públicos o fuentes compatibles con el entorno de desarrollo;
+  \item normalización y preprocesamiento de imágenes;
+  \item segmentación automática de cuerpos vertebrales, discos intervertebrales y canal espinal en el plano sagital, y de disco, elemento posterior, saco tecal y área entre elementos anterior y posterior en el plano axial;
+  \item visualización de máscaras superpuestas sobre la imagen original;
+  \item cálculo de mediciones geométricas simples asociadas a estructuras segmentadas;
+  \item organización de resultados por estructura y, cuando sea posible, por nivel lumbar;
+  \item generación de una salida estructurada editable y de un preinforme automático revisable;
+  \item evaluación técnica mediante métricas cuantitativas y revisión cualitativa profesional.
+\end{itemize}
+
+\section{Estructuras y mediciones contempladas}
+
+El MVP se concentra en vértebras, discos intervertebrales y canal espinal en el plano sagital, y en disco, elemento posterior, saco tecal y área entre elementos anterior y posterior en el plano axial, porque esas estructuras se encuentran alineadas con los datasets base y permiten obtener mediciones morfométricas simples. Las mediciones podrán incluir:
+
+\begin{itemize}
+  \item áreas proyectadas de estructuras segmentadas;
+  \item dimensiones relativas de discos intervertebrales;
+  \item medidas aproximadas del canal espinal en plano sagital;
+  \item área del saco tecal en sección transversal sobre cortes axiales;
+  \item anchos foraminales aproximados sobre cortes axiales;
+  \item comparaciones simples entre niveles o estructuras.
+\end{itemize}
+
+Estas salidas se presentan como datos geométricos revisables. No se interpretarán automáticamente como patologías ni se traducirán en recomendaciones clínicas.
+
+\section{Validación incluida}
+
+La validación se plantea en dos niveles. El primero es una evaluación técnica cuantitativa que compara las máscaras generadas contra las anotaciones de referencia del conjunto de datos utilizado, mediante métricas de solapamiento como el coeficiente Dice y la intersección sobre unión. Sus resultados se informan en el Capítulo 13, junto con el protocolo de partición y las limitaciones que los acotan. El segundo es una revisión cualitativa profesional sobre el producto integrado, que evaluará plausibilidad anatómica, claridad visual, utilidad de las mediciones y legibilidad de la salida editable; esa instancia permanece pendiente y se documenta como tal.
+% CROSS_REFERENCE_MAPPING_REQUIRED
+
+\section{Exclusiones del alcance}
+
+Quedan fuera del alcance:
+
+\begin{itemize}
+  \item diagnóstico clínico automático, entendido como la atribución de una entidad clínica a un paciente con valor asistencial;
+  \item clasificación de patologías degenerativas expuesta al usuario: las estimaciones desarrolladas en esa línea se evalúan y documentan en la sección 11.11.1, y permanecen fuera del producto por la heterogeneidad de su desempeño;
+  % CROSS_REFERENCE_MAPPING_REQUIRED
+  \item recomendación terapéutica;
+  \item reemplazo del criterio médico;
+  \item uso clínico real del sistema;
+  \item validación clínica multicéntrica;
+  \item integración completa con sistemas hospitalarios, PACS o RIS;
+  \item certificación regulatoria como software médico;
+  \item scoring clínico o comparación longitudinal calibrada de progresión (la comparación longitudinal descriptiva se contempla como línea futura);
+  \item entrenamiento sobre datos privados no anonimizados;
+  \item desarrollo de un producto comercial final.
+\end{itemize}
+
+Las capacidades desarrolladas durante el proyecto que quedan fuera de este alcance se documentan en la sección 11.11, junto con el motivo de su exclusión.
+% CROSS_REFERENCE_MAPPING_REQUIRED
+
+\section{Privacidad y gestión de datos}
+
+En el alcance actual, el desarrollo y la validación se realizan sobre datasets públicos o de-identificados. Durante la ingesta de estudios DICOM se minimizan y sanitizan los identificadores, y los contratos públicos utilizan identificadores seudónimos (subjectRef). No se afirma uso clínico real de datos de pacientes. Para habilitar, a futuro, una historia clínica por paciente, se preservaría esta separación y seudonimización conforme a la Ley 25.326.
+
+\section{Alcance del documento final}
+
+La presente entrega establece el problema, la justificación, el alcance, la solución propuesta, el estado del arte, el marco teórico, el user research, los requerimientos, la arquitectura, el desarrollo del producto, la metodología, la implementación técnica y los resultados de la evaluación de segmentación. El documento final incorporará la validación cualitativa profesional sobre el producto integrado, las métricas de distancia pendientes, la discusión, las conclusiones y los trabajos futuros.

@@ -1,0 +1,241 @@
+\chapter{Estado del arte}
+
+\section{Propósito y alcance del estado del arte}
+
+Este capítulo releva antecedentes académicos, datasets públicos, herramientas abiertas y soluciones comerciales relacionadas con el análisis asistido de resonancias magnéticas (RM) lumbares. El objetivo no es presentar todos los avances disponibles en inteligencia artificial médica, sino identificar qué componentes existentes se relacionan con el alcance del PFI y qué brecha concreta justifica el desarrollo del prototipo. A lo largo del documento se emplea vocabulario técnico de imagen médica y aprendizaje profundo; los términos especializados se definen en el Anexo B (Glosario).
+% CROSS_REFERENCE_MAPPING_REQUIRED
+
+El proyecto se limita a un prototipo funcional para RM lumbar, con el plano sagital como base anatómica principal y un módulo axial complementario, centrado en la segmentación de estructuras anatómicas relevantes, la extracción de un conjunto acotado de mediciones geométricas, la visualización superpuesta de resultados y la generación de una salida estructurada editable para revisión profesional. Se excluye el diagnóstico autónomo, la certificación regulatoria, la integración hospitalaria completa y la validación clínica multicéntrica.
+
+A partir de ese alcance, el estado del arte se organiza en cinco preguntas directrices:
+
+\begin{itemize}
+  \item ¿Qué datasets públicos permiten entrenar o evaluar segmentación anatómica en RM lumbar?
+  \item ¿Qué modelos y sistemas recientes segmentan vértebras, discos intervertebrales y canal espinal?
+  \item ¿Qué antecedentes existen sobre mediciones cuantitativas derivadas de segmentaciones?
+  \item ¿Qué soluciones comerciales evidencian relevancia real del problema?
+  \item ¿Qué combinación de componentes queda todavía abierta para un prototipo académico reproducible?
+\end{itemize}
+
+Durante la elaboración del relevamiento, se identificó adicionalmente un dataset público con cobertura del plano axial complementario a SPIDER. Su análisis y eventual incorporación se desarrolla en la sección 6.3.3 y se integra en la matriz comparativa final.
+% CROSS_REFERENCE_MAPPING_REQUIRED
+
+\section{Estrategia de búsqueda y criterios de selección}
+
+La revisión se realizó con un enfoque narrativo y orientado a la ingeniería del prototipo. Se priorizaron fuentes con trazabilidad verificable: artículos revisados por pares, preprints técnicos con autores identificables, repositorios oficiales de datos, documentación de benchmarks y documentos regulatorios oficiales de la FDA. No se incorporaron referencias cuya autoría, título, DOI, URL o existencia no pudiera verificarse. La Tabla 7.1 sintetiza las fuentes consultadas, los términos de búsqueda empleados y los criterios de inclusión y exclusión aplicados.
+% CROSS_REFERENCE_MAPPING_REQUIRED
+
+% TABLE_PENDING_MIGRATION
+% DOCX_TABLE_NUMBER: Tabla 6.1
+% DOCX_TABLE_TITLE: Estrategia de búsqueda y selección de fuentes.
+
+Esta estrategia no pretende constituir una revisión sistemática exhaustiva bajo protocolo PRISMA. Su finalidad es construir un mapa de antecedentes suficiente para justificar decisiones de alcance, datos, validación y diferenciación técnica del PFI.
+
+\section{Datasets y benchmarks para RM lumbar}
+
+La disponibilidad de datos anotados es un condicionante central para cualquier sistema de segmentación automática en imágenes médicas. En columna lumbar, muchos trabajos históricos se apoyaron en datasets privados, de tamaño limitado o provenientes de un único centro, lo que dificulta la comparación entre métodos. Por este motivo, los datasets públicos con máscaras anatómicas de referencia son especialmente relevantes.
+
+\subsection{SPIDER como dataset base del MVP}
+
+SPIDER es el antecedente más directamente alineado con el proyecto. Van der Graaf et al. presentan un dataset multicéntrico público de RM lumbar con segmentaciones de referencia de vértebras, discos intervertebrales y canal espinal \parencite{vandergraaf_spider_2024}. El conjunto incluye 447 series sagitales T1 y T2 de 218 pacientes con antecedente de dolor lumbar, recolectadas en cuatro hospitales de los Países Bajos (un centro médico universitario, dos hospitales regionales y uno ortopédico). Además, el trabajo incluye valores de referencia para algoritmos de segmentación y un challenge continuo para comparar modelos.
+
+La relevancia de SPIDER para este PFI es directa por cuatro razones:
+
+\begin{itemize}
+  \item Contiene las mismas estructuras anatómicas previstas para el MVP: vértebras, discos intervertebrales y canal espinal.
+  \item Provee máscaras de referencia que permiten entrenamiento supervisado o ajuste de modelos.
+  \item Habilita validación técnica cuantitativa mediante comparación contra anotaciones expertas.
+  \item Reduce la dependencia de datos clínicos privados, favoreciendo la reproducibilidad académica.
+\end{itemize}
+
+SPIDER no resuelve por sí mismo el problema completo. No provee una interfaz final para el profesional, no genera una plantilla editable y no define qué mediciones deben presentarse al usuario. Su aporte se ubica en la base de datos y en el benchmark de segmentación. Por lo tanto, el valor del PFI consiste en construir sobre esta base los módulos de medición, visualización, revisión y salida estructurada.
+
+\subsection{LumbarDISC como referencia complementaria}
+
+LumbarDISC, asociado a la competencia RSNA Lumbar Spine Degenerative Classification, constituye un dataset de mayor escala orientado al análisis de degeneración lumbar por nivel \parencite{richards_lumbardisc_2026}. El conjunto incluye 2.697 pacientes y 8.593 series de RM lumbar provenientes de ocho instituciones, con anotaciones de neurorradiólogos y radiólogos musculoesqueléticos para clasificar estenosis del canal, receso subarticular y forámenes neurales.
+
+Su relación con el PFI es complementaria de las dos fuentes centrales: SPIDER en el plano sagital y Sudirman / Al-Kafri en el axial. A diferencia de lo previsto en la propuesta inicial, este conjunto se incorporó de forma efectiva como tercer dataset complementario. Sirvió de base para la línea de hallazgos degenerativos por nivel, orientada a la evaluación interna de estenosis central, foraminal y subarticular, y aportó un estudio DICOM real utilizado para la validación técnica del flujo de ingesta. No reemplaza a SPIDER ni a Sudirman / Al-Kafri, y su tarea principal, la clasificación diagnóstica integral, permanece fuera del alcance del prototipo. El detalle de esta incorporación se documenta en el Anexo F.
+% CROSS_REFERENCE_MAPPING_REQUIRED
+
+\subsection{Dataset de Sudirman y Al-Kafri como referencia axial}
+
+Durante el relevamiento del estado del arte se identificó un dataset público adicional con propiedades complementarias a SPIDER: el dataset publicado por Al-Kafri, Sudirman, Natalia, Meidia, Afriliana, Al-Rashdan, Bashtawi y Al-Jumaily en 2019 \parencite{alkafri_sudirman_boundary_2019}, distribuido en Mendeley Data bajo licencia CC BY 4.0. Incluye estudios de 515 pacientes con dolor lumbar adquiridos en Irbid Specialty Hospital (Jordania) entre 2015 y 2016, con secuencias T1 y T2 en planos sagital y axial, todos en formato DICOM Siemens (.ima).
+
+La incorporación de este conjunto se documentó inicialmente como una ampliación a evaluar en la entrega del 25 \%. Tras el análisis de factibilidad técnica y la consolidación del relevamiento con profesionales, el módulo axial pasó a integrarse efectivamente en el prototipo, según se documenta en los capítulos 5, 8 y 11.
+% CROSS_REFERENCE_MAPPING_REQUIRED
+
+A diferencia de SPIDER, Sudirman incluye cortes axiales nativos sobre los tres niveles discales inferiores (L3/L4, L4/L5 y L5/S1), con anotaciones de segmentación que cubren cuatro regiones de interés: disco intervertebral (IVD), elemento posterior (PE), saco tecal (TS) y área entre elementos anterior y posterior (AAP). La anotación fue realizada por cinco anotadores supervisados por un radiólogo experto, con consolidación final en máscaras de 320 × 320 píxeles. La cobertura es completa: las 1.545 máscaras finales (515 pacientes × 3 niveles) preservan los tres niveles discales más relevantes para patología degenerativa lumbar.
+
+La inspección técnica de los headers DICOM confirmó que las series T1 y T2 axiales del mismo paciente comparten pixel spacing (0,6875 mm), slice thickness (4 mm), dimensiones (320 × 320) y posiciones espaciales prácticamente idénticas, lo que evidencia un co-registro nativo entre ambas secuencias. Esta propiedad permite reutilizar las máscaras anotadas sobre T1 para entrenamiento o validación sobre T2 sin necesidad de registro adicional. La relevancia para el PFI es directa por cuatro razones: amplía la cobertura anatómica al plano axial sin alterar el módulo sagital principal, mantiene la licencia abierta que asegura reproducibilidad académica, ofrece anotaciones de cuatro regiones de interés complementarias a las de SPIDER y permite validación cruzada en los niveles donde se concentra la patología clínica.
+
+\subsection{Conclusión parcial sobre datasets}
+
+El análisis de datasets identifica una combinación operativa clara: SPIDER aporta cobertura sagital con segmentaciones anatómicas primarias, constituye la base del MVP y es la fuente del modelo de hallazgos por nivel; Sudirman / Al-Kafri aporta la base axial anatómica complementaria; y RSNA / LumbarDISC se incorpora como tercer dataset complementario, utilizado en la línea de estenosis y como estudio DICOM real para la validación técnica. Esta distinción evita mezclar segmentación anatómica primaria con clasificación clínica degenerativa y cubre ambos planos de adquisición sin recurrir a datasets privados o de calidad inferior; RSNA / LumbarDISC no reemplaza las bases de segmentación anatómica.
+
+\section{Segmentación automática de estructuras lumbares}
+
+La segmentación automática de imágenes médicas mediante aprendizaje profundo se apoya principalmente en arquitecturas encoder-decoder, variantes de U-Net y sistemas auto-configurables. En RM lumbar, los antecedentes relevantes se concentran en segmentar estructuras anatómicas y optimizar métricas técnicas, aunque con menor foco en la integración de esos resultados en un flujo revisable por el profesional.
+
+\subsection{U-Net, nnU-Net y enfoques auto-configurables}
+
+U-Net y sus variantes constituyen una base metodológica recurrente en segmentación biomédica. En particular, nnU-Net fue propuesto por Isensee et al. como un método auto-configurable que adapta preprocesamiento, arquitectura, entrenamiento y postprocesamiento a distintas tareas de segmentación \parencite{isensee_nnunet_2021}. Su fortaleza radica en ofrecer un pipeline robusto y reproducible sin requerir rediseñar manualmente todos los hiperparámetros para cada dataset.
+
+En el contexto de este PFI, nnU-Net tiene valor como baseline y como referencia metodológica. No necesariamente debe ser la arquitectura final única, pero sí permite comparar el rendimiento de cualquier alternativa más liviana o adaptada a las restricciones de hardware del proyecto. En una tesis de desarrollo, esta comparación es relevante porque evita evaluar el prototipo solo por funcionamiento visual.
+
+\subsection{SPINEPS y segmentación multi-estructura}
+
+SPINEPS, desarrollado por Möller et al., representa uno de los antecedentes más completos de segmentación espinal reciente \parencite{moller_spineps_2025}. El sistema propone un enfoque de dos fases para segmentación semántica e instancia de 14 estructuras espinales en imágenes T2 sagitales, incluyendo subestructuras vertebrales, discos intervertebrales, canal espinal, médula y sacro. El trabajo utiliza SPIDER y un subconjunto del German National Cohort para entrenamiento y evaluación.
+
+SPINEPS demuestra que la segmentación multi-estructura de columna en RM sagital es técnicamente viable y puede apoyarse en código y modelos públicos. Sin embargo, su objetivo principal sigue siendo la segmentación. No está orientado a generar una salida editable para revisión radiológica ni a integrar mediciones cuantitativas simples en una plantilla de resultados. Por ello, es un antecedente fuerte para el módulo de segmentación, pero no cubre la totalidad del pipeline propuesto.
+
+\subsection{Clasificación degenerativa y sistemas complementarios}
+
+SpineNetV2 aborda el análisis de RM de columna desde una perspectiva complementaria: detección, etiquetado vertebral y gradación radiológica de discos intervertebrales \parencite{jamaludin_spinenet_2017,windsor_spinenet_2024} (para una introducción a la anatomía de la columna lumbar y los discos intervertebrales, véase el Anexo B). Este enfoque es útil para contextualizar la automatización de la lectura lumbar, pero no equivale al objetivo del PFI. La salida principal de un sistema de clasificación es una categoría o grado; la salida principal requerida para el MVP es una máscara anatómica revisable desde la cual puedan derivarse mediciones.
+% CROSS_REFERENCE_MAPPING_REQUIRED
+
+La diferencia entre clasificación y segmentación es metodológicamente importante. La clasificación puede apoyar inferencias sobre estados degenerativos, mientras que la segmentación delimita regiones anatómicas. Para el PFI, las máscaras son imprescindibles porque habilitan visualización superpuesta, trazabilidad y cálculo de mediciones geométricas.
+
+\subsection{Segmentación axial sobre RM lumbar}
+
+La segmentación automática del plano axial constituye una línea de antecedentes parcialmente diferenciada de la sagital. Al-Kafri et al. \parencite{alkafri_sudirman_boundary_2019} propusieron un pipeline de segmentación semántica basado en SegNet sobre cortes axiales T1 de los tres niveles discales inferiores, evaluando la delimitación de cuatro regiones (disco, elemento posterior, saco tecal y área entre elementos anterior y posterior) como base para la detección de estenosis lumbar. Posteriormente, Natalia et al. \parencite{natalia_measurement_2020} extendieron este trabajo con un pipeline de medición automática de diámetro anteroposterior y anchos foraminales sobre las mismas máscaras axiales.
+
+Estos antecedentes refuerzan dos puntos de diseño relevantes para el PFI. Primero, que la segmentación axial sobre estructuras lumbares es técnicamente viable con arquitecturas convolucionales estándar y datos públicos. Segundo, que las máscaras axiales habilitan un conjunto de mediciones cuantitativas distinto al sagital, particularmente aquellas que dependen de la sección transversal del canal y del saco tecal, mediciones que la literatura clínica considera más informativas que el diámetro anteroposterior aislado en presencia de cambios degenerativos posteriores.
+
+\subsection{Conclusión parcial sobre segmentación}
+
+Los antecedentes técnicos demuestran que la segmentación lumbar automática es factible y cuenta con modelos de referencia. La brecha no se encuentra en demostrar por primera vez que una red neuronal puede segmentar vértebras, discos o canales, sino en integrar esa capacidad en un prototipo funcional que conecte segmentación, medición, visualización y revisión profesional.
+
+\section{Mediciones cuantitativas derivadas de segmentaciones}
+
+Las máscaras de segmentación pueden emplearse como base para obtener mediciones geométricas, como alturas discales, áreas aproximadas, diámetros del canal y dimensiones vertebrales. Perumal et al. proponen un pipeline de aprendizaje profundo que mide de forma automática el diámetro anteroposterior del saco tecal en RM lumbar sagital, evidenciando el interés por reducir la subjetividad y la variabilidad entre observadores en las mediciones de estructuras espinales \parencite{perumal_thecal_sac_2026}.
+
+En el contexto del PFI, las mediciones no deben presentarse como inferencias diagnósticas autónomas. Deben formularse como salidas geométricas derivadas de máscaras, revisables por el profesional. Esta precisión evita confundir cuantificación anatómica con diagnóstico clínico. Por ejemplo, un diámetro del canal puede ser un dato cuantitativo útil, pero su interpretación como estenosis leve, moderada o severa excede el MVP si no existe validación clínica específica.
+
+La revisión de antecedentes permite extraer tres criterios de diseño:
+
+\begin{itemize}
+  \item Toda medición debe estar asociada a una estructura segmentada visible.
+  \item Toda medición debe poder ser revisada, corregida o descartada por el usuario.
+  \item La salida debe distinguir entre valor automático, valor revisado y eventual corrección manual.
+\end{itemize}
+
+Estos criterios conectan el estado del arte con el diseño del prototipo y con la validación cualitativa posterior.
+
+\section{Visualización, revisión profesional y salida estructurada}
+
+La utilidad de una segmentación médica no depende únicamente de sus métricas de solapamiento. Para un profesional, el resultado debe ser visualmente revisable, comprensible y modificable. En este sentido, la visualización superpuesta y la salida estructurada editable son componentes esenciales del flujo propuesto.
+
+La revisión de productos comerciales muestra que el flujo «segmentar – medir – exportar resultados para revisión» ya existe en software médico. CoLumbo, por ejemplo, declara funcionalidades de segmentación, medición, etiquetado por umbrales y exportación de resultados para revisión, modificación y aprobación del usuario \parencite{fda_columbo_2022}. Esta evidencia es relevante porque confirma que las segmentaciones no se utilizan únicamente como resultado visual, sino como base para mediciones y documentación.
+
+No obstante, en el PFI la salida estructurada debe mantenerse dentro de un alcance académico y no diagnóstico. Debe funcionar como plantilla editable derivada de estructuras y mediciones, no como informe clínico automático. La finalidad es documentar valores y facilitar revisión, no reemplazar el razonamiento del radiólogo o especialista.
+
+\section{Soluciones comerciales y regulatorias}
+
+Además de los antecedentes académicos, existen soluciones comerciales que abordan problemas cercanos al PFI. Su análisis no busca demostrar que el proyecto compite de igual a igual con productos clínicos, sino evidenciar que el problema tiene relevancia real y que el alcance académico debe diferenciarse con precisión.
+
+\subsection{CoLumbo}
+
+CoLumbo fue registrado ante la FDA como software de postprocesamiento y medición para imágenes DICOM de RM lumbar. Su documentación indica que provee mediciones cuantitativas, segmentación de características, etiquetado por umbrales y exportación de resultados a un reporte revisable por el usuario \parencite{fda_columbo_2022}. Además, declara explícitamente que no produce ni recomienda diagnóstico o tratamiento médico, y que el usuario debe revisar y aprobar los resultados.
+
+Este producto es la referencia comercial más cercana al flujo funcional del PFI. Sin embargo, su naturaleza es distinta: se trata de software médico regulado y cerrado. El PFI no busca replicar su madurez clínica ni regulatoria, sino construir un prototipo académico reproducible que permita auditar datos, arquitectura, mediciones y validación.
+
+\subsection{MSKai}
+
+MSKai también fue registrado como software automatizado de procesamiento radiológico aplicado a RM lumbar T2 \parencite{fda_mskai_2024}. Su documentación lo vincula con identificación, segmentación, medición y exportación de resultados para revisión profesional. Esto confirma que la categoría tecnológica no es aislada y que existe más de una solución orientada a automatizar mediciones y reporte en columna lumbar.
+
+La diferencia con el PFI reside nuevamente en el alcance. MSKai apunta a un entorno clínico comercial; el prototipo académico se limita a segmentación anatómica primaria, mediciones simples, visualización superpuesta y salida editable, sin diagnóstico autónomo ni certificación.
+
+\subsection{RemedyLogic AI MRI Lumbar Spine Reader}
+
+RemedyLogic AI MRI Lumbar Spine Reader (RAI) fue registrado como software de procesamiento radiológico automatizado para RM lumbar \parencite{fda_remedylogic_2024}. Su foco se relaciona con mediciones cuantitativas y asistencia a la revisión por usuarios calificados. Este antecedente refuerza que la automatización de mediciones lumbares constituye una línea real dentro del software médico.
+
+RAI, al igual que los otros productos comerciales, opera como una solución cerrada de mercado. Para el PFI, su valor principal es contextual: confirma necesidad y madurez de la categoría, pero no reemplaza el aporte académico de construir un pipeline transparente y reproducible.
+
+\subsection{Prenuvo}
+
+Prenuvo opera servicios de resonancia magnética de cuerpo completo (whole-body MRI) con flujos de segmentación y reporte estructurado de hallazgos. En su práctica interna, las segmentaciones son revisadas por profesionales médicos en un esquema de triple chequeo, lo que evidencia una tendencia comercial hacia pipelines que combinan IA con revisión médica estratificada. Aunque no se trata de un dispositivo médico regulado por la FDA como CoLumbo, MSKai o RemedyLogic, su modelo operativo es relevante como referencia para el PFI: confirma la importancia de la calidad de los datos anotados como factor crítico del rendimiento del sistema, aspecto explícitamente señalado en el relevamiento profesional realizado para este proyecto.
+
+\subsection{Conclusión parcial sobre competencia}
+
+La existencia de CoLumbo, MSKai y RAI no invalida el proyecto. Por el contrario, confirma que el flujo de RM lumbar, segmentación, mediciones y salida revisable responde a una necesidad real. La diferencia es que estos productos son cerrados, comerciales y regulados, mientras que el PFI se formula como prototipo académico auditable. La Tabla 7.2 sintetiza esta comparación entre las cuatro soluciones comerciales o cuasi-comerciales relevadas y el alcance del PFI.
+% CROSS_REFERENCE_MAPPING_REQUIRED
+
+% TABLE_PENDING_MIGRATION
+% DOCX_TABLE_NUMBER: Tabla 6.2
+% DOCX_TABLE_TITLE: Comparación entre soluciones comerciales y el alcance del PFI.
+
+\section{Herramientas abiertas y sustitutos parciales}
+
+Además de los productos comerciales, existen herramientas abiertas que pueden resolver partes del problema. Plataformas como 3D Slicer permiten visualizar, segmentar y analizar imágenes médicas; frameworks como MONAI ofrecen componentes de entrenamiento, transformación y evaluación para inteligencia artificial médica; y visores DICOM o web como OHIF pueden servir como referencia para visualización.
+
+Estas herramientas no reemplazan el PFI porque no integran por sí mismas el flujo específico propuesto. 3D Slicer es potente pero generalista; MONAI es un ecosistema de desarrollo, no un producto final para usuarios; OHIF es un visor extensible, no un motor de segmentación lumbar ni un generador de mediciones. Su valor para la tesis es técnico: pueden inspirar componentes o justificar decisiones de implementación, pero no constituyen una solución completa al problema definido.
+
+\section{Limitaciones detectadas en los antecedentes}
+
+La revisión permite identificar cinco limitaciones recurrentes:
+
+\begin{itemize}
+  \item Foco aislado en segmentación. Muchos trabajos concluyen al reportar métricas como Dice o distancia de superficie, sin integrar resultados en una interfaz revisable o una salida editable.
+  \item Reproducibilidad limitada. Parte de los antecedentes utiliza datasets privados o no publica todos los elementos necesarios para replicar entrenamiento y evaluación.
+  \item Separación entre medición y revisión profesional. La literatura técnica suele derivar métricas, pero no siempre define cómo deben ser revisadas, corregidas o documentadas por el usuario.
+  \item Productos cerrados. Las soluciones comerciales validan la necesidad, pero no permiten auditar completamente datos, modelos, reglas de medición o criterios internos.
+  \item Foco predominantemente sagital. Los datasets públicos con segmentaciones de referencia se concentran históricamente en el plano sagital. La incorporación de Sudirman al relevamiento permite cubrir parcialmente esta limitación con un dataset axial anotado de 515 pacientes sobre los niveles donde se concentra la patología degenerativa, manteniendo la trazabilidad y la reproducibilidad académica.
+\end{itemize}
+
+Estas limitaciones no implican ausencia de avances, sino una oportunidad de integración académica. El PFI puede aportar valor al conectar componentes conocidos en un pipeline controlado, trazable y evaluable.
+
+\section{Brecha identificada y justificación del PFI}
+
+En la revisión realizada no se identificó un trabajo académico reproducible que combine simultáneamente los siguientes elementos dentro del mismo flujo funcional:
+
+\begin{itemize}
+  \item Segmentación de vértebras, discos intervertebrales y canal espinal en RM lumbar sagital, con cobertura axial complementaria sobre los niveles discales inferiores.
+  \item Extracción de mediciones geométricas simples derivadas de máscaras.
+  \item Visualización superpuesta para revisión profesional.
+  \item Salida estructurada editable, no diagnóstica.
+  \item Validación técnica contra anotaciones expertas de un dataset público.
+  \item Cobertura del plano axial mediante un módulo complementario validado sobre Sudirman, sin alterar la base sagital del MVP.
+  \item Revisión cualitativa complementaria por profesional del área.
+\end{itemize}
+
+La brecha no se ubica en inventar una arquitectura de segmentación completamente nueva ni en superar el estado del arte en una única métrica. El aporte está en integrar de forma acotada y reproducible componentes que la literatura y el mercado tratan de manera separada: dataset público, segmentación, mediciones, visualización, revisión y salida editable. La Tabla 7.3 detalla esta brecha funcional y los componentes que el PFI integra de forma conjunta.
+% CROSS_REFERENCE_MAPPING_REQUIRED
+
+% TABLE_PENDING_MIGRATION
+% DOCX_TABLE_NUMBER: Tabla 6.3
+% DOCX_TABLE_TITLE: Brecha funcional que justifica el PFI.
+
+\section{Matriz comparativa de antecedentes}
+
+Para sintetizar la revisión y facilitar la comparación directa entre los antecedentes analizados, la Tabla 7.4 resume cada trabajo según sus capacidades principales y su relación con el alcance del PFI. De este modo se evidencian las coincidencias, las diferencias y los aspectos que ningún antecedente cubre por completo.
+% CROSS_REFERENCE_MAPPING_REQUIRED
+
+% TABLE_PENDING_MIGRATION
+% DOCX_TABLE_NUMBER: Tabla 6.4
+% DOCX_TABLE_TITLE: Síntesis de antecedentes y relación con el PFI.
+
+\section{Análisis competitivo: matriz FODA y fuerzas de Porter}
+
+Las secciones anteriores relevaron antecedentes académicos, datasets, herramientas abiertas y soluciones comerciales. Esta sección organiza ese material mediante dos herramientas de análisis competitivo, con el objetivo de explicitar la posición del PFI frente a las alternativas existentes y las condiciones del entorno en el que se inscribe. El análisis no supone que el prototipo compita comercialmente con productos regulados, sino que delimita con precisión dónde aporta valor diferencial y qué factores condicionan su evolución.
+
+\subsection{Matriz FODA}
+
+% TABLE_PENDING_MIGRATION
+% DOCX_TABLE_NUMBER: Tabla 6.5
+% DOCX_TABLE_TITLE: Matriz FODA del PFI.
+
+La lectura conjunta de la matriz indica que el diferencial del PFI no se ubica en el rendimiento algorítmico, donde los antecedentes ya demuestran viabilidad, sino en la integración auditable de componentes que la literatura y el mercado tratan por separado. Las debilidades identificadas son coherentes con un alcance académico declarado y no comprometen la validez de la prueba de concepto, siempre que el documento mantenga explícitos sus límites.
+
+\subsection{Fuerzas competitivas de Porter}
+
+% TABLE_PENDING_MIGRATION
+% DOCX_TABLE_NUMBER: Tabla 6.6
+% DOCX_TABLE_TITLE: Análisis de las cinco fuerzas competitivas aplicado al PFI.
+
+El resultado del análisis refuerza la estrategia adoptada. Frente a un poder de compradores elevado y a competidores cerrados, el diferencial sostenible del prototipo se apoya en la trazabilidad, la auditabilidad y la revisión humana obligatoria, atributos que las soluciones comerciales no exponen y que el relevamiento profesional identificó como determinantes de la confianza.
+
+\section{Conclusiones del estado del arte}
+
+El estado del arte muestra avances sólidos en segmentación automática de RM lumbar, disponibilidad creciente de datasets públicos y desarrollo de soluciones comerciales orientadas a medición y reporte asistido. Sin embargo, también evidencia que los componentes necesarios para el MVP suelen aparecer separados. Los datasets aportan anotaciones; los modelos generan máscaras; algunos trabajos derivan mediciones; y los productos comerciales integran flujos cerrados de revisión.
+
+El PFI se justifica al integrar esos componentes en un prototipo académico acotado, reproducible y revisable: segmentación de estructuras lumbares principales sobre el plano sagital, módulo axial complementario sobre los niveles discales inferiores, mediciones cuantitativas simples derivadas de ambos planos, visualización superpuesta y salida editable bajo control profesional. La incorporación de Sudirman al relevamiento amplía la cobertura prevista en la propuesta inicial sin modificar su núcleo: SPIDER continúa siendo la base principal del MVP y la decisión metodológica de evitar diagnóstico autónomo se mantiene intacta. La existencia de CoLumbo, MSKai, Prenuvo y RAI confirma la relevancia del problema, pero no reemplaza el proyecto porque su naturaleza es comercial, cerrada y regulatoria. El aporte de la tesis se ubica en la trazabilidad técnica, la validación con datos públicos sobre dos planos de adquisición y la construcción de un flujo funcional sin diagnóstico autónomo.

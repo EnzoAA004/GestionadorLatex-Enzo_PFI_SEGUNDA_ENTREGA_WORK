@@ -1,0 +1,59 @@
+\chapter{Alcance}
+
+El proyecto se limita a un MVP acad\'emico para an\'alisis asistido de RM lumbar sagital. Su prop\'osito es automatizar tareas operativas de segmentaci\'on, medici\'on, visualizaci\'on y documentaci\'on estructurada, manteniendo la revisi\'on profesional como condici\'on central.
+
+\section{Funcionalidades incluidas}
+
+El prototipo contempla:
+
+\begin{itemize}
+    \item carga de estudios de RM lumbar sagital provenientes de datasets p\'ublicos o fuentes compatibles con el entorno de desarrollo;
+    \item normalizaci\'on y preprocesamiento de im\'agenes;
+    \item segmentaci\'on autom\'atica de cuerpos vertebrales, discos intervertebrales y canal espinal;
+    \item visualizaci\'on de m\'ascaras superpuestas sobre la imagen original;
+    \item c\'alculo de mediciones geom\'etricas simples asociadas a estructuras segmentadas;
+    \item organizaci\'on de resultados por estructura y, cuando sea posible, por nivel lumbar;
+    \item generaci\'on de una salida estructurada editable para revisi\'on;
+    \item evaluaci\'on t\'ecnica mediante m\'etricas cuantitativas y revisi\'on cualitativa profesional.
+\end{itemize}
+
+\section{Estructuras y mediciones contempladas}
+
+El MVP se concentra en v\'ertebras, discos intervertebrales y canal espinal porque esas estructuras se encuentran alineadas con el dataset base y permiten obtener mediciones morfom\'etricas simples. Las mediciones podr\'an incluir:
+
+\begin{itemize}
+    \item \'areas proyectadas de estructuras segmentadas;
+    \item dimensiones relativas de discos intervertebrales;
+    \item medidas aproximadas del canal espinal en plano sagital;
+    \item comparaciones simples entre niveles o estructuras.
+\end{itemize}
+
+Estas salidas se presentan como datos geom\'etricos revisables. No se interpretar\'an autom\'aticamente como patolog\'ias ni se traducir\'an en recomendaciones cl\'inicas.
+
+\section{Validaci\'on incluida}
+
+La validaci\'on se plantea en dos niveles. Primero, una evaluaci\'on t\'ecnica cuantitativa comparar\'a las m\'ascaras generadas contra anotaciones de referencia del dataset utilizado, mediante m\'etricas como Dice, IoU o HD95, seg\'un corresponda. Segundo, una revisi\'on cualitativa profesional evaluar\'a plausibilidad anat\'omica, claridad visual, utilidad de mediciones y legibilidad de la salida editable.
+
+\section{Exclusiones del alcance}
+
+Quedan fuera del alcance:
+
+\begin{itemize}
+    \item diagn\'ostico cl\'inico autom\'atico;
+    \item clasificaci\'on integral de patolog\'ias degenerativas;
+    \item recomendaci\'on terap\'eutica;
+    \item reemplazo del criterio m\'edico;
+    \item uso cl\'inico real del sistema;
+    \item validaci\'on cl\'inica multic\'entrica;
+    \item integraci\'on completa con sistemas hospitalarios, PACS o RIS;
+    \item certificaci\'on regulatoria como software m\'edico;
+    \item comparaci\'on longitudinal obligatoria entre estudios de un mismo paciente;
+    \item entrenamiento sobre datos privados no anonimizados;
+    \item desarrollo de un producto comercial final.
+\end{itemize}
+
+Estas exclusiones permiten mantener el proyecto dentro de un alcance acad\'emico realista, verificable y compatible con una entrega parcial.
+
+\section{Alcance del documento final}
+
+El documento final incorporar\'a user research, requerimientos, arquitectura, metodolog\'ia, implementaci\'on, validaci\'on, resultados, discusi\'on, conclusiones y trabajos futuros. La presente entrega deja establecidos el problema, la justificaci\'on, el alcance, la soluci\'on propuesta, el estado del arte y el marco te\'orico.

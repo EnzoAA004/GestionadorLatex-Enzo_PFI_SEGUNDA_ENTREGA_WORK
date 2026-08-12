@@ -1,0 +1,45 @@
+\chapter{Descripci\'on de la soluci\'on propuesta}
+
+La soluci\'on propuesta consiste en un prototipo funcional para asistir el an\'alisis estructural de RM lumbar sagital. El sistema recibe una imagen o serie compatible, aplica un pipeline de procesamiento, segmenta estructuras anat\'omicas, calcula mediciones geom\'etricas simples y presenta los resultados en una visualizaci\'on superpuesta y una salida estructurada editable.
+
+\section{Descripci\'on general del flujo}
+
+El flujo del MVP se organiza de la siguiente manera:
+
+\begin{enumerate}
+    \item \textbf{Entrada y preprocesamiento:} carga del estudio, normalizaci\'on de intensidades, ajuste de formato y preparaci\'on de la imagen para el modelo.
+    \item \textbf{Segmentaci\'on anat\'omica:} generaci\'on de m\'ascaras para v\'ertebras, discos intervertebrales y canal espinal.
+    \item \textbf{Postprocesamiento y mediciones:} organizaci\'on de m\'ascaras, asociaci\'on con estructuras o niveles cuando sea posible y c\'alculo de valores geom\'etricos simples.
+    \item \textbf{Visualizaci\'on:} superposici\'on de m\'ascaras sobre la imagen original para revisar contornos, clases y mediciones.
+    \item \textbf{Revisi\'on profesional:} aceptaci\'on, correcci\'on, observaci\'on o descarte de resultados.
+    \item \textbf{Salida editable:} generaci\'on de una plantilla estructurada con estructuras, mediciones, unidades, observaciones y estado de revisi\'on.
+\end{enumerate}
+
+\section{Componentes principales del prototipo}
+
+\begin{table}[htbp]
+\centering
+\caption{Componentes funcionales del MVP}
+\label{tab:componentes_mvp}
+\small
+\begin{tabularx}{\textwidth}{p{0.28\textwidth} X}
+\hline
+\textbf{Componente} & \textbf{Funci\'on principal} \\
+\hline
+Entrada y preprocesamiento & Cargar im\'agenes compatibles, preservar informaci\'on espacial y preparar los datos para inferencia o entrenamiento. \\
+Segmentaci\'on & Identificar las estructuras anat\'omicas contempladas mediante un modelo de aprendizaje profundo o una adaptaci\'on viable. \\
+Mediciones & Calcular valores geom\'etricos simples derivados de m\'ascaras visibles y trazables. \\
+Visualizaci\'on & Mostrar la imagen original con m\'ascaras superpuestas, diferenciando estructuras y resultados asociados. \\
+Salida editable & Organizar resultados en una plantilla revisable, modificable y no diagn\'ostica. \\
+Validaci\'on & Comparar m\'ascaras contra referencias y complementar con revisi\'on cualitativa profesional. \\
+\hline
+\end{tabularx}
+\end{table}
+
+La selecci\'on final del modelo depender\'a de factibilidad de entrenamiento, recursos disponibles, compatibilidad con los datos y rendimiento obtenido. Arquitecturas como U-Net o nnU-Net funcionan como referencias metodol\'ogicas para esta decisi\'on.
+
+\section{Rol del profesional y resultado esperado}
+
+El prototipo se dise\~na bajo un enfoque de humano en el circuito. La inteligencia artificial propone segmentaciones y mediciones, pero el profesional conserva la revisi\'on final. Esta condici\'on es necesaria porque las m\'ascaras pueden contener errores, las mediciones requieren contexto y el alcance del proyecto no contempla diagn\'ostico aut\'onomo. El resultado esperado del MVP no se mide solo por una m\'etrica de segmentaci\'on, sino por la coherencia del flujo completo: imagen de entrada, m\'ascaras, mediciones, visualizaci\'on, revisi\'on y salida editable. De este modo, el proyecto se ubica entre la investigaci\'on algor\'itmica y el desarrollo de software aplicado, con un aporte centrado en integraci\'on, trazabilidad y reproducibilidad acad\'emica.
+
+Los cap\'itulos siguientes fundamentan esta propuesta mediante el estado del arte y el marco te\'orico necesarios para comprender los antecedentes, datos, modelos, m\'etricas y criterios de dise\~no del prototipo.

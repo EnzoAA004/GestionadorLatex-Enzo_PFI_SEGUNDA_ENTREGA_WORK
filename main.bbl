@@ -1,0 +1,1675 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{vandergraaf_spider_2024}{article}{}{}
+      \name{author}{9}{}{%
+        {{hash=26eb127ccb40186b3fe0f5126c6744dc}{%
+           family={Graaf},
+           familyi={G\bibinitperiod},
+           given={Jasper\bibnamedelima W.},
+           giveni={J\bibinitperiod\bibinitdelim W\bibinitperiod},
+           prefix={van\bibnamedelima der},
+           prefixi={v\bibinitperiod\bibinitdelim d\bibinitperiod}}}%
+        {{hash=81a5e699fcb58fe1d605d2d91345e5ec}{%
+           family={Hooff},
+           familyi={H\bibinitperiod},
+           given={Miranda\bibnamedelima L.},
+           giveni={M\bibinitperiod\bibinitdelim L\bibinitperiod},
+           prefix={van},
+           prefixi={v\bibinitperiod}}}%
+        {{hash=b21e8406a67c1208bda4bf8525eb393d}{%
+           family={Buckens},
+           familyi={B\bibinitperiod},
+           given={Constantinus\bibnamedelimb F.\bibnamedelimi M.},
+           giveni={C\bibinitperiod\bibinitdelim F\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=74ec9696925949dc972a72b542bba966}{%
+           family={Rutten},
+           familyi={R\bibinitperiod},
+           given={Matthieu},
+           giveni={M\bibinitperiod}}}%
+        {{hash=5a728835fef733f7a1c28d9bafa4642e}{%
+           family={Susante},
+           familyi={S\bibinitperiod},
+           given={Job\bibnamedelimb L.\bibnamedelimi C.},
+           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod\bibinitdelim C\bibinitperiod},
+           prefix={van},
+           prefixi={v\bibinitperiod}}}%
+        {{hash=9cc7f81abd4af358e0444fd800a3d333}{%
+           family={Kroeze},
+           familyi={K\bibinitperiod},
+           given={Robert\bibnamedelima Jan},
+           giveni={R\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=40c09f9859589a09e05a1fa105c934fa}{%
+           family={Kleuver},
+           familyi={K\bibinitperiod},
+           given={Marinus},
+           giveni={M\bibinitperiod},
+           prefix={de},
+           prefixi={d\bibinitperiod}}}%
+        {{hash=aa138a7545c0c5a0727a81295dd50b75}{%
+           family={Ginneken},
+           familyi={G\bibinitperiod},
+           given={Bram},
+           giveni={B\bibinitperiod},
+           prefix={van},
+           prefixi={v\bibinitperiod}}}%
+        {{hash=8ebe9ad407b31087fe4e2d286e081609}{%
+           family={Lessmann},
+           familyi={L\bibinitperiod},
+           given={Nikolas},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{947da188bc7f27596e2a566848ef8f37}
+      \strng{fullhash}{947da188bc7f27596e2a566848ef8f37}
+      \strng{fullhashraw}{947da188bc7f27596e2a566848ef8f37}
+      \strng{bibnamehash}{947da188bc7f27596e2a566848ef8f37}
+      \strng{authorbibnamehash}{947da188bc7f27596e2a566848ef8f37}
+      \strng{authornamehash}{947da188bc7f27596e2a566848ef8f37}
+      \strng{authorfullhash}{947da188bc7f27596e2a566848ef8f37}
+      \strng{authorfullhashraw}{947da188bc7f27596e2a566848ef8f37}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Scientific Data}
+      \field{number}{264}
+      \field{title}{Lumbar spine segmentation in MR images: a dataset and a public benchmark}
+      \field{urlday}{5}
+      \field{urlmonth}{6}
+      \field{urlyear}{2026}
+      \field{volume}{11}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.1038/s41597-024-03090-w
+      \endverb
+      \verb{urlraw}
+      \verb https://spider.grand-challenge.org/
+      \endverb
+      \verb{url}
+      \verb https://spider.grand-challenge.org/
+      \endverb
+    \endentry
+    \entry{richards_lumbardisc_2026}{article}{}{}
+      \name{author}{33}{}{%
+        {{hash=02557232e766cae011c1a102e6a5526b}{%
+           family={Richards},
+           familyi={R\bibinitperiod},
+           given={Tyler\bibnamedelima J.},
+           giveni={T\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=629547eafa85b03f1b234a69f155c768}{%
+           family={Flanders},
+           familyi={F\bibinitperiod},
+           given={Adam\bibnamedelima E.},
+           giveni={A\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=69c340627be0e379e167b30ee6056f05}{%
+           family={Colak},
+           familyi={C\bibinitperiod},
+           given={Errol},
+           giveni={E\bibinitperiod}}}%
+        {{hash=2eadcfcee238ba4c3ff9636c4dacd8d9}{%
+           family={Prevedello},
+           familyi={P\bibinitperiod},
+           given={Luciano\bibnamedelima M.},
+           giveni={L\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=dd53b1477745d0b9620317b96efdc17a}{%
+           family={Ball},
+           familyi={B\bibinitperiod},
+           given={Robyn\bibnamedelima L.},
+           giveni={R\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=8fe65341b6d6301340480939ca402b58}{%
+           family={Kitamura},
+           familyi={K\bibinitperiod},
+           given={Felipe},
+           giveni={F\bibinitperiod}}}%
+        {{hash=39b91c7240e583d7fc3f01be33110bc5}{%
+           family={Mongan},
+           familyi={M\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+        {{hash=917fb0f7b5bbff02d8a39d18cad9e47b}{%
+           family={Vazirabad},
+           familyi={V\bibinitperiod},
+           given={Maryam},
+           giveni={M\bibinitperiod}}}%
+        {{hash=873498f0bec95386c55ee12bac31a1dc}{%
+           family={Lin},
+           familyi={L\bibinitperiod},
+           given={Hui-Ming},
+           giveni={H\bibinithyphendelim M\bibinitperiod}}}%
+        {{hash=647c48f9dd48a7b8e96643413106e918}{%
+           family={Kendell},
+           familyi={K\bibinitperiod},
+           given={Anne},
+           giveni={A\bibinitperiod}}}%
+        {{hash=4a4d51a2ca66e4603532a9fc4a0052d7}{%
+           family={Kanthawang},
+           familyi={K\bibinitperiod},
+           given={Thanat},
+           giveni={T\bibinitperiod}}}%
+        {{hash=f5fad8a82333803541cc59d36bf050cb}{%
+           family={Angkurawaranon},
+           familyi={A\bibinitperiod},
+           given={Salita},
+           giveni={S\bibinitperiod}}}%
+        {{hash=d76c497bb4db7a4e464cf03bf97e9430}{%
+           family={Altinmakas},
+           familyi={A\bibinitperiod},
+           given={Emre},
+           giveni={E\bibinitperiod}}}%
+        {{hash=41d7a202e4df03a5e5d50a1bb945f0ec}{%
+           family={Dogan},
+           familyi={D\bibinitperiod},
+           given={Hakan},
+           giveni={H\bibinitperiod}}}%
+        {{hash=4f7ee92f4ec284b718e63d5e5afcf1b7}{%
+           family={Aguiar\bibnamedelima Kuriki},
+           familyi={A\bibinitperiod\bibinitdelim K\bibinitperiod},
+           given={Paulo\bibnamedelima Eduardo},
+           giveni={P\bibinitperiod\bibinitdelim E\bibinitperiod},
+           prefix={de},
+           prefixi={d\bibinitperiod}}}%
+        {{hash=327e51e60eacf74792c59e9fa48344cb}{%
+           family={Somasundaram},
+           familyi={S\bibinitperiod},
+           given={Arjuna},
+           giveni={A\bibinitperiod}}}%
+        {{hash=75e66c8d4cdb554b26e176ee0f9f2041}{%
+           family={Ruston},
+           familyi={R\bibinitperiod},
+           given={Christopher},
+           giveni={C\bibinitperiod}}}%
+        {{hash=0eae24e6d64fc22deb7bcb4e54ef6329}{%
+           family={Bulja},
+           familyi={B\bibinitperiod},
+           given={Deniz},
+           giveni={D\bibinitperiod}}}%
+        {{hash=5567d65c48b5f0ede4e995c04f03765a}{%
+           family={Spahovic},
+           familyi={S\bibinitperiod},
+           given={Naida},
+           giveni={N\bibinitperiod}}}%
+        {{hash=7f5c5504b71cd7a165171d8ed73471aa}{%
+           family={Sommer},
+           familyi={S\bibinitperiod},
+           given={Jennifer},
+           giveni={J\bibinitperiod}}}%
+        {{hash=fa0bb93f33fd680280e6cf4936b939e0}{%
+           family={Jiang},
+           familyi={J\bibinitperiod},
+           given={Sirui},
+           giveni={S\bibinitperiod}}}%
+        {{hash=c13a28e498741b01f6145eed270c7b5d}{%
+           family={Farina},
+           familyi={F\bibinitperiod},
+           given={Eduardo\bibnamedelimb Moreno\bibnamedelimb Judice\bibnamedelimb de\bibnamedelima Mattos},
+           giveni={E\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim d\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=932f4ab90f9b01d49b347308081956d1}{%
+           family={Nunes},
+           familyi={N\bibinitperiod},
+           given={Eduardo\bibnamedelima Caminha},
+           giveni={E\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=71ad2f8326cc0b3118e243248c0464d3}{%
+           family={Brassil},
+           familyi={B\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=707d2f3128e95d5e0d4dc7d22d529403}{%
+           family={McNamara},
+           familyi={M\bibinitperiod},
+           given={Megan},
+           giveni={M\bibinitperiod}}}%
+        {{hash=bb3ba8446aa56e0304f3aaf8179032a7}{%
+           family={Ortiz},
+           familyi={O\bibinitperiod},
+           given={Johanna},
+           giveni={J\bibinitperiod}}}%
+        {{hash=c72fcb7ab2b1fbb6782150b82c4e6bab}{%
+           family={Peoples},
+           familyi={P\bibinitperiod},
+           given={Jacob},
+           giveni={J\bibinitperiod}}}%
+        {{hash=338cf8380fe14b254c46cbc19a3f01da}{%
+           family={Uytana},
+           familyi={U\bibinitperiod},
+           given={Vinson\bibnamedelima L.},
+           giveni={V\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=8fa83f92a8017edbb546ceafe972a4ad}{%
+           family={Kam},
+           familyi={K\bibinitperiod},
+           given={Anthony},
+           giveni={A\bibinitperiod}}}%
+        {{hash=14e2cd868a810c7a0ef64e66b0bff999}{%
+           family={Dola},
+           familyi={D\bibinitperiod},
+           given={Venkata\bibnamedelimb N.\bibnamedelimi S.},
+           giveni={V\bibinitperiod\bibinitdelim N\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=53c4da511df568b79b570b4c1f99573f}{%
+           family={Murphy},
+           familyi={M\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+        {{hash=87fa3293277f75ba98a013678b32fa7b}{%
+           family={Vu},
+           familyi={V\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=e4979fbb6aad0f94fe8c5169afee1a4f}{%
+           family={Talbott},
+           familyi={T\bibinitperiod},
+           given={Jason\bibnamedelima F.},
+           giveni={J\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \strng{namehash}{186499f77943d83a7550aa7de47dd7aa}
+      \strng{fullhash}{186499f77943d83a7550aa7de47dd7aa}
+      \strng{fullhashraw}{186499f77943d83a7550aa7de47dd7aa}
+      \strng{bibnamehash}{186499f77943d83a7550aa7de47dd7aa}
+      \strng{authorbibnamehash}{186499f77943d83a7550aa7de47dd7aa}
+      \strng{authornamehash}{186499f77943d83a7550aa7de47dd7aa}
+      \strng{authorfullhash}{186499f77943d83a7550aa7de47dd7aa}
+      \strng{authorfullhashraw}{186499f77943d83a7550aa7de47dd7aa}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Radiology: Artificial Intelligence}
+      \field{number}{2}
+      \field{title}{The RSNA Lumbar Degenerative Imaging Spine Classification (LumbarDISC) Dataset}
+      \field{volume}{8}
+      \field{year}{2026}
+      \verb{doi}
+      \verb 10.1148/ryai.250480
+      \endverb
+    \endentry
+    \entry{alkafri_sudirman_boundary_2019}{article}{}{}
+      \name{author}{10}{}{%
+        {{hash=2f7a4e3cd0efb9e24865e7d491032263}{%
+           family={Al-Kafri},
+           familyi={A\bibinithyphendelim K\bibinitperiod},
+           given={Ala\bibnamedelima S.},
+           giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=44424444d16ed3ba79f9669b141639e5}{%
+           family={Sudirman},
+           familyi={S\bibinitperiod},
+           given={Sud},
+           giveni={S\bibinitperiod}}}%
+        {{hash=855c40fcf64ce08dd0039899ac86dc1e}{%
+           family={Hussain},
+           familyi={H\bibinitperiod},
+           given={Abir},
+           giveni={A\bibinitperiod}}}%
+        {{hash=275962dd2f978b1a75fab971bcda4a09}{%
+           family={Al-Jumeily},
+           familyi={A\bibinithyphendelim J\bibinitperiod},
+           given={Dhiya},
+           giveni={D\bibinitperiod}}}%
+        {{hash=368979009ca820e624a8312bbece88de}{%
+           family={Natalia},
+           familyi={N\bibinitperiod},
+           given={Friska},
+           giveni={F\bibinitperiod}}}%
+        {{hash=3109261bc255f3fb37be154cd67af470}{%
+           family={Meidia},
+           familyi={M\bibinitperiod},
+           given={Hira},
+           giveni={H\bibinitperiod}}}%
+        {{hash=4f4b5939df4ca77886a35bd1718f994c}{%
+           family={Afriliana},
+           familyi={A\bibinitperiod},
+           given={Nunik},
+           giveni={N\bibinitperiod}}}%
+        {{hash=73cbded0cfa20d34c3197039e29fb0c4}{%
+           family={Al-Rashdan},
+           familyi={A\bibinithyphendelim R\bibinitperiod},
+           given={Wasfi},
+           giveni={W\bibinitperiod}}}%
+        {{hash=1d84686199d16b29b76711bf0659560c}{%
+           family={Bashtawi},
+           familyi={B\bibinitperiod},
+           given={Mohammad},
+           giveni={M\bibinitperiod}}}%
+        {{hash=ab712ca9c25106ee306fc46004355f80}{%
+           family={Al-Jumaily},
+           familyi={A\bibinithyphendelim J\bibinitperiod},
+           given={Mohammed},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{99c573f6f5c7854453a38b7552094590}
+      \strng{fullhash}{99c573f6f5c7854453a38b7552094590}
+      \strng{fullhashraw}{99c573f6f5c7854453a38b7552094590}
+      \strng{bibnamehash}{99c573f6f5c7854453a38b7552094590}
+      \strng{authorbibnamehash}{99c573f6f5c7854453a38b7552094590}
+      \strng{authornamehash}{99c573f6f5c7854453a38b7552094590}
+      \strng{authorfullhash}{99c573f6f5c7854453a38b7552094590}
+      \strng{authorfullhashraw}{99c573f6f5c7854453a38b7552094590}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Access}
+      \field{title}{Boundary Delineation of MRI Images for Lumbar Spinal Stenosis Detection Through Semantic Segmentation Using Deep Neural Networks}
+      \field{volume}{7}
+      \field{year}{2019}
+      \field{pages}{43487\bibrangedash 43501}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1109/ACCESS.2019.2908002
+      \endverb
+    \endentry
+    \entry{isensee_nnunet_2021}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=fd2491b31394637fa717b80729281018}{%
+           family={Isensee},
+           familyi={I\bibinitperiod},
+           given={Fabian},
+           giveni={F\bibinitperiod}}}%
+        {{hash=63350393ee74dce2bfeda809cbb2f459}{%
+           family={Jaeger},
+           familyi={J\bibinitperiod},
+           given={Paul\bibnamedelima F.},
+           giveni={P\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=c8db325f01e156e511c9a87a5e890d22}{%
+           family={Kohl},
+           familyi={K\bibinitperiod},
+           given={Simon\bibnamedelimb A.\bibnamedelimi A.},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=819f9996aeeb7b20b1a97e1d23488871}{%
+           family={Petersen},
+           familyi={P\bibinitperiod},
+           given={Jens},
+           giveni={J\bibinitperiod}}}%
+        {{hash=f673cd141cf85e311274bfdcd9fd11f6}{%
+           family={Maier-Hein},
+           familyi={M\bibinithyphendelim H\bibinitperiod},
+           given={Klaus\bibnamedelima H.},
+           giveni={K\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \strng{namehash}{690e21c850de111b35f42dadf0160683}
+      \strng{fullhash}{690e21c850de111b35f42dadf0160683}
+      \strng{fullhashraw}{690e21c850de111b35f42dadf0160683}
+      \strng{bibnamehash}{690e21c850de111b35f42dadf0160683}
+      \strng{authorbibnamehash}{690e21c850de111b35f42dadf0160683}
+      \strng{authornamehash}{690e21c850de111b35f42dadf0160683}
+      \strng{authorfullhash}{690e21c850de111b35f42dadf0160683}
+      \strng{authorfullhashraw}{690e21c850de111b35f42dadf0160683}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature Methods}
+      \field{title}{nnU-Net: a self-configuring method for deep learning-based biomedical image segmentation}
+      \field{volume}{18}
+      \field{year}{2021}
+      \field{pages}{203\bibrangedash 211}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1038/s41592-020-01008-z
+      \endverb
+    \endentry
+    \entry{moller_spineps_2025}{article}{}{}
+      \name{author}{19}{}{%
+        {{hash=fc5bf0d2ca78f51663269dc13b3f268b}{%
+           family={Möller},
+           familyi={M\bibinitperiod},
+           given={Hendrik},
+           giveni={H\bibinitperiod}}}%
+        {{hash=e3b9fc68e6dc5992fbbe8b2bcb9fa200}{%
+           family={Graf},
+           familyi={G\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod}}}%
+        {{hash=ae04487afea62ba3cf39500f8eaf55b4}{%
+           family={Schmitt},
+           familyi={S\bibinitperiod},
+           given={Joachim},
+           giveni={J\bibinitperiod}}}%
+        {{hash=cd7264dfff441d0fc8c47d86dbeb4bd1}{%
+           family={Keinert},
+           familyi={K\bibinitperiod},
+           given={Benjamin},
+           giveni={B\bibinitperiod}}}%
+        {{hash=e43cebc395f7bb9a9f8ef5082d706dce}{%
+           family={Atad},
+           familyi={A\bibinitperiod},
+           given={Matan},
+           giveni={M\bibinitperiod}}}%
+        {{hash=650d6c9b26a8d087e1f03a1b3c69fc78}{%
+           family={Sekuboyina},
+           familyi={S\bibinitperiod},
+           given={Anjany},
+           giveni={A\bibinitperiod}}}%
+        {{hash=cd1589de82920f45fa2346f42d0fa373}{%
+           family={Streckenbach},
+           familyi={S\bibinitperiod},
+           given={Felix},
+           giveni={F\bibinitperiod}}}%
+        {{hash=9399a2ff51f5c849dc0b0cf6ee3f6231}{%
+           family={Schön},
+           familyi={S\bibinitperiod},
+           given={Hanna},
+           giveni={H\bibinitperiod}}}%
+        {{hash=ccaef6004f606a654bf41394b604c81d}{%
+           family={Kofler},
+           familyi={K\bibinitperiod},
+           given={Florian},
+           giveni={F\bibinitperiod}}}%
+        {{hash=bf29f2aac83cf4722f94533269103ddf}{%
+           family={Kröncke},
+           familyi={K\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=8276220f2b7dffc667001495d0e83338}{%
+           family={Bette},
+           familyi={B\bibinitperiod},
+           given={Stefanie},
+           giveni={S\bibinitperiod}}}%
+        {{hash=c3348934c0e63245fb579caa6fb01005}{%
+           family={Willich},
+           familyi={W\bibinitperiod},
+           given={Stefan},
+           giveni={S\bibinitperiod}}}%
+        {{hash=31140f879542a45b2683a1f45c51c4c0}{%
+           family={Keil},
+           familyi={K\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=279f4651542a278a6084346c919b8937}{%
+           family={Niendorf},
+           familyi={N\bibinitperiod},
+           given={Thoralf},
+           giveni={T\bibinitperiod}}}%
+        {{hash=afd0ac6c85b07efc98fcd01dc96b66bb}{%
+           family={Pischon},
+           familyi={P\bibinitperiod},
+           given={Tobias},
+           giveni={T\bibinitperiod}}}%
+        {{hash=2ee66a90a9aa9da3cc82ce0e3fa5d3bd}{%
+           family={Endemann},
+           familyi={E\bibinitperiod},
+           given={Beate},
+           giveni={B\bibinitperiod}}}%
+        {{hash=857c81ef8db1ad1ea1a06597f8d91312}{%
+           family={Menze},
+           familyi={M\bibinitperiod},
+           given={Björn},
+           giveni={B\bibinitperiod}}}%
+        {{hash=92712fbc7c7c3c1daa0630f54b19b582}{%
+           family={Rueckert},
+           familyi={R\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+        {{hash=03d8f5255e9ff906a71c7bccde1c6c4b}{%
+           family={Kirschke},
+           familyi={K\bibinitperiod},
+           given={Jan\bibnamedelima S.},
+           giveni={J\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{648b9f741a23cf2d93cdf9be3028a0d1}
+      \strng{fullhash}{648b9f741a23cf2d93cdf9be3028a0d1}
+      \strng{fullhashraw}{648b9f741a23cf2d93cdf9be3028a0d1}
+      \strng{bibnamehash}{648b9f741a23cf2d93cdf9be3028a0d1}
+      \strng{authorbibnamehash}{648b9f741a23cf2d93cdf9be3028a0d1}
+      \strng{authornamehash}{648b9f741a23cf2d93cdf9be3028a0d1}
+      \strng{authorfullhash}{648b9f741a23cf2d93cdf9be3028a0d1}
+      \strng{authorfullhashraw}{648b9f741a23cf2d93cdf9be3028a0d1}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{European Radiology}
+      \field{title}{SPINEPS: Automatic Whole Spine Segmentation of T2-weighted MR images using a Two-Phase Approach to Multi-class Semantic and Instance Segmentation}
+      \field{volume}{35}
+      \field{year}{2025}
+      \field{pages}{1178\bibrangedash 1189}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1007/s00330-024-11155-y
+      \endverb
+    \endentry
+    \entry{jamaludin_spinenet_2017}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=04e7c6973263740cd8d945bde8f99164}{%
+           family={Jamaludin},
+           familyi={J\bibinitperiod},
+           given={Amir},
+           giveni={A\bibinitperiod}}}%
+        {{hash=1835a9e0bd1413fd7ace4436e838b064}{%
+           family={Kadir},
+           familyi={K\bibinitperiod},
+           given={Timor},
+           giveni={T\bibinitperiod}}}%
+        {{hash=c72fc39e94030f67717052309266a44d}{%
+           family={Zisserman},
+           familyi={Z\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{395fc81bd84817a4abec60720da0260a}
+      \strng{fullhash}{395fc81bd84817a4abec60720da0260a}
+      \strng{fullhashraw}{395fc81bd84817a4abec60720da0260a}
+      \strng{bibnamehash}{395fc81bd84817a4abec60720da0260a}
+      \strng{authorbibnamehash}{395fc81bd84817a4abec60720da0260a}
+      \strng{authornamehash}{395fc81bd84817a4abec60720da0260a}
+      \strng{authorfullhash}{395fc81bd84817a4abec60720da0260a}
+      \strng{authorfullhashraw}{395fc81bd84817a4abec60720da0260a}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Medical Image Analysis}
+      \field{title}{SpineNet: Automated classification and evidence visualization in spinal MRIs}
+      \field{volume}{41}
+      \field{year}{2017}
+      \field{pages}{63\bibrangedash 73}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1016/j.media.2017.07.002
+      \endverb
+    \endentry
+    \entry{windsor_spinenet_2024}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=c30e22ff9c09d85b3c4fb9e34d96c1e3}{%
+           family={Windsor},
+           familyi={W\bibinitperiod},
+           given={Rhydian},
+           giveni={R\bibinitperiod}}}%
+        {{hash=04e7c6973263740cd8d945bde8f99164}{%
+           family={Jamaludin},
+           familyi={J\bibinitperiod},
+           given={Amir},
+           giveni={A\bibinitperiod}}}%
+        {{hash=1835a9e0bd1413fd7ace4436e838b064}{%
+           family={Kadir},
+           familyi={K\bibinitperiod},
+           given={Timor},
+           giveni={T\bibinitperiod}}}%
+        {{hash=c72fc39e94030f67717052309266a44d}{%
+           family={Zisserman},
+           familyi={Z\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{979a7815f4399d223bce03b7d9082a32}
+      \strng{fullhash}{979a7815f4399d223bce03b7d9082a32}
+      \strng{fullhashraw}{979a7815f4399d223bce03b7d9082a32}
+      \strng{bibnamehash}{979a7815f4399d223bce03b7d9082a32}
+      \strng{authorbibnamehash}{979a7815f4399d223bce03b7d9082a32}
+      \strng{authornamehash}{979a7815f4399d223bce03b7d9082a32}
+      \strng{authorfullhash}{979a7815f4399d223bce03b7d9082a32}
+      \strng{authorfullhashraw}{979a7815f4399d223bce03b7d9082a32}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Scientific Reports}
+      \field{title}{Automated detection, labelling and radiological grading of clinical spinal MRIs}
+      \field{volume}{14}
+      \field{year}{2024}
+      \verb{doi}
+      \verb 10.1038/s41598-024-64580-w
+      \endverb
+    \endentry
+    \entry{perumal_thecal_sac_2026}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=58b6de5c0a6dc7959d260262e8f094f9}{%
+           family={Perumal},
+           familyi={P\bibinitperiod},
+           given={Sundara\bibnamedelima Raja},
+           giveni={S\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \strng{namehash}{0112252b18e7f44f66a6015b7ae969e5}
+      \strng{fullhash}{0112252b18e7f44f66a6015b7ae969e5}
+      \strng{fullhashraw}{0112252b18e7f44f66a6015b7ae969e5}
+      \strng{bibnamehash}{0112252b18e7f44f66a6015b7ae969e5}
+      \strng{authorbibnamehash}{0112252b18e7f44f66a6015b7ae969e5}
+      \strng{authornamehash}{0112252b18e7f44f66a6015b7ae969e5}
+      \strng{authorfullhash}{0112252b18e7f44f66a6015b7ae969e5}
+      \strng{authorfullhashraw}{0112252b18e7f44f66a6015b7ae969e5}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{BMC Medical Imaging}
+      \field{number}{134}
+      \field{title}{Automated deep learning pipeline for measuring lumbar thecal sac AP diameter on mid-sagittal MR images}
+      \field{volume}{26}
+      \field{year}{2026}
+      \verb{doi}
+      \verb 10.1186/s12880-026-02220-7
+      \endverb
+    \endentry
+    \entry{fda_columbo_2022}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=2f9a65cc9bb5b4e762ce8af8bb256f98}{%
+           family={{U.S. Food and Drug Administration}},
+           familyi={U\bibinitperiod}}}%
+      }
+      \strng{namehash}{2f9a65cc9bb5b4e762ce8af8bb256f98}
+      \strng{fullhash}{2f9a65cc9bb5b4e762ce8af8bb256f98}
+      \strng{fullhashraw}{2f9a65cc9bb5b4e762ce8af8bb256f98}
+      \strng{bibnamehash}{2f9a65cc9bb5b4e762ce8af8bb256f98}
+      \strng{authorbibnamehash}{2f9a65cc9bb5b4e762ce8af8bb256f98}
+      \strng{authornamehash}{2f9a65cc9bb5b4e762ce8af8bb256f98}
+      \strng{authorfullhash}{2f9a65cc9bb5b4e762ce8af8bb256f98}
+      \strng{authorfullhashraw}{2f9a65cc9bb5b4e762ce8af8bb256f98}
+      \field{extraname}{1}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{CoLumbo, 510(k) Premarket Notification K220497}
+      \field{urlday}{5}
+      \field{urlmonth}{6}
+      \field{urlyear}{2026}
+      \field{year}{2022}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.accessdata.fda.gov/cdrh_docs/pdf22/K220497.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.accessdata.fda.gov/cdrh_docs/pdf22/K220497.pdf
+      \endverb
+    \endentry
+    \entry{fda_mskai_2024}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=2f9a65cc9bb5b4e762ce8af8bb256f98}{%
+           family={{U.S. Food and Drug Administration}},
+           familyi={U\bibinitperiod}}}%
+      }
+      \strng{namehash}{2f9a65cc9bb5b4e762ce8af8bb256f98}
+      \strng{fullhash}{2f9a65cc9bb5b4e762ce8af8bb256f98}
+      \strng{fullhashraw}{2f9a65cc9bb5b4e762ce8af8bb256f98}
+      \strng{bibnamehash}{2f9a65cc9bb5b4e762ce8af8bb256f98}
+      \strng{authorbibnamehash}{2f9a65cc9bb5b4e762ce8af8bb256f98}
+      \strng{authornamehash}{2f9a65cc9bb5b4e762ce8af8bb256f98}
+      \strng{authorfullhash}{2f9a65cc9bb5b4e762ce8af8bb256f98}
+      \strng{authorfullhashraw}{2f9a65cc9bb5b4e762ce8af8bb256f98}
+      \field{extraname}{2}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{MSKai, 510(k) Premarket Notification K240793}
+      \field{urlday}{5}
+      \field{urlmonth}{6}
+      \field{urlyear}{2026}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.accessdata.fda.gov/cdrh_docs/pdf24/K240793.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.accessdata.fda.gov/cdrh_docs/pdf24/K240793.pdf
+      \endverb
+    \endentry
+    \entry{fda_remedylogic_2024}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=2f9a65cc9bb5b4e762ce8af8bb256f98}{%
+           family={{U.S. Food and Drug Administration}},
+           familyi={U\bibinitperiod}}}%
+      }
+      \strng{namehash}{2f9a65cc9bb5b4e762ce8af8bb256f98}
+      \strng{fullhash}{2f9a65cc9bb5b4e762ce8af8bb256f98}
+      \strng{fullhashraw}{2f9a65cc9bb5b4e762ce8af8bb256f98}
+      \strng{bibnamehash}{2f9a65cc9bb5b4e762ce8af8bb256f98}
+      \strng{authorbibnamehash}{2f9a65cc9bb5b4e762ce8af8bb256f98}
+      \strng{authornamehash}{2f9a65cc9bb5b4e762ce8af8bb256f98}
+      \strng{authorfullhash}{2f9a65cc9bb5b4e762ce8af8bb256f98}
+      \strng{authorfullhashraw}{2f9a65cc9bb5b4e762ce8af8bb256f98}
+      \field{extraname}{3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{RemedyLogic AI MRI Lumbar Spine Reader, 510(k) Premarket Notification K241108}
+      \field{urlday}{5}
+      \field{urlmonth}{6}
+      \field{urlyear}{2026}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.accessdata.fda.gov/cdrh_docs/pdf24/K241108.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.accessdata.fda.gov/cdrh_docs/pdf24/K241108.pdf
+      \endverb
+    \endentry
+    \entry{brown_semelka_mri_2014}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=10b8ae5064f787d1429a3cb8bdb22b20}{%
+           family={Brown},
+           familyi={B\bibinitperiod},
+           given={Mark\bibnamedelima A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=a3b1e53a5eef916a29c40df22f2842d7}{%
+           family={Semelka},
+           familyi={S\bibinitperiod},
+           given={Richard\bibnamedelima C.},
+           giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Hoboken}%
+      }
+      \list{publisher}{1}{%
+        {Wiley-Blackwell}%
+      }
+      \strng{namehash}{bfba8eaf738afb5a260754de34d2c497}
+      \strng{fullhash}{bfba8eaf738afb5a260754de34d2c497}
+      \strng{fullhashraw}{bfba8eaf738afb5a260754de34d2c497}
+      \strng{bibnamehash}{bfba8eaf738afb5a260754de34d2c497}
+      \strng{authorbibnamehash}{bfba8eaf738afb5a260754de34d2c497}
+      \strng{authornamehash}{bfba8eaf738afb5a260754de34d2c497}
+      \strng{authorfullhash}{bfba8eaf738afb5a260754de34d2c497}
+      \strng{authorfullhashraw}{bfba8eaf738afb5a260754de34d2c497}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{5}
+      \field{title}{MRI: Basic Principles and Applications}
+      \field{year}{2014}
+    \endentry
+    \entry{mcrobbie_mri_2017}{book}{}{}
+      \name{author}{4}{}{%
+        {{hash=ce8dd22ed98c4e65f7ed336664aeb732}{%
+           family={McRobbie},
+           familyi={M\bibinitperiod},
+           given={Donald\bibnamedelima W.},
+           giveni={D\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=4ac240cde3076dda8a4bdec37175b218}{%
+           family={Moore},
+           familyi={M\bibinitperiod},
+           given={Elizabeth\bibnamedelima A.},
+           giveni={E\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=fa964d61560eb68f559488a8a75f5580}{%
+           family={Graves},
+           familyi={G\bibinitperiod},
+           given={Martin\bibnamedelima J.},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=1161061bf45bfe50e99a9e12c0708329}{%
+           family={Prince},
+           familyi={P\bibinitperiod},
+           given={Martin\bibnamedelima R.},
+           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cambridge}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{7e8f6aef0db4b42cae28f1b33518d5d2}
+      \strng{fullhash}{7e8f6aef0db4b42cae28f1b33518d5d2}
+      \strng{fullhashraw}{7e8f6aef0db4b42cae28f1b33518d5d2}
+      \strng{bibnamehash}{7e8f6aef0db4b42cae28f1b33518d5d2}
+      \strng{authorbibnamehash}{7e8f6aef0db4b42cae28f1b33518d5d2}
+      \strng{authornamehash}{7e8f6aef0db4b42cae28f1b33518d5d2}
+      \strng{authorfullhash}{7e8f6aef0db4b42cae28f1b33518d5d2}
+      \strng{authorfullhashraw}{7e8f6aef0db4b42cae28f1b33518d5d2}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3}
+      \field{title}{MRI from Picture to Proton}
+      \field{year}{2017}
+      \verb{doi}
+      \verb 10.1017/9781107706958
+      \endverb
+    \endentry
+    \entry{modic_disk_1988}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=4fe13b6b4ab4d1042f91450d9656b970}{%
+           family={Modic},
+           familyi={M\bibinitperiod},
+           given={Michael\bibnamedelima T.},
+           giveni={M\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=46d14744ceceda30e7de6b34b17da817}{%
+           family={Masaryk},
+           familyi={M\bibinitperiod},
+           given={Thomas\bibnamedelima J.},
+           giveni={T\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=fe96f13bf11a67453dec2a44bf93b8c3}{%
+           family={Ross},
+           familyi={R\bibinitperiod},
+           given={Jeffrey\bibnamedelima S.},
+           giveni={J\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=02c2be7a92000acbe327a4c927305429}{%
+           family={Carter},
+           familyi={C\bibinitperiod},
+           given={John\bibnamedelima R.},
+           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \strng{namehash}{7c28cd85d031a40bb9143aaaac69df6e}
+      \strng{fullhash}{7c28cd85d031a40bb9143aaaac69df6e}
+      \strng{fullhashraw}{7c28cd85d031a40bb9143aaaac69df6e}
+      \strng{bibnamehash}{7c28cd85d031a40bb9143aaaac69df6e}
+      \strng{authorbibnamehash}{7c28cd85d031a40bb9143aaaac69df6e}
+      \strng{authornamehash}{7c28cd85d031a40bb9143aaaac69df6e}
+      \strng{authorfullhash}{7c28cd85d031a40bb9143aaaac69df6e}
+      \strng{authorfullhashraw}{7c28cd85d031a40bb9143aaaac69df6e}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Radiology}
+      \field{number}{1}
+      \field{title}{Imaging of degenerative disk disease}
+      \field{volume}{168}
+      \field{year}{1988}
+      \field{pages}{177\bibrangedash 186}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1148/radiology.168.1.3289089
+      \endverb
+    \endentry
+    \entry{jarvik_deyo_low_back_pain_2002}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=18cb3b0cd041b62e6fc4b1f9cd92a2f0}{%
+           family={Jarvik},
+           familyi={J\bibinitperiod},
+           given={Jeffrey\bibnamedelima G.},
+           giveni={J\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=c4cf461fae8b4af18927da018f3e38d6}{%
+           family={Deyo},
+           familyi={D\bibinitperiod},
+           given={Richard\bibnamedelima A.},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{a31a753441100fa222dd97dee2e1f8ca}
+      \strng{fullhash}{a31a753441100fa222dd97dee2e1f8ca}
+      \strng{fullhashraw}{a31a753441100fa222dd97dee2e1f8ca}
+      \strng{bibnamehash}{a31a753441100fa222dd97dee2e1f8ca}
+      \strng{authorbibnamehash}{a31a753441100fa222dd97dee2e1f8ca}
+      \strng{authornamehash}{a31a753441100fa222dd97dee2e1f8ca}
+      \strng{authorfullhash}{a31a753441100fa222dd97dee2e1f8ca}
+      \strng{authorfullhashraw}{a31a753441100fa222dd97dee2e1f8ca}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annals of Internal Medicine}
+      \field{number}{7}
+      \field{title}{Diagnostic evaluation of low back pain with emphasis on imaging}
+      \field{volume}{137}
+      \field{year}{2002}
+      \field{pages}{586\bibrangedash 597}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.7326/0003-4819-137-7-200210010-00010
+      \endverb
+    \endentry
+    \entry{standring_grays_2020}{book}{}{}
+      \name{editor}{1}{}{%
+        {{hash=9af7dfeff86e4406a6a823fe71fa3730}{%
+           family={Standring},
+           familyi={S\bibinitperiod},
+           given={Susan},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Edinburgh}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{9af7dfeff86e4406a6a823fe71fa3730}
+      \strng{fullhash}{9af7dfeff86e4406a6a823fe71fa3730}
+      \strng{fullhashraw}{9af7dfeff86e4406a6a823fe71fa3730}
+      \strng{bibnamehash}{9af7dfeff86e4406a6a823fe71fa3730}
+      \strng{editorbibnamehash}{9af7dfeff86e4406a6a823fe71fa3730}
+      \strng{editornamehash}{9af7dfeff86e4406a6a823fe71fa3730}
+      \strng{editorfullhash}{9af7dfeff86e4406a6a823fe71fa3730}
+      \strng{editorfullhashraw}{9af7dfeff86e4406a6a823fe71fa3730}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{editor}
+      \field{labeltitlesource}{title}
+      \field{edition}{42}
+      \field{title}{Gray's Anatomy: The Anatomical Basis of Clinical Practice}
+      \field{year}{2020}
+    \endentry
+    \entry{hoy_low_back_pain_2014}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=a3e633db1158c64cf9d40ba08dc7fe68}{%
+           family={Hoy},
+           familyi={H\bibinitperiod},
+           given={Damian},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{08ac63e31691dfdc1bd6faaf61d274c6}
+      \strng{fullhash}{08ac63e31691dfdc1bd6faaf61d274c6}
+      \strng{fullhashraw}{08ac63e31691dfdc1bd6faaf61d274c6}
+      \strng{bibnamehash}{08ac63e31691dfdc1bd6faaf61d274c6}
+      \strng{authorbibnamehash}{08ac63e31691dfdc1bd6faaf61d274c6}
+      \strng{authornamehash}{08ac63e31691dfdc1bd6faaf61d274c6}
+      \strng{authorfullhash}{08ac63e31691dfdc1bd6faaf61d274c6}
+      \strng{authorfullhashraw}{08ac63e31691dfdc1bd6faaf61d274c6}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annals of the Rheumatic Diseases}
+      \field{number}{6}
+      \field{title}{The global burden of low back pain: estimates from the Global Burden of Disease 2010 study}
+      \field{volume}{73}
+      \field{year}{2014}
+      \field{pages}{968\bibrangedash 974}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1136/annrheumdis-2013-204428
+      \endverb
+    \endentry
+    \entry{nema_dicom_2024}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=85275dd9c049dca1c8c1d07ab42daccc}{%
+           family={{National Electrical Manufacturers Association}},
+           familyi={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{85275dd9c049dca1c8c1d07ab42daccc}
+      \strng{fullhash}{85275dd9c049dca1c8c1d07ab42daccc}
+      \strng{fullhashraw}{85275dd9c049dca1c8c1d07ab42daccc}
+      \strng{bibnamehash}{85275dd9c049dca1c8c1d07ab42daccc}
+      \strng{authorbibnamehash}{85275dd9c049dca1c8c1d07ab42daccc}
+      \strng{authornamehash}{85275dd9c049dca1c8c1d07ab42daccc}
+      \strng{authorfullhash}{85275dd9c049dca1c8c1d07ab42daccc}
+      \strng{authorfullhashraw}{85275dd9c049dca1c8c1d07ab42daccc}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Digital Imaging and Communications in Medicine (DICOM) Standard}
+      \field{urlday}{5}
+      \field{urlmonth}{6}
+      \field{urlyear}{2026}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.dicomstandard.org/
+      \endverb
+      \verb{url}
+      \verb https://www.dicomstandard.org/
+      \endverb
+    \endentry
+    \entry{cox_nifti_2004}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=e806828e52b8f6ea34381aab05ac6425}{%
+           family={Cox},
+           familyi={C\bibinitperiod},
+           given={Robert\bibnamedelima W.},
+           giveni={R\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \strng{namehash}{d44d64355ee27b3a76506aba0e7ed990}
+      \strng{fullhash}{d44d64355ee27b3a76506aba0e7ed990}
+      \strng{fullhashraw}{d44d64355ee27b3a76506aba0e7ed990}
+      \strng{bibnamehash}{d44d64355ee27b3a76506aba0e7ed990}
+      \strng{authorbibnamehash}{d44d64355ee27b3a76506aba0e7ed990}
+      \strng{authornamehash}{d44d64355ee27b3a76506aba0e7ed990}
+      \strng{authorfullhash}{d44d64355ee27b3a76506aba0e7ed990}
+      \strng{authorfullhashraw}{d44d64355ee27b3a76506aba0e7ed990}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{NeuroImage}
+      \field{title}{A (sort of) new image data format standard: NIfTI-1}
+      \field{volume}{22}
+      \field{year}{2004}
+      \field{pages}{e1440}
+      \range{pages}{-1}
+    \endentry
+    \entry{litjens_survey_2017}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=960807109ceee54ca5f1f890411b2d6e}{%
+           family={Litjens},
+           familyi={L\bibinitperiod},
+           given={Geert},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{b882369a494295dcc514582e47a8db28}
+      \strng{fullhash}{b882369a494295dcc514582e47a8db28}
+      \strng{fullhashraw}{b882369a494295dcc514582e47a8db28}
+      \strng{bibnamehash}{b882369a494295dcc514582e47a8db28}
+      \strng{authorbibnamehash}{b882369a494295dcc514582e47a8db28}
+      \strng{authornamehash}{b882369a494295dcc514582e47a8db28}
+      \strng{authorfullhash}{b882369a494295dcc514582e47a8db28}
+      \strng{authorfullhashraw}{b882369a494295dcc514582e47a8db28}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Medical Image Analysis}
+      \field{title}{A survey on deep learning in medical image analysis}
+      \field{volume}{42}
+      \field{year}{2017}
+      \field{pages}{60\bibrangedash 88}
+      \range{pages}{29}
+      \verb{doi}
+      \verb 10.1016/j.media.2017.07.005
+      \endverb
+    \endentry
+    \entry{szeliski_computer_vision_2022}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=f2e556c93256e7d70895d67702e14f1a}{%
+           family={Szeliski},
+           familyi={S\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cham}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{f2e556c93256e7d70895d67702e14f1a}
+      \strng{fullhash}{f2e556c93256e7d70895d67702e14f1a}
+      \strng{fullhashraw}{f2e556c93256e7d70895d67702e14f1a}
+      \strng{bibnamehash}{f2e556c93256e7d70895d67702e14f1a}
+      \strng{authorbibnamehash}{f2e556c93256e7d70895d67702e14f1a}
+      \strng{authornamehash}{f2e556c93256e7d70895d67702e14f1a}
+      \strng{authorfullhash}{f2e556c93256e7d70895d67702e14f1a}
+      \strng{authorfullhashraw}{f2e556c93256e7d70895d67702e14f1a}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{title}{Computer Vision: Algorithms and Applications}
+      \field{year}{2022}
+      \verb{doi}
+      \verb 10.1007/978-3-030-34372-9
+      \endverb
+    \endentry
+    \entry{lecun_deep_learning_2015}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=6a1aa6b7eab12b931ca7c7e3f927231d}{%
+           family={LeCun},
+           familyi={L\bibinitperiod},
+           given={Yann},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=40a8e4774982146adc2688546f54efb2}{%
+           family={Bengio},
+           familyi={B\bibinitperiod},
+           given={Yoshua},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=9a8750ccdb2a4cf14d2655face1ce016}{%
+           family={Hinton},
+           familyi={H\bibinitperiod},
+           given={Geoffrey},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{c6c75bd00ce5a488e91a749d8383b3df}
+      \strng{fullhash}{c6c75bd00ce5a488e91a749d8383b3df}
+      \strng{fullhashraw}{c6c75bd00ce5a488e91a749d8383b3df}
+      \strng{bibnamehash}{c6c75bd00ce5a488e91a749d8383b3df}
+      \strng{authorbibnamehash}{c6c75bd00ce5a488e91a749d8383b3df}
+      \strng{authornamehash}{c6c75bd00ce5a488e91a749d8383b3df}
+      \strng{authorfullhash}{c6c75bd00ce5a488e91a749d8383b3df}
+      \strng{authorfullhashraw}{c6c75bd00ce5a488e91a749d8383b3df}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature}
+      \field{title}{Deep learning}
+      \field{volume}{521}
+      \field{year}{2015}
+      \field{pages}{436\bibrangedash 444}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1038/nature14539
+      \endverb
+    \endentry
+    \entry{ronneberger_unet_2015}{incollection}{}{}
+      \name{author}{3}{}{%
+        {{hash=8e46da9de9e53ea5d37089897d69cdd9}{%
+           family={Ronneberger},
+           familyi={R\bibinitperiod},
+           given={Olaf},
+           giveni={O\bibinitperiod}}}%
+        {{hash=168e84ce3582cbc6bac5e2ebc3ef8442}{%
+           family={Fischer},
+           familyi={F\bibinitperiod},
+           given={Philipp},
+           giveni={P\bibinitperiod}}}%
+        {{hash=b452a32296958371572717940f900884}{%
+           family={Brox},
+           familyi={B\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cham}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{f23ccc5160c62c7866172335b2c76e11}
+      \strng{fullhash}{f23ccc5160c62c7866172335b2c76e11}
+      \strng{fullhashraw}{f23ccc5160c62c7866172335b2c76e11}
+      \strng{bibnamehash}{f23ccc5160c62c7866172335b2c76e11}
+      \strng{authorbibnamehash}{f23ccc5160c62c7866172335b2c76e11}
+      \strng{authornamehash}{f23ccc5160c62c7866172335b2c76e11}
+      \strng{authorfullhash}{f23ccc5160c62c7866172335b2c76e11}
+      \strng{authorfullhashraw}{f23ccc5160c62c7866172335b2c76e11}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Medical Image Computing and Computer-Assisted Intervention -- MICCAI 2015}
+      \field{series}{Lecture Notes in Computer Science}
+      \field{title}{U-Net: Convolutional Networks for Biomedical Image Segmentation}
+      \field{volume}{9351}
+      \field{year}{2015}
+      \field{pages}{234\bibrangedash 241}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1007/978-3-319-24574-4_28
+      \endverb
+    \endentry
+    \entry{oktay_attention_unet_2018}{inproceedings}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=522a1f3bd149ca0406188abfb424c46a}{%
+           family={Oktay},
+           familyi={O\bibinitperiod},
+           given={Ozan},
+           giveni={O\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Amsterdam}%
+      }
+      \strng{namehash}{3c926513cb4db42dfabd499e86fbfa18}
+      \strng{fullhash}{3c926513cb4db42dfabd499e86fbfa18}
+      \strng{fullhashraw}{3c926513cb4db42dfabd499e86fbfa18}
+      \strng{bibnamehash}{3c926513cb4db42dfabd499e86fbfa18}
+      \strng{authorbibnamehash}{3c926513cb4db42dfabd499e86fbfa18}
+      \strng{authornamehash}{3c926513cb4db42dfabd499e86fbfa18}
+      \strng{authorfullhash}{3c926513cb4db42dfabd499e86fbfa18}
+      \strng{authorfullhashraw}{3c926513cb4db42dfabd499e86fbfa18}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Medical Imaging with Deep Learning (MIDL)}
+      \field{title}{Attention U-Net: Learning where to look for the pancreas}
+      \field{urlday}{5}
+      \field{urlmonth}{6}
+      \field{urlyear}{2026}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://openreview.net/forum?id=Skft7cijM
+      \endverb
+      \verb{url}
+      \verb https://openreview.net/forum?id=Skft7cijM
+      \endverb
+    \endentry
+    \entry{dosovitskiy_vit_2021}{inproceedings}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=72308762399d6ab62bbd9391c64c7bfd}{%
+           family={Dosovitskiy},
+           familyi={D\bibinitperiod},
+           given={Alexey},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{d96316bc7578db680aba71d4226354c8}
+      \strng{fullhash}{d96316bc7578db680aba71d4226354c8}
+      \strng{fullhashraw}{d96316bc7578db680aba71d4226354c8}
+      \strng{bibnamehash}{d96316bc7578db680aba71d4226354c8}
+      \strng{authorbibnamehash}{d96316bc7578db680aba71d4226354c8}
+      \strng{authornamehash}{d96316bc7578db680aba71d4226354c8}
+      \strng{authorfullhash}{d96316bc7578db680aba71d4226354c8}
+      \strng{authorfullhashraw}{d96316bc7578db680aba71d4226354c8}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{International Conference on Learning Representations}
+      \field{title}{An image is worth 16x16 words: Transformers for image recognition at scale}
+      \field{urlday}{5}
+      \field{urlmonth}{6}
+      \field{urlyear}{2026}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://openreview.net/forum?id=YicbFdNTTy
+      \endverb
+      \verb{url}
+      \verb https://openreview.net/forum?id=YicbFdNTTy
+      \endverb
+    \endentry
+    \entry{monai_software}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=62c18ee0018df1a9a368f361ed4fb933}{%
+           family={{MONAI Consortium}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{62c18ee0018df1a9a368f361ed4fb933}
+      \strng{fullhash}{62c18ee0018df1a9a368f361ed4fb933}
+      \strng{fullhashraw}{62c18ee0018df1a9a368f361ed4fb933}
+      \strng{bibnamehash}{62c18ee0018df1a9a368f361ed4fb933}
+      \strng{authorbibnamehash}{62c18ee0018df1a9a368f361ed4fb933}
+      \strng{authornamehash}{62c18ee0018df1a9a368f361ed4fb933}
+      \strng{authorfullhash}{62c18ee0018df1a9a368f361ed4fb933}
+      \strng{authorfullhashraw}{62c18ee0018df1a9a368f361ed4fb933}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{subtitle}{Framework de código abierto para aprendizaje profundo en imagen médica}
+      \field{title}{MONAI: Medical Open Network for AI}
+      \field{urlday}{5}
+      \field{urlmonth}{6}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://monai.io
+      \endverb
+      \verb{url}
+      \verb https://monai.io
+      \endverb
+    \endentry
+    \entry{taha_metrics_2015}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=6c99adcea5ce152504a7e23e820ae03b}{%
+           family={Taha},
+           familyi={T\bibinitperiod},
+           given={Abdel\bibnamedelima Aziz},
+           giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=4fd671afc1ea168300875315d4a028d9}{%
+           family={Hanbury},
+           familyi={H\bibinitperiod},
+           given={Allan},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{cee11a47b5b5a4fabfc20f62b8582513}
+      \strng{fullhash}{cee11a47b5b5a4fabfc20f62b8582513}
+      \strng{fullhashraw}{cee11a47b5b5a4fabfc20f62b8582513}
+      \strng{bibnamehash}{cee11a47b5b5a4fabfc20f62b8582513}
+      \strng{authorbibnamehash}{cee11a47b5b5a4fabfc20f62b8582513}
+      \strng{authornamehash}{cee11a47b5b5a4fabfc20f62b8582513}
+      \strng{authorfullhash}{cee11a47b5b5a4fabfc20f62b8582513}
+      \strng{authorfullhashraw}{cee11a47b5b5a4fabfc20f62b8582513}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{BMC Medical Imaging}
+      \field{number}{29}
+      \field{title}{Metrics for evaluating 3D medical image segmentation: analysis, selection, and tool}
+      \field{volume}{15}
+      \field{year}{2015}
+      \verb{doi}
+      \verb 10.1186/s12880-015-0068-x
+      \endverb
+    \endentry
+    \entry{maierhein_metrics_reloaded_2024}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=ef1e4fd37692b1d549e91153b52119ef}{%
+           family={Maier-Hein},
+           familyi={M\bibinithyphendelim H\bibinitperiod},
+           given={Lena},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{24e62cca165b9dcd09cf78fd66c72735}
+      \strng{fullhash}{24e62cca165b9dcd09cf78fd66c72735}
+      \strng{fullhashraw}{24e62cca165b9dcd09cf78fd66c72735}
+      \strng{bibnamehash}{24e62cca165b9dcd09cf78fd66c72735}
+      \strng{authorbibnamehash}{24e62cca165b9dcd09cf78fd66c72735}
+      \strng{authornamehash}{24e62cca165b9dcd09cf78fd66c72735}
+      \strng{authorfullhash}{24e62cca165b9dcd09cf78fd66c72735}
+      \strng{authorfullhashraw}{24e62cca165b9dcd09cf78fd66c72735}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature Methods}
+      \field{title}{Metrics reloaded: recommendations for image analysis validation}
+      \field{volume}{21}
+      \field{year}{2024}
+      \field{pages}{195\bibrangedash 212}
+      \range{pages}{18}
+      \verb{doi}
+      \verb 10.1038/s41592-023-02150-0
+      \endverb
+    \endentry
+    \entry{berner_cdss_2007}{book}{}{}
+      \name{editor}{1}{}{%
+        {{hash=0051a91b2077e65cd132ef01642dfdb1}{%
+           family={Berner},
+           familyi={B\bibinitperiod},
+           given={Eta\bibnamedelima S.},
+           giveni={E\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{0051a91b2077e65cd132ef01642dfdb1}
+      \strng{fullhash}{0051a91b2077e65cd132ef01642dfdb1}
+      \strng{fullhashraw}{0051a91b2077e65cd132ef01642dfdb1}
+      \strng{bibnamehash}{0051a91b2077e65cd132ef01642dfdb1}
+      \strng{editorbibnamehash}{0051a91b2077e65cd132ef01642dfdb1}
+      \strng{editornamehash}{0051a91b2077e65cd132ef01642dfdb1}
+      \strng{editorfullhash}{0051a91b2077e65cd132ef01642dfdb1}
+      \strng{editorfullhashraw}{0051a91b2077e65cd132ef01642dfdb1}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{editor}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{title}{Clinical Decision Support Systems: Theory and Practice}
+      \field{year}{2007}
+      \verb{doi}
+      \verb 10.1007/978-0-387-38319-4
+      \endverb
+    \endentry
+    \entry{argentina_ley_25326}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=14588ffab73b8df534b4c808edb904db}{%
+           family={{República Argentina}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{14588ffab73b8df534b4c808edb904db}
+      \strng{fullhash}{14588ffab73b8df534b4c808edb904db}
+      \strng{fullhashraw}{14588ffab73b8df534b4c808edb904db}
+      \strng{bibnamehash}{14588ffab73b8df534b4c808edb904db}
+      \strng{authorbibnamehash}{14588ffab73b8df534b4c808edb904db}
+      \strng{authornamehash}{14588ffab73b8df534b4c808edb904db}
+      \strng{authorfullhash}{14588ffab73b8df534b4c808edb904db}
+      \strng{authorfullhashraw}{14588ffab73b8df534b4c808edb904db}
+      \field{extraname}{1}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Ley N.° 25.326 de Protección de los Datos Personales}
+      \field{urlday}{5}
+      \field{urlmonth}{6}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://servicios.infoleg.gob.ar/infolegInternet/anexos/60000-64999/64790/texact.htm
+      \endverb
+      \verb{url}
+      \verb https://servicios.infoleg.gob.ar/infolegInternet/anexos/60000-64999/64790/texact.htm
+      \endverb
+    \endentry
+    \entry{argentina_codigo_civil_imagen}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=14588ffab73b8df534b4c808edb904db}{%
+           family={{República Argentina}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{14588ffab73b8df534b4c808edb904db}
+      \strng{fullhash}{14588ffab73b8df534b4c808edb904db}
+      \strng{fullhashraw}{14588ffab73b8df534b4c808edb904db}
+      \strng{bibnamehash}{14588ffab73b8df534b4c808edb904db}
+      \strng{authorbibnamehash}{14588ffab73b8df534b4c808edb904db}
+      \strng{authornamehash}{14588ffab73b8df534b4c808edb904db}
+      \strng{authorfullhash}{14588ffab73b8df534b4c808edb904db}
+      \strng{authorfullhashraw}{14588ffab73b8df534b4c808edb904db}
+      \field{extraname}{2}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Código Civil y Comercial de la Nación, artículo 53: Derecho a la imagen}
+      \field{urlday}{5}
+      \field{urlmonth}{6}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://servicios.infoleg.gob.ar/infolegInternet/anexos/235000-239999/235975/texact.htm
+      \endverb
+      \verb{url}
+      \verb https://servicios.infoleg.gob.ar/infolegInternet/anexos/235000-239999/235975/texact.htm
+      \endverb
+    \endentry
+    \entry{natalia_measurement_2020}{article}{}{}
+      \name{author}{10}{}{%
+        {{hash=368979009ca820e624a8312bbece88de}{%
+           family={Natalia},
+           familyi={N\bibinitperiod},
+           given={Friska},
+           giveni={F\bibinitperiod}}}%
+        {{hash=3109261bc255f3fb37be154cd67af470}{%
+           family={Meidia},
+           familyi={M\bibinitperiod},
+           given={Hira},
+           giveni={H\bibinitperiod}}}%
+        {{hash=4f4b5939df4ca77886a35bd1718f994c}{%
+           family={Afriliana},
+           familyi={A\bibinitperiod},
+           given={Nunik},
+           giveni={N\bibinitperiod}}}%
+        {{hash=2f7a4e3cd0efb9e24865e7d491032263}{%
+           family={Al-Kafri},
+           familyi={A\bibinithyphendelim K\bibinitperiod},
+           given={Ala\bibnamedelima S.},
+           giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=44424444d16ed3ba79f9669b141639e5}{%
+           family={Sudirman},
+           familyi={S\bibinitperiod},
+           given={Sud},
+           giveni={S\bibinitperiod}}}%
+        {{hash=127c312dd969b55660deebbebbdae5c1}{%
+           family={Simpson},
+           familyi={S\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod}}}%
+        {{hash=f5845a1ea987e50d84a6f07249b9c38a}{%
+           family={Sophian},
+           familyi={S\bibinitperiod},
+           given={Ali},
+           giveni={A\bibinitperiod}}}%
+        {{hash=ab712ca9c25106ee306fc46004355f80}{%
+           family={Al-Jumaily},
+           familyi={A\bibinithyphendelim J\bibinitperiod},
+           given={Mohammed},
+           giveni={M\bibinitperiod}}}%
+        {{hash=73cbded0cfa20d34c3197039e29fb0c4}{%
+           family={Al-Rashdan},
+           familyi={A\bibinithyphendelim R\bibinitperiod},
+           given={Wasfi},
+           giveni={W\bibinitperiod}}}%
+        {{hash=1d84686199d16b29b76711bf0659560c}{%
+           family={Bashtawi},
+           familyi={B\bibinitperiod},
+           given={Mohammad},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{e9a41eb2ee9899180a91c5680848d7fa}
+      \strng{fullhash}{e9a41eb2ee9899180a91c5680848d7fa}
+      \strng{fullhashraw}{e9a41eb2ee9899180a91c5680848d7fa}
+      \strng{bibnamehash}{e9a41eb2ee9899180a91c5680848d7fa}
+      \strng{authorbibnamehash}{e9a41eb2ee9899180a91c5680848d7fa}
+      \strng{authornamehash}{e9a41eb2ee9899180a91c5680848d7fa}
+      \strng{authorfullhash}{e9a41eb2ee9899180a91c5680848d7fa}
+      \strng{authorfullhashraw}{e9a41eb2ee9899180a91c5680848d7fa}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eid}{e0241309}
+      \field{journaltitle}{PLOS ONE}
+      \field{number}{11}
+      \field{title}{Automated measurement of anteroposterior diameter and foraminal widths in MRI images for lumbar spinal stenosis diagnosis}
+      \field{volume}{15}
+      \field{year}{2020}
+      \verb{doi}
+      \verb 10.1371/journal.pone.0241309
+      \endverb
+    \endentry
+    \entry{pfirrmann_disc_degeneration_2001}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=56c8a81d72a8be58f9e29d392e742eae}{%
+           family={Pfirrmann},
+           familyi={P\bibinitperiod},
+           given={Christian\bibnamedelimb W.\bibnamedelimi A.},
+           giveni={C\bibinitperiod\bibinitdelim W\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=e77cf398c8f149c55dd14484deefe48a}{%
+           family={Metzdorf},
+           familyi={M\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
+        {{hash=e438ec0def5b5dee96faeae93e46d7ae}{%
+           family={Zanetti},
+           familyi={Z\bibinitperiod},
+           given={Marco},
+           giveni={M\bibinitperiod}}}%
+        {{hash=66fc7def58dbba70e33930e664d4ce22}{%
+           family={Hodler},
+           familyi={H\bibinitperiod},
+           given={Juerg},
+           giveni={J\bibinitperiod}}}%
+        {{hash=8011aa36ee0a4744cc7c57e963e6ca16}{%
+           family={Boos},
+           familyi={B\bibinitperiod},
+           given={Norbert},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{cf66725471aaf0e8d6ddd9073260aede}
+      \strng{fullhash}{cf66725471aaf0e8d6ddd9073260aede}
+      \strng{fullhashraw}{cf66725471aaf0e8d6ddd9073260aede}
+      \strng{bibnamehash}{cf66725471aaf0e8d6ddd9073260aede}
+      \strng{authorbibnamehash}{cf66725471aaf0e8d6ddd9073260aede}
+      \strng{authornamehash}{cf66725471aaf0e8d6ddd9073260aede}
+      \strng{authorfullhash}{cf66725471aaf0e8d6ddd9073260aede}
+      \strng{authorfullhashraw}{cf66725471aaf0e8d6ddd9073260aede}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Spine}
+      \field{number}{17}
+      \field{title}{Magnetic resonance classification of lumbar intervertebral disc degeneration}
+      \field{volume}{26}
+      \field{year}{2001}
+      \field{pages}{1873\bibrangedash 1878}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1097/00007632-200109010-00011
+      \endverb
+    \endentry
+    \entry{asplanatti_fabrello_propuesta_2026}{misc}{}{}
+      \name{author}{2}{}{%
+        {{hash=42cfde194912f851d36fc819769cf3d1}{%
+           family={Asplanatti},
+           familyi={A\bibinitperiod},
+           given={Enzo},
+           giveni={E\bibinitperiod}}}%
+        {{hash=68942b16edf68ca5c99376801a3a965c}{%
+           family={Fabrello},
+           familyi={F\bibinitperiod},
+           given={Francisco},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{d39c8900f3b0aa1a088b093b60f41f98}
+      \strng{fullhash}{d39c8900f3b0aa1a088b093b60f41f98}
+      \strng{fullhashraw}{d39c8900f3b0aa1a088b093b60f41f98}
+      \strng{bibnamehash}{d39c8900f3b0aa1a088b093b60f41f98}
+      \strng{authorbibnamehash}{d39c8900f3b0aa1a088b093b60f41f98}
+      \strng{authornamehash}{d39c8900f3b0aa1a088b093b60f41f98}
+      \strng{authorfullhash}{d39c8900f3b0aa1a088b093b60f41f98}
+      \strng{authorfullhashraw}{d39c8900f3b0aa1a088b093b60f41f98}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Documento interno de Proyecto Final de Ingeniería}
+      \field{title}{Propuesta PFI 2026: Segmentación de RM lumbar}
+      \field{year}{2026}
+      \true{nocite}
+      \keyw{adicional}
+    \endentry
+    \entry{kirillov_panoptic_2019}{inproceedings}{}{}
+      \name{author}{5}{}{%
+        {{hash=28c5859f568975f174c8668976ed369d}{%
+           family={Kirillov},
+           familyi={K\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
+        {{hash=6b4b60e909e78633945f3f9c9dc83e01}{%
+           family={He},
+           familyi={H\bibinitperiod},
+           given={Kaiming},
+           giveni={K\bibinitperiod}}}%
+        {{hash=bd5dadbe57bedc5957c19a3154c4d424}{%
+           family={Girshick},
+           familyi={G\bibinitperiod},
+           given={Ross},
+           giveni={R\bibinitperiod}}}%
+        {{hash=574542c2f7c4308c28c190f314a2de4c}{%
+           family={Rother},
+           familyi={R\bibinitperiod},
+           given={Carsten},
+           giveni={C\bibinitperiod}}}%
+        {{hash=ecd149fdcb3e0503881d49e545744c3d}{%
+           family={Dollár},
+           familyi={D\bibinitperiod},
+           given={Piotr},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{5cb8b3e1d99942e5b3b022a11f5c4aa0}
+      \strng{fullhash}{5cb8b3e1d99942e5b3b022a11f5c4aa0}
+      \strng{fullhashraw}{5cb8b3e1d99942e5b3b022a11f5c4aa0}
+      \strng{bibnamehash}{5cb8b3e1d99942e5b3b022a11f5c4aa0}
+      \strng{authorbibnamehash}{5cb8b3e1d99942e5b3b022a11f5c4aa0}
+      \strng{authornamehash}{5cb8b3e1d99942e5b3b022a11f5c4aa0}
+      \strng{authorfullhash}{5cb8b3e1d99942e5b3b022a11f5c4aa0}
+      \strng{authorfullhashraw}{5cb8b3e1d99942e5b3b022a11f5c4aa0}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition}
+      \field{title}{Panoptic segmentation}
+      \field{year}{2019}
+      \true{nocite}
+      \field{pages}{9399\bibrangedash 9408}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1109/CVPR.2019.00963
+      \endverb
+      \keyw{adicional}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

@@ -1,0 +1,64 @@
+\chapter{Configuración de entrenamiento de los modelos}
+\label{anexo:configuracion-entrenamiento}
+
+Este anexo reúne la configuración con la que se entrenaron los dos modelos de segmentación, con el detalle necesario para que un tercero pueda reproducir los resultados informados en el Capítulo 13. Se incluyen los parámetros de optimización, la estrategia de aumentación de datos y los controles de calidad aplicados al cierre del entrenamiento. % CROSS_REFERENCE_MAPPING_REQUIRED: Capítulo 13
+
+% SOURCE_NUMBERING_ANOMALY_PRESERVED: F.1 literal in DOCX Heading2
+\phantomsection
+\section*{F.1 Parámetros de entrenamiento}
+\addcontentsline{toc}{section}{F.1 Parámetros de entrenamiento}
+\label{anexo:entrenamiento-f1-parametros}
+
+\begin{table}[H]
+\small
+\centering
+\caption{Configuración comparada del entrenamiento de ambos modelos.}
+\label{tab:anexo-e-parametros-entrenamiento}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{0.25\textwidth}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+\hline
+\textbf{Parámetro} & \textbf{Modelo sagital} & \textbf{Modelo axial} \\
+\hline
+Conjunto de datos & SPIDER & Sudirman y Al-Kafri \\
+\hline
+Arquitectura & U-Net bidimensional, variante sagital & U-Net bidimensional, variante axial \\
+\hline
+Número de clases & 4 & 6 \\
+\hline
+Canales base & 16 & 16 \\
+\hline
+Dimensión de entrada & $256 \times 256$ & $256 \times 256$ \\
+\hline
+Semilla & 20260716 & 2026 \\
+\hline
+Tamaño de lote & 8 & 8 \\
+\hline
+Épocas máximas & 80 & 80 \\
+\hline
+Tasa de aprendizaje & $8 \times 10^{-4}$ & $8 \times 10^{-4}$ \\
+\hline
+Decaimiento de pesos & $1 \times 10^{-4}$ & $1 \times 10^{-4}$ \\
+\hline
+Paciencia de detención temprana & 12 & 12 \\
+\hline
+Paciencia del planificador & 4 & No aplicada \\
+\hline
+Recorte de gradiente & No aplicado & 1,0 \\
+\hline
+Precisión mixta & Sí & Sí \\
+\hline
+Función de pérdida & 0,5 $\times$ entropía cruzada ponderada + 0,5 $\times$ Dice sin fondo & Entropía cruzada ponderada + Dice suave sin fondo \\
+\hline
+Pesos de clase & Estimados del conjunto & Estimados del conjunto, con refuerzo sobre la clase de fondo de origen \\
+\hline
+Épocas completadas & 75, con detención temprana & Detención temprana \\
+\hline
+Época seleccionada & 63 & 17 \\
+\hline
+\end{tabularx}
+\end{table}
+
+La función de pérdida combina en ambos casos un término de entropía cruzada ponderada por clase con un término basado en el coeficiente Dice que excluye el fondo. La combinación responde a que la entropía cruzada por sí sola tiende a favorecer las clases mayoritarias, mientras que el término de Dice equilibra la contribución de las estructuras de menor tamaño.
+
+% MIGRATION_PENDING: F.2 / Tabla E.2
+% MIGRATION_PENDING: F.3 / Tabla E.3
+% MIGRATION_PENDING: F.4

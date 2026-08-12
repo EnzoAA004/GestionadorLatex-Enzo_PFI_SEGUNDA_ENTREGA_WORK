@@ -1,0 +1,120 @@
+\chapter{Glosario de términos}
+\label{anexo:glosario-tecnico}
+
+Se reúnen aquí, en orden alfabético, los términos técnicos empleados a lo largo del documento, con una definición breve orientada a un lector no especializado. Se incluyen tanto el vocabulario de imagen médica y aprendizaje profundo como los términos de ingeniería y de gestión del proyecto utilizados en los capítulos de arquitectura, desarrollo y metodología.
+
+\begin{description}[leftmargin=3.8cm, style=nextline, itemsep=3pt, topsep=3pt]
+
+    \item[AAP (Área entre elementos anterior y posterior)] Espacio anatómico comprendido entre el cuerpo vertebral y los elementos posteriores dentro del canal lumbar. En el dataset Sudirman, constituye una de las regiones de interés anotadas específicamente en los cortes axiales.
+
+    \item[Artifact] Archivo generado o consumido por el módulo de inteligencia artificial (pesos del modelo, manifiesto de configuración, máscara, superposición o metadatos de una corrida) que se conserva de forma verificable para poder reproducir el resultado.
+
+    \item[Backlog] Lista priorizada de trabajo pendiente. En este proyecto se emplean dos: uno técnico, con funcionalidades y deuda técnica, y uno documental, con los capítulos y la evidencia de la tesis.
+
+    \item[Benchmark] Conjunto de pruebas y métricas estandarizadas que permite comparar de forma objetiva el desempeño de distintos modelos o algoritmos sobre los mismos datos.
+
+    \item[Canal espinal o canal raquídeo] Conducto formado por la superposición de las vértebras por el que discurren la médula espinal y las raíces nerviosas. Su estrechamiento puede comprimir estructuras nerviosas.
+
+    \item[Cauda equina (cola de caballo)] Estructura formada por el conjunto de raíces nerviosas que se originan al final de la médula espinal. Su compresión por estrechamiento del canal se vincula clínicamente con sintomatología dolorosa y compromiso neurológico.
+
+    \item[Checkpoint] Estado del sistema identificado por commits concretos en los tres repositorios, que puede reproducirse y sirve como frontera común desde la cual continuar el desarrollo. Los checkpoints del proyecto se identifican con códigos del tipo P9, P10 o P10.5.
+
+    \item[CNN, red neuronal convolucional] Tipo de red neuronal especializada en procesar imágenes, que aprende a detectar patrones visuales como bordes, texturas y formas mediante operaciones llamadas convoluciones.
+
+    \item[Co-registro DICOM] Alineación espacial nativa entre distintas series de un mismo estudio, como las secuencias axiales T1 y T2. Esta propiedad geométrica permite la transferencia directa de máscaras de segmentación entre series sin requerir algoritmos de registro adicionales.
+
+    \item[Coeficiente Dice] Métrica que mide el grado de solapamiento entre la segmentación generada por el modelo y la anotación de referencia. Vale 1 cuando coinciden por completo y 0 cuando no se superponen.
+
+    \item[Contrato] Definición acordada del formato de los datos que intercambian dos componentes (por ejemplo, el backend y el módulo de inteligencia artificial), junto con los casos de prueba que verifican su cumplimiento.
+
+    \item[Corrida] Ejecución completa del análisis sobre un estudio: preprocesamiento, inferencia, generación de máscaras y mediciones, y persistencia de los resultados.
+
+    \item[DICOM] Estándar internacional para almacenar e intercambiar imágenes médicas junto con sus metadatos, como datos del paciente, parámetros de adquisición, orientación y espaciado.
+
+    \item[Disco intervertebral] Estructura fibrocartilaginosa situada entre dos cuerpos vertebrales que actúa como amortiguador y permite el movimiento de la columna.
+
+    \item[Distancia de Hausdorff y HD95] Métricas que cuantifican el error de contorno de una segmentación midiendo la mayor distancia entre los bordes predicho y de referencia. HD95 usa el percentil 95 para reducir la influencia de valores atípicos.
+
+    \item[Elemento posterior (PE)] Componentes dorsales de la vértebra que integran las láminas, procesos espinosos y apófisis articulares. Su hipertrofia degenerativa es un factor etiológico relevante en la reducción del área disponible del canal.
+
+    \item[Encoder-decoder] Arquitectura de red neuronal en la que una primera parte, el encoder, comprime la imagen en una representación abstracta y una segunda, el decoder, la reconstruye, por ejemplo como una máscara de segmentación.
+
+    \item[End-to-end (E2E)] Prueba o recorrido que atraviesa el sistema completo, desde la carga del estudio hasta la revisión del resultado, en lugar de verificar un componente aislado.
+
+    \item[Estado degradado] Situación en la que el sistema no puede completar una operación y lo informa de forma explícita, en lugar de devolver un resultado incompleto presentado como válido.
+
+    \item[Estenosis] Reducción del diámetro o área del canal raquídeo o los forámenes neurales. Su evaluación técnica integra la cuantificación de dimensiones anatómicas con la inspección visual cualitativa de las imágenes de resonancia.
+
+    \item[Fixture] Conjunto de datos de prueba fijo y de-identificado que se utiliza para verificar que un componente sigue comportándose igual después de un cambio.
+
+    \item[Forámenes neurales (neuroforámenes)] Conductos laterales situados entre vértebras adyacentes destinados al paso de las raíces nerviosas. El plano de adquisición axial resulta óptimo para su delimitación y análisis morfológico en comparación con el sagital.
+
+    \item[Ground truth, anotación de referencia] Segmentación o etiqueta considerada correcta, generalmente realizada o validada por expertos, que se usa para entrenar y evaluar los modelos.
+
+    \item[Hardening] Conjunto de medidas de endurecimiento de la configuración de seguridad aplicadas antes de exponer un sistema a un entorno productivo.
+
+    \item[Humano en el circuito, human-in-the-loop] Esquema de trabajo en el que el resultado automático del sistema es revisado, corregido o aprobado por una persona antes de usarse, manteniendo el control profesional.
+
+    \item[IoU, intersección sobre unión] Métrica de solapamiento que divide el área común entre predicción y referencia por el área total que ambas cubren. Vale 1 en coincidencia perfecta.
+
+    \item[Máscara de segmentación] Imagen del mismo tamaño que la original en la que cada píxel o vóxel indica a qué estructura pertenece, delimitando así las regiones de interés.
+
+    \item[MVP, producto mínimo viable] Versión inicial de un producto con las funciones mínimas necesarias para validar su utilidad y obtener retroalimentación antes de desarrollarlo por completo.
+
+    \item[NIfTI] Formato de archivo habitual en neuroimagen e investigación que almacena imágenes médicas tridimensionales junto con su información espacial.
+
+    \item[nnU-Net] Marco de segmentación basado en U-Net que se autoconfigura, incluyendo preprocesamiento, arquitectura e hiperparámetros, según las características del conjunto de datos.
+
+    \item[Normalized Surface Dice, NSD] Métrica que evalúa cuán bien coinciden las superficies de dos segmentaciones admitiendo una tolerancia de distancia, útil para valorar la calidad del contorno.
+
+    \item[Overlay, superposición] Representación de la máscara de segmentación dibujada sobre la imagen original, de modo que puedan compararse en el mismo encuadre.
+
+    \item[PFI, Proyecto Final de Ingeniería] Trabajo integrador con el que se concluye la carrera de ingeniería; en este documento designa al prototipo desarrollado.
+
+    \item[Píxel] Unidad mínima de una imagen bidimensional; cada píxel representa un punto con un valor de intensidad.
+
+    \item[Plano sagital] Plano que divide el cuerpo en mitades izquierda y derecha. En RM lumbar permite observar de perfil la pila de vértebras, los discos y el canal espinal.
+
+    \item[Preflight] Verificación previa a la ejecución que comprueba que estén disponibles los modelos, artifacts y series necesarios, y que interrumpe el proceso antes de generar un resultado no válido.
+
+    \item[Preinforme] Texto estructurado generado automáticamente a partir de las estructuras segmentadas y de las mediciones derivadas, editable por el profesional. No constituye un informe clínico.
+
+    \item[Protrusión discal] Alteración morfológica donde el material del disco intervertebral se desplaza focalmente conservando la integridad del anillo fibroso; representa el hallazgo de desplazamiento discal más recurrente en la región lumbar.
+
+    \item[Radiculopatía] Cuadro clínico caracterizado por alteraciones sensoriales o motoras derivadas de la irritación de una raíz nerviosa, frecuentemente secundaria a procesos de estenosis o hernias de disco.
+
+    \item[RM, resonancia magnética] Técnica de diagnóstico por imagen que utiliza campos magnéticos y ondas de radiofrecuencia para obtener imágenes detalladas de los tejidos blandos, sin radiación ionizante.
+
+    \item[ROI, región de interés] Zona acotada de la imagen sobre la cual se concentra un análisis, delimitada para reducir el área que el modelo debe procesar.
+
+    \item[Saco tecal (saco dural)] Envoltura membranosa que contiene el líquido cefalorraquídeo y las raíces nerviosas. La medición de su área en sección transversal constituye un parámetro cuantitativo crítico para la valoración de la estenosis lumbar.
+
+    \item[Secuencias T1 y T2] Modos de adquisición de la RM que resaltan distintos tejidos. En T1 la grasa aparece brillante; en T2 el líquido y el agua aparecen brillantes, lo que ayuda a distinguir estructuras.
+
+    \item[Segmentación] Proceso de delimitar en una imagen las regiones que corresponden a cada estructura de interés, asignando cada píxel o vóxel a una clase.
+
+    \item[Spacing, espaciado] Distancia física que representa cada píxel o vóxel, por ejemplo en milímetros. Es imprescindible para convertir mediciones de la imagen a unidades reales.
+
+    \item[Split] División de un conjunto de datos en subconjuntos de entrenamiento, validación y prueba, definida de manera fija para que los resultados puedan reproducirse.
+
+    \item[STIR (Short Tau Inversion Recovery)] Técnica de adquisición que permite la supresión de la señal grasa para enfatizar procesos edematosos. Funciona como complemento clínico a T1 y T2 en la detección de patologías inflamatorias agudas.
+
+    \item[TRA (transverse)] Designación técnica empleada en los metadatos de las series DICOM para identificar las adquisiciones realizadas en el plano transversal o axial.
+
+    \item[Transformer / mecanismo de atención] Componente de aprendizaje profundo que pondera la relación entre distintas partes de la entrada; combinado con CNN mejora la captura de contexto en imágenes.
+
+    \item[Trazabilidad] Propiedad por la cual cada resultado puede vincularse con su origen: la imagen, la máscara, la estructura, el corte y la eventual corrección profesional que lo produjeron.
+
+    \item[U-Net] Arquitectura encoder-decoder con conexiones directas entre ambas partes, muy utilizada en segmentación de imágenes médicas por su buen desempeño con pocos datos.
+
+    \item[Vértebra] Cada uno de los huesos que forman la columna. La región lumbar tiene cinco, L1 a L5, y soporta gran parte del peso del tronco.
+
+    \item[Vóxel] Unidad mínima de una imagen tridimensional; es el equivalente al píxel, pero con volumen, ya que representa un pequeño bloque del espacio en lugar de un punto en un plano.
+
+    \item[Worklist] Listado de estudios disponibles para el profesional, con su estado de procesamiento y de revisión.
+
+    \item[Archivo .ima] Sufijo de archivo característico de las imágenes generadas por equipamiento Siemens, el cual mantiene plena equivalencia técnica con el estándar DICOM convencional (.dcm).
+
+    \item[510(k)] Vía regulatoria de la FDA (Estados Unidos) por la que un dispositivo médico demuestra ser sustancialmente equivalente a otro ya autorizado para poder comercializarse.
+
+\end{description}

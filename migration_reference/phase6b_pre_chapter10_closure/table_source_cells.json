@@ -1,0 +1,474 @@
+{
+  "tab:arch-componentes-funcionales": {
+    "idx": 481,
+    "caption": "Componentes funcionales del prototipo",
+    "rows": [
+      [
+        "Componente",
+        "Función principal"
+      ],
+      [
+        "Entrada y preprocesamiento",
+        "Cargar el estudio, preservar su información espacial y prepararlo para la inferencia"
+      ],
+      [
+        "Segmentación",
+        "Delimitar las estructuras anatómicas contempladas en cada plano mediante modelos de aprendizaje profundo"
+      ],
+      [
+        "Mediciones",
+        "Calcular valores geométricos derivados de máscaras visibles y trazables"
+      ],
+      [
+        "Visualización",
+        "Mostrar la imagen original con las máscaras superpuestas y sus resultados asociados"
+      ],
+      [
+        "Salida editable",
+        "Organizar los resultados en una plantilla revisable y un preinforme modificable y no diagnóstico"
+      ],
+      [
+        "Validación",
+        "Comparar máscaras contra anotaciones de referencia y complementar con revisión profesional"
+      ]
+    ],
+    "source_rows": 7,
+    "source_columns": 2
+  },
+  "tab:arch-decisiones-requerimientos": {
+    "idx": 485,
+    "caption": "",
+    "rows": [
+      [
+        "Requerimiento o necesidad",
+        "Implicancia técnica",
+        "Respuesta arquitectónica"
+      ],
+      [
+        "Carga de estudios de-identificados",
+        "El caso debe conservar identidad, plano y metadata sin almacenar datos personales innecesarios",
+        "Backend para registrar el estudio y Frontend para seleccionar los volúmenes."
+      ],
+      [
+        "Segmentación sagital y axial",
+        "Coexisten modelos con datasets, clases y artifacts diferentes",
+        "Registro por modelKey, ejecución por plano y agrupación bajo multiplanarRunId."
+      ],
+      [
+        "Revisión profesional",
+        "La salida automática no puede considerarse definitiva",
+        "Estados pendiente, aceptado, observado y descartado, con notas y auditoría."
+      ],
+      [
+        "Trazabilidad",
+        "Cada corrida debe poder explicarse y reproducirse",
+        "caseId, runId, multiplanarRunId, traceId, modelVersion, artifactHash y modos de inferencia."
+      ],
+      [
+        "Reapertura sin AI Module",
+        "Los resultados deben permanecer disponibles aunque el motor de IA esté apagado",
+        "Persistencia durable de contratos, mediciones y assets servidos por el Backend."
+      ],
+      [
+        "Navegación volumétrica",
+        "Un archivo MHA contiene múltiples cortes y el usuario debe poder recorrerlos",
+        "Catálogo de slices, previews persistidos, índice seleccionado y visor navegable."
+      ],
+      [
+        "No diagnóstico autónomo",
+        "El sistema debe asistir sin reemplazar el juicio profesional",
+        "humanReviewRequired, notClinicalDiagnosis y ausencia de conclusiones clínicas automáticas."
+      ],
+      [
+        "Actualización de modelos",
+        "Los checkpoints pueden evolucionar y exceder los límites de GitHub",
+        "Código en repositorios; artifacts y manifests en storage externo verificable."
+      ],
+      [
+        "Despliegue controlado",
+        "La infraestructura debe ser reproducible y limitar costos",
+        "Contenedores, variables de entorno, servicios separados y arquitectura objetivo en Google Cloud."
+      ]
+    ],
+    "source_rows": 10,
+    "source_columns": 3
+  },
+  "tab:arch-logica-capas": {
+    "idx": 490,
+    "caption": "",
+    "rows": [
+      [
+        "Capa",
+        "Tecnología",
+        "Responsabilidad principal"
+      ],
+      [
+        "Frontend",
+        "React, Vite y TypeScript",
+        "Autenticación visual, worklist, alta y consulta de estudios, workspace sagital–axial, visor de cortes, revisión, historial y diagnósticos técnicos."
+      ],
+      [
+        "Backend",
+        "Spring Boot y Java",
+        "Seguridad, reglas de negocio, persistencia, auditoría, proxy hacia IA, contratos canónicos, serving de assets y reapertura."
+      ],
+      [
+        "AI Module",
+        "Python y FastAPI",
+        "Registry de modelos, manifests, hashing, preprocesamiento, inferencia, reportes, catálogo volumétrico y generación de previews."
+      ],
+      [
+        "Runtime de inferencia",
+        "PyTorch",
+        "Reconstrucción de arquitecturas, carga de state_dict, model.eval(), torch.inference_mode() y predicción."
+      ],
+      [
+        "Persistencia",
+        "PostgreSQL",
+        "Usuarios, roles, estudios, corridas, revisiones, mediciones, artifacts y eventos de auditoría."
+      ],
+      [
+        "Storage de modelos y archivos",
+        "Storage externo controlado",
+        "Checkpoints, manifests, datasets y, en la arquitectura objetivo, volúmenes y assets durables."
+      ],
+      [
+        "Entorno experimental",
+        "Google Colab, Drive y notebooks",
+        "Entrenamiento, evaluación, generación de checkpoints y evidencia reproducible."
+      ]
+    ],
+    "source_rows": 8,
+    "source_columns": 3
+  },
+  "tab:arch-entidades-principales": {
+    "idx": 506,
+    "caption": "",
+    "rows": [
+      [
+        "Entidad",
+        "Descripción y atributos clave"
+      ],
+      [
+        "usuario",
+        "Cuenta del sistema. Atributos: id (PK), email, password_hash, estado_aprobacion, fecha_registro."
+      ],
+      [
+        "rol / usuario_rol",
+        "Roles ADMIN, DOCTOR y REVIEWER, asociados a usuarios mediante una tabla intermedia (relación muchos a muchos)."
+      ],
+      [
+        "sujeto",
+        "Referencia de-identificada del paciente. Atributos: subject_ref (PK). No almacena datos identificatorios."
+      ],
+      [
+        "estudio",
+        "Contenedor lógico de un caso. Atributos: study_id (PK), subject_ref (FK), creado_por (FK usuario), fecha, metadata."
+      ],
+      [
+        "corrida (run)",
+        "Ejecución de análisis por plano. Atributos: run_id (PK), study_id (FK), model_key (FK), plano, multiplanar_run_id, artifact_hash, requested/effective_inference_mode, trace_id, estado."
+      ],
+      [
+        "modelo / artifact",
+        "Modelo registrado y su artifact verificable. Atributos: model_key (PK), plano, version, artifact_hash, manifest_uri, arquitectura."
+      ],
+      [
+        "medicion",
+        "Valor geométrico derivado de una máscara. Atributos: id (PK), run_id (FK), estructura/label, plano, slice_index, valor, unidad, confidence, estado_revision."
+      ],
+      [
+        "revision",
+        "Decisión profesional sobre una corrida. Atributos: id (PK), run_id (FK), usuario_id (FK), estado (pendiente/aceptado/observado/rechazado/corregido), comentario, fecha."
+      ],
+      [
+        "asset",
+        "Archivo derivado servido bajo autorización. Atributos: id (PK), run_id (FK), rol (input/mask/overlay/…), content_type, hash, size, url."
+      ],
+      [
+        "slice_catalogo (P10.5)",
+        "Catálogo de cortes del volumen para el visor. Atributos: id (PK), run_id (FK), index, preview_asset, has_results."
+      ],
+      [
+        "evento_auditoria",
+        "Registro de trazabilidad. Atributos: id (PK), usuario_id (FK), entidad, accion, trace_id, timestamp."
+      ]
+    ],
+    "source_rows": 12,
+    "source_columns": 2
+  },
+  "tab:arch-red-seguridad": {
+    "idx": 530,
+    "caption": "",
+    "rows": [
+      [
+        "Origen",
+        "Destino",
+        "Mecanismo",
+        "Propósito"
+      ],
+      [
+        "Navegador",
+        "Frontend",
+        "HTTPS",
+        "Acceso a la interfaz."
+      ],
+      [
+        "Frontend",
+        "Backend",
+        "REST, JSON, JWT y X-Trace-Id",
+        "Operaciones de producto y trazabilidad."
+      ],
+      [
+        "Backend",
+        "AI Module",
+        "REST, JSON y X-Trace-Id",
+        "Inferencia, readiness, modelos y orquestación."
+      ],
+      [
+        "Backend",
+        "PostgreSQL",
+        "SQL/TLS según entorno",
+        "Persistencia transaccional."
+      ],
+      [
+        "AI Module",
+        "Storage",
+        "HTTPS o SDK autenticado",
+        "Descarga y verificación de models y manifests."
+      ]
+    ],
+    "source_rows": 6,
+    "source_columns": 4
+  },
+  "tab:arch-artifacts-modelos": {
+    "idx": 541,
+    "caption": "",
+    "rows": [
+      [
+        "Plano",
+        "Artifact principal",
+        "Función"
+      ],
+      [
+        "Sagital",
+        "sagittal_spider_multiclass_final_best.pt",
+        "Segmentación multiclase de estructuras sagitales."
+      ],
+      [
+        "Axial",
+        "axial_t2_alkafri_final_best.pt",
+        "Segmentación axial según la codificación del dataset complementario."
+      ]
+    ],
+    "source_rows": 3,
+    "source_columns": 3
+  },
+  "tab:arch-tecnologias": {
+    "idx": 547,
+    "caption": "",
+    "rows": [
+      [
+        "Tecnología",
+        "Rol",
+        "Justificación"
+      ],
+      [
+        "Spring Boot / Java",
+        "Backend de producto",
+        "Se utiliza como frontera de producto para concentrar autenticación, autorización, reglas de negocio, persistencia, auditoría y contratos públicos en un servicio independiente del runtime científico. Esta separación evita trasladar al Backend las dependencias propias del procesamiento y de los modelos de inteligencia artificial."
+      ],
+      [
+        "Python + FastAPI",
+        "Servicio IA",
+        "Se utiliza en el AI Module por su integración directa con PyTorch, SimpleITK y el código de preprocesamiento e inferencia. FastAPI permite exponer estas capacidades mediante una API HTTP interna consumida por el Backend, manteniendo desacoplado el runtime científico del resto del producto."
+      ],
+      [
+        "PyTorch",
+        "Entrenamiento e inferencia",
+        "Se mantiene como runtime porque los modelos y checkpoints del proyecto fueron entrenados, evaluados y registrados dentro de este ecosistema. Sustituirlo requeriría validar previamente la equivalencia de las salidas del nuevo runtime."
+      ],
+      [
+        "React + Vite + TypeScript",
+        "Frontend",
+        "Se utiliza para construir una interfaz web interactiva y modular. TypeScript aporta contratos tipados y React facilita la composición del visor, la worklist y los flujos de revisión. El Frontend consume exclusivamente el contrato público expuesto por el Backend."
+      ],
+      [
+        "PostgreSQL",
+        "Persistencia",
+        "Se utiliza por la necesidad de mantener integridad transaccional y relaciones consistentes entre usuarios, estudios, corridas, mediciones, revisiones y eventos de auditoría."
+      ],
+      [
+        "Docker",
+        "Portabilidad",
+        "Permite encapsular las dependencias y configuraciones de cada servicio, reproducir los entornos de ejecución y desplegar Backend y AI Module de manera desacoplada."
+      ],
+      [
+        "Google Colab + Drive",
+        "Experimentación",
+        "Se utilizan para entrenamiento, evaluación y conservación de la evidencia experimental y académica. No forman parte del runtime operativo del producto."
+      ],
+      [
+        "Google Cloud",
+        "Arquitectura objetivo",
+        "Se definió como plataforma objetivo por disponer de servicios administrados para cómputo, persistencia, almacenamiento y gestión operativa, manteniendo la separación entre componentes y permitiendo controlar los recursos asignados. Su implementación completa permanece planificada."
+      ]
+    ],
+    "source_rows": 9,
+    "source_columns": 3
+  },
+  "tab:arch-alternativas": {
+    "idx": 552,
+    "caption": "",
+    "rows": [
+      [
+        "Alternativa",
+        "Ventaja principal",
+        "Limitación o costo para el PFI",
+        "Decisión"
+      ],
+      [
+        "Python + FastAPI para Backend y AI Module",
+        "Reduce la heterogeneidad tecnológica y permite utilizar un único lenguaje en los servicios del lado servidor.",
+        "No elimina la necesidad de separar las responsabilidades de producto del runtime científico y requeriría trasladar o reimplementar capacidades de autenticación, autorización, persistencia, auditoría y reglas de negocio ya establecidas en el Backend.",
+        "No adoptada. FastAPI se mantiene como servicio especializado de IA."
+      ],
+      [
+        "Java para Backend e inferencia",
+        "Unifica el stack del lado servidor y reduce la cantidad de lenguajes utilizados.",
+        "El pipeline de entrenamiento e inferencia, los checkpoints y las dependencias de procesamiento científico del proyecto se encuentran integrados con el ecosistema Python, PyTorch y SimpleITK. Migrarlos introduciría complejidad sin aportar una ventaja funcional al alcance actual.",
+        "No adoptada. Java se mantiene en el Backend de producto."
+      ],
+      [
+        "Spring Boot para Backend y Python + FastAPI para AI Module",
+        "Permite utilizar en cada componente el ecosistema más adecuado a su responsabilidad y mantener una frontera explícita entre producto e inteligencia artificial.",
+        "Obliga a mantener dos stacks tecnológicos y contratos de integración entre ambos servicios.",
+        "Adoptada."
+      ],
+      [
+        "ONNX Runtime para inferencia",
+        "Podría desacoplar la ejecución de los modelos del runtime original de PyTorch y facilitar alternativas de despliegue.",
+        "Requiere convertir los modelos y verificar que las salidas sean equivalentes a las obtenidas con los checkpoints actualmente evaluados. Esa equivalencia no fue validada en esta etapa.",
+        "Diferida."
+      ]
+    ],
+    "source_rows": 5,
+    "source_columns": 4
+  },
+  "tab:arch-cloud-dimensionamiento": {
+    "idx": 569,
+    "caption": "",
+    "rows": [
+      [
+        "Componente",
+        "Escenario medido",
+        "CPU observada",
+        "RAM observada",
+        "GPU/VRAM",
+        "Criterio preliminar para despliegue"
+      ],
+      [
+        "Frontend",
+        "Navegación y serving containerizado",
+        "p95: 1,98 %; pico: 2,69 %",
+        "p95: 14,68 MiB; pico: 14,80 MiB",
+        "No aplica",
+        "Componente de baja demanda computacional; apto para hosting estático o un contenedor de recursos mínimos."
+      ],
+      [
+        "Backend",
+        "Reposo y recorrido E2E",
+        "p95: 7,67 %; pico: 33,40 %",
+        "p95: 267,50 MiB; pico: 306,60 MiB",
+        "No aplica",
+        "La medición muestra una demanda moderada y ampliamente inferior a una vCPU durante el recorrido evaluado; se debe conservar margen de memoria para el runtime Java y variaciones de carga."
+      ],
+      [
+        "AI Module",
+        "Modelos cargados e inferencia real",
+        "p95: 346,62 %; pico: 405,09 %",
+        "p95: 801,20 MiB; pico: 940,80 MiB",
+        "GPU no utilizada",
+        "Es el principal consumidor de cómputo. El p95 equivale aproximadamente al uso concurrente de 3,47 vCPU y el pico a 4,05 vCPU en el entorno medido, por lo que el dimensionamiento inicial debe priorizar capacidad de CPU y margen de memoria."
+      ],
+      [
+        "PostgreSQL",
+        "Persistencia durante recorrido E2E",
+        "p95: 4,13 %; pico: 30,81 %",
+        "p95: 37,19 MiB; pico: 37,37 MiB",
+        "No aplica",
+        "La carga observada fue baja para un único recorrido E2E; corresponde utilizar una instancia administrada básica para el prototipo y reevaluarla bajo carga concurrente."
+      ]
+    ],
+    "source_rows": 5,
+    "source_columns": 6
+  },
+  "tab:arch-interfaz-trazabilidad": {
+    "idx": 591,
+    "caption": "Relaci?n entre zonas de la interfaz, necesidades del relevamiento y requerimientos",
+    "rows": [
+      [
+        "Zona de la interfaz",
+        "Función",
+        "Necesidad",
+        "Requerimiento"
+      ],
+      [
+        "Worklist de estudios",
+        "Identificar casos disponibles, pendientes y revisados sin abrir cada uno.",
+        "N-07",
+        "HU-02"
+      ],
+      [
+        "Alta de estudio y carga",
+        "Asociar el volumen a una referencia de sujeto seudonimizada e informar las series compatibles detectadas.",
+        "N-09, N-11",
+        "HU-03, HU-04"
+      ],
+      [
+        "Visor con superposición conmutable",
+        "Comparar imagen original y máscara en el mismo encuadre.",
+        "N-01",
+        "HU-06"
+      ],
+      [
+        "Selector de plano y navegación por cortes",
+        "Recorrer el volumen conservando la relación entre resultado y corte de origen.",
+        "N-03, N-12",
+        "HU-07"
+      ],
+      [
+        "Panel de mediciones",
+        "Presentar cada valor junto con su estructura, plano y corte.",
+        "N-04",
+        "HU-08"
+      ],
+      [
+        "Controles de revisión",
+        "Aceptar, observar, corregir o descartar cada resultado desde el punto en que se muestra.",
+        "N-02, N-05",
+        "HU-09"
+      ],
+      [
+        "Preinforme editable",
+        "Reunir estructuras, mediciones, observaciones y estado de revisión en una salida modificable.",
+        "N-04, N-08",
+        "HU-09"
+      ],
+      [
+        "Estados vacíos y degradados",
+        "Informar la ausencia de plano, secuencia o resultado sin completar la información faltante.",
+        "N-11",
+        "HU-11"
+      ],
+      [
+        "Historial de corridas",
+        "Reabrir un estudio ya procesado sin repetir la inferencia.",
+        "N-08, N-10",
+        "HU-10"
+      ]
+    ],
+    "source_rows": 10,
+    "source_columns": 4
+  }
+}

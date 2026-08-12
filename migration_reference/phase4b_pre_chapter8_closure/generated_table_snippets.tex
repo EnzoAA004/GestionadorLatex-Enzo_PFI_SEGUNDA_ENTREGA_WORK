@@ -1,0 +1,128 @@
+%% BEGIN tab:user-research-hallazgos
+{\small
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{p{0.24\textwidth} p{0.38\textwidth} p{0.30\textwidth}}
+\caption{Matriz de hallazgos}\label{tab:user-research-hallazgos}\\
+\hline
+\textbf{Hallazgo} & \textbf{Evidencia observada} & \textbf{Impacto en el proyecto} \\
+\hline
+\endfirsthead
+\caption[]{Matriz de hallazgos (continuaci?n)}\\
+\hline
+\textbf{Hallazgo} & \textbf{Evidencia observada} & \textbf{Impacto en el proyecto} \\
+\hline
+\endhead
+\hline
+\endfoot
+Hallazgo 1 — La IA debe asistir, no diagnosticar de forma autónoma. & EN-01 a EN-05 aceptan el valor de la IA como apoyo, pero mantienen la interpretación y la decisión final en el profesional. & conservar un enfoque human-in-the-loop, con resultados revisables, editables y explícitamente no diagnósticos. \\
+Hallazgo 2 — El plano axial es necesario para una evaluación lumbar más completa. & EN-01 indicó que el sagital aislado deja incompleta la evaluación; EN-02 remarcó la importancia de revisar todos los planos; EN-03 recomendó considerar información axial; EN-04 señaló que el axial resulta especialmente importante para lateralidad y relación con raíces y neuroforámenes. & incorporar el plano axial como módulo complementario sin desplazar el núcleo sagital ni afirmar correspondencia tridimensional entre datasets independientes. \\
+Hallazgo 3 — La revisión real se realiza sobre múltiples imágenes, secuencias y planos. & los profesionales describieron recorridos que combinan sagital T1, sagital T2, STIR, axial y, según el caso, coronal u otras secuencias. EN-04 aclaró además que en la práctica puede haber protocolos incompletos por movimiento, claustrofobia o tolerancia del paciente. & evitar reducir conceptualmente el estudio a una única imagen; identificar las secuencias disponibles y comunicar de forma explícita cuando falta un plano o una serie esperada. \\
+Hallazgo 4 — La visualización superpuesta aumenta la confianza. & EN-01 pidió poder ver dónde el sistema identifica el hallazgo; EN-03 valoró una salida visual verificable; EN-04 indicó que lo importante es observar la segmentación ya realizada como guía. & priorizar imagen original, máscaras o contornos superpuestos, control de visibilidad y asociación con el resultado correspondiente. \\
+Hallazgo 5 — Las mediciones aportan valor cuando son trazables y no sobrecargan la interfaz. & se mencionaron canal, forámenes, discos, área, diámetros, volumen, alineación, ángulos y medidas en distintos ejes. EN-04 destacó las «mediciones puras» y la superposición de imágenes como funciones que podrían liberar trabajo. & asociar cada medición con imagen, estructura, máscara, plano, corte, unidad y estado de revisión, presentándola de manera progresiva y no invasiva. \\
+Hallazgo 6 — La corrección o revisión manual es necesaria. & los profesionales plantearon aceptar, corregir, observar o descartar resultados automáticos. EN-04 reforzó que usaría el sistema como referencia inicial y luego revisaría el estudio personalmente. & exigir una acción profesional explícita antes de considerar revisado un resultado. \\
+Hallazgo 7 — El falso negativo y la infravaloración son riesgos críticos. & EN-02 y EN-03 destacaron el peligro de omitir lesiones relevantes; EN-01 señaló el riesgo de sobredimensionar o infravalorar hallazgos. EN-04 ubicó la responsabilidad final en el profesional que informa. & combinar métricas técnicas, comunicación de incertidumbre y revisión obligatoria; no presentar el sistema como garantía de ausencia de patología. \\
+Hallazgo 8 — El sistema no debe agregar fricción. & EN-02 advirtió sobre herramientas que agregan pasos o tiempo; EN-04 definió la utilidad en términos de un «alivianador» y pidió que no se muestre información de más. & priorizar simplicidad, tiempos razonables, revelado progresivo de información y mínima carga operativa. \\
+Hallazgo 9 — El alcance debe acotarse. & EN-01 y EN-03 recomendaron concentrarse en estructuras o problemas prioritarios; EN-04 sugirió orientarse a un área y comenzar la prueba con un centro o grupo reducido. & mantener foco en región lumbar adulta, segmentación, mediciones, visualización y revisión, sin prometer diagnóstico diferencial amplio. \\
+Hallazgo 10 — La comparación con estudios previos posee valor potencial alto. & La mayoría de los entrevistados valoró disponer de estudios anteriores. EN-04 la consideró útil especialmente para seguimiento; se mantiene como evolución de producto. & conservar una referencia de sujeto de-identificada y diseñar la evolución longitudinal como comparación descriptiva futura, sin afirmar porcentajes clínicos no validados. \\
+Hallazgo 11 — La identificación correcta del nivel anatómico condiciona la utilidad del resultado automático. & Señalado principalmente por EN-05 (neurorradiólogo): la utilidad del resultado depende de ubicar correctamente el nivel, y el contexto clínico condiciona su interpretación. & reforzar la localización por nivel, la trazabilidad del hallazgo hacia su nivel y corte de origen, y la revisión profesional obligatoria de la salida. \\
+\hline
+\end{longtable}
+}
+%% END tab:user-research-hallazgos
+
+%% BEGIN tab:user-research-diferidos
+{\small
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{p{0.25\textwidth} p{0.37\textwidth} p{0.30\textwidth}}
+\caption{Aspectos no consolidados o diferidos}\label{tab:user-research-diferidos}\\
+\hline
+\textbf{Aspecto no consolidado o diferido} & \textbf{Lectura del relevamiento} & \textbf{Decisión} \\
+\hline
+\endfirsthead
+\caption[]{Aspectos no consolidados o diferidos (continuaci?n)}\\
+\hline
+\textbf{Aspecto no consolidado o diferido} & \textbf{Lectura del relevamiento} & \textbf{Decisión} \\
+\hline
+\endhead
+\hline
+\endfoot
+Diagnóstico diferencial automático & Aparece como posibilidad de valor, pero depende de clínica, antecedentes y datos no incluidos en el MVP. & Diferir; no forma parte del núcleo del producto. \\
+Lesiones medulares, tumorales, infecciosas u oncológicas & Son relevantes y pueden ser críticas, pero requieren datasets, secuencias y validación específicos. & Documentar como riesgo y posible extensión; no prometer detección amplia. \\
+Comparación con estudios previos & Fue valorada por varios de los entrevistados (EN-01 a EN-04). & Mantener como épica futura; comenzar por comparación descriptiva de mediciones y advertencias de comparabilidad, no por scoring clínico. \\
+Ejecución en nube & Se considera compatible con el flujo y útil para evitar cómputo local pesado. & Evaluarla en arquitectura, privacidad, costos, disponibilidad y seguridad. Google Cloud se documenta como arquitectura objetivo. \\
+Protocolos incompletos & EN-04 señaló que no siempre se dispone de todas las secuencias o planos. & Validar inputs, informar faltantes y evitar inventar resultados para datos ausentes. \\
+Alcance degenerativo frente a alcance amplio & Se recomienda acotar a región lumbar adulta, patología discal, estructuras y mediciones prioritarias. & Mantener foco lumbar y separar hallazgos estructurales de conclusiones clínicas. \\
+Procesamiento de series o modalidades no soportadas & El relevamiento fundamenta la revisión del estudio completo; la compatibilidad de una serie con un modelo depende de su plano y ponderación. & No ejecutar inferencia automática fuera del alcance validado del modelo; mantener esas series disponibles para revisión visual (view-only). La segmentación full-series se aplica a las series y modalidades soportadas. \\
+\hline
+\end{longtable}
+}
+%% END tab:user-research-diferidos
+
+%% BEGIN tab:user-persona
+{\small
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{p{0.25\textwidth} p{0.67\textwidth}}
+\caption{User persona preliminar}\label{tab:user-persona}\\
+\hline
+\textbf{Atributo} & \textbf{Detalle} \\
+\hline
+\endfirsthead
+\caption[]{User persona preliminar (continuaci?n)}\\
+\hline
+\textbf{Atributo} & \textbf{Detalle} \\
+\hline
+\endhead
+\hline
+\endfoot
+Usuario principal & Médico/a radiólogo/a o profesional de diagnóstico por imágenes con práctica habitual en resonancia magnética lumbar. \\
+Contexto de uso & Revisión de estudios de RM lumbar en centros de diagnóstico, instituciones hospitalarias o entornos especializados, con una carga de trabajo que puede incluir numerosos estudios por jornada. \\
+Objetivos & Revisar estudios de manera eficiente; identificar estructuras y relaciones anatómicas relevantes; correlacionar planos y secuencias; apoyarse en mediciones trazables; comparar con estudios previos cuando estén disponibles; mantener control profesional sobre la salida. \\
+Frustraciones & Alta carga de estudios; riesgo de omitir hallazgos; mediciones manuales repetitivas; protocolos incompletos; herramientas que agregan tiempo; resultados automáticos que no muestran su origen; pantallas sobrecargadas. \\
+Necesidades & Visualización clara de la imagen original; navegación entre cortes y planos disponibles; máscaras o contornos superpuestos; corrección y revisión manual; mediciones asociadas a estructuras y cortes; advertencias ante datos faltantes; validación con expertos; salida estructurada editable. \\
+Criterio de confianza & El sistema debe mostrar de dónde surge cada resultado, permitir contrastarlo con la imagen y habilitar su aceptación, observación, corrección o descarte. \\
+Límite esperado & La herramienta no debe emitir diagnóstico autónomo ni reemplazar el criterio médico. \\
+\hline
+\end{longtable}
+}
+%% END tab:user-persona
+
+%% BEGIN tab:user-research-necesidades
+{\small
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{p{0.09\textwidth} p{0.57\textwidth} p{0.26\textwidth}}
+\caption{Necesidades detectadas}\label{tab:user-research-necesidades}\\
+\hline
+\textbf{ID} & \textbf{Necesidad detectada} & \textbf{Origen} \\
+\hline
+\endfirsthead
+\caption[]{Necesidades detectadas (continuaci?n)}\\
+\hline
+\textbf{ID} & \textbf{Necesidad detectada} & \textbf{Origen} \\
+\hline
+\endhead
+\hline
+\endfoot
+N-01 & Visualizar máscaras o contornos superpuestos sobre la RM original. & EN-01, EN-03, EN-04. \\
+N-02 & Permitir aceptar, observar, corregir o descartar resultados automáticos. & EN-01, EN-02, EN-03, EN-04. \\
+N-03 & Revisar conjuntamente la información del plano sagital y del axial de manera trazable, utilizando correspondencia geométrica únicamente cuando pueda verificarse. & EN-01, EN-02, EN-03, EN-04. \\
+N-04 & Obtener mediciones trazables por estructura, plano, corte y máscara. & EN-01, EN-02, EN-03, EN-04, EN-05. \\
+N-05 & Evitar diagnóstico autónomo y mantener revisión profesional. & EN-01, EN-02, EN-03, EN-04, EN-05. \\
+N-06 & Validar resultados con especialistas y no solo con métricas técnicas. & EN-01, EN-02, EN-03, EN-04, EN-05. \\
+N-07 & Mantener un flujo simple que no agregue tiempo innecesario. & EN-02, EN-04. \\
+N-08 & Registrar errores, discrepancias, correcciones u observaciones para mejorar el sistema. & EN-01, EN-02, EN-03. \\
+N-09 & Acotar el alcance a región lumbar adulta y hallazgos estructurales prioritarios. & EN-01, EN-03, EN-04. \\
+N-10 & Evaluar comparación con estudios previos como extensión futura. & EN-01, EN-02, EN-03, EN-04. \\
+N-11 & Informar de manera explícita la ausencia de secuencias, planos o resultados, sin completar artificialmente la información faltante. & EN-04 y criterio de seguridad derivado. \\
+N-12 & Navegar el conjunto de imágenes disponible y conservar la relación entre resultado y corte de origen. & síntesis EN-01–EN-05 y hallazgo de navegación. \\
+\hline
+\end{longtable}
+}
+%% END tab:user-research-necesidades

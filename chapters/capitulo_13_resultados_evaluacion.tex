@@ -1,0 +1,154 @@
+\chapter{13. Resultados de la evaluación técnica}
+\label{chap:resultados-evaluacion}
+
+\section{Propósito y alcance de la evaluación}
+
+Este capítulo reúne los resultados obtenidos al evaluar los modelos de segmentación contra las anotaciones de referencia de sus conjuntos de origen. Su función es responder, con valores concretos, al objetivo específico que compromete la evaluación técnica del prototipo mediante métricas de segmentación.
+
+El alcance de lo que aquí se informa está acotado y conviene delimitarlo antes de presentar cifra alguna. Se evalúa la coincidencia entre las máscaras que produce cada modelo y las anotaciones de referencia del conjunto correspondiente. No se evalúa la exactitud clínica de las mediciones derivadas, para lo cual sería necesario un conjunto de mediciones realizadas por profesionales sobre los mismos estudios, ni la utilidad del prototipo en un flujo de trabajo real, que corresponde a la validación cualitativa prevista para la instancia siguiente.
+
+La distinción importa porque una segmentación con buen desempeño métrico no garantiza que las mediciones derivadas de ella sean correctas, del mismo modo que una medición correcta no implica que la interpretación clínica que se haga de ella lo sea. El Capítulo 7 desarrolla esta separación en términos conceptuales; aquí se sostiene en la presentación de los resultados.
+
+\section{Protocolo de evaluación}
+
+La evaluación se realiza sobre una partición retenida que no interviene en el entrenamiento ni en la selección del modelo. La separación se establece a nivel de paciente y no de corte ni de serie, de modo que ninguna imagen de un paciente presente en el conjunto de entrenamiento aparezca en el de prueba. Esta condición es determinante en imagen médica: cortes contiguos de un mismo volumen guardan una similitud muy alta, y una separación por corte produciría una estimación optimista que no describe el comportamiento sobre pacientes nuevos.
+
+{\scriptsize
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.20\textwidth} >{\raggedright\arraybackslash}p{0.17\textwidth} >{\raggedright\arraybackslash}p{0.20\textwidth} >{\raggedright\arraybackslash}p{0.18\textwidth} >{\raggedright\arraybackslash}p{0.18\textwidth}}
+\caption{Partición de los conjuntos de datos empleados en el entrenamiento y la evaluación.}\label{tab:res-particion-datasets}\\
+\hline
+\textbf{Conjunto} & \textbf{Unidad de separación} & \textbf{Entrenamiento} & \textbf{Validación} & \textbf{Prueba} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Conjunto} & \textbf{Unidad de separación} & \textbf{Entrenamiento} & \textbf{Validación} & \textbf{Prueba} \\
+\hline
+\endhead
+\hline
+\endfoot
+SPIDER, plano sagital & Paciente & 152 pacientes, 5.271 cortes & 33 pacientes, 1.174 cortes & 33 pacientes, 1.218 cortes \\
+Sudirman y Al-Kafri, plano axial & Paciente & Pendiente de recuperación & 81 casos evaluables & 102 casos evaluables \\
+\hline
+\end{longtable}
+}
+
+La selección de cortes del conjunto sagital se realiza mediante una distribución lineal de hasta dieciséis cortes por volumen, conservando una proporción de cortes sin estructura anotada del veinte por ciento y un máximo de cuatro cuando el volumen no contiene ninguna. El criterio evita que el modelo se entrene únicamente sobre cortes centrales, donde las estructuras son más nítidas.
+
+La trazabilidad del entrenamiento sagital se conserva mediante identificadores criptográficos del índice de entrenamiento, del código de la arquitectura y del commit del repositorio, junto con la referencia al cuaderno que produjo el artifact.
+
+En el caso axial, la separación a nivel de paciente está confirmada en el manifest del artifact, pero los conteos de la partición de entrenamiento no fueron publicados en él. El proyecto conserva dos particiones axiales que no coinciden: la congelada en una etapa anterior y la derivada por el cuaderno que produjo el artifact en uso. La recuperación de los conteos definitivos permanece como tarea pendiente y se declara como tal, en lugar de informar cifras de una partición que no corresponde al modelo evaluado.
+
+\section{Resultados de segmentación}
+
+{\scriptsize
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.20\textwidth} >{\raggedright\arraybackslash}p{0.27\textwidth} >{\raggedright\arraybackslash}p{0.12\textwidth} >{\raggedright\arraybackslash}p{0.16\textwidth} >{\raggedright\arraybackslash}p{0.18\textwidth}}
+\caption{Coeficiente Dice sobre la partición retenida, por modelo.}\label{tab:res-dice-modelos}\\
+\hline
+\textbf{Modelo} & \textbf{Clases evaluadas} & \textbf{Dice macro} & \textbf{Umbral del proyecto} & \textbf{Resultado} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Modelo} & \textbf{Clases evaluadas} & \textbf{Dice macro} & \textbf{Umbral del proyecto} & \textbf{Resultado} \\
+\hline
+\endhead
+\hline
+\endfoot
+Sagital, SPIDER & Vértebras, canal y discos, sin fondo & 0,893 & 0,70 & Supera el umbral \\
+Axial, Sudirman y Al-Kafri & Cuatro estructuras y dos fondos & 0,679 & 0,70 & No alcanza el umbral \\
+Axial, excluyendo el fondo del conjunto de origen & Cuatro estructuras y un fondo & 0,811 & 0,70 & Supera el umbral \\
+\hline
+\end{longtable}
+}
+
+El valor informado corresponde al promedio macro del coeficiente Dice, es decir al promedio de los coeficientes por clase, que otorga el mismo peso a cada estructura con independencia de su tamaño. El criterio es más exigente que un promedio ponderado por número de píxeles, bajo el cual las estructuras pequeñas quedarían enmascaradas por las grandes.
+
+% CROSS_REFERENCE_MAPPING_REQUIRED
+% CROSS_REFERENCE_NUMBERING_REVIEW_REQUIRED
+La diferencia entre las dos lecturas del modelo axial requiere explicación, porque es de una magnitud considerable y no responde a un cambio en el modelo sino en el conjunto de clases sobre el que se promedia. Según establece la Tabla 15.3, el modelo axial distingue seis clases, de las cuales dos corresponden a fondo. Una de ellas, la que designa la región exterior al paciente en el conjunto de origen, obtiene un coeficiente Dice de 0,15 y arrastra el promedio macro cuando se la incluye entre las clases de primer plano.
+
+El desempeño del modelo sobre las cuatro estructuras anatómicas que efectivamente interesan al proyecto, disco intervertebral, elemento posterior, saco tecal y región anteroposterior, es de 0,811. Ese es el valor que describe la capacidad de segmentación anatómica del módulo. El valor de 0,679 describe el promedio de un conjunto que incluye una clase de fondo, y se informa porque es el que el umbral evalúa.
+
+\section{Umbral de calidad y estado del artifact axial}
+
+El proyecto estableció un umbral de 0,70 sobre el coeficiente Dice macro de primer plano como condición para promover un artifact a la categoría de baseline técnico. El umbral se acompaña de tres condiciones adicionales no configurables: la partición retenida debe estar separada a nivel de paciente, el informe debe reportar de forma explícita el desempeño sobre la clase de fondo del conjunto de origen, y debe incluir la intersección sobre unión además del coeficiente Dice. La generación de una partición nueva requiere además una habilitación manual.
+
+Aplicado al modelo axial, el umbral no se alcanzó en su lectura de primer plano completo. El artifact quedó registrado como candidato por debajo del umbral de calidad y no fue promovido a baseline técnico. El valor del umbral no se modificó para acomodar el resultado.
+
+Esta decisión merece explicitarse porque describe el papel que el control cumple en el proyecto. Un umbral que se ajusta cuando un modelo no lo alcanza no ejerce ninguna función de control; su utilidad reside precisamente en registrar los casos en que no se supera. El módulo axial, en consecuencia, se documenta como componente complementario evaluado y no como baseline consolidado, y esa condición se refleja en el estado de las capacidades del Capítulo 11.
+
+Corresponde señalar que el criterio del umbral es discutible en un aspecto concreto: promediar una clase de fondo junto con las estructuras anatómicas penaliza al modelo por una clase que ninguna medición utiliza. La revisión de ese criterio, o su sustitución por el promedio sobre estructuras anatómicas exclusivamente, es una de las tareas previstas para la instancia siguiente.
+
+\section{Advertencia sobre la partición de prueba axial}
+
+La partición de prueba del conjunto axial había sido evaluada previamente durante el desarrollo de una versión anterior del mismo modelo. La evaluación que aquí se informa es, por lo tanto, comparativa respecto de esa versión y no constituye una validación sobre datos enteramente no observados.
+
+La advertencia se registra en el manifest del artifact y el cuaderno de entrenamiento incorpora una restricción en tiempo de ejecución que impide reevaluar la partición retenida sin una confirmación explícita. Se declara aquí porque omitirla presentaría el resultado como más independiente de lo que es.
+
+\section{Verificación por contraste de las mediciones derivadas}
+
+Las mediciones derivadas de las máscaras no cuentan con una validación formal contra mediciones realizadas por profesionales, que requeriría un conjunto anotado específicamente para ese fin y forma parte del trabajo previsto. Durante el desarrollo se aplicó, en cambio, una verificación por contraste con rangos conocidos, cuyo alcance es más limitado pero permitió detectar errores de método que las métricas de segmentación no revelan.
+
+{\scriptsize
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.27\textwidth} >{\raggedright\arraybackslash}p{0.20\textwidth} >{\raggedright\arraybackslash}p{0.27\textwidth} >{\raggedright\arraybackslash}p{0.20\textwidth}}
+\caption{Verificación por contraste de las mediciones sobre el estudio de referencia.}\label{tab:res-contraste-mediciones}\\
+\hline
+\textbf{Medición} & \textbf{Valor obtenido} & \textbf{Referencia de contraste} & \textbf{Lectura} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Medición} & \textbf{Valor obtenido} & \textbf{Referencia de contraste} & \textbf{Lectura} \\
+\hline
+\endhead
+\hline
+\endfoot
+Diámetro anteroposterior del canal, mediana & 13,1 mm & Rango compatible con el saco tecal lumbar & Consistente \\
+Diámetro anteroposterior por nivel, de T11-T12 a L4-L5 & 13,1 · 14,2 · 13,1 · 12,0 · 9,8 · 12,0 mm & Descenso esperable con un valor menor aislado & Consistente, con un valor menor en L3-L4 \\
+Suma de ángulos segmentarios de L1 a L5 & 36 grados & Lordosis lumbar habitual entre 40 y 60 grados & Del mismo orden, por debajo del rango \\
+\hline
+\end{longtable}
+}
+
+Este procedimiento no equivale a una validación. Un contraste con rangos poblacionales permite descartar valores manifiestamente incompatibles, pero no establece la exactitud de una medición individual. Su utilidad durante el desarrollo fue detectar tres errores de método cuya magnitud se documenta en la sección 11.5, que las métricas de segmentación no habrían señalado, dado que la máscara era correcta y el error residía en cómo se medía sobre ella.
+
+\section{Una medición implementada y no publicada}
+
+El sistema calcula el desplazamiento entre cuerpos vertebrales contiguos, hallazgo estructural frecuente en la evaluación lumbar. Esa medición está implementada y se decidió no exponerla al usuario. El fundamento de la decisión es metodológico y se sostiene en valores medidos.
+
+La medición depende en su totalidad de la ubicación de un único punto, la esquina posterior del platillo vertebral, que es precisamente la región donde la segmentación presenta menor precisión. Dos procedimientos igualmente razonables para derivar ese punto, uno a partir del eje de ancho del cuerpo vertebral y otro a partir del borde de la máscara, producen resultados que difieren hasta en 17 milímetros sobre el mismo nivel: 7,30 frente a 24,06 milímetros entre la primera y la segunda vértebra lumbar, y 6,64 frente a 20,78 entre la segunda y la tercera. Con una dispersión de ese orden, cualquiera de los dos valores resulta arbitrario.
+
+El contraste con el ángulo segmentario, que sí se publica con carácter experimental, no reside en el método sino en la posibilidad de verificación. El ángulo pudo contrastarse contra un rango poblacional conocido, según se indica en la sección anterior. Para el desplazamiento vertebral no existe un contraste equivalente sin un conjunto de estudios con el desplazamiento medido por un profesional.
+
+La decisión se documenta porque describe un criterio que el proyecto aplica de forma general: una medición se publica cuando puede verificarse, y no cuando puede calcularse.
+
+\section{Limitaciones de la evaluación}
+
+Corresponde declarar seis limitaciones que acotan el alcance de los resultados presentados.
+
+\begin{itemize}
+\item La evaluación mide coincidencia con anotaciones de referencia, no exactitud clínica. Una máscara que coincide con la anotación reproduce también los criterios y los errores del anotador.
+\item Los conteos de la partición de entrenamiento del módulo axial no están publicados y su recuperación permanece pendiente.
+\item La partición de prueba axial fue evaluada previamente, de modo que el resultado es comparativo y no independiente.
+\item Las mediciones no cuentan con validación contra mediciones profesionales, solo con verificación por contraste sobre un estudio de referencia.
+\item No se informan métricas de distancia como la distancia de Hausdorff en su percentil 95, definidas en el Capítulo 7. Su cálculo está previsto para la instancia siguiente y aportaría información sobre la precisión del contorno que el coeficiente Dice no captura en estructuras de tamaño considerable.
+\item La revisión cualitativa profesional sobre el producto integrado no se ha realizado.
+\end{itemize}
+
+\section{Conclusión del capítulo}
+
+El módulo sagital alcanza un coeficiente Dice macro de 0,893 sobre una partición retenida separada a nivel de paciente, supera el umbral establecido y se documenta como baseline técnico del prototipo. El módulo axial alcanza 0,811 sobre las estructuras anatómicas y 0,679 cuando se incluye la clase de fondo del conjunto de origen; bajo el criterio vigente no supera el umbral, y su artifact permanece registrado como candidato.
+
+Los resultados sostienen que la segmentación de estructuras lumbares en el plano sagital es viable con los datos y la arquitectura empleados, y que el módulo axial requiere trabajo adicional antes de considerarse consolidado. Ninguno de los dos resultados autoriza afirmaciones sobre desempeño clínico, que dependen de una validación que este trabajo no realiza y declara como fuera de su alcance.
+
+El aporte de este capítulo no reside únicamente en las cifras. Reside también en documentar un control de calidad que se aplicó y no se superó, una partición de prueba cuya independencia es parcial, una verificación de mediciones que no equivale a validación y una medición que se decidió no publicar. Un prototipo académico se evalúa por la correspondencia entre lo que afirma y lo que puede demostrar, y esa correspondencia exige informar también lo que no funcionó como se esperaba.

@@ -1,0 +1,391 @@
+\chapter{Diseño de la solución, arquitectura y selección tecnológica}
+\label{chap:diseno-arquitectura}
+
+\section{Propósito y enfoque arquitectónico}
+
+Este capítulo traduce los requerimientos del capítulo anterior en una arquitectura concreta, organizada en tres repositorios desacoplados que colaboran mediante contratos HTTP explícitos, persistencia, trazabilidad distribuida y revisión profesional obligatoria. La separación entre experiencia de usuario, lógica de producto y procesamiento especializado es estricta por diseño, y el sistema no emite diagnóstico autónomo ni considera aceptada una salida sin revisión humana.
+
+La documentación sigue el modelo de vistas «4+1» de Kruchten [38], que organiza la descripción en cinco vistas complementarias: lógica, de procesos, de desarrollo, física y de escenarios. Cada una atiende las inquietudes de distintos interesados y, en conjunto, permite verificar que la arquitectura satisface los requerimientos sin repetir la misma información desde perspectivas superpuestas.
+% BIBLIOGRAPHY_MAPPING_REQUIRED
+
+% FIGURE_PENDING_MIGRATION
+% DOCX_FIGURE_NUMBER: Figura 10.1
+% DOCX_CAPTION: Diagrama de contexto del sistema. Fuente: elaboración propia.
+% WORD_PARAGRAPH_POSITION: 477
+% DRAWING_COUNT: 1
+% RELATIONSHIP_ID: rId13
+% MEDIA_FILE: word/media/image9.png
+% FIGURE_TYPE: ARCHITECTURE_DIAGRAM
+% LEGACY_ASSET_MATCH: NO_LEGACY_MATCH
+% STRUCTURE_REVIEW_REQUIRED
+% SOURCE_NUMBERING_GAP: 10.2
+% DOCX_INLINE_TEXT_AFTER_CAPTION: 10.2 Visión general del flujo
+
+El prototipo recibe un estudio de resonancia magnética lumbar que puede incluir el plano sagital, el axial o ambos, y lo recorre en seis etapas. La entrada se carga y se prepara mediante normalización de intensidades y ajuste de formato. La segmentación genera máscaras para las estructuras contempladas en cada plano. El postprocesamiento organiza esas máscaras, las asocia a un nivel anatómico cuando resulta posible y calcula los valores geométricos. La visualización superpone las máscaras sobre la imagen original. La revisión profesional permite aceptar, corregir, observar o descartar cada resultado. La salida editable reúne estructuras, mediciones, unidades, observaciones y estado de revisión, e incluye un preinforme automático revisable.
+
+% TABLE_PENDING_MIGRATION
+% DOCX_TABLE_NUMBER: Tabla 10.1
+% DOCX_TABLE_TITLE: Componentes funcionales del prototipo.
+% TABLE_ROLE: COMPONENT_RESPONSIBILITY
+% ROWS: 7
+% COLUMNS: 2
+% MERGED_CELLS: NO
+% COMPLEXITY: MEDIUM
+
+El prototipo opera bajo un enfoque de humano en el circuito: el sistema propone segmentaciones y mediciones, y el profesional conserva la revisión final. Esa condición es necesaria porque las máscaras pueden contener errores, las mediciones requieren contexto y el alcance del proyecto no contempla diagnóstico autónomo. El resultado esperado no se mide únicamente por una métrica de segmentación sino por la coherencia del flujo completo, desde la imagen de entrada hasta la salida revisada. El fundamento conceptual de este enfoque se desarrolla en la sección 7.11 y su implementación en la sección 11.8.
+% CROSS_REFERENCE_MAPPING_REQUIRED
+% CROSS_REFERENCE_MAPPING_REQUIRED
+
+\section{Decisiones arquitectónicas derivadas de los requerimientos}
+
+Las decisiones principales se derivan de las necesidades de carga, segmentación, visualización, corrección, trazabilidad, seguridad y control profesional. El diseño evita concentrar todas las responsabilidades en una aplicación monolítica y asigna cada capacidad a la capa tecnológica más adecuada.
+
+% TABLE_PENDING_MIGRATION
+% DOCX_TABLE_NUMBER: no visible en cuerpo del capítulo
+% DOCX_TABLE_TITLE: Decisiones arquitectónicas derivadas de los requerimientos
+% TABLE_ROLE: ARCHITECTURAL_DECISION
+% ROWS: 10
+% COLUMNS: 3
+% MERGED_CELLS: NO
+% COMPLEXITY: HIGH
+
+\section{Vista lógica}
+
+La vista lógica describe la estructura funcional del sistema: sus componentes principales, el modelo de datos y las clases del dominio.
+
+\subsection{Arquitectura lógica consolidada}
+
+La arquitectura se organiza en capas desacopladas. El navegador consume el Frontend; el Frontend se comunica exclusivamente con el Backend de producto; el Backend centraliza autenticación, autorización, persistencia, auditoría, serving de assets y comunicación con el AI Module; y el AI Module encapsula la lógica Python, la gestión de modelos, el runtime PyTorch y la orquestación de inferencia.
+
+% TABLE_PENDING_MIGRATION
+% DOCX_TABLE_NUMBER: no visible en cuerpo del capítulo
+% DOCX_TABLE_TITLE: Arquitectura lógica consolidada
+% TABLE_ROLE: COMPONENT_RESPONSIBILITY
+% ROWS: 8
+% COLUMNS: 3
+% MERGED_CELLS: NO
+% COMPLEXITY: HIGH
+
+Esta separación permite desplegar, probar y evolucionar cada módulo con su tecnología natural. También reduce el riesgo de que una modificación del modelo obligue a recompilar la interfaz o que la lógica clínica-asistiva quede mezclada con detalles internos de PyTorch.
+
+La Figura 12.2 muestra la separación entre Frontend, Backend, AI Module, runtime PyTorch, persistencia y almacenamiento de artifacts.
+% CROSS_REFERENCE_NUMBERING_REVIEW_REQUIRED
+
+% FIGURE_PENDING_MIGRATION
+% DOCX_FIGURE_NUMBER: Figura 10.2
+% DOCX_CAPTION: Arquitectura general por componentes. Fuente: elaboración propia.
+% WORD_PARAGRAPH_POSITION: 493
+% DRAWING_COUNT: 1
+% RELATIONSHIP_ID: rId14
+% MEDIA_FILE: word/media/image12.png
+% FIGURE_TYPE: COMPONENT_DIAGRAM
+% LEGACY_ASSET_MATCH: NO_LEGACY_MATCH
+% STRUCTURE_REVIEW_REQUIRED
+% DOCX_INLINE_TEXT_AFTER_CAPTION: 10.3.2 Arquitectura volumétrica y visualización de secciones.
+
+El sistema ingesta el estudio como DICOM completo, identifica las series y las clasifica por plano y ponderación; los formatos MHA y NIfTI se conservan como compatibilidad técnica. El contrato volumétrico define por serie el plano, el identificador, la cantidad de cortes, el corte seleccionado, el eje, las dimensiones nativa y normalizada, el espaciado y un catálogo en el que cada corte puede asociarse con una vista previa, un indicador de resultados y, cuando corresponda, superposición, puntos de referencia y mediciones.
+
+La responsabilidad se distribuye entre las tres capas: el módulo de inteligencia artificial lee el volumen completo, genera una vista previa por corte y marca los cortes con resultados; el backend persiste volumen, catálogo y vistas previas, y publica los accesos autorizados, de modo que la reapertura funciona con el módulo de inferencia apagado; el frontend presenta el recorrido por cortes con teclado, miniaturas, ajuste visual y navegación desde un resultado hacia su corte de origen.
+
+% FIGURE_PENDING_MIGRATION
+% DOCX_FIGURE_NUMBER: Figura 10.3
+% DOCX_CAPTION: Arquitectura del visor volumétrico. Fuente: elaboración propia.
+% WORD_PARAGRAPH_POSITION: 497
+% DRAWING_COUNT: 1
+% RELATIONSHIP_ID: rId15
+% MEDIA_FILE: word/media/image1.png
+% FIGURE_TYPE: ARCHITECTURE_DIAGRAM
+% LEGACY_ASSET_MATCH: NO_LEGACY_MATCH
+
+La superposición automática no se presupone para todos los cortes de todas las series. Se ejecuta segmentación de la serie completa en las modalidades soportadas, y las series no soportadas permanecen disponibles como imagen base, informando que no poseen inferencia automática. El visor no simula una correspondencia espacial entre el plano sagital y el axial cuando la metadata geométrica no permite demostrarla.
+
+\subsection{Modelo de datos}
+
+La persistencia se apoya en un modelo relacional en PostgreSQL organizado alrededor de tres ejes: la identidad y el control de acceso (usuarios, roles), la organización de los estudios (sujeto de-identificado, estudio) y la evidencia de cada análisis (corrida, mediciones, revisiones, assets y catálogo de cortes), complementados con el registro de modelos/artifacts y la auditoría. La Figura 12.4 presenta el diagrama entidad-relación con sus claves primarias, foráneas y cardinalidades.
+% CROSS_REFERENCE_NUMBERING_REVIEW_REQUIRED
+
+El diseño refleja las decisiones descritas en los capítulos anteriores: los datos identificatorios del paciente se almacenan de forma segura (Ley N.º 25.326) y los estudios se vinculan mediante una referencia de sujeto seudonimizada (subject\_ref); cada corrida conserva su linaje técnico (model\_key, artifact\_hash, requested/effective\_inference\_mode y trace\_id); las mediciones y los assets quedan vinculados a la corrida y al corte de origen; y la revisión profesional se registra sin sobrescribir el resultado automático original, preservando la trazabilidad y la auditabilidad.
+% CROSS_REFERENCE_MAPPING_REQUIRED
+
+% FIGURE_PENDING_MIGRATION
+% DOCX_FIGURE_NUMBER: Figura 10.4
+% DOCX_CAPTION: Modelo de datos relacional (PostgreSQL). Fuente: elaboración propia.
+% WORD_PARAGRAPH_POSITION: 503
+% DRAWING_COUNT: 1
+% RELATIONSHIP_ID: rId16
+% MEDIA_FILE: word/media/image7.png
+% FIGURE_TYPE: DATA_MODEL
+% LEGACY_ASSET_MATCH: NO_LEGACY_MATCH
+
+Entidades principales
+
+% TABLE_PENDING_MIGRATION
+% DOCX_TABLE_NUMBER: no visible en cuerpo del capítulo
+% DOCX_TABLE_TITLE: Entidades principales
+% TABLE_ROLE: DATA_CONTRACT
+% ROWS: 12
+% COLUMNS: 2
+% MERGED_CELLS: NO
+% COMPLEXITY: HIGH
+
+Relaciones principales
+
+\begin{itemize}
+  \item Un sujeto agrupa uno o varios estudios; un estudio contiene una o varias corridas.
+  \item Cada corrida referencia el modelo/artifact ejecutado y genera múltiples mediciones, assets y entradas del catálogo de cortes.
+  \item Una corrida acumula una o varias revisiones profesionales sin eliminar el resultado automático original.
+  \item Los usuarios se asocian con roles (muchos a muchos) y quedan registrados como autores de estudios, revisiones y eventos de auditoría.
+\end{itemize}
+
+\subsection{Diagrama de clases}
+
+El diagrama de clases presenta las entidades del dominio y los servicios principales, con sus atributos, operaciones y relaciones. La Figura 12.5 lo resume.
+% CROSS_REFERENCE_NUMBERING_REVIEW_REQUIRED
+
+% FIGURE_PENDING_MIGRATION
+% DOCX_FIGURE_NUMBER: Figura 10.5
+% DOCX_CAPTION: Diagrama de clases del dominio y servicios. Fuente: elaboración propia.
+% WORD_PARAGRAPH_POSITION: 514
+% DRAWING_COUNT: 1
+% RELATIONSHIP_ID: rId17
+% MEDIA_FILE: word/media/image13.png
+% FIGURE_TYPE: COMPONENT_DIAGRAM
+% LEGACY_ASSET_MATCH: NO_LEGACY_MATCH
+% STRUCTURE_REVIEW_REQUIRED
+% DOCX_INLINE_TEXT_AFTER_CAPTION: 10.5 Vista de procesos.
+
+La vista de procesos describe el comportamiento en ejecución: la secuencia de una corrida, la persistencia y reapertura, y la comunicación entre servicios.
+
+\section{Vista de procesos}
+
+La vista de procesos describe el comportamiento en ejecución: la secuencia de una corrida, la comunicación entre servicios y el tratamiento de los estados de error.
+
+\subsection{Flujo end-to-end de una corrida}
+
+El flujo principal coincide con el descrito en las secciones 6.1 y 11.5. Desde la perspectiva arquitectónica interesa destacar su trazabilidad extremo a extremo: el estudio ingresa como DICOM completo (ZIP), el Backend identifica y clasifica las series, registra los inputs compatibles (Sagital T1, Sagital T2 y Axial de forma independiente), solicita al AI Module la segmentación de la serie completa y, cuando corresponde, la línea de hallazgos P10.7, y persiste resultados, mediciones y revisión en PostgreSQL. Los formatos MHA/NIfTI se mantienen como compatibilidad técnica, no como flujo principal.
+% CROSS_REFERENCE_MAPPING_REQUIRED
+% CROSS_REFERENCE_MAPPING_REQUIRED
+
+La arquitectura diferencia requestedInferenceMode de effectiveInferenceMode. Una solicitud real\_baseline solo se informa como efectiva cuando el artifact fue verificado y la ejecución PyTorch finalizó correctamente. Si la ejecución falla, el sistema debe informar error o degradación según la configuración; no debe presentar una respuesta de contrato como inferencia real.
+
+La Figura 12.6 resume la secuencia completa desde la autenticación y la carga del estudio hasta la persistencia y la revisión profesional.
+% CROSS_REFERENCE_NUMBERING_REVIEW_REQUIRED
+
+% FIGURE_PENDING_MIGRATION
+% DOCX_FIGURE_NUMBER: Figura 10.6
+% DOCX_CAPTION: Flujo de interacción end-to-end. Fuente: elaboración propia.
+% WORD_PARAGRAPH_POSITION: 523
+% DRAWING_COUNT: 1
+% RELATIONSHIP_ID: rId18
+% MEDIA_FILE: word/media/image14.png
+% FIGURE_TYPE: SEQUENCE_DIAGRAM
+% LEGACY_ASSET_MATCH: NO_LEGACY_MATCH
+% STRUCTURE_REVIEW_REQUIRED
+% DOCX_INLINE_TEXT_AFTER_CAPTION: 10.4.2 Persistencia, assets y reapertura.
+
+La persistencia se diseña alrededor de la corrida de análisis. Cada estudio conserva contratos canónicos, mediciones, estados de revisión, referencias a assets y datos de auditoría. Los paths internos del AI Module (por ejemplo rutas temporales de contenedor) no forman parte del contrato público.
+
+Los assets se describen mediante nombre, rol, tipo de contenido, hash, tamaño y URL autorizada del Backend. Esta estrategia desacopla el navegador de la ubicación física del archivo y permite mover el almacenamiento sin alterar la interfaz.
+
+La reapertura es un requisito arquitectónico central. Una corrida persistida debe poder visualizarse aunque el AI Module esté detenido. Por esa razón, los previews del stack no se generan bajo demanda desde el motor de IA: deben producirse durante la corrida y persistirse junto con el resto de la evidencia.
+
+\subsection{Arquitectura de red, protocolos y seguridad}
+
+La comunicación entre capas utiliza HTTP(S), contratos JSON versionables y trazabilidad por headers. El navegador se autentica contra el Backend; el Backend propaga el traceId hacia el AI Module; y el AI Module materializa artifacts desde storage externo mediante credenciales administradas fuera del código.
+
+% TABLE_PENDING_MIGRATION
+% DOCX_TABLE_NUMBER: no visible en cuerpo del capítulo
+% DOCX_TABLE_TITLE: Arquitectura de red, protocolos y seguridad
+% TABLE_ROLE: SECURITY
+% ROWS: 6
+% COLUMNS: 4
+% MERGED_CELLS: NO
+% COMPLEXITY: MEDIUM
+
+Las credenciales, URLs sensibles y secretos se administran mediante variables de entorno y, en la arquitectura objetivo, Secret Manager. El Frontend no recibe secretos del Backend ni rutas internas del AI Module. La autorización se aplica también al acceso a assets y estudios persistidos.
+
+Los criterios de seguridad requeridos para el checkpoint P10.9 fueron consolidados y el Backend y el AI Module quedaron congelados para el traspaso al Frontend. El hardening productivo definitivo (incluida la observabilidad de producción) continúa como evolución posterior y no forma parte del alcance del checkpoint actual.
+
+\section{Vista de desarrollo}
+
+La vista de desarrollo describe la organización del código en repositorios, el ciclo de vida de los artifacts y las tecnologías seleccionadas.
+
+\subsection{Distribución por repositorios y responsabilidades}
+
+La solución se mantiene en tres repositorios independientes, cada uno con su suite de pruebas, su configuración y su ciclo de despliegue. El frontend concentra el acceso, la worklist, la carga, el espacio de trabajo, el historial, la revisión y el visor de cortes. El backend concentra autenticación, roles, persistencia, validaciones, trazabilidad, serving de assets y la comunicación con el módulo de inferencia. El módulo de inteligencia artificial concentra el registro de modelos, los artifacts, los manifests, el runtime y la generación de salidas.
+
+El frontend no consume directamente el módulo de inteligencia artificial: todas las operaciones de producto pasan por el backend. Esa frontera permite aplicar autorización, evitar la exposición de rutas internas y conservar el resultado aunque el servicio de inferencia no esté disponible. La distribución de responsabilidades entre los integrantes del equipo se describe en la sección 12.1.
+% CROSS_REFERENCE_MAPPING_REQUIRED
+
+Esta distribución no responde únicamente a una organización del código, sino a una decisión arquitectónica orientada a separar responsabilidades y ciclos de evolución diferentes. La decisión, las alternativas consideradas y sus principales consecuencias se formalizan mediante registros de decisión arquitectónica (Architecture Decision Records, ADR), incluidos en el Anexo G.
+% CROSS_REFERENCE_MAPPING_REQUIRED
+
+\subsection{Estrategia de datos, modelos y ciclo de vida de artifacts}
+
+Los modelos finales provienen de pipelines experimentales separados. El sagital utiliza SPIDER y el axial utiliza Sudirman/Al-Kafri. Sus datasets, clases y procedencias no se fusionan artificialmente.
+
+% TABLE_PENDING_MIGRATION
+% DOCX_TABLE_NUMBER: no visible en cuerpo del capítulo
+% DOCX_TABLE_TITLE: Estrategia de datos, modelos y ciclo de vida de artifacts
+% TABLE_ROLE: DATA_CONTRACT
+% ROWS: 3
+% COLUMNS: 3
+% MERGED_CELLS: NO
+% COMPLEXITY: MEDIUM
+
+Los checkpoints pesados no se consideran código fuente. GitHub conserva el runtime, los manifests, la configuración y los tests; el storage externo conserva los artifacts. Al materializar un modelo, el AI Module verifica integridad, compatibilidad de arquitectura, metadata y estado del manifest.
+
+El sistema diferencia contract, real\_baseline y una posible evolución real\_validated. Contract permite probar contratos y UI sin afirmar ejecución clínica. Real\_baseline exige artifact verificado y ejecución PyTorch exitosa. Real\_validated queda reservado para una validación más amplia y no describe el estado actual.
+
+\subsection{Selección tecnológica y justificación}
+
+La selección tecnológica se realizó considerando la responsabilidad de cada componente, su compatibilidad con el desarrollo ya realizado, la mantenibilidad, la interoperabilidad mediante contratos explícitos, la reproducibilidad y la posibilidad de desplegar los servicios de forma independiente. El criterio no fue homogeneizar el lenguaje de implementación, sino asignar a cada componente un stack coherente con su función y con las dependencias que necesita ejecutar. Las decisiones de mayor impacto arquitectónico y las alternativas descartadas se desarrollan en los ADR del Anexo G.
+% CROSS_REFERENCE_MAPPING_REQUIRED
+
+% TABLE_PENDING_MIGRATION
+% DOCX_TABLE_NUMBER: no visible en cuerpo del capítulo
+% DOCX_TABLE_TITLE: Selección tecnológica y justificación
+% TABLE_ROLE: TECHNOLOGY_COMPARISON
+% ROWS: 9
+% COLUMNS: 3
+% MERGED_CELLS: NO
+% COMPLEXITY: HIGH
+
+La diversidad tecnológica es deliberada. Java se utiliza para la lógica transaccional, Python para IA y TypeScript para la experiencia web. La arquitectura evita forzar toda la solución dentro de una única plataforma cuando eso reduciría compatibilidad o mantenibilidad.
+
+\subsection{Alternativas evaluadas}
+
+Las alternativas se evaluaron considerando no solo la posibilidad técnica de implementarlas, sino también su impacto sobre la separación de responsabilidades, las dependencias existentes, la mantenibilidad y la necesidad de validar nuevamente componentes ya consolidados.
+
+% TABLE_PENDING_MIGRATION
+% DOCX_TABLE_NUMBER: no visible en cuerpo del capítulo
+% DOCX_TABLE_TITLE: Alternativas evaluadas
+% TABLE_ROLE: TECHNOLOGY_COMPARISON
+% ROWS: 5
+% COLUMNS: 4
+% MERGED_CELLS: NO
+% COMPLEXITY: HIGH
+
+La alternativa adoptada prioriza la separación de responsabilidades por encima de la homogeneidad del lenguaje de implementación. Spring Boot funciona como frontera de producto, seguridad y persistencia, mientras que Python y FastAPI encapsulan el procesamiento científico y la inferencia. De esta forma, los modelos pueden evolucionar sin trasladar sus dependencias al Frontend ni convertir al servicio de IA en la API pública del sistema. El fundamento detallado de esta decisión se registra en los ADR-002 y ADR-003 del Anexo G.
+% CROSS_REFERENCE_MAPPING_REQUIRED
+
+MONAI o nnU-Net — Referencias metodológicas y posibles evoluciones, no reemplazo obligatorio del baseline.
+
+OHIF, Cornerstone o 3D Slicer — Referencias para navegación y herramientas de imagen; el MVP mantiene un visor propio alineado con sus contratos.
+
+Integración PACS/RIS — Fuera del alcance académico actual.
+
+\section{Vista física (despliegue)}
+
+La vista física describe el mapeo del sistema a la infraestructura: el entorno actual de validación y la arquitectura objetivo de despliegue.
+
+\subsection{Arquitectura actual de validación}
+
+Durante la integración se utiliza una infraestructura temporal que permite validar la comunicación distribuida antes de completar Google Cloud:
+
+Frontend — Vercel.
+
+Backend y PostgreSQL — Railway.
+
+AI Module — contenedor Docker ejecutado en entorno controlado y expuesto temporalmente mediante túnel seguro de prueba.
+
+Esta infraestructura se documenta como entorno de validación, no como arquitectura final. Su función fue demostrar autenticación, proxy, persistencia, assets y comunicación real entre componentes. Los túneles temporales y URLs efímeras no forman parte del diseño de producción.
+
+\subsection{Arquitectura objetivo en Google Cloud}
+
+La plataforma objetivo del sistema es Google Cloud, con una migración organizada por fases para no crear recursos cuyo costo o necesidad no estén justificados. El frontend se serviría como sitio estático o contenedor; el backend y el módulo de inteligencia artificial como servicios con escalado a cero y máximo de instancias acotado; la base de datos como instancia gestionada de PostgreSQL sin alta disponibilidad, acorde a un prototipo académico; los modelos, volúmenes y assets en almacenamiento privado con región controlada; las imágenes de contenedor en un registro con política de limpieza; y los secretos fuera del código. El uso de aceleración por GPU se contempla únicamente si el procesamiento en CPU no cumple los tiempos, con límites estrictos de duración.
+
+El dimensionamiento de la infraestructura objetivo se definirá a partir del consumo observado de los componentes ejecutados en contenedores, en lugar de asignar recursos únicamente a partir de estimaciones teóricas. Para ello se consideran por separado el Backend, el AI Module y la base de datos, registrando consumo de memoria y CPU tanto en reposo como durante un recorrido representativo de procesamiento. En el caso del AI Module resulta especialmente relevante registrar el consumo con los modelos cargados y durante la inferencia, dado que constituye el componente de mayor demanda computacional. La necesidad de aceleración mediante GPU se evaluará únicamente si las mediciones sobre CPU muestran tiempos incompatibles con el flujo previsto.
+
+% TABLE_PENDING_MIGRATION
+% DOCX_TABLE_NUMBER: no visible en cuerpo del capítulo
+% DOCX_TABLE_TITLE: Dimensionamiento preliminar de infraestructura objetivo
+% TABLE_ROLE: TECHNOLOGY_COMPARISON
+% ROWS: 5
+% COLUMNS: 6
+% MERGED_CELLS: NO
+% COMPLEXITY: HIGH
+
+Las mediciones corresponden a una ejecución local containerizada del prototipo sobre Docker Desktop, con 16 procesadores lógicos visibles para Docker y 7,39 GiB de memoria disponible en dicho entorno. Durante la prueba se ejecutó un recorrido E2E real de 77,24 segundos que incluyó ingestión DICOM, clasificación de series, segmentación sagital y axial, procesamiento full-series, inferencia real de los hallazgos degenerativos P10.7, persistencia y revisión profesional. El AI Module fue el componente de mayor demanda, con un percentil 95 de CPU de 346,62 \% y un pico de 405,09 \%, equivalentes aproximadamente al uso concurrente de 3,47 y 4,05 núcleos de CPU respectivamente. La utilización máxima de memoria del mismo componente fue de 940,80 MiB. La GPU disponible en el host no fue utilizada por el contenedor durante esta prueba, por lo que no se considera necesaria para la configuración inicial evaluada. Estos resultados constituyen una línea base para el dimensionamiento preliminar del prototipo y deberán contrastar posteriormente con mediciones realizadas sobre la infraestructura desplegada en Google Cloud.
+
+% FIGURE_PENDING_MIGRATION
+% DOCX_FIGURE_NUMBER: Figura 10.7
+% DOCX_CAPTION: Arquitectura objetivo de despliegue en Google Cloud. Fuente: elaboración propia.
+% WORD_PARAGRAPH_POSITION: 571
+% DRAWING_COUNT: 1
+% RELATIONSHIP_ID: rId19
+% MEDIA_FILE: word/media/image5.png
+% FIGURE_TYPE: DEPLOYMENT_DIAGRAM
+% LEGACY_ASSET_MATCH: NO_LEGACY_MATCH
+
+El principio financiero adoptado es no crear un recurso cuyo costo máximo no pueda estimarse de antemano. Esta arquitectura está documentada y no implementada: el despliegue objetivo permanece como trabajo pendiente y no debe interpretarse como parte del estado actual del producto.
+
+\section{Vista de escenarios (+1)}
+
+Los escenarios articulan las cuatro vistas anteriores mediante casos de uso concretos. El escenario principal (autenticación, carga del estudio, ejecución multiplanar, persistencia, visualización y revisión profesional) recorre la vista de procesos (sección 10.4.1), se apoya en los componentes de la vista lógica y en la organización de la vista de desarrollo, y se ejecuta sobre la infraestructura de la vista física. Las historias de usuario del Capítulo 9 formalizan estos escenarios y permiten validar que la arquitectura satisface los requerimientos.
+% CROSS_REFERENCE_NUMBERING_REVIEW_REQUIRED
+
+\section{Diseño de interfaz: wireframes y decisiones de diseño}
+
+Antes de implementar el frontend se elaboraron esquemas de interfaz que traducen las necesidades detectadas en el relevamiento a una disposición concreta de pantallas y componentes. Estos wireframes cumplen dos funciones dentro del proyecto: fijar el recorrido del profesional antes de escribir código y dejar explícita la relación entre cada zona de la interfaz y la necesidad que la origina. El diseño no persigue elaboración estética, sino legibilidad de resultados y disponibilidad permanente de la acción de revisión.
+
+\subsection{Criterios de diseño derivados del user research}
+
+El relevamiento estableció cuatro condiciones que la interfaz debe cumplir con independencia de su apariencia final.
+
+\begin{itemize}
+  \item La imagen original y la máscara superpuesta deben poder compararse sin cambiar de pantalla, y la superposición debe poder activarse y desactivarse (N-01).
+  \item Toda estructura y toda medición deben ofrecer, en el mismo lugar donde se muestran, la posibilidad de aceptar, observar, corregir o descartar el resultado (N-02, N-05).
+  \item Cada valor presentado debe indicar la estructura, el plano y el corte del que proviene, de modo que el profesional pueda verificar su origen (N-04, N-12).
+  \item La ausencia de una secuencia, de un plano o de un resultado debe informarse de manera explícita, sin completar el espacio con información aproximada (N-11).
+\end{itemize}
+
+A estas condiciones se suma un criterio de eficiencia señalado en las entrevistas: el flujo no debe agregar tiempo innecesario respecto de la práctica actual (N-07). En consecuencia, el recorrido principal se diseñó con la menor cantidad posible de pantallas intermedias entre la carga del estudio y la visualización de resultados.
+
+\subsection{Esquemas de las pantallas principales}
+
+[ESPACIO PARA INSERTAR: wireframes de acceso, worklist y alta de estudio con carga del volumen]
+
+% FIGURE_PENDING_MIGRATION
+% DOCX_FIGURE_NUMBER: Figura 10.8
+% DOCX_CAPTION: Wireframes de acceso, worklist y alta de estudio. Fuente: elaboración propia.
+% WORD_PARAGRAPH_POSITION: 587
+% DRAWING_COUNT: 0
+% RELATIONSHIP_ID: none
+% MEDIA_FILE: none
+% FIGURE_TYPE: UI_SCREENSHOT
+% LEGACY_ASSET_MATCH: NO_LEGACY_MATCH
+
+[ESPACIO PARA INSERTAR: wireframes del workspace multiplanar y del panel de revisión con el preinforme editable]
+
+% FIGURE_PENDING_MIGRATION
+% DOCX_FIGURE_NUMBER: Figura 10.9
+% DOCX_CAPTION: Wireframes del workspace multiplanar y de la revisión profesional. Fuente: elaboración propia.
+% WORD_PARAGRAPH_POSITION: 589
+% DRAWING_COUNT: 0
+% RELATIONSHIP_ID: none
+% MEDIA_FILE: none
+% FIGURE_TYPE: UI_SCREENSHOT
+% LEGACY_ASSET_MATCH: NO_LEGACY_MATCH
+% STRUCTURE_REVIEW_REQUIRED
+% SOURCE_NUMBERING_GAP: 10.9.3
+% DOCX_INLINE_TEXT_AFTER_CAPTION: ### 10.9.3 Trazabilidad entre zonas de interfaz y necesidades
+
+% TABLE_PENDING_MIGRATION
+% DOCX_TABLE_NUMBER: Tabla 10.2
+% DOCX_TABLE_TITLE: Relación entre zonas de la interfaz, necesidades del relevamiento y requerimientos.
+% TABLE_ROLE: REQUIREMENT_MAPPING
+% ROWS: 10
+% COLUMNS: 4
+% MERGED_CELLS: NO
+% COMPLEXITY: HIGH
+
+\subsection{Decisiones de diseño y alternativas descartadas}
+
+Tres decisiones merecen registro porque condicionaron la implementación posterior.
+
+La primera es la disposición del panel de revisión junto al visor y no en una pantalla posterior. El relevamiento indicó que la corrección forma parte de la lectura y no de una etapa separada, de modo que separar ambas acciones habría agregado un paso sin valor clínico.
+
+La segunda es la decisión de no mostrar probabilidades ni puntajes de confianza numéricos al usuario final. Las entrevistas señalaron que un valor de confianza sin validación clínica puede inducir una interpretación indebida, por lo que la interfaz comunica el estado del resultado en términos operativos y no probabilísticos.
+
+La tercera es la presentación del plano axial como vista complementaria y no como pestaña equivalente al sagital. Esta decisión refleja el alcance real del prototipo, en el que la base anatómica y la mayor parte de la validación técnica se apoyan en el plano sagital, y evita sugerir una paridad de madurez entre ambos módulos.

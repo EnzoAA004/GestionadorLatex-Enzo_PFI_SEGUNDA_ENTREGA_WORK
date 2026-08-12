@@ -1,0 +1,5 @@
+Workspace de migracion PFI Segunda Entrega
+Commit base: b87c48536f0104ad7d348278e4edbcf3241e5841
+Documento fuente: input\PFI_Segunda_entrega.docx
+main.tex local adicional: migration_reference\main_local_current.tex
+Este workspace NO debe contener .git y se utiliza exclusivamente para migracion y auditoria.

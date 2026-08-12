@@ -1,0 +1,13 @@
+diff --git a/main.tex b/main.tex
+index b87fc51..7a6bf3f 100644
+--- a/main.tex
++++ b/main.tex
+@@ -262,7 +262,7 @@
+ % Capitulos a incorporar en una segunda instancia:
+ \input{chapters/capitulo_07_estado_del_arte}
+ \input{chapters/capitulo_08_marco_teorico}
+-% \input{chapters/capitulo_09_planificacion_proyecto}
++\input{chapters/capitulo_09_planificacion_proyecto}
+ 
+ \appendix
+ \input{appendices/anexo_a_glosario_tecnico}

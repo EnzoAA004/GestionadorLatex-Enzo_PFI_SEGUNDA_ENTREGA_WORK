@@ -1,0 +1,183 @@
+\chapter{User research, elicitación y análisis preliminar de requerimientos}
+
+\section{Propósito del capítulo}
+
+Este capítulo interpreta el relevamiento realizado con profesionales de diagnóstico por imágenes y lo transforma en insumo de producto, siguiendo la cadena entrevistas, hallazgos, necesidades, requerimientos y épicas. El registro textual de las entrevistas se conserva en el Anexo D. No constituye una validación clínica: documenta una etapa exploratoria y justifica decisiones de alcance que el Capítulo 9 formaliza.
+% CROSS_REFERENCE_MAPPING_REQUIRED
+% CROSS_REFERENCE_MAPPING_REQUIRED
+
+\section{Diseño del relevamiento}
+
+El relevamiento se organizó mediante entrevistas semiestructuradas, técnica recomendada en las etapas exploratorias del diseño centrado en el usuario porque combina la comparabilidad de una guía común con la posibilidad de profundizar en aspectos no previstos [35]. Se utilizó una guía común de preguntas, pero se permitió repreguntar y profundizar según la experiencia de cada profesional. El objetivo no fue validar clínicamente un sistema terminado, sino identificar criterios tempranos de utilidad, confianza, alcance y riesgo para orientar el diseño del MVP.
+% BIBLIOGRAPHY_MAPPING_REQUIRED
+
+Ejes de entrevista y objetivos:
+
+\begin{itemize}
+  \item Flujo actual de trabajo. Comprender cómo se revisa una RM lumbar y cómo se llega al informe.
+  \item Planos y secuencias. Identificar el rol del plano sagital, axial, coronal y de secuencias como T1, T2 o STIR.
+  \item Hallazgos relevantes. Detectar estructuras, signos y mediciones consideradas útiles.
+  \item Errores críticos. Comprender fallas clínicamente graves o inaceptables.
+  \item Interfaz y confianza. Explorar qué debe mostrar el sistema para ser usable y confiable.
+  \item Validación. Indagar contra qué debería validarse: expertos, segmentaciones manuales, métricas o uso profesional.
+  \item Alcance defendible. Identificar qué incluir, excluir o diferir para evitar sobreprometer capacidades.
+  \item Comparación temporal. Explorar el valor de relacionar estudios actuales y previos del mismo sujeto.
+\end{itemize}
+
+La muestra es intencional y exploratoria. No busca representatividad estadística de toda la comunidad radiológica. Su valor reside en contrastar perfiles con experiencia directa en RM, informe, segmentación, control de calidad y patología de columna.
+
+\section{Perfil de profesionales entrevistados}
+
+EN-01 — Dra. Susana Torres (Matrícula Nacional 179537). Médica radióloga con experiencia en resonancia magnética, segmentación y control de calidad. Referencias mencionadas: Sociedad Argentina de Radiología, FLENI y Prenuvo. Duración aproximada: 22 minutos.
+
+EN-02 — Dr. Gonzalo Brito (Matrícula Provincial 96798). Médico radiólogo que informa resonancia magnética, tomografía y ecografía. Institución o referencia informada: Imágenes MDQ. Duración aproximada: 29 minutos.
+
+EN-03 — Dra. Claudia Cejas. Médica radióloga, especialista en patología neuromuscular y de columna. Referencias mencionadas: FLENI y Sociedad Argentina de Radiología. Duración aproximada: 33 minutos.
+
+EN-04 — Dr. Bruno Bregonzi. Profesional que informa un volumen elevado de resonancias, con práctica frecuente en columna lumbar y población deportiva. La institución y la duración no fueron especificadas en la transcripción provista. La entrevista fue realizada por Enzo Asplanatti y reconstruida a partir de una transcripción automática sin separación de hablantes.
+
+EN-05 — Dr. Eduardo Luis Castiglione. Médico neurorradiólogo con un alto volumen de estudios de columna lumbar, mayoritariamente de patología degenerativa. Aporta una mirada centrada en el contexto clínico de cada hallazgo, en la exactitud del nivel anatómico como base del análisis y en el interés por una interpretación asistida por nivel.
+
+La selección de perfiles permitió contrastar miradas vinculadas con informe de RM, práctica cotidiana en diagnóstico por imágenes, segmentación, control de calidad, patología de columna y adopción de herramientas asistidas por inteligencia artificial. EN-04 agrega una perspectiva de alto volumen de lectura cotidiana y refuerza el valor de una interfaz que funcione como alivio operativo; EN-05, con perfil de neurorradiólogo, aporta el foco en la exactitud del nivel anatómico y en el contexto clínico del hallazgo.
+
+\section{Criterio de tratamiento de las transcripciones}
+
+Las transcripciones completas se incorporan en un anexo independiente en formato de diálogo directo. Para el análisis de este capítulo se utilizan como fuentes primarias, codificadas como EN-01 a EN-05. El capítulo no reproduce las entrevistas completas ni reemplaza el anexo, sino que sintetiza patrones, divergencias y decisiones de producto derivadas del relevamiento.
+
+La cuarta entrevista requiere una salvedad metodológica específica: el archivo de origen no incluía separación de hablantes. Su versión depurada fue reconstruida por contexto conversacional, normalizando términos técnicos evidentes y evitando agregar contenido no presente en la fuente. Por ello, se utiliza como evidencia cualitativa exploratoria y no como transcripción literal palabra por palabra.
+
+\section{Matriz de hallazgos}
+
+% TABLE_PENDING_MIGRATION
+% DOCX_TABLE_NUMBER: Tabla 8.1
+% DOCX_TABLE_TITLE: Matriz de hallazgos
+% ROWS: 12
+% COLUMNS: 3
+% COMPLEXITY: alta; contenido cualitativo extenso; sin celdas combinadas detectadas en XML.
+% CONTENT_TYPE: hallazgos, evidencia observada e impacto en el proyecto.
+
+\section{Lectura analítica de los hallazgos}
+
+Los hallazgos de la Tabla 8.1 admiten una lectura en cinco criterios de diseño, que el resto del documento retoma como decisiones.
+% CROSS_REFERENCE_MAPPING_REQUIRED
+
+Carácter asistivo. El valor esperado no está en reemplazar el criterio médico sino en delimitar, medir y mostrar elementos que luego puedan comprobarse. La revisión profesional no es una precaución agregada al final: forma parte del flujo, y un resultado automático debe conservar su estado, mostrar su origen y admitir una decisión explícita del usuario.
+
+Incorporación del plano axial. El principal ajuste de alcance surge de la necesidad de correlacionar planos. El diseño original centrado en el sagital se mantiene como base por disponibilidad de datos, pero las entrevistas muestran que una evaluación lumbar representativa requiere información axial. El plano axial dejó así de ser una observación del estado del arte para constituir una necesidad funcional detectada en usuarios, y la respuesta técnica fue un módulo axial complementario entrenado y evaluado de forma independiente. Esa implementación no autoriza a interpretar ambos planos como una reconstrucción conjunta.
+
+Trazabilidad verificable. Los profesionales no solicitaron una predicción sino una salida verificable: la confianza aumenta cuando el sistema muestra dónde detectó una estructura, cómo calculó una medición y qué parte puede revisarse. De ese hallazgo, junto con la comprobación de que los volúmenes contienen múltiples cortes, surgió el visor navegable de la serie completa.
+
+Interfaz orientada a aliviar trabajo. EN-04 pide que el sistema funcione como referencia inicial, muestre la segmentación con claridad y evite información innecesaria; EN-02 advierte sobre la fricción operativa. La interfaz aplica revelado progresivo: la imagen y el resultado principal ocupan el centro, y las mediciones, la trazabilidad y los detalles técnicos quedan disponibles sin cubrir la imagen.
+
+Validación en dos planos y contexto clínico. EN-01 destacó la calidad de las anotaciones de referencia y EN-04 señaló que la utilidad práctica debe contrastarse con profesionales que informan estudios, de modo que la validación separa la evaluación del modelo, la del artifact y el runtime, la de integración y la de usabilidad. Las entrevistas muestran además que la imagen no se interpreta de forma aislada: EN-02 describió los estudios previos como fundamentales y EN-04 señaló que la comparación debe considerar si el dolor cambió. El prototipo persiste los estudios con una referencia de sujeto seudonimizada, conforme a la Ley N.º 25.326, para habilitar a futuro esa comparación, sin emitir conclusiones longitudinales automáticas.
+
+\section{Aspectos no consolidados o diferidos}
+
+La siguiente tabla resume los aspectos que, a partir del relevamiento, se decidieron diferir o acotar.
+
+% TABLE_PENDING_MIGRATION
+% DOCX_TABLE_NUMBER: Tabla 8.2
+% DOCX_TABLE_TITLE: Aspectos no consolidados o diferidos
+% ROWS: 8
+% COLUMNS: 3
+% COMPLEXITY: media; contenido cualitativo; sin celdas combinadas detectadas en XML.
+% CONTENT_TYPE: aspecto no consolidado o diferido, lectura del relevamiento y decisión.
+
+\section{User persona preliminar}
+
+% TABLE_PENDING_MIGRATION
+% DOCX_TABLE_NUMBER: Tabla 8.3
+% DOCX_TABLE_TITLE: User persona preliminar
+% ROWS: 8
+% COLUMNS: 2
+% COMPLEXITY: baja-media; contenido cualitativo; sin celdas combinadas detectadas en XML.
+% CONTENT_TYPE: atributo y detalle del user persona.
+
+\section{Necesidades detectadas}
+
+% TABLE_PENDING_MIGRATION
+% DOCX_TABLE_NUMBER: Tabla 8.4
+% DOCX_TABLE_TITLE: Necesidades detectadas
+% ROWS: 13
+% COLUMNS: 3
+% COMPLEXITY: media; contenido cualitativo con identificadores N-01 a N-12; sin celdas combinadas detectadas en XML.
+% CONTENT_TYPE: ID, necesidad detectada y origen.
+
+\section{Épicas iniciales y criterios de aceptación}
+
+El relevamiento se organizó en diez épicas académicas que estructuran el trabajo desde la perspectiva del producto y de la tesis: user research y evidencia, requerimientos y trazabilidad, gestión de conjuntos de datos, preprocesamiento, segmentación sagital, factibilidad axial, métricas y mediciones, visualización y revisión, salida estructurada editable, y validación y documentación.
+
+Dos de ellas cambiaron de estado durante el desarrollo. La factibilidad axial dejó de ser una evaluación para convertirse en un módulo implementado y evaluado, con las limitaciones que documenta el Capítulo 13. La visualización se amplió con el visor navegable de la serie completa y la asociación de cada resultado con su corte de origen. La numeración de estas épicas es independiente de los bloques del roadmap y de los hitos experimentales del módulo de inteligencia artificial, según se detalla en la sección 12.2.
+% CROSS_REFERENCE_MAPPING_REQUIRED
+% CROSS_REFERENCE_MAPPING_REQUIRED
+
+Los criterios de aceptación se definen en tres planos: la tesis exige que cada capítulo trace su contenido hasta una fuente; los repositorios exigen que cada incremento cuente con criterio de aceptación y evidencia localizable; y el tablero de trabajo exige que ningún elemento se declare terminado sin ambas condiciones.
+
+\section{Encuesta cuantitativa a profesionales}
+
+Para complementar las entrevistas con evidencia de mayor amplitud, se realizó una encuesta en línea (Google Forms) difundida entre profesionales vinculados al diagnóstico por imágenes y a la patología de columna. Se obtuvieron 167 respuestas.
+
+\subsection{Criterio de inclusión y dimensionamiento de la muestra}
+
+El universo de interés se definió como el conjunto de profesionales que informan o utilizan resonancias magnéticas de columna lumbar en su práctica: médicos radiólogos, neurorradiólogos, especialistas en diagnóstico por imágenes, traumatólogos y neurocirujanos. Se excluyeron las respuestas provenientes de perfiles ajenos a ese grupo, en coherencia con el alcance del proyecto, que se limita al análisis estructural de RM lumbar y no contempla otras regiones anatómicas ni otras modalidades de imagen.
+
+El tamaño muestral se evaluó mediante la expresión habitual para la estimación de una proporción poblacional [36]:
+% BIBLIOGRAPHY_MAPPING_REQUIRED
+
+\[
+n = \frac{z^2 \cdot p \cdot (1 - p)}{e^2}
+\tag{10.1}
+\]
+% CROSS_REFERENCE_NUMBERING_REVIEW_REQUIRED
+
+donde z es el valor crítico de la distribución normal asociado al nivel de confianza, p la proporción esperada y e el margen de error admitido. Se adoptó p = 0,5, valor que maximiza la varianza y produce por lo tanto la estimación más conservadora, y un nivel de confianza del 95 %, al que corresponde z = 1,96.
+
+Bajo el supuesto de población infinita, las 167 respuestas obtenidas corresponden a un margen de error de ±7,6 puntos porcentuales con un nivel de confianza del 95 %. Alcanzar un margen de ±5 puntos porcentuales bajo los mismos supuestos habría requerido 385 respuestas.
+
+Cuando el universo es finito, el margen de error se corrige mediante el factor de población finita:
+
+\[
+e = z \cdot \sqrt{\frac{p \cdot (1 - p)}{n}} \cdot \sqrt{\frac{N - n}{N - 1}}
+\tag{10.2}
+\]
+% CROSS_REFERENCE_NUMBERING_REVIEW_REQUIRED
+
+No se identificó una estimación oficial única y suficientemente específica del universo definido (profesionales que informan o utilizan RM lumbar dentro de los perfiles incluidos) que permita establecer un valor N defendible para aplicar la corrección por población finita. Por este motivo se conserva, únicamente como referencia descriptiva, el cálculo bajo supuesto de población grande o infinita. Dado que la muestra es de conveniencia y no probabilística, el margen calculado no debe interpretarse como un intervalo de confianza poblacional estricto, sino como una referencia de precisión teórica bajo muestreo aleatorio simple. Corresponde señalar dos limitaciones metodológicas. La primera es que la muestra es de conveniencia y no probabilística: la encuesta se difundió por canales profesionales y la participación fue voluntaria, de modo que no puede descartarse un sesgo de autoselección hacia profesionales con mayor interés previo en herramientas informáticas de apoyo. La segunda es que el margen de error calculado describe la precisión estadística de las estimaciones bajo un muestreo aleatorio simple, supuesto que esta encuesta no satisface estrictamente. En consecuencia, los resultados se interpretan como una señal cuantitativa complementaria al análisis cualitativo de las entrevistas, con capacidad para confirmar tendencias, y no como una validación estadística poblacional.
+
+\subsection{Resultados}
+
+El perfil de los encuestados se concentra en roles clínicos vinculados a la RM lumbar: residentes o médicos en formación, diagnóstico por imágenes, traumatología de columna y neurocirugía. Casi tres de cada cuatro obtienen las mediciones de forma manual sobre el visor o las estiman visualmente, y solo nueve utilizan un software que ya las calcula. El dato respalda la oportunidad detectada en las entrevistas: la cuantificación actual es predominantemente manual.
+
+% FIGURE_PENDING_MIGRATION
+% DOCX_FIGURE_NUMBER: Figura 8.1
+% DOCX_CAPTION: Perfil de los encuestados (pregunta 1) y obtención de mediciones en el flujo actual (pregunta 3). Fuente: elaboración propia sobre la encuesta.
+% FIGURE_TYPE: gráfico de encuesta; dos imágenes/drawings en el párrafo previo; probable captura o gráfico exportado desde Google Forms.
+
+La utilidad percibida de la segmentación automática es alta y se concentra en las estructuras que el prototipo segmenta: el 81 % considera útil delimitar el canal espinal y el 80 % los discos intervertebrales, mientras que los cuerpos vertebrales obtienen una valoración menor. Sobre qué hace confiable a una segmentación automática, el requisito más votado por amplio margen es poder corregir la segmentación manualmente, seguido de que el sistema exponga un indicador de confianza por estructura. Ese resultado coincide con lo que las entrevistas ya habían señalado y sostiene la decisión de diseño de mantener la revisión profesional como condición de uso y no como funcionalidad opcional.
+
+% FIGURE_PENDING_MIGRATION
+% DOCX_FIGURE_NUMBER: Figura 8.2
+% DOCX_CAPTION: Mediciones cuantitativas más valiosas (pregunta 9) y requisitos de confianza en la segmentación (pregunta 7). Fuente: elaboración propia sobre la encuesta.
+% FIGURE_TYPE: gráfico de encuesta; dos imágenes/drawings en el párrafo previo; probable captura o gráfico exportado desde Google Forms.
+
+Las afirmaciones sobre transparencia obtuvieron los niveles de acuerdo más altos de la encuesta: el 86 % valora que el sistema explicite cómo llega a un resultado y el 82 % confía más en una herramienta que se presenta como apoyo y no como reemplazo. La disposición a incorporarla al flujo alcanza el 74 %, y las barreras principales son la falta de validación clínica y la dificultad de integración con los sistemas existentes. Ambas barreras corresponden a exclusiones que el Capítulo 5 declara de forma explícita.
+% CROSS_REFERENCE_MAPPING_REQUIRED
+
+% FIGURE_PENDING_MIGRATION
+% DOCX_FIGURE_NUMBER: Figura 8.3
+% DOCX_CAPTION: Acuerdo sobre confianza y transparencia (pregunta 11), disposición a adoptarla (pregunta 12) y principales barreras (pregunta 13). Fuente: elaboración propia sobre la encuesta.
+% FIGURE_TYPE: gráfico de encuesta; dos imágenes/drawings en el párrafo previo; probable captura o gráfico exportado desde Google Forms.
+% STRUCTURE_REVIEW_REQUIRED
+% DOCX_INLINE_TEXT_AFTER_CAPTION: ### 8.11.3 Síntesis de la encuesta
+
+\subsection{Síntesis de la encuesta}
+% STRUCTURE_REVIEW_REQUIRED
+
+La encuesta refuerza cuantitativamente los hallazgos de las entrevistas. Confirma que la cuantificación actual es mayormente manual o visual, que la segmentación y las mediciones aportan valor percibido, y que la adopción depende de la edición humana, los indicadores de confianza, la transparencia y el carácter no diagnóstico de la herramienta. Las barreras señaladas (validación clínica e integración) coinciden con las exclusiones y los trabajos futuros ya documentados. Las 167 respuestas obtenidas constituyen el corte consolidado que acompaña la entrega del 50 %.
+
+\section{Conclusión del capítulo}
+
+El relevamiento permitió validar la pertinencia del proyecto y ajustar su alcance. La incorporación del plano axial es el cambio más visible: dejó de ser una observación del estado del arte para constituir una necesidad funcional detectada en usuarios. La encuesta confirmó cuantitativamente los hallazgos cualitativos y aportó un dato que condiciona el diseño: el requisito más votado para confiar en una segmentación automática es poder corregirla manualmente.
+
+Los hallazgos se formalizan en el Capítulo 9 como requerimientos con criterio de aceptación y trazabilidad hasta su origen. Ninguna de las dos instancias constituye validación clínica: la evaluación con profesionales sobre el producto integrado permanece pendiente.
+% CROSS_REFERENCE_MAPPING_REQUIRED

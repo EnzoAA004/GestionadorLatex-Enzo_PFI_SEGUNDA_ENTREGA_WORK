@@ -1,0 +1,289 @@
+% oneside para una impresion simple.
+% titlepage define que vamos a tener una portada.
+% openany para que los capitulos empiecen en cualquier pagina y no solo las impares.
+\documentclass[a4paper, 12pt, oneside, titlepage, openany]{book}
+
+\usepackage{titlesec}
+
+% Encoding + cmap para obtener un mapeo UTF-8 adecuado.
+\usepackage{cmap}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\usepackage[
+	backend=biber,
+	style=iso-numeric,
+	sorting=none,
+	defernumbers=true,
+	maxbibnames=99,
+	giveninits=false,
+	doi=true,
+	url=true,
+	isbn=false,
+	language=spanish
+]{biblatex}
+\DeclareUnicodeCharacter{202F}{~}
+\addbibresource{references.bib}
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+% El estilo iso-numeric redefine \parencite con paréntesis; se fuerza a corchetes para citas numéricas [n].
+\DeclareCiteCommand{\parencite}[\mkbibbrackets]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{citeindex}%
+   \usebibmacro{cite}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+\DeclareFieldFormat{urldate}{\mkbibbrackets{consultado\space#1}}
+
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{framed}
+\usepackage{float}
+\usepackage{adjustbox}
+\usepackage{needspace}
+\usepackage[section,above,below]{placeins}
+\usepackage{microtype}
+\usepackage{anyfontsize}
+\usepackage{chngcntr}
+
+\usepackage{enumitem}
+\newlist{Properties}{enumerate}{2}
+\setlist[Properties]{label=Propiedad \arabic*.,itemindent=*}
+\setlist[itemize]{
+  topsep=3pt,
+  itemsep=2pt,
+  parsep=0pt,
+  partopsep=0pt,
+  leftmargin=1.25cm
+}
+\setlist[enumerate]{
+  topsep=3pt,
+  itemsep=2pt,
+  parsep=0pt,
+  partopsep=0pt,
+  leftmargin=1.25cm
+}
+\renewcommand{\labelitemii}{\textasteriskcentered}
+\renewcommand{\labelitemiii}{-}
+
+\usepackage{lastpage}
+\usepackage{titleps}
+\usepackage{textcase}
+\usepackage{pdfpages}
+
+\newpagestyle{ruled}{
+	\sethead{\includegraphics[width=3.7cm]{./images/UADE_LARGE}}
+			{\parbox[b]{0.43\textwidth}{\raggedright\fontsize{8.5}{10}\selectfont\MakeUppercase{An\'alisis asistido de RM lumbar mediante IA}}}
+			{
+				\raisebox{1.5ex}{%
+					\parbox[b]{0.19\textwidth}{\raggedleft\fontsize{9}{10}\selectfont
+					\begin{tabular}{r}
+						Asplanatti, Enzo \\
+						Fabrello, Francisco
+					\end{tabular}
+					}
+				}
+			}\headrule{}
+	\setfoot[][][P\'agina \thepage\ de~\pageref*{LastPage}]{}{}{P\'agina \thepage\ de~\pageref*{LastPage}}\footrule{}
+	}
+\pagestyle{ruled}
+
+\makeatletter
+\let\ps@plain\ps@ruled
+\makeatother
+
+\usepackage{vmargin}
+\setmarginsrb{2.7cm}{2cm}{2.3cm}{1.5cm}{0cm}{2cm}{0cm}{1cm}
+
+\renewcommand{\thetable}{\thechapter.\arabic{table}}
+\renewcommand{\thefigure}{\thechapter.\arabic{figure}}
+\counterwithin{table}{chapter}
+\counterwithin{figure}{chapter}
+\setlength{\textfloatsep}{5pt}
+
+\usepackage{todonotes}
+\setlength{\marginparwidth}{2cm}
+\newcommand{\Nico}[1]{\todo[color=green!30,inline]{\textbf{Nico:} #1}}
+\newcommand{\Fermat}[1]{\todo[color=green!30]{\textbf{Fermat:} #1}}
+
+\usepackage{etoolbox}
+\patchcmd{\thebibliography}
+  {\settowidth}
+  {\setlength{\itemsep}{6pt}\settowidth}
+  {}{}
+\apptocmd{\thebibliography}
+  {\small}
+  {}{}
+
+\usepackage{pdfcomment}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{csquotes}
+\addto\captionsspanish{
+	\renewcommand{\contentsname}{\'Indice}
+	\renewcommand{\listfigurename}{Lista de Figuras}
+	\renewcommand{\listtablename}{Lista de Tablas}
+	\renewcommand{\tablename}{TABLA}
+}
+
+% Formato de parrafos
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0pt}
+
+\usepackage{multicol,multirow}
+\usepackage{array,longtable,tabularx}
+\usepackage{mathptmx}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\allowdisplaybreaks{}
+\usepackage{cancel}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,calc,babel}
+
+\newenvironment{example}[1][Ejemplo]{\begin{trivlist}
+	\item[\hspace{\labelsep} {\itshape{} #1}]}{\end{trivlist}}
+
+\newenvironment{examples}[1][Ejemplos]{\begin{trivlist}
+	\item[\hspace{\labelsep} {\itshape{} #1}]}{\end{trivlist}}
+
+\newenvironment{Abstract}
+    {\small\begin{center}
+    \bfseries{Abstract} \end{center}}
+
+\newenvironment{Resumen}
+    {\small\begin{center}
+    \bfseries{Resumen} \end{center}}
+
+\newenvironment{Agradecimientos}
+    {\small\begin{center}
+    \bfseries{Agradecimientos} \end{center}}
+
+\newenvironment{EstadoDelArte}
+    {\small\begin{center}
+    \bfseries{EstadoDelArte} \end{center}}
+
+\newenvironment{Enfoque metodologico}
+    {\small\begin{center}
+    \bfseries{Enfoque metodologico} \end{center}}
+
+\newenvironment{Cronograma}
+    {\small\begin{center}
+    \bfseries{Cronograma} \end{center}}
+
+\input{config/symbols}
+
+\usepackage[normalem]{ulem}
+\usepackage{setspace}
+\onehalfspacing
+
+% En UADE no existe la nocion de capitulo en la tesis, aunque en LaTeX se use chapter.
+\titleformat{\chapter}
+  {\bfseries\fontsize{14pt}{14pt}\selectfont}
+  {\thechapter}{1em}{}
+\titlespacing*{\chapter}{0pt}{12pt}{6pt}
+
+\titleformat{\section}
+  {\bfseries\fontsize{14pt}{14pt}\selectfont}
+  {\thesection}{1em}{}
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+
+\titleformat{\subsection}
+  {\bfseries\fontsize{14pt}{14pt}\selectfont}
+  {\thesubsection}{1em}{}
+\titlespacing*{\subsection}{0pt}{12pt}{6pt}
+
+\titleformat{\subsubsection}
+  {\bfseries\fontsize{14pt}{14pt}\selectfont}
+  {\thesubsubsection}{1em}{}
+\titlespacing*{\subsubsection}{0pt}{12pt}{6pt}
+
+\usepackage{tocloft}
+\cftsetindents{table}{0em}{4em}
+\renewcommand{\cfttoctitlefont}{\bfseries\fontsize{14pt}{16pt}\selectfont}
+\setlength{\cftbeforetoctitleskip}{12pt}
+\setlength{\cftaftertoctitleskip}{6pt}
+\renewcommand{\cftloftitlefont}{\bfseries\fontsize{14pt}{16pt}\selectfont}
+\renewcommand{\cftlottitlefont}{\bfseries\fontsize{14pt}{16pt}\selectfont}
+\setlength{\cftbeforeloftitleskip}{12pt}
+\setlength{\cftafterloftitleskip}{6pt}
+\setlength{\cftbeforelottitleskip}{12pt}
+\setlength{\cftafterlottitleskip}{6pt}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=false,
+    pdfborder={0 0 0},
+    linktoc=all
+}
+
+\DefineBibliographyStrings{spanish}{
+  online   = {En l\'inea},
+  urlfrom  = {Disponible en:},
+  andothers = {\mkbibemph{et\addabbrvspace al\adddot}}
+}
+
+\begin{document}
+
+\clearpage
+\thispagestyle{empty}
+\includepdf[
+  pages=1,
+  scale=1.01,
+  offset=25mm -25mm,
+  pagecommand={\thispagestyle{empty}},
+  noautoscale,
+  trim=0 0 0 0,
+  clip
+]{cover/58d27b9b-fe75-4fee-90c3-2e9e430da9d0.pdf}
+\clearpage
+
+\input{chapters/title}
+% Páginas pendientes para la entrega final:
+% \input{chapters/acknowledgments}
+% \newpage
+% \input{chapters/summary}
+% \newpage
+% \input{chapters/abstract}
+% \newpage
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\newpage
+
+\input{chapters/capitulo_01_introduccion}
+\input{chapters/capitulo_02_planteamiento_problema}
+\input{chapters/capitulo_03_justificacion}
+\input{chapters/capitulo_04_objetivos}
+\input{chapters/capitulo_05_alcance}
+\input{chapters/capitulo_06_estado_del_arte}
+\input{chapters/capitulo_07_marco_teorico}
+\input{chapters/capitulo_08_user_research}
+\input{chapters/capitulo_09_requerimientos}
+\input{chapters/capitulo_10_diseno_arquitectura}
+\input{chapters/capitulo_11_capacidades_prototipo}
+\input{chapters/capitulo_12_metodologia_validacion}
+\input{chapters/capitulo_13_resultados_evaluacion}
+\input{chapters/capitulo_14_planificacion_academica}
+
+\appendix
+\input{appendices/anexo_a_cronograma}
+\input{appendices/anexo_b_glosario}
+\input{appendices/anexo_c_anatomia}
+\input{appendices/anexo_d_entrevistas}
+\input{appendices/anexo_e_configuracion_entrenamiento}
+\input{appendices/anexo_f_evolucion_tecnica}
+\input{appendices/anexo_g_adr}
+
+\nocite{asplanatti_fabrello_propuesta_2026,kirillov_panoptic_2019}
+
+\cleardoublepage
+\phantomsection
+\printbibliography[notkeyword={adicional},heading=bibintoc,title={Referencias}]
+
+\cleardoublepage
+\phantomsection
+\printbibliography[keyword={adicional},heading=bibintoc,title={Bibliograf\'ia y recursos adicionales}]
+
+\end{document}

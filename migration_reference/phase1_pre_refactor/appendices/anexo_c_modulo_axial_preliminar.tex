@@ -1,0 +1,46 @@
+\chapter{Ampliación preliminar del alcance: plano axial}
+\label{anexo:modulo-axial-preliminar}
+
+\section{Origen del ajuste de alcance}
+
+Durante las primeras instancias de relevamiento con profesionales del área surgió la recomendación de considerar, además del plano sagital, cortes axiales de RM lumbar. Esta observación se vincula con el uso habitual de ambos planos en la revisión estructural de la columna lumbar, especialmente cuando se analizan regiones como canal espinal, saco tecal, forámenes neurales y posibles compresiones en sección transversal.
+
+La propuesta inicial del PFI fue aprobada con un alcance acotado al plano sagital, utilizando SPIDER como dataset principal. Por ese motivo, para la entrega actual se mantiene el plano sagital como núcleo del MVP y se documenta el plano axial como una ampliación preliminar a evaluar. Su incorporación definitiva quedará sujeta al análisis de factibilidad técnica, disponibilidad de datos, complejidad de implementación y consolidación del user research en la entrega del 50\%.
+
+\section{Dataset axial identificado}
+
+Durante el relevamiento del estado del arte se identificó un dataset público adicional con propiedades complementarias a SPIDER: el dataset publicado por Al-Kafri, Sudirman, Natalia, Meidia, Afriliana, Al-Rashdan, Bashtawi y Al-Jumaily en 2019, distribuido en Mendeley Data bajo licencia CC BY 4.0 \parencite{alkafri_sudirman_boundary_2019}. Incluye estudios de 515 pacientes con dolor lumbar adquiridos en Irbid Specialty Hospital, Jordania, entre 2015 y 2016, con secuencias T1 y T2 en planos sagital y axial, todos en formato DICOM Siemens (.ima).
+
+A diferencia de SPIDER, este dataset incluye cortes axiales nativos sobre los tres niveles discales inferiores, L3/L4, L4/L5 y L5/S1, con anotaciones de segmentación que cubren cuatro regiones de interés: disco intervertebral, elemento posterior, saco tecal y área entre elementos anterior y posterior. La anotación fue realizada por cinco anotadores supervisados por un radiólogo experto, con consolidación final en máscaras de 320 \(\times\) 320 píxeles.
+
+\section{Justificación técnica preliminar}
+
+El plano axial aporta una vista transversal complementaria al plano sagital. Mientras que el plano sagital permite observar múltiples niveles vertebrales y estructuras como vértebras, discos y canal espinal en continuidad, el plano axial permite analizar la sección transversal del canal, el saco tecal, los forámenes neurales y los elementos posteriores. Esta diferencia puede ser relevante para derivar mediciones complementarias, especialmente en los niveles inferiores donde se concentra gran parte de la patología degenerativa lumbar.
+
+Desde el punto de vista técnico, la incorporación del plano axial no reemplaza al módulo sagital, sino que podría constituir un módulo adicional. El diseño preliminar sería mantener SPIDER como base principal para segmentación sagital y evaluar el dataset de Sudirman / Al-Kafri como base complementaria para segmentación axial.
+
+\section{Alcance preliminar del módulo axial}
+
+En caso de incorporarse en etapas posteriores, el módulo axial podría contemplar:
+\begin{itemize}
+    \item carga y normalización de cortes axiales de RM lumbar;
+    \item segmentación de disco intervertebral, elemento posterior, saco tecal y área entre elementos anterior y posterior;
+    \item mediciones geométricas simples derivadas de las máscaras axiales;
+    \item visualización superpuesta de regiones segmentadas sobre el corte axial;
+    \item salida editable integrada con el flujo principal del prototipo;
+    \item validación técnica contra máscaras de referencia del dataset axial.
+\end{itemize}
+
+Estas funcionalidades se consideran preliminares y no sustituyen las funcionalidades sagitales definidas para el MVP original.
+
+\section{Limitaciones y decisión metodológica}
+
+La incorporación del plano axial implica ampliar la complejidad del proyecto, ya que requiere trabajar con otro dataset, otras estructuras anatómicas, otra orientación de adquisición y posiblemente otro pipeline de preprocesamiento. Además, su inclusión debe ser coherente con los tiempos del PFI y con los hitos de entrega definidos por la asignatura.
+
+Por este motivo, en la entrega actual el plano axial se documenta como hallazgo del relevamiento y como posible ampliación de alcance. La decisión definitiva se consolidará en la entrega del 50\%, junto con el capítulo de user research, la definición formal de requerimientos y la evaluación técnica de factibilidad.
+
+\section{Impacto sobre el alcance actual}
+
+Para esta entrega, el alcance principal continúa centrado en RM lumbar sagital, segmentación de vértebras, discos intervertebrales y canal espinal, mediciones geométricas simples, visualización superpuesta y salida estructurada editable. El plano axial se incorpora únicamente como extensión preliminar documentada en anexo, sin modificar el núcleo aprobado del MVP.
+
+Los antecedentes de medición automática sobre cortes axiales, como el trabajo de Natalia et al. \parencite{natalia_measurement_2020}, y las clasificaciones morfológicas de referencia para degeneración discal \parencite{pfirrmann_disc_degeneration_2001}, se conservan como sustento bibliográfico para esta posible ampliación, pero no convierten al módulo axial en alcance principal de la entrega actual.

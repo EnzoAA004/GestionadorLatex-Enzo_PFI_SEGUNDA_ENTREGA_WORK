@@ -1,0 +1,64 @@
+\chapter{Metodología de desarrollo y validación técnica}
+\label{chap:metodologia-validacion}
+
+\section{Enfoque de trabajo}
+
+Este capítulo describe cómo se construyó, integró y validó el prototipo: de qué manera las necesidades identificadas, los requerimientos, los componentes técnicos, las pruebas y la evidencia se transforman en incrementos verificables.
+
+El proyecto adopta un enfoque aplicado, iterativo e incremental, en la línea de los métodos que construyen el sistema mediante incrementos sucesivos verificables en lugar de una única fase de implementación \parencite{larman_basili_iterative_incremental_2003}. No se emplea Scrum de forma estricta ni se reproducen ceremonias que no aporten valor a un equipo de dos integrantes. Se combinan un backlog priorizado, checkpoints técnicos, contratos compartidos, ramas de corta duración, revisión cruzada y validación por capas. Una capacidad no se considera terminada por compilar, renderizar una pantalla o existir en un único repositorio.
+
+La división del trabajo se realiza por módulos y no mediante una rama permanente por persona. Un integrante asume como responsabilidad primaria el módulo de inteligencia artificial, el backend, los contratos y la infraestructura; el otro, el frontend, el visor, la interacción y la accesibilidad. Ambos revisan los cambios del otro cuando atraviesan un contrato compartido.
+
+\section{Sistemas de identificación}
+
+La nomenclatura de trabajo no fue uniforme a lo largo del proyecto y el documento emplea tres sistemas de identificación de distinta naturaleza, que no deben interpretarse como una única secuencia.
+
+\begin{itemize}
+\item Las épicas académicas, identificadas como E1 a E10, derivan del user research y de los requerimientos, y organizan el trabajo desde la perspectiva del producto y de la tesis.
+\item Los backlogs técnicos internos de cada repositorio, con prefijos propios: AI- en el módulo de inteligencia artificial, BE- en el backend, FE- y FE-RD- en el frontend, y DEV- para contenedorización y orquestación.
+\item Los checkpoints coordinados de producto, identificados como P8, P9, P10, P10.5 y sus continuaciones, en los que un mismo objetivo se distribuye entre repositorios y cada uno asume el subbloque correspondiente.
+\end{itemize}
+
+De esta distinción se siguen dos consecuencias para la lectura. La primera es que no existió una secuencia global de P1 a P7 compartida por los tres repositorios: la coordinación mediante checkpoints comunes comenzó con P8, y las etapas anteriores son líneas paralelas de backlog. La segunda es que los identificadores FE-P1 a FE-P8, de una épica de pulido del frontend, son internos de ese repositorio: FE-P8 designa un documento de control de calidad de la interfaz, mientras que P8 designa el checkpoint de persistencia descrito en el Anexo F.
+
+Los hitos experimentales del módulo de inteligencia artificial, numerados también con la letra E en la etapa de notebooks, pertenecen a una numeración técnica propia y no guardan relación con las épicas académicas. Los profesionales entrevistados se identifican con el prefijo EN, de EN-01 a EN-05, precisamente para evitar la confusión con cualquiera de esas dos numeraciones.
+
+Un checkpoint es un estado compatible y reproducible del sistema, identificado mediante commits concretos en los tres repositorios. Su función es congelar una frontera común desde la cual el otro integrante pueda continuar sin depender de cambios locales no publicados, e indica alcance, identificadores de commit, variables necesarias, forma de ejecución, pruebas realizadas y limitaciones. El estado global no se deriva del avance de una sola capa: el cierre de seguridad del frontend no implica que P10 esté terminado si el módulo de inteligencia artificial conserva criterios pendientes.
+
+\section{Ciclo de trabajo y coordinación}
+
+Cada incremento responde a una necesidad, un requerimiento o una deuda técnica explícita. Antes de implementarlo se define su alcance, dependencia, responsable, criterio de aceptación y evidencia esperada; se delimita el repositorio responsable y, cuando hay comunicación entre servicios, se define o actualiza el contrato compartido junto con sus fixtures. La implementación ocurre en una rama de corta duración. Después se ejecutan las pruebas que correspondan, se recolecta evidencia sanitizada, se realiza revisión cruzada y se integra o se congela en una rama de checkpoint identificable. Cuando el incremento atraviesa más de un repositorio, la validación es conjunta.
+
+El ciclo se repite cuando una prueba revela incompatibilidades o cuando el resultado no satisface el criterio original. La iteración no se interpreta como falta de planificación sino como reducción progresiva de incertidumbre.
+
+La coordinación entre repositorios se apoya en contratos antes que en acuerdos informales. Un cambio que modifica campos, estados, assets o errores debe actualizar el contrato compartido, los fixtures, los tipos del consumidor y las pruebas correspondientes. Los fixtures permiten que una capa consumidora avance mientras la productora todavía se implementa.
+
+Los cambios de alcance se aceptan cuando tienen evidencia de origen y análisis de impacto. La incorporación del plano axial surgió del user research y de la disponibilidad de datos; el visor volumétrico, de la necesidad de revisar múltiples cortes. Cada ampliación debe actualizar requerimientos, roadmap, arquitectura, contratos, pruebas y documentación.
+
+\section{Criterios de listo, terminado y evidencia}
+
+Una tarea está lista para comenzar cuando cuenta con objetivo concreto, necesidad o requerimiento de origen, responsable, repositorio, dependencias identificadas, entrada real o fixture, criterio de aceptación, plan de prueba y consideraciones de privacidad.
+
+Se considera terminada, para su alcance, cuando el código, contrato o documento está completo, el criterio de aceptación fue ejecutado, los casos de error relevantes fueron probados, la evidencia puede localizarse y el estado real quedó reflejado en la documentación. Una capacidad parcial se declara como tal en lugar de presentarse como cerrada.
+
+La evidencia técnica puede incluir commits, solicitudes de integración, comandos de prueba, respuestas sanitizadas, registros sin datos sensibles, capturas, manifests y hashes. Los checkpoints de modelos se administran como artifacts versionados y no como archivos anónimos: cada uno conserva dataset, clases, preprocesamiento, arquitectura, versión, métricas, hash y manifest, y la ejecución registra qué artifact utilizó.
+
+\section{Validación por capas y pruebas}
+
+La evaluación se estructura en capas para localizar fallas y evitar conclusiones excesivas: datos y fixtures; modelo experimental; artifact y runtime; módulo de inteligencia artificial; backend; frontend; integración extremo a extremo; evaluación profesional; y despliegue con observabilidad.
+
+Una falla en una capa inferior limita las afirmaciones posibles en las superiores. Un buen coeficiente Dice no demuestra que el estudio pueda reabrirse; una pantalla correcta con fixtures no demuestra que las vistas previas reales estén persistidas; y una opinión favorable en una entrevista no constituye validación clínica.
+
+En el módulo de inteligencia artificial se prueban lectura de volúmenes, preprocesamiento, selección de corte, reconstrucción de arquitecturas, verificación de manifests y hashes, inferencia y regresión sobre fixtures de-identificados. En el backend, autenticación, autorización, validaciones, contratos, persistencia, auditoría, serving de assets y reapertura, con un criterio relevante: abrir un estudio persistido con el módulo de inteligencia artificial apagado. En el frontend, tipos y adaptadores, navegación, estados de carga y error, ausencia de superposición y accesibilidad.
+
+La validación del visor volumétrico comprueba cantidad y orden de los cortes, eje, índice computacional y numeración mostrada, con índice interno desde cero y numeración de interfaz desde uno. Verifica también que la reapertura funcione sin volver a ejecutar la inferencia y que no se simule una correspondencia sagital-axial cuando la geometría no permite establecerla. Las series no soportadas permanecen disponibles como imagen base e informan que no poseen inferencia automática.
+
+La seguridad se integra desde el diseño: las operaciones protegidas requieren autenticación y autorización, las cuentas nuevas quedan pendientes de aprobación, los assets no se sirven mediante rutas internas y los secretos se mantienen fuera del código.
+
+\section{Limitaciones metodológicas}
+
+La metodología se desarrolla bajo restricciones propias de un proyecto final: equipo reducido, tiempo académico, hardware limitado, conjuntos de datos públicos con taxonomías diferentes, infraestructura temporal y ausencia de validación clínica multicéntrica. Estas condiciones limitan el alcance de las conclusiones, pero no invalidan la evaluación de ingeniería, la reproducibilidad ni el aporte de integración.
+
+Las entrevistas EN-01 a EN-05 constituyen user research exploratorio: identificaron necesidades, riesgos y criterios de diseño, y no reemplazan una validación clínica ni una prueba de usabilidad formal. Sus resultados se analizan de forma cualitativa y no se generalizan a toda la población profesional ni se utilizan para afirmar eficacia diagnóstica.
+
+Existe además el riesgo de que la documentación quede desactualizada frente a un desarrollo rápido. Para mitigarlo se emplean checkpoints, estados explícitos y una revisión editorial antes de continuar con nuevos capítulos.

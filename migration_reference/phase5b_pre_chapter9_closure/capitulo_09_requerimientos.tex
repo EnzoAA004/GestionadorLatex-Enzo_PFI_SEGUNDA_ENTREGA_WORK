@@ -1,0 +1,183 @@
+\chapter{Requerimientos funcionales, no funcionales y trazabilidad}
+\label{chap:requerimientos}
+
+\section{Propósito del capítulo}
+
+Este capítulo formaliza qué debe hacer el prototipo, bajo qué condiciones y cómo se verifica cada capacidad, mediante la cadena necesidad, historia de usuario, requerimiento, componente, criterio de aceptación y evidencia. Los identificadores RF, RNF y RV conservan el significado establecido en el Capítulo 8 y se amplían para cubrir autenticación, persistencia, trazabilidad distribuida y compatibilidad volumétrica.
+% CROSS_REFERENCE_MAPPING_REQUIRED
+
+\section{Fuentes y criterios de formalización}
+
+La especificación adopta la distinción habitual entre requerimientos funcionales, que describen qué debe hacer el sistema, y no funcionales, que describen bajo qué condiciones de calidad debe hacerlo [37]. Se construye a partir de cuatro grupos de fuentes:
+% BIBLIOGRAPHY_MAPPING_REQUIRED
+
+\begin{itemize}
+  \item User research: necesidades N-01 a N-12 y decisiones derivadas de las entrevistas EN-01 a EN-05.
+  \item Alcance del producto: separación sagital–axial, revisión humana, salida no diagnóstica, ingesta de estudios DICOM completos (con MHA/NIfTI como compatibilidad técnica) y exclusiones clínicas.
+  \item Implementación real: Frontend, Backend y AI Module, junto con PostgreSQL, assets durables, contratos y pruebas.
+  \item Roadmap técnico: P9, P10, P10.5 y evolución posterior hacia Google Cloud y comparación longitudinal descriptiva.
+\end{itemize}
+
+No se incorporan requerimientos únicamente para completar una cantidad. Cada elemento debe estar vinculado con una necesidad, una capacidad comprobable o una decisión explícita de alcance. Cuando una función todavía no está implementada, se indica como «En curso» o «Futuro»; no se la presenta como terminada.
+
+\section{Actores y responsabilidades}
+
+% TABLE_PENDING_MIGRATION
+% DOCX_TABLE_NUMBER: no visible en cuerpo del capítulo
+% DOCX_TABLE_TITLE: Actores y responsabilidades
+% TABLE_ROLE: catálogo de actores y responsabilidades principales.
+% ROWS: 6
+% COLUMNS: 3
+% HEADERS: Código | Actor | Responsabilidad principal
+% MERGED_CELLS: NO
+% CONTAINS_RF: NO
+% CONTAINS_RNF: NO
+% CONTAINS_TRACEABILITY: NO
+% CONTAINS_METRICS: NO
+% IDS_CONTAINED: A1, A2, A3, A4, A5
+% COMPLEXITY: MEDIUM
+
+El profesional es el actor humano principal. El Backend y el AI Module se documentan como actores de sistema para hacer explícitas las responsabilidades distribuidas y evitar atribuir al Frontend capacidades que dependen de otras capas.
+
+\section{Estados de requerimiento y criterio de prioridad}
+
+% TABLE_PENDING_MIGRATION
+% DOCX_TABLE_NUMBER: no visible en cuerpo del capítulo
+% DOCX_TABLE_TITLE: Estados de requerimiento y criterio de prioridad
+% TABLE_ROLE: definición de estados documentales de requerimientos.
+% ROWS: 5
+% COLUMNS: 2
+% HEADERS: Estado | Definición
+% MERGED_CELLS: NO
+% CONTAINS_RF: NO
+% CONTAINS_RNF: NO
+% CONTAINS_TRACEABILITY: NO
+% CONTAINS_METRICS: NO
+% IDS_CONTAINED: none
+% COMPLEXITY: LOW
+
+La prioridad se clasifica como alta, media o baja. Una prioridad alta corresponde a seguridad, flujo principal, revisión humana, trazabilidad o funciones que bloquean otras capas. Una prioridad media identifica capacidades relevantes que no bloquean el recorrido principal. Una prioridad baja corresponde a evoluciones posteriores, como comparación longitudinal avanzada.
+
+\section{Flujos alternativos y excepciones}
+
+FA-01 — AI Module no disponible. El Backend conserva su disponibilidad, devuelve un estado degradado explícito y evita presentar una respuesta contractual como inferencia real. Los estudios persistidos continúan siendo consultables dentro del alcance de los assets ya almacenados.
+
+FA-02 — Archivo inválido o incompatible. La carga se rechaza con un mensaje comprensible y no se crea una corrida parcial presentada como válida.
+
+FA-03 — Plano axial ausente. El sistema debe informar la ausencia y permitir un flujo sagital cuando el contrato lo admita, sin fabricar resultados axiales.
+
+FA-04 — Modelo o artifact no disponible. La corrida no se marca como inferencia real. El diagnóstico técnico debe indicar qué modelo o artifact falta.
+
+FA-05 — Usuario sin permisos. El Backend rechaza la operación y el Frontend no expone acciones para las que el rol no está autorizado.
+
+FA-06 — Corrida histórica. Si el estudio solo conserva input.png y overlay.png, debe poder abrirse en modo compatible, sin inventar un catálogo de slices inexistente.
+
+FA-07 — Corte sin resultados. El visor muestra la imagen base y el estado «Sin resultados automáticos en este corte».
+
+FA-08 — Asset faltante o corrupto. El sistema informa la ausencia, conserva la trazabilidad del error y evita reemplazarlo por un contenido engañoso.
+
+\section{Historias de usuario priorizadas}
+
+% TABLE_PENDING_MIGRATION
+% DOCX_TABLE_NUMBER: no visible en cuerpo del capítulo
+% DOCX_TABLE_TITLE: Historias de usuario priorizadas
+% TABLE_ROLE: catálogo de historias de usuario con prioridad y estado.
+% ROWS: 15
+% COLUMNS: 4
+% HEADERS: ID | Historia de usuario | Prioridad | Estado
+% MERGED_CELLS: NO
+% CONTAINS_RF: NO
+% CONTAINS_RNF: NO
+% CONTAINS_TRACEABILITY: YES
+% CONTAINS_METRICS: NO
+% IDS_CONTAINED: HU-01, HU-02, HU-03, HU-04, HU-05, HU-06, HU-07, HU-08, HU-09, HU-10, HU-11, HU-12, HU-13, HU-14
+% COMPLEXITY: HIGH
+
+\section{Requerimientos funcionales}
+
+% TABLE_PENDING_MIGRATION
+% DOCX_TABLE_NUMBER: no visible en cuerpo del capítulo
+% DOCX_TABLE_TITLE: Requerimientos funcionales
+% TABLE_ROLE: definición formal de requerimientos funcionales, criterios de aceptación, prioridad, estado y fuente.
+% ROWS: 26
+% COLUMNS: 4
+% HEADERS: ID | Requerimiento | Criterio de aceptación | Prioridad / estado / fuente
+% MERGED_CELLS: NO
+% CONTAINS_RF: YES
+% CONTAINS_RNF: YES
+% CONTAINS_TRACEABILITY: YES
+% CONTAINS_METRICS: YES
+% IDS_CONTAINED: RF-01, RF-02, RF-03, RF-04, RF-05, RF-06, RF-07, RF-08, RF-09, RF-10, RF-11, RF-12, RF-13, RF-14, RF-15, RF-16, RF-17, RF-18, RF-19, RF-20, RF-21, RF-22, RF-23, RF-24, RF-25, RNF-06, RNF-07, HU-01, HU-02, HU-03, HU-04, HU-05, HU-06, HU-08, HU-09, HU-10, HU-11, HU-12, HU-13, HU-14, N-01, N-02, N-03, N-04, N-05, N-06, N-07, N-08, N-10, N-11, N-12, FA-06
+% COMPLEXITY: HIGH
+
+\section{Requerimientos no funcionales}
+
+% TABLE_PENDING_MIGRATION
+% DOCX_TABLE_NUMBER: no visible en cuerpo del capítulo
+% DOCX_TABLE_TITLE: Requerimientos no funcionales
+% TABLE_ROLE: definición formal de requerimientos no funcionales, criterios de aceptación, prioridad y estado.
+% ROWS: 13
+% COLUMNS: 4
+% HEADERS: ID | Requerimiento | Criterio de aceptación | Prioridad / estado
+% MERGED_CELLS: NO
+% CONTAINS_RF: NO
+% CONTAINS_RNF: YES
+% CONTAINS_TRACEABILITY: NO
+% CONTAINS_METRICS: YES
+% IDS_CONTAINED: RNF-01, RNF-02, RNF-03, RNF-04, RNF-05, RNF-06, RNF-07, RNF-08, RNF-09, RNF-10, RNF-11, RNF-12
+% COMPLEXITY: HIGH
+
+\section{Requerimientos de validación}
+
+% TABLE_PENDING_MIGRATION
+% DOCX_TABLE_NUMBER: no visible en cuerpo del capítulo
+% DOCX_TABLE_TITLE: Requerimientos de validación
+% TABLE_ROLE: definición de requerimientos de validación, criterios de aceptación y estado.
+% ROWS: 4
+% COLUMNS: 4
+% HEADERS: ID | Requerimiento | Criterio de aceptación | Estado
+% MERGED_CELLS: NO
+% CONTAINS_RF: NO
+% CONTAINS_RNF: NO
+% CONTAINS_TRACEABILITY: NO
+% CONTAINS_METRICS: YES
+% IDS_CONTAINED: RV-01, RV-02, RV-03
+% COMPLEXITY: MEDIUM
+
+\section{Matriz de trazabilidad resumida}
+
+% TABLE_PENDING_MIGRATION
+% DOCX_TABLE_NUMBER: no visible en cuerpo del capítulo
+% DOCX_TABLE_TITLE: Matriz de trazabilidad resumida
+% TABLE_ROLE: matriz de trazabilidad entre historia, necesidad, requerimientos asociados, componentes y evidencia esperada.
+% ROWS: 15
+% COLUMNS: 5
+% HEADERS: Historia | Necesidad | Requerimientos asociados | Componentes | Evidencia esperada
+% MERGED_CELLS: NO
+% CONTAINS_RF: YES
+% CONTAINS_RNF: YES
+% CONTAINS_TRACEABILITY: YES
+% CONTAINS_METRICS: YES
+% IDS_CONTAINED: HU-01, HU-02, HU-03, HU-04, HU-05, HU-06, HU-07, HU-08, HU-09, HU-10, HU-11, HU-12, HU-13, HU-14, N-01, N-02, N-03, N-04, N-05, N-06, N-07, N-08, N-10, N-11, N-12, RF-01, RF-02, RF-03, RF-04, RF-05, RF-06, RF-07, RF-08, RF-09, RF-10, RF-11, RF-12, RF-13, RF-14, RF-15, RF-16, RF-17, RF-18, RF-19, RF-20, RF-21, RNF-01, RNF-03, RNF-04, RNF-05, RNF-06, RNF-07, RNF-09, RNF-11, RNF-12
+% COMPLEXITY: HIGH
+
+\section{Control de alcance y requerimientos diferidos}
+
+Las siguientes capacidades no se consideran requerimientos terminados del MVP inmediato:
+
+\begin{itemize}
+  \item diagnóstico diferencial automático;
+  \item probabilidad clínica de lesión o degradación;
+  \item inferencia automática sobre series o modalidades no soportadas (los cortes correspondientes se muestran como imagen base);
+  \item crosshair sagital–axial sin geometría compatible;
+  \item edición avanzada de máscaras comparable con un visor clínico certificado;
+  \item integración productiva con PACS, RIS o historia clínica;
+  \item comparación longitudinal con scoring clínico no calibrado;
+  \item uso asistencial real o certificación regulatoria.
+\end{itemize}
+
+Una función propuesta que no pueda relacionarse con necesidad, historia, criterio y evidencia debe considerarse candidata a postergación. Esta regla evita que capacidades visualmente atractivas desplacen el cierre de seguridad, persistencia, navegación volumétrica y validación.
+
+\section{Conclusión del capítulo}
+
+La especificación conecta cada requerimiento con una necesidad del relevamiento, un componente responsable, un criterio de aceptación y su evidencia. Los requerimientos declarados como parciales o futuros se identifican como tales, de modo que la matriz de trazabilidad describe el estado real del producto y no su estado deseado.

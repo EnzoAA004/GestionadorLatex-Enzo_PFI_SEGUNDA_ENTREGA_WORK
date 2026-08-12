@@ -1,0 +1,151 @@
+{
+  "extracted": [
+    {
+      "figure": "10.1",
+      "word_paragraph": 477,
+      "rid": "rId13",
+      "docx_media_file": "word/media/image9.png",
+      "output_file": "images/architecture/fig_10_01_contexto_sistema.png",
+      "source_sha256": "3DBA4D4345D462240C8E6D916DDC9FABAFFC8E4ABFCFEB1939E83E1FB58CBB23",
+      "output_sha256": "3DBA4D4345D462240C8E6D916DDC9FABAFFC8E4ABFCFEB1939E83E1FB58CBB23",
+      "byte_identical": true,
+      "label": "fig:arch-contexto-sistema",
+      "width": 945,
+      "height": 675,
+      "format": "PNG",
+      "open_test": "PASS"
+    },
+    {
+      "figure": "10.2",
+      "word_paragraph": 493,
+      "rid": "rId14",
+      "docx_media_file": "word/media/image12.png",
+      "output_file": "images/architecture/fig_10_02_componentes.png",
+      "source_sha256": "FFFA2DA0D31529959AA3943FD054EC2B03F50C65CEFF9105315D9B36BE0C0738",
+      "output_sha256": "FFFA2DA0D31529959AA3943FD054EC2B03F50C65CEFF9105315D9B36BE0C0738",
+      "byte_identical": true,
+      "label": "fig:arch-componentes",
+      "width": 945,
+      "height": 655,
+      "format": "PNG",
+      "open_test": "PASS"
+    },
+    {
+      "figure": "10.3",
+      "word_paragraph": 497,
+      "rid": "rId15",
+      "docx_media_file": "word/media/image1.png",
+      "output_file": "images/architecture/fig_10_03_visor_volumetrico.png",
+      "source_sha256": "3566457AA1DB96A3F19680844E196465AAF9B15C2DB99A665B4EBFA96651D15C",
+      "output_sha256": "3566457AA1DB96A3F19680844E196465AAF9B15C2DB99A665B4EBFA96651D15C",
+      "byte_identical": true,
+      "label": "fig:arch-visor-volumetrico",
+      "width": 945,
+      "height": 709,
+      "format": "PNG",
+      "open_test": "PASS"
+    },
+    {
+      "figure": "10.4",
+      "word_paragraph": 503,
+      "rid": "rId16",
+      "docx_media_file": "word/media/image7.png",
+      "output_file": "images/architecture/fig_10_04_modelo_datos.png",
+      "source_sha256": "9BE9F436A0C5F28AF838B2E33FEA08D9CB652BA20A70A4A4078B59B59D979AD9",
+      "output_sha256": "9BE9F436A0C5F28AF838B2E33FEA08D9CB652BA20A70A4A4078B59B59D979AD9",
+      "byte_identical": true,
+      "label": "fig:arch-modelo-datos",
+      "width": 945,
+      "height": 677,
+      "format": "PNG",
+      "open_test": "PASS"
+    },
+    {
+      "figure": "10.5",
+      "word_paragraph": 514,
+      "rid": "rId17",
+      "docx_media_file": "word/media/image13.png",
+      "output_file": "images/architecture/fig_10_05_clases_dominio.png",
+      "source_sha256": "4AB3404E0F6ECA2BF7276349B2A45CB200A875AFB7B1450D88A1CAE567F79299",
+      "output_sha256": "4AB3404E0F6ECA2BF7276349B2A45CB200A875AFB7B1450D88A1CAE567F79299",
+      "byte_identical": true,
+      "label": "fig:arch-clases-dominio",
+      "width": 775,
+      "height": 764,
+      "format": "PNG",
+      "open_test": "PASS"
+    },
+    {
+      "figure": "10.6",
+      "word_paragraph": 523,
+      "rid": "rId18",
+      "docx_media_file": "word/media/image14.png",
+      "output_file": "images/architecture/fig_10_06_flujo_end_to_end.png",
+      "source_sha256": "FEC9AEBF3445B02881B574394F6888BA7CCEE5CAFC0AB27C5FF6ACB330F5E497",
+      "output_sha256": "FEC9AEBF3445B02881B574394F6888BA7CCEE5CAFC0AB27C5FF6ACB330F5E497",
+      "byte_identical": true,
+      "label": "fig:arch-flujo-end-to-end",
+      "width": 945,
+      "height": 658,
+      "format": "PNG",
+      "open_test": "PASS"
+    },
+    {
+      "figure": "10.7",
+      "word_paragraph": 571,
+      "rid": "rId19",
+      "docx_media_file": "word/media/image5.png",
+      "output_file": "images/architecture/fig_10_07_despliegue_google_cloud.png",
+      "source_sha256": "EDF071E2581761FBC8B7976D459A623052DF06531633A7F93E3BD6C9F898A6F1",
+      "output_sha256": "EDF071E2581761FBC8B7976D459A623052DF06531633A7F93E3BD6C9F898A6F1",
+      "byte_identical": true,
+      "label": "fig:arch-despliegue-google-cloud",
+      "width": 945,
+      "height": 655,
+      "format": "PNG",
+      "open_test": "PASS"
+    }
+  ],
+  "wireframe_investigation": [
+    {
+      "idx": 586,
+      "text": "[ESPACIO PARA INSERTAR: wireframes de acceso, worklist y alta de estudio con carga del volumen]",
+      "drawing_count": 0,
+      "blip_count": 0,
+      "vml_imagedata": 0,
+      "object_count": 0,
+      "alternate_content_count": 0,
+      "relationship_ids": []
+    },
+    {
+      "idx": 587,
+      "text": "Figura 10.8: Wireframes de acceso, worklist y alta de estudio. Fuente: elaboración propia.",
+      "drawing_count": 0,
+      "blip_count": 0,
+      "vml_imagedata": 0,
+      "object_count": 0,
+      "alternate_content_count": 0,
+      "relationship_ids": []
+    },
+    {
+      "idx": 588,
+      "text": "[ESPACIO PARA INSERTAR: wireframes del workspace multiplanar y del panel de revisión con el preinforme editable]",
+      "drawing_count": 0,
+      "blip_count": 0,
+      "vml_imagedata": 0,
+      "object_count": 0,
+      "alternate_content_count": 0,
+      "relationship_ids": []
+    },
+    {
+      "idx": 589,
+      "text": "Figura 10.9: Wireframes del workspace multiplanar y de la revisión profesional. Fuente: elaboración propia. ### 10.9.3 Trazabilidad entre zonas de interfaz y necesidades",
+      "drawing_count": 0,
+      "blip_count": 0,
+      "vml_imagedata": 0,
+      "object_count": 0,
+      "alternate_content_count": 0,
+      "relationship_ids": []
+    }
+  ]
+}

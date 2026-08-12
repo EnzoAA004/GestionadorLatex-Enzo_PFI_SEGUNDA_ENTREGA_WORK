@@ -1,3 +1,25 @@
-\chapter{Registro de decisiones arquitect\'onicas}
+\chapter{Registro de decisiones arquitectónicas}
+\label{anexo:decisiones-arquitectonicas}
 
-% Contenido pendiente de migraci\'on fiel desde PFI_Segunda_entrega.docx.
+Este anexo documenta las principales decisiones de arquitectura adoptadas durante el desarrollo del prototipo mediante Architecture Decision Records (ADR). El objetivo es conservar, además de la decisión final, el contexto que la motivó, las alternativas consideradas y sus principales consecuencias. Los ADR describen decisiones técnicas del prototipo y pueden revisarse si cambian sus requerimientos o condiciones de despliegue.
+
+\section*{ADR-001 --- Separación de Frontend, Backend y AI Module}
+\addcontentsline{toc}{section}{ADR-001 --- Separación de Frontend, Backend y AI Module}
+\label{adr:001-separacion-componentes}
+
+\textbf{Estado:} aceptado.
+
+\textbf{Contexto.} La solución combina una interfaz interactiva, funciones de autenticación y persistencia, y un runtime de procesamiento de imágenes e inteligencia artificial. Estos componentes presentan responsabilidades, dependencias y ciclos de evolución diferentes.
+
+\textbf{Decisión.} Mantener Frontend, Backend y AI Module como componentes diferenciados y alojados en repositorios independientes. Cada componente conserva sus propias dependencias, configuración y pruebas, y la integración se realiza mediante contratos explícitos.
+
+\textbf{Alternativas consideradas.} Unificar el sistema en un único servicio o repositorio; integrar el runtime de IA directamente en el Backend.
+
+\textbf{Consecuencias.} La separación permite modificar modelos o componentes de interfaz sin incorporar sus dependencias al resto del sistema y facilita pruebas y despliegues independientes. Como contrapartida, exige mantener contratos compatibles y coordinar cambios entre repositorios.
+
+% MIGRATION_PENDING: ADR-002
+% MIGRATION_PENDING: ADR-003
+% MIGRATION_PENDING: ADR-004
+% MIGRATION_PENDING: ADR-005
+% MIGRATION_PENDING: ADR-006
+% MIGRATION_PENDING: ADR-007

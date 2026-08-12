@@ -135,11 +135,4 @@ Evolución volumétrica & Catálogo de series, serving de cortes y procesamiento
 \hline
 \end{longtable}
 
-\section{Organización interna del módulo de inteligencia artificial}
-\label{anexo:f-organizacion-interna-ai}
-
-El módulo de inteligencia artificial agrupa responsabilidades que no corresponden al backend de producto, de modo que el código de inferencia pueda probarse sin depender de la interfaz y que la identidad del modelo no quede implícita en rutas o convenciones manuales. Un registro de modelos resuelve la clave, la versión, las clases y la dimensión de entrada de cada artifact; un materializador lo descarga desde el almacenamiento externo mediante archivo temporal y reemplazo atómico, de modo que nunca queda un artifact parcial; el runtime resuelve el dispositivo, carga y mantiene en caché los modelos y ejecuta la inferencia; un orquestador agrupa ambos planos bajo identificadores comunes sin fusionar sus taxonomías; y una capa de servicio expone los accesos que el backend consume.
-
-La reconstrucción de las arquitecturas se realiza con carga estricta: si los nombres de capa del artifact no coinciden con los de la arquitectura declarada, la carga falla de forma explícita en lugar de completar los pesos faltantes con valores iniciales. Cada artifact conserva un manifest con sus clases, su configuración, sus métricas y su resumen criptográfico, y el sistema verifica esa correspondencia antes de habilitar el modelo.
-
-La condición de disponibilidad se comprueba antes de aceptar una solicitud: deben existir el artifact local completo, un manifest coherente y una arquitectura compatible. Si alguna de las tres falta, el servicio lo informa como estado de indisponibilidad y no como resultado de análisis.
+% MIGRATION_PENDING: Organización interna del módulo de inteligencia artificial

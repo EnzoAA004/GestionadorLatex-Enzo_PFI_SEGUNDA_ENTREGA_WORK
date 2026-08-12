@@ -1,0 +1,28 @@
+\chapter{Evolución técnica del desarrollo}
+\label{anexo:evolucion-tecnica}
+
+Este anexo reúne la reconstrucción cronológica del desarrollo: cómo el proyecto pasó de una colección de cuadernos de experimentación a un producto distribuido en tres repositorios. Se ubica fuera del cuerpo principal porque describe el proceso y no las capacidades del prototipo, que el Capítulo 11 desarrolla. Su lectura resulta útil para comprender el origen de cada componente y la nomenclatura de los bloques de trabajo empleada en el Capítulo 12.
+
+\section{Evolución técnica alcanzada}
+
+Esta sección reconstruye la evolución técnica del producto desde los primeros desarrollos hasta el estado congelado para la entrega del 50 \%. La reconstrucción se apoya en el historial de los tres repositorios del proyecto y en la documentación de checkpoints que cada uno conserva. El criterio expositivo no es cronológico ni cuantitativo: cada etapa se presenta indicando qué limitación resolvía, qué componente la resolvió primero, qué cambio exigió en los repositorios restantes y qué capacidad de producto quedó disponible como resultado.
+
+Antes de recorrer las etapas conviene advertir que la nomenclatura de trabajo no fue uniforme durante todo el desarrollo, y que el documento utiliza tres sistemas de identificación que no deben confundirse entre sí. Esa distinción se detalla en la sección 12.2 y se resume aquí porque condiciona la lectura de toda la sección: las épicas E1 a E10 son unidades académicas derivadas del user research; los identificadores AI-, BE-, DEV-, FE-RD- y FE-P corresponden a backlogs internos de cada repositorio; y los checkpoints P8, P9, P10, P10.5 y siguientes son bloques coordinados de producto.
+
+\subsection{Etapa fundacional y separación en tres repositorios}
+\label{anexo:f-etapa-fundacional}
+
+El proyecto no comenzó como un producto distribuido. La primera etapa se concentró en un único repositorio de experimentación, donde el trabajo se organizó como una serie de notebooks numerados que la documentación interna identifica con el prefijo E seguido de un número. Conviene señalar de inmediato que estos hitos E del módulo de IA no guardan relación con las épicas académicas E1 a E10 definidas en el Capítulo 8: son sistemas de numeración independientes que coinciden por casualidad en la letra inicial.
+
+La secuencia experimental avanzó desde la exploración y visualización del dataset y el preprocesamiento y normalización de los volúmenes, hacia un baseline de segmentación sagital que fue sucesivamente diagnosticado, mejorado y validado contra un conjunto de retención. Sobre esa base se abrió un spike axial que exigió inventariar un dataset distinto, resolver el emparejamiento entre imágenes y máscaras, decodificar correctamente las etiquetas y recién entonces entrenar un baseline axial propio. El cierre de esta etapa produjo los dos entrenamientos finales por plano, el mapeo de clases axiales y un primer pipeline de inferencia multiplanar.
+
+La limitación que cerró esta etapa fue de naturaleza arquitectónica, no algorítmica: los modelos funcionaban dentro de notebooks, pero un notebook no es un producto. Los hitos finales de la serie experimental se dedicaron precisamente a resolver ese pasaje, incorporando un orquestador del agente de IA, una traducción del comportamiento hacia un servicio consumible por backend, un smoke de integración, y sendos andamiajes iniciales de servicio Spring Boot y de interfaz de worklist. Esa constatación motivó la separación en tres repositorios independientes (módulo de IA, backend y frontend), con la responsabilidad de cada capa delimitada por contrato.
+
+La separación habilitó el desarrollo en paralelo, pero introdujo el problema que domina el resto de la evolución: mantener coherentes tres repositorios que avanzan a ritmos distintos.
+
+% MIGRATION_PENDING: Backlogs técnicos por repositorio
+% MIGRATION_PENDING: Bloques coordinados de producto / Tabla F.1
+% MIGRATION_PENDING: Estado resultante para la entrega del 50 %
+% MIGRATION_PENDING: Evolución del producto visible
+% MIGRATION_PENDING: Evolución del pipeline de inferencia / Tabla F.2
+% MIGRATION_PENDING: Organización interna del módulo de inteligencia artificial

@@ -20,8 +20,52 @@ La limitación que cerró esta etapa fue de naturaleza arquitectónica, no algor
 
 La separación habilitó el desarrollo en paralelo, pero introdujo el problema que domina el resto de la evolución: mantener coherentes tres repositorios que avanzan a ritmos distintos.
 
-% MIGRATION_PENDING: Backlogs técnicos por repositorio
-% MIGRATION_PENDING: Bloques coordinados de producto / Tabla F.1
+\subsection{Backlogs técnicos por repositorio}
+\label{anexo:f-backlogs-repositorios}
+
+Tras la separación, y antes de que existiera coordinación formal entre repositorios, cada uno adoptó su propio sistema de identificadores: AI- en el módulo de inteligencia artificial, BE- en el backend, FE- y FE-RD- en el frontend, y DEV- para la contenedorización y la orquestación comunes a los tres. Ese período explica por qué el producto no apareció terminado alrededor de P9: cada repositorio resolvía su propia progresión antes de que existiera un bloque coordinado.
+
+El módulo de IA avanzó desde la inspección de los checkpoints entrenados hacia el endurecimiento de los manifests con verificación de hash, la carga estricta por plano y la corrida multiplanar con identificador común. El backend partió de congelar los tipos del contrato y avanzó hacia la persistencia verificada sobre PostgreSQL con migraciones versionadas. El frontend construyó los tipos del contrato, el espacio de trabajo por caso, la ejecución, el render de superposiciones y el visor sagital y axial con control de opacidad.
+
+Existe además una serie identificada como FE-P1 a FE-P8, correspondiente a una épica de pulido visual del frontend. Su numeración es interna de ese repositorio y no guarda relación con los checkpoints coordinados de producto: FE-P8 designa un documento de control de calidad de la interfaz, mientras que P8 designa el checkpoint de persistencia.
+
+\subsection{Bloques coordinados de producto}
+\label{anexo:f-bloques-coordinados}
+
+% CROSS_REFERENCE_MAPPING_REQUIRED: Tabla 9.1
+A partir de P8 el desarrollo se organiza en bloques coordinados entre repositorios. Cada bloque parte de una limitación concreta del producto, se resuelve en el componente que puede resolverla y deja disponible una capacidad nueva junto con la dependencia que abre para el bloque siguiente. La Tabla 9.1 recorre esa secuencia.
+
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.13\textwidth}|>{\raggedright\arraybackslash}p{0.20\textwidth}|>{\raggedright\arraybackslash}p{0.27\textwidth}|>{\raggedright\arraybackslash}p{0.20\textwidth}|>{\raggedright\arraybackslash}p{0.10\textwidth}|}
+\caption{Bloques coordinados de producto, de P8 a P10.9.}
+\label{tab:anexo-f-bloques-coordinados}\\
+\hline
+\textbf{Bloque} & \textbf{Limitación que resolvía} & \textbf{Resolución} & \textbf{Capacidad resultante} & \textbf{Estado} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Bloque} & \textbf{Limitación que resolvía} & \textbf{Resolución} & \textbf{Capacidad resultante} & \textbf{Estado} \\
+\hline
+\endhead
+P8 · Persistencia & El sistema funcionaba pero no recordaba: cerrar el prototipo equivalía a perder el trabajo, y la revisión profesional es por definición diferida. & Backend y frontend, sin participación del módulo de IA. Worklist servida desde la base, persistencia de assets y revisiones, historial por referencia de sujeto. El frontend dejó de completar con valores fabricados los campos ausentes. & Reapertura de un estudio procesado con sus resultados, assets y estado de revisión. & Terminado \\
+\hline
+P9 · Contrato multiplanar & El acoplamiento entre capas se sostenía en acuerdos implícitos: cada cambio en la salida de la inferencia obligaba a corregir en tres lugares. & El módulo de IA normalizó la segunda versión del contrato; el backend lo validó y canonizó en lugar de retransmitirlo; el frontend consumió una forma única. & Espacio de trabajo multiplanar estable. & Terminado \\
+\hline
+P10 · Seguridad y trazabilidad & Un error interno podía revelar detalles de implementación y no existía forma de reconstruir qué había ocurrido en una corrida fallida. & Autenticación, activación de cuentas, tratamiento de errores, traza distribuida, sanitización de mensajes, auditoría y observabilidad. Contrapartida de sesión en el frontend. & Fronteras explícitas de seguridad y degradación controlada. & Consolidado \\
+\hline
+P10.5 · Evolución volumétrica & El producto exponía únicamente el corte analizado, cuando el volumen contiene muchos y un resultado sin contexto de vecindad es difícil de evaluar. & Seis bloques encadenados. P10.5-A definió el contrato navegable y es el único cerrado en los tres repositorios a la vez; P10.5-B a P10.5-F distribuyeron catálogo, serving, visor, vinculación por corte y reapertura. & Navegación por cortes con el resultado vinculado a su corte de origen. & Implementado; integración final del frontend pendiente \\
+\hline
+P10.6 · Estenosis subarticular & — & Modelo entrenado y evaluado internamente sobre RSNA / LumbarDISC, con checkpoint congelado. & Capacidad no disponible de forma automática: el modelo axial no incluye clase de vértebra y falta la generación de la región de interés que el clasificador requiere. & Bloqueado \\
+\hline
+P10.7 · Hallazgos por nivel & — & Ocho tipos de hallazgo degenerativo, sujetos a revisión profesional y con estado de despliegue asociado. Las probabilidades internas no se exponen. & Salida asistiva por nivel. Los ocho tipos no tienen el mismo soporte empírico y no se presentan como equivalentes. & Implementado \\
+\hline
+P10.8 · Preflight y guardas & — & Cierre del preflight de expansión clínica e incorporación de guardas, sin entrenamiento adicional. & Verificación de factibilidad previa a la ejecución. & Cerrado \\
+\hline
+P10.9 · Consolidación & — & Congelamiento del backend y del módulo de IA para el traspaso al frontend, con recorrido técnico verificado mediante un runner automatizado. & Frontera común para continuar el desarrollo. & Congelado; recorrido con interfaz pendiente \\
+\hline
+\end{longtable}
+
+Sobre P10.5 corresponde una precisión de método: el contrato quedó incorporado a la rama principal de los tres repositorios y la navegación volumétrica está disponible en el frontend, pero la integración definitiva de los contratos congelados en P10.9 permanece pendiente, de modo que el recorrido extremo a extremo con interfaz todavía no se ejecutó.
+
 % MIGRATION_PENDING: Estado resultante para la entrega del 50 %
 % MIGRATION_PENDING: Evolución del producto visible
 % MIGRATION_PENDING: Evolución del pipeline de inferencia / Tabla F.2

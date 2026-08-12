@@ -95,36 +95,5 @@ La rotación permanece deshabilitada en el módulo axial por un motivo análogo:
 
 Ambas estrategias son deterministas por época. La semilla de cada transformación se deriva de la combinación de la semilla global, el número de época, el índice de la muestra y el identificador del corte, de modo que la reproducción es exacta corte por corte y no únicamente a nivel de ejecución completa.
 
-% SOURCE_NUMBERING_ANOMALY_PRESERVED: F.3 literal in DOCX Heading2
-\phantomsection
-\section*{F.3 Controles de calidad al cierre del entrenamiento}
-\addcontentsline{toc}{section}{F.3 Controles de calidad al cierre del entrenamiento}
-\label{anexo:entrenamiento-f3-controles-calidad}
-
-\begin{table}[H]
-\small
-\centering
-\caption{Condiciones evaluadas antes de promover un artifact.}
-\label{tab:anexo-e-controles-promocion-artifact}
-\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{0.40\textwidth}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
-\hline
-\textbf{Control} & \textbf{Valor o condición} & \textbf{Configurable} \\
-\hline
-Umbral de coeficiente Dice macro de primer plano & 0,70 & Sí \\
-\hline
-Partición retenida separada a nivel de paciente & Obligatoria & No \\
-\hline
-Informe explícito del desempeño sobre la clase de fondo de origen & Obligatorio & No \\
-\hline
-Informe de intersección sobre unión además del coeficiente Dice & Obligatorio & No \\
-\hline
-Generación de una partición nueva & Deshabilitada por omisión & Requiere habilitación manual \\
-\hline
-\end{tabularx}
-\end{table}
-
-El cuaderno de entrenamiento incorpora además verificaciones de fuga cruzada entre particiones, de particiones vacías y de clases ausentes en alguna de ellas, así como una restricción en tiempo de ejecución que impide reevaluar la partición retenida de una ejecución ya evaluada sin confirmación explícita.
-
-Según se informa en la sección 13.4, el umbral no se alcanzó en el modelo axial bajo su lectura de primer plano completo, y el artifact quedó registrado en esa condición sin que el valor del umbral se modificara. % CROSS_REFERENCE_MAPPING_REQUIRED: sección 13.4
-
+% MIGRATION_PENDING: F.3 / Tabla E.3
 % MIGRATION_PENDING: F.4

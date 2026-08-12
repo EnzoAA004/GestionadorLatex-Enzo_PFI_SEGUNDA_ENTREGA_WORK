@@ -127,12 +127,4 @@ El cuaderno de entrenamiento incorpora además verificaciones de fuga cruzada en
 
 Según se informa en la sección 13.4, el umbral no se alcanzó en el modelo axial bajo su lectura de primer plano completo, y el artifact quedó registrado en esa condición sin que el valor del umbral se modificara. % CROSS_REFERENCE_MAPPING_REQUIRED: sección 13.4
 
-% SOURCE_NUMBERING_ANOMALY_PRESERVED: F.4 literal in DOCX Heading2
-\phantomsection
-\section*{F.4 Trazabilidad de los artifacts}
-\addcontentsline{toc}{section}{F.4 Trazabilidad de los artifacts}
-\label{anexo:entrenamiento-f4-trazabilidad-artifacts}
-
-Cada artifact final conserva en su manifest la correspondencia de clases, la configuración de la arquitectura, la dimensión de entrada, las métricas obtenidas, el estado de entrenamiento y un conjunto de identificadores criptográficos que vinculan el modelo con el código y los datos que lo produjeron: el resumen del índice de entrenamiento, el del código de la arquitectura, el commit del repositorio y la referencia al cuaderno de origen.
-
-El runtime valida esa correspondencia antes de habilitar un modelo. Si los nombres de clase declarados en el código no coinciden con los del manifest, el modelo queda deshabilitado en lugar de ejecutarse con una interpretación distinta de sus salidas.
+% MIGRATION_PENDING: F.4

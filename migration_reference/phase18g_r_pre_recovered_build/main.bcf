@@ -2443,9 +2443,8 @@
     <bcf:citekey order="40" intorder="1">cochran_sampling_techniques_1977</bcf:citekey>
     <bcf:citekey order="41" intorder="1">wiegers_software_requirements_2013</bcf:citekey>
     <bcf:citekey order="42" intorder="1">larman_basili_iterative_incremental_2003</bcf:citekey>
-    <bcf:citekey order="43" intorder="1">kirillov_panoptic_2019</bcf:citekey>
-    <bcf:citekey order="44" intorder="2" nocite="1">kruchten_4plus1_1995</bcf:citekey>
-    <bcf:citekey order="45" intorder="3" nocite="1">pfirrmann_disc_degeneration_2001</bcf:citekey>
+    <bcf:citekey order="43" intorder="1" nocite="1">asplanatti_fabrello_propuesta_2026</bcf:citekey>
+    <bcf:citekey order="44" intorder="2">kirillov_panoptic_2019</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

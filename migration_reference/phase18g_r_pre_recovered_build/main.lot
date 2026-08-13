@@ -5,7 +5,7 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1}{Estrategia de búsqueda y selección de fuentes.}}{20}{table.6.1}%
+\contentsline {table}{\numberline {6.1}{Estrategia de búsqueda y selección de fuentes.}}{19}{table.6.1}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
@@ -34,11 +34,11 @@
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {table}{\numberline {6.2}{Comparación entre soluciones comerciales y el alcance del PFI.}}{27}{table.6.2}%
-\contentsline {table}{\numberline {6.3}{Brecha funcional que justifica el PFI.}}{30}{table.6.3}%
-\contentsline {table}{\numberline {6.4}{Síntesis de antecedentes y relación con el PFI.}}{31}{table.6.4}%
-\contentsline {table}{\numberline {6.5}{Matriz FODA del PFI.}}{33}{table.6.5}%
-\contentsline {table}{\numberline {6.6}{Análisis de las cinco fuerzas competitivas aplicado al PFI.}}{35}{table.6.6}%
+\contentsline {table}{\numberline {6.2}{Comparación entre soluciones comerciales y el alcance del PFI.}}{26}{table.6.2}%
+\contentsline {table}{\numberline {6.3}{Brecha funcional que justifica el PFI.}}{29}{table.6.3}%
+\contentsline {table}{\numberline {6.4}{Síntesis de antecedentes y relación con el PFI.}}{30}{table.6.4}%
+\contentsline {table}{\numberline {6.5}{Matriz FODA del PFI.}}{32}{table.6.5}%
+\contentsline {table}{\numberline {6.6}{Análisis de las cinco fuerzas competitivas aplicado al PFI.}}{34}{table.6.6}%
 \addvspace {10\p@ }
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
@@ -102,69 +102,57 @@
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {table}{\numberline {7.1}{Síntesis del marco teórico y vinculación con el PFI.}}{49}{table.7.1}%
+\contentsline {table}{\numberline {7.1}{Síntesis del marco teórico y vinculación con el PFI.}}{48}{table.7.1}%
 \addvspace {10\p@ }
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {table}{\numberline {8.1}{Matriz de hallazgos}}{53}{table.8.1}%
-\contentsline {table}{\numberline {8.2}{Aspectos no consolidados o diferidos}}{56}{table.8.2}%
-\contentsline {table}{\numberline {8.3}{User persona preliminar}}{57}{table.8.3}%
-\contentsline {table}{\numberline {8.4}{Necesidades detectadas}}{58}{table.8.4}%
+\contentsline {table}{\numberline {8.1}{Matriz de hallazgos}}{52}{table.8.1}%
+\contentsline {table}{\numberline {8.2}{Aspectos no consolidados o diferidos}}{55}{table.8.2}%
+\contentsline {table}{\numberline {8.3}{User persona preliminar}}{56}{table.8.3}%
+\contentsline {table}{\numberline {8.4}{Necesidades detectadas}}{57}{table.8.4}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \addvspace {10\p@ }
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {table}{\numberline {9.1}{Actores y responsabilidades}}{65}{table.9.1}%
-\contentsline {table}{\numberline {9.2}{Estados de requerimiento y criterio de prioridad}}{66}{table.9.2}%
-\contentsline {table}{\numberline {9.3}{Historias de usuario priorizadas}}{67}{table.9.3}%
-\contentsline {table}{\numberline {9.4}{Requerimientos funcionales}}{69}{table.9.4}%
-\contentsline {table}{\numberline {9.5}{Requerimientos no funcionales}}{71}{table.9.5}%
-\contentsline {table}{\numberline {9.6}{Requerimientos de validación}}{72}{table.9.6}%
-\contentsline {table}{\numberline {9.7}{Matriz de trazabilidad resumida}}{73}{table.9.7}%
+\contentsline {table}{\numberline {9.1}{Actores y responsabilidades}}{64}{table.9.1}%
+\contentsline {table}{\numberline {9.2}{Estados de requerimiento y criterio de prioridad}}{65}{table.9.2}%
+\contentsline {table}{\numberline {9.3}{Historias de usuario priorizadas}}{66}{table.9.3}%
+\contentsline {table}{\numberline {9.4}{Requerimientos funcionales}}{68}{table.9.4}%
+\contentsline {table}{\numberline {9.5}{Requerimientos no funcionales}}{70}{table.9.5}%
+\contentsline {table}{\numberline {9.6}{Requerimientos de validación}}{71}{table.9.6}%
+\contentsline {table}{\numberline {9.7}{Matriz de trazabilidad resumida}}{72}{table.9.7}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {10.1}{Componentes funcionales del prototipo}}{76}{table.10.1}%
-\contentsline {table}{\numberline {10.10}{Relaci?n entre zonas de la interfaz, necesidades del relevamiento y requerimientos}}{93}{table.10.10}%
+\contentsline {table}{\numberline {10.1}{Componentes funcionales del prototipo}}{75}{table.10.1}%
+\contentsline {table}{\numberline {10.10}{Relaci?n entre zonas de la interfaz, necesidades del relevamiento y requerimientos}}{92}{table.10.10}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {11.1}{Formatos admitidos y uso previsto.}}{95}{table.11.1}%
-\contentsline {table}{\numberline {11.2}{Correspondencia entre clases del modelo axial y estructuras anatómicas.}}{97}{table.11.2}%
-\contentsline {table}{\numberline {11.3}{Catálogo de mediciones derivadas de las máscaras.}}{99}{table.11.3}%
-\contentsline {table}{\numberline {11.4}{Desempeño de la estimación estructural sobre la partición sellada.}}{104}{table.11.4}%
-\contentsline {table}{\numberline {11.5}{Estado de las capacidades al cierre de esta entrega.}}{105}{table.11.5}%
-\addvspace {10\p@ }
-\babel@toc {spanish}{}\relax 
-\babel@toc {spanish}{}\relax 
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {13.1}{Partición de los conjuntos de datos empleados en el entrenamiento y la evaluación.}}{111}{table.13.1}%
-\contentsline {table}{\numberline {13.2}{Coeficiente Dice sobre la partición retenida, por modelo.}}{112}{table.13.2}%
-\contentsline {table}{\numberline {13.3}{Verificación por contraste de las mediciones sobre el estudio de referencia.}}{114}{table.13.3}%
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {14.1}{Roadmap actualizado para la entrega del 50 \%.}}{116}{table.14.1}%
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {A.1}{Hitos académicos del proyecto.}}{119}{table.A.1}%
-\contentsline {table}{\numberline {A.2}{Distribución temporal de las actividades por carril.}}{120}{table.A.2}%
-\contentsline {table}{\numberline {A.3}{Desvíos registrados y justificación técnica.}}{121}{table.A.3}%
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {E.1}{\ignorespaces Configuración comparada del entrenamiento de ambos modelos.}}{149}{table.Alph5.1}%
-\contentsline {table}{\numberline {E.2}{\ignorespaces Transformaciones de aumentación aplicadas durante el entrenamiento.}}{150}{table.Alph5.2}%
-\contentsline {table}{\numberline {E.3}{\ignorespaces Condiciones evaluadas antes de promover un artifact.}}{151}{table.Alph5.3}%
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {F.1}{Bloques coordinados de producto, de P8 a P10.9.}}{154}{table.F.1}%
-\contentsline {table}{\numberline {F.2}{Evolución de la implementación del pipeline de IA.}}{158}{table.F.2}%
+\contentsline {table}{\numberline {11.1}{Formatos admitidos y uso previsto.}}{94}{table.11.1}%
+\contentsline {table}{\numberline {11.2}{Correspondencia entre clases del modelo axial y estructuras anatómicas.}}{96}{table.11.2}%
+\contentsline {table}{\numberline {11.3}{Catálogo de mediciones derivadas de las máscaras.}}{98}{table.11.3}%
+\contentsline {table}{\numberline {11.4}{Desempeño de la estimación estructural sobre la partición sellada.}}{103}{table.11.4}%
+\contentsline {table}{\numberline {11.5}{Estado de las capacidades al cierre de esta entrega.}}{104}{table.11.5}%
 \addvspace {10\p@ }
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\babel@toc {spanish}{}\relax 
-\babel@toc {spanish}{}\relax 
-\babel@toc {spanish}{}\relax 
-\babel@toc {spanish}{}\relax 
-\babel@toc {spanish}{}\relax 
-\babel@toc {spanish}{}\relax 
-\babel@toc {spanish}{}\relax 
-\babel@toc {spanish}{}\relax 
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {13.1}{Partición de los conjuntos de datos empleados en el entrenamiento y la evaluación.}}{110}{table.13.1}%
+\contentsline {table}{\numberline {13.2}{Coeficiente Dice sobre la partición retenida, por modelo.}}{111}{table.13.2}%
+\contentsline {table}{\numberline {13.3}{Verificación por contraste de las mediciones sobre el estudio de referencia.}}{113}{table.13.3}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {14.1}{Roadmap actualizado para la entrega del 50 \%.}}{115}{table.14.1}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {A.1}{Hitos académicos del proyecto.}}{118}{table.A.1}%
+\contentsline {table}{\numberline {A.2}{Distribución temporal de las actividades por carril.}}{119}{table.A.2}%
+\contentsline {table}{\numberline {A.3}{Desvíos registrados y justificación técnica.}}{120}{table.A.3}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {E.1}{\ignorespaces Configuración comparada del entrenamiento de ambos modelos.}}{148}{table.Alph5.1}%
+\contentsline {table}{\numberline {E.2}{\ignorespaces Transformaciones de aumentación aplicadas durante el entrenamiento.}}{149}{table.Alph5.2}%
+\contentsline {table}{\numberline {E.3}{\ignorespaces Condiciones evaluadas antes de promover un artifact.}}{150}{table.Alph5.3}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 

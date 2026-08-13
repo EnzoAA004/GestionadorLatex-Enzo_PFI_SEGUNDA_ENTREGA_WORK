@@ -1781,89 +1781,36 @@
       \verb 10.1109/MC.2003.1204375
       \endverb
     \endentry
-    \entry{kruchten_4plus1_1995}{article}{}{}
-      \name{author}{1}{}{%
-        {{hash=1d00515fe991ba26ce9b4c5ca06934fa}{%
-           family={Kruchten},
-           familyi={K\bibinitperiod},
-           given={Philippe},
-           giveni={P\bibinitperiod}}}%
+    \entry{asplanatti_fabrello_propuesta_2026}{misc}{}{}
+      \name{author}{2}{}{%
+        {{hash=42cfde194912f851d36fc819769cf3d1}{%
+           family={Asplanatti},
+           familyi={A\bibinitperiod},
+           given={Enzo},
+           giveni={E\bibinitperiod}}}%
+        {{hash=68942b16edf68ca5c99376801a3a965c}{%
+           family={Fabrello},
+           familyi={F\bibinitperiod},
+           given={Francisco},
+           giveni={F\bibinitperiod}}}%
       }
-      \strng{namehash}{1d00515fe991ba26ce9b4c5ca06934fa}
-      \strng{fullhash}{1d00515fe991ba26ce9b4c5ca06934fa}
-      \strng{fullhashraw}{1d00515fe991ba26ce9b4c5ca06934fa}
-      \strng{bibnamehash}{1d00515fe991ba26ce9b4c5ca06934fa}
-      \strng{authorbibnamehash}{1d00515fe991ba26ce9b4c5ca06934fa}
-      \strng{authornamehash}{1d00515fe991ba26ce9b4c5ca06934fa}
-      \strng{authorfullhash}{1d00515fe991ba26ce9b4c5ca06934fa}
-      \strng{authorfullhashraw}{1d00515fe991ba26ce9b4c5ca06934fa}
+      \strng{namehash}{d39c8900f3b0aa1a088b093b60f41f98}
+      \strng{fullhash}{d39c8900f3b0aa1a088b093b60f41f98}
+      \strng{fullhashraw}{d39c8900f3b0aa1a088b093b60f41f98}
+      \strng{bibnamehash}{d39c8900f3b0aa1a088b093b60f41f98}
+      \strng{authorbibnamehash}{d39c8900f3b0aa1a088b093b60f41f98}
+      \strng{authornamehash}{d39c8900f3b0aa1a088b093b60f41f98}
+      \strng{authorfullhash}{d39c8900f3b0aa1a088b093b60f41f98}
+      \strng{authorfullhashraw}{d39c8900f3b0aa1a088b093b60f41f98}
       \field{sortinit}{4}
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE Software}
-      \field{number}{6}
-      \field{title}{The 4+1 view model of architecture}
-      \field{volume}{12}
-      \field{year}{1995}
+      \field{note}{Documento interno de Proyecto Final de Ingeniería}
+      \field{title}{Propuesta PFI 2026: Segmentación de RM lumbar}
+      \field{year}{2026}
       \true{nocite}
-      \field{pages}{42\bibrangedash 50}
-      \range{pages}{9}
-      \verb{doi}
-      \verb 10.1109/52.469759
-      \endverb
-    \endentry
-    \entry{pfirrmann_disc_degeneration_2001}{article}{}{}
-      \name{author}{5}{}{%
-        {{hash=56c8a81d72a8be58f9e29d392e742eae}{%
-           family={Pfirrmann},
-           familyi={P\bibinitperiod},
-           given={Christian\bibnamedelimb W.\bibnamedelimi A.},
-           giveni={C\bibinitperiod\bibinitdelim W\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-        {{hash=e77cf398c8f149c55dd14484deefe48a}{%
-           family={Metzdorf},
-           familyi={M\bibinitperiod},
-           given={Alexander},
-           giveni={A\bibinitperiod}}}%
-        {{hash=e438ec0def5b5dee96faeae93e46d7ae}{%
-           family={Zanetti},
-           familyi={Z\bibinitperiod},
-           given={Marco},
-           giveni={M\bibinitperiod}}}%
-        {{hash=66fc7def58dbba70e33930e664d4ce22}{%
-           family={Hodler},
-           familyi={H\bibinitperiod},
-           given={Juerg},
-           giveni={J\bibinitperiod}}}%
-        {{hash=8011aa36ee0a4744cc7c57e963e6ca16}{%
-           family={Boos},
-           familyi={B\bibinitperiod},
-           given={Norbert},
-           giveni={N\bibinitperiod}}}%
-      }
-      \strng{namehash}{cf66725471aaf0e8d6ddd9073260aede}
-      \strng{fullhash}{cf66725471aaf0e8d6ddd9073260aede}
-      \strng{fullhashraw}{cf66725471aaf0e8d6ddd9073260aede}
-      \strng{bibnamehash}{cf66725471aaf0e8d6ddd9073260aede}
-      \strng{authorbibnamehash}{cf66725471aaf0e8d6ddd9073260aede}
-      \strng{authornamehash}{cf66725471aaf0e8d6ddd9073260aede}
-      \strng{authorfullhash}{cf66725471aaf0e8d6ddd9073260aede}
-      \strng{authorfullhashraw}{cf66725471aaf0e8d6ddd9073260aede}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Spine}
-      \field{number}{17}
-      \field{title}{Magnetic resonance classification of lumbar intervertebral disc degeneration}
-      \field{volume}{26}
-      \field{year}{2001}
-      \true{nocite}
-      \field{pages}{1873\bibrangedash 1878}
-      \range{pages}{6}
-      \verb{doi}
-      \verb 10.1097/00007632-200109010-00011
-      \endverb
+      \keyw{adicional}
     \endentry
   \enddatalist
 \endrefsection

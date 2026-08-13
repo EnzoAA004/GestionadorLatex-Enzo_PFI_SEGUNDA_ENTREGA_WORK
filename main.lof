@@ -101,20 +101,20 @@
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {figure}{\numberline {8.1}{\ignorespaces Perfil de los encuestados (pregunta 1) y obtención de mediciones en el flujo actual (pregunta 3). Fuente: elaboración propia sobre la encuesta.}}{60}{figure.8.1}%
-\contentsline {figure}{\numberline {8.2}{\ignorespaces Mediciones cuantitativas más valiosas (pregunta 9) y requisitos de confianza en la segmentación (pregunta 7). Fuente: elaboración propia sobre la encuesta.}}{61}{figure.8.2}%
-\contentsline {figure}{\numberline {8.3}{\ignorespaces Acuerdo sobre confianza y transparencia (pregunta 11), disposición a adoptarla (pregunta 12) y principales barreras (pregunta 13). Fuente: elaboración propia sobre la encuesta.}}{62}{figure.8.3}%
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Perfil de los encuestados (pregunta 1) y obtención de mediciones en el flujo actual (pregunta 3). Fuente: elaboración propia sobre la encuesta.}}{61}{figure.8.1}%
+\contentsline {figure}{\numberline {8.2}{\ignorespaces Mediciones cuantitativas más valiosas (pregunta 9) y requisitos de confianza en la segmentación (pregunta 7). Fuente: elaboración propia sobre la encuesta.}}{62}{figure.8.2}%
+\contentsline {figure}{\numberline {8.3}{\ignorespaces Acuerdo sobre confianza y transparencia (pregunta 11), disposición a adoptarla (pregunta 12) y principales barreras (pregunta 13). Fuente: elaboración propia sobre la encuesta.}}{63}{figure.8.3}%
 \addvspace {10\p@ }
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {10.1}{\ignorespaces Diagrama de contexto del sistema. Fuente: elaboraci?n propia.}}{74}{figure.10.1}%
-\contentsline {figure}{\numberline {10.2}{\ignorespaces Arquitectura general por componentes. Fuente: elaboraci?n propia.}}{78}{figure.10.2}%
-\contentsline {figure}{\numberline {10.3}{\ignorespaces Arquitectura del visor volum?trico. Fuente: elaboraci?n propia.}}{79}{figure.10.3}%
-\contentsline {figure}{\numberline {10.4}{\ignorespaces Modelo de datos relacional (PostgreSQL). Fuente: elaboraci?n propia.}}{80}{figure.10.4}%
-\contentsline {figure}{\numberline {10.5}{\ignorespaces Diagrama de clases del dominio y servicios. Fuente: elaboraci?n propia.}}{82}{figure.10.5}%
-\contentsline {figure}{\numberline {10.6}{\ignorespaces Flujo de interacci?n end-to-end. Fuente: elaboraci?n propia.}}{84}{figure.10.6}%
-\contentsline {figure}{\numberline {10.7}{\ignorespaces Arquitectura objetivo de despliegue en Google Cloud. Fuente: elaboraci?n propia.}}{91}{figure.10.7}%
+\contentsline {figure}{\numberline {10.1}{\ignorespaces Diagrama de contexto del sistema. Fuente: elaboraci?n propia.}}{75}{figure.10.1}%
+\contentsline {figure}{\numberline {10.2}{\ignorespaces Arquitectura general por componentes. Fuente: elaboraci?n propia.}}{79}{figure.10.2}%
+\contentsline {figure}{\numberline {10.3}{\ignorespaces Arquitectura del visor volum?trico. Fuente: elaboraci?n propia.}}{80}{figure.10.3}%
+\contentsline {figure}{\numberline {10.4}{\ignorespaces Modelo de datos relacional (PostgreSQL). Fuente: elaboraci?n propia.}}{81}{figure.10.4}%
+\contentsline {figure}{\numberline {10.5}{\ignorespaces Diagrama de clases del dominio y servicios. Fuente: elaboraci?n propia.}}{83}{figure.10.5}%
+\contentsline {figure}{\numberline {10.6}{\ignorespaces Flujo de interacci?n end-to-end. Fuente: elaboraci?n propia.}}{85}{figure.10.6}%
+\contentsline {figure}{\numberline {10.7}{\ignorespaces Arquitectura objetivo de despliegue en Google Cloud. Fuente: elaboraci?n propia.}}{92}{figure.10.7}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \babel@toc {spanish}{}\relax 
@@ -122,15 +122,25 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Diagrama de Gantt del Proyecto Final de Ingeniería, marzo a diciembre de 2026. Fuente: elaboración propia.}}{119}{figure.Alph1.1}%
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Diagrama de Gantt del Proyecto Final de Ingeniería, marzo a diciembre de 2026. Fuente: elaboración propia.}}{120}{figure.Alph1.1}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {C.1}{\ignorespaces Esquema simplificado de vértebras lumbares, discos intervertebrales y canal espinal en vista sagital. Fuente: elaboración propia.}}{128}{figure.Alph3.1}%
-\contentsline {figure}{\numberline {C.2}{\ignorespaces Esquema conceptual del pasaje desde una RM lumbar hacia máscaras de segmentación. Fuente: elaboración propia.}}{128}{figure.Alph3.2}%
+\contentsline {figure}{\numberline {C.1}{\ignorespaces Esquema simplificado de vértebras lumbares, discos intervertebrales y canal espinal en vista sagital. Fuente: elaboración propia.}}{129}{figure.Alph3.1}%
+\contentsline {figure}{\numberline {C.2}{\ignorespaces Esquema conceptual del pasaje desde una RM lumbar hacia máscaras de segmentación. Fuente: elaboración propia.}}{129}{figure.Alph3.2}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 

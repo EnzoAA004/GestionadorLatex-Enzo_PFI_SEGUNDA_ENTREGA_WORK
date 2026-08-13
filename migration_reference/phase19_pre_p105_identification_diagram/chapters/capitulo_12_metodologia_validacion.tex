@@ -11,70 +11,13 @@ La división del trabajo se realiza por módulos y no mediante una rama permanen
 
 \section{Sistemas de identificación}
 
-La nomenclatura de trabajo no fue uniforme a lo largo del proyecto y el documento emplea tres sistemas principales de identificación de distinta naturaleza, además de convenciones auxiliares utilizadas en etapas específicas. Estos identificadores no deben interpretarse como una única secuencia.
+La nomenclatura de trabajo no fue uniforme a lo largo del proyecto y el documento emplea tres sistemas de identificación de distinta naturaleza, que no deben interpretarse como una única secuencia.
 
 \begin{itemize}
 \item Las épicas académicas, identificadas como E1 a E10, derivan del user research y de los requerimientos, y organizan el trabajo desde la perspectiva del producto y de la tesis.
 \item Los backlogs técnicos internos de cada repositorio, con prefijos propios: AI- en el módulo de inteligencia artificial, BE- en el backend, FE- y FE-RD- en el frontend, y DEV- para contenedorización y orquestación.
 \item Los checkpoints coordinados de producto, identificados como P8, P9, P10, P10.5 y sus continuaciones, en los que un mismo objetivo se distribuye entre repositorios y cada uno asume el subbloque correspondiente.
 \end{itemize}
-
-Algunos checkpoints coordinados se subdividen en bloques de implementación —por ejemplo, P10.5-A a P10.5-F— sin constituir por ello una nueva secuencia global del proyecto.
-
-\begin{figure}[H]
-\centering
-\begin{adjustbox}{max width=\textwidth}
-\begin{tikzpicture}[
-  font=\scriptsize,
-  lane/.style={draw=black!70, rounded corners=2pt, fill=black!4, inner sep=5pt, text width=0.92\textwidth},
-  title/.style={font=\bfseries\scriptsize},
-  chip/.style={draw=black!70, rounded corners=1pt, fill=white, inner sep=2pt, minimum height=12pt},
-  note/.style={draw=black!55, rounded corners=1pt, fill=white, inner sep=3pt, text width=0.38\textwidth},
-  warn/.style={draw=black!70, rounded corners=1pt, fill=black!8, inner sep=3pt, text width=0.40\textwidth}
-]
-\node[lane] (academic) at (0,0) {
-  \textbf{Nivel académico / producto}\par
-  \vspace{2pt}
-  \begin{tikzpicture}[baseline, font=\scriptsize, chip/.style={draw=black!70, rounded corners=1pt, fill=white, inner sep=2pt}]
-    \foreach \x/\lab in {0/E1,0.75/E2,1.5/\ldots,2.25/E10} {
-      \node[chip] at (\x,0) {\lab};
-    }
-  \end{tikzpicture}
-  \hfill Épicas derivadas del user research y los requerimientos
-};
-
-\node[lane, below=0.28cm of academic] (backlogs) {
-  \textbf{Backlogs técnicos por repositorio}\par
-  \vspace{2pt}
-  AI Module: \fbox{AI-*}\quad
-  Backend: \fbox{BE-*}\quad
-  Frontend: \fbox{FE-* / FE-RD-* / FE-P1...FE-P8}\quad
-  Infraestructura: \fbox{DEV-*}\par
-  \vspace{3pt}
-  \fbox{E experimental $\neq$ épica académica E}\quad
-  \fbox{FE-P8 $\neq$ checkpoint P8}
-};
-
-\node[lane, below=0.28cm of backlogs] (checkpoints) {
-  \textbf{Checkpoints coordinados de producto}\par
-  \vspace{2pt}
-  \fbox{P8} $\rightarrow$ \fbox{P9} $\rightarrow$ \fbox{P10} $\rightarrow$ \fbox{P10.5} $\rightarrow$ \fbox{P10.6} $\rightarrow$ \fbox{P10.7} $\rightarrow$ \fbox{P10.8} $\rightarrow$ \fbox{P10.9}\par
-  \vspace{3pt}
-  Dentro de P10.5: \fbox{P10.5-A} $\cdots$ \fbox{P10.5-F}\hfill Objetivos compartidos entre repositorios
-};
-
-\node[lane, below=0.28cm of checkpoints] (auxiliary) {
-  \textbf{Convención auxiliar}\par
-  \vspace{2pt}
-  \fbox{EN-01} $\cdots$ \fbox{EN-05}\hfill Profesionales entrevistados
-};
-\end{tikzpicture}
-\end{adjustbox}
-\caption{Sistemas de identificación utilizados en el proyecto}
-\label{fig:sistemas-identificacion-proyecto}
-\end{figure}
-
-La Figura \ref{fig:sistemas-identificacion-proyecto} resume estas nomenclaturas y sus ámbitos de aplicación.
 
 De esta distinción se siguen dos consecuencias para la lectura. La primera es que no existió una secuencia global de P1 a P7 compartida por los tres repositorios: la coordinación mediante checkpoints comunes comenzó con P8, y las etapas anteriores son líneas paralelas de backlog. La segunda es que los identificadores FE-P1 a FE-P8, de una épica de pulido del frontend, son internos de ese repositorio: FE-P8 designa un documento de control de calidad de la interfaz, mientras que P8 designa el checkpoint de persistencia descrito en el Anexo F.
 

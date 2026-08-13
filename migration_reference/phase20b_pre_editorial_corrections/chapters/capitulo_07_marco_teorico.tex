@@ -195,9 +195,9 @@ Sea P la máscara predicha y G la máscara de referencia.
 
 El coeficiente Dice o Dice Similarity Coefficient (DSC) mide la superposición entre dos máscaras:
 
-\begin{equation}
-DSC(P, G) = \frac{2 \cdot |P \cap G|}{|P| + |G|}
-\end{equation}
+\begin{equation*}
+DSC(P, G) = \frac{2 \cdot |P \cap G|}{|P| + |G|} \tag{8.1}
+\end{equation*}
 
 Su valor se encuentra entre 0 y 1, donde 1 indica coincidencia perfecta. Es una métrica ampliamente utilizada en segmentación médica, aunque puede ser menos sensible a errores de borde en estructuras grandes.
 
@@ -205,9 +205,9 @@ Su valor se encuentra entre 0 y 1, donde 1 indica coincidencia perfecta. Es una 
 
 La Intersección sobre Unión, también conocida como índice de Jaccard, se define como:
 
-\begin{equation}
-IoU(P, G) = \frac{|P \cap G|}{|P \cup G|}
-\end{equation}
+\begin{equation*}
+IoU(P, G) = \frac{|P \cap G|}{|P \cup G|} \tag{8.2}
+\end{equation*}
 
 Penaliza con mayor severidad las discrepancias entre predicción y referencia. Dice e IoU están relacionados matemáticamente, pero no son idénticos.
 
@@ -215,9 +215,9 @@ Penaliza con mayor severidad las discrepancias entre predicción y referencia. D
 
 La distancia de Hausdorff mide discrepancias entre los bordes de dos máscaras. En imágenes médicas suele utilizarse la versión percentil 95 (HD95), que reduce la sensibilidad a outliers extremos:
 
-\begin{equation}
-HD95(P, G) = \max( p95(d(P, G)), p95(d(G, P)) )
-\end{equation}
+\begin{equation*}
+HD95(P, G) = \max( p95(d(P, G)), p95(d(G, P)) ) \tag{8.3}
+\end{equation*}
 
 donde d(P, G) representa distancias mínimas desde puntos de borde de P hacia G, y p95 el percentil 95.
 

@@ -3,9 +3,10 @@
 
 Este anexo reúne la configuración con la que se entrenaron los dos modelos de segmentación, con el detalle necesario para que un tercero pueda reproducir los resultados informados en el Capítulo 13. Se incluyen los parámetros de optimización, la estrategia de aumentación de datos y los controles de calidad aplicados al cierre del entrenamiento. % CROSS_REFERENCE_MAPPING_REQUIRED: Capítulo 13
 
+% SOURCE_NUMBERING_ANOMALY_PRESERVED: F.1 literal in DOCX Heading2
 \phantomsection
-\section*{E.1 Parámetros de entrenamiento}
-\addcontentsline{toc}{section}{E.1 Parámetros de entrenamiento}
+\section*{F.1 Parámetros de entrenamiento}
+\addcontentsline{toc}{section}{F.1 Parámetros de entrenamiento}
 \label{anexo:entrenamiento-f1-parametros}
 
 \begin{table}[H]
@@ -58,9 +59,10 @@ Pesos de clase & Estimados del conjunto & Estimados del conjunto, con refuerzo s
 
 La función de pérdida combina en ambos casos un término de entropía cruzada ponderada por clase con un término basado en el coeficiente Dice que excluye el fondo. La combinación responde a que la entropía cruzada por sí sola tiende a favorecer las clases mayoritarias, mientras que el término de Dice equilibra la contribución de las estructuras de menor tamaño.
 
+% SOURCE_NUMBERING_ANOMALY_PRESERVED: F.2 literal in DOCX Heading2
 \phantomsection
-\section*{E.2 Aumentación de datos}
-\addcontentsline{toc}{section}{E.2 Aumentación de datos}
+\section*{F.2 Aumentación de datos}
+\addcontentsline{toc}{section}{F.2 Aumentación de datos}
 \label{anexo:entrenamiento-f2-aumentacion}
 
 La estrategia de aumentación difiere entre ambos modelos, y la diferencia responde a una razón anatómica que conviene explicitar.
@@ -93,9 +95,10 @@ La rotación permanece deshabilitada en el módulo axial por un motivo análogo:
 
 Ambas estrategias son deterministas por época. La semilla de cada transformación se deriva de la combinación de la semilla global, el número de época, el índice de la muestra y el identificador del corte, de modo que la reproducción es exacta corte por corte y no únicamente a nivel de ejecución completa.
 
+% SOURCE_NUMBERING_ANOMALY_PRESERVED: F.3 literal in DOCX Heading2
 \phantomsection
-\section*{E.3 Controles de calidad al cierre del entrenamiento}
-\addcontentsline{toc}{section}{E.3 Controles de calidad al cierre del entrenamiento}
+\section*{F.3 Controles de calidad al cierre del entrenamiento}
+\addcontentsline{toc}{section}{F.3 Controles de calidad al cierre del entrenamiento}
 \label{anexo:entrenamiento-f3-controles-calidad}
 
 \begin{table}[H]
@@ -124,9 +127,10 @@ El cuaderno de entrenamiento incorpora además verificaciones de fuga cruzada en
 
 Según se informa en la sección 13.4, el umbral no se alcanzó en el modelo axial bajo su lectura de primer plano completo, y el artifact quedó registrado en esa condición sin que el valor del umbral se modificara. % CROSS_REFERENCE_MAPPING_REQUIRED: sección 13.4
 
+% SOURCE_NUMBERING_ANOMALY_PRESERVED: F.4 literal in DOCX Heading2
 \phantomsection
-\section*{E.4 Trazabilidad de los artifacts}
-\addcontentsline{toc}{section}{E.4 Trazabilidad de los artifacts}
+\section*{F.4 Trazabilidad de los artifacts}
+\addcontentsline{toc}{section}{F.4 Trazabilidad de los artifacts}
 \label{anexo:entrenamiento-f4-trazabilidad-artifacts}
 
 Cada artifact final conserva en su manifest la correspondencia de clases, la configuración de la arquitectura, la dimensión de entrada, las métricas obtenidas, el estado de entrenamiento y un conjunto de identificadores criptográficos que vinculan el modelo con el código y los datos que lo produjeron: el resumen del índice de entrenamiento, el del código de la arquitectura, el commit del repositorio y la referencia al cuaderno de origen.

@@ -125,7 +125,8 @@ Entorno experimental & Google Colab, Drive y notebooks & Entrenamiento, evaluaci
 
 Esta separación permite desplegar, probar y evolucionar cada módulo con su tecnología natural. También reduce el riesgo de que una modificación del modelo obligue a recompilar la interfaz o que la lógica clínica-asistiva quede mezclada con detalles internos de PyTorch.
 
-La Figura~\ref{fig:arch-componentes} muestra la separación entre Frontend, Backend, AI Module, runtime PyTorch, persistencia y almacenamiento de artifacts.
+La Figura 12.2 muestra la separación entre Frontend, Backend, AI Module, runtime PyTorch, persistencia y almacenamiento de artifacts.
+% CROSS_REFERENCE_NUMBERING_REVIEW_REQUIRED
 
 \begin{figure}[htbp]
 \centering
@@ -153,7 +154,8 @@ La superposición automática no se presupone para todos los cortes de todas las
 
 \subsection{Modelo de datos}
 
-La persistencia se apoya en un modelo relacional en PostgreSQL organizado alrededor de tres ejes: la identidad y el control de acceso (usuarios, roles), la organización de los estudios (sujeto de-identificado, estudio) y la evidencia de cada análisis (corrida, mediciones, revisiones, assets y catálogo de cortes), complementados con el registro de modelos/artifacts y la auditoría. La Figura~\ref{fig:arch-modelo-datos} presenta el diagrama entidad-relación con sus claves primarias, foráneas y cardinalidades.
+La persistencia se apoya en un modelo relacional en PostgreSQL organizado alrededor de tres ejes: la identidad y el control de acceso (usuarios, roles), la organización de los estudios (sujeto de-identificado, estudio) y la evidencia de cada análisis (corrida, mediciones, revisiones, assets y catálogo de cortes), complementados con el registro de modelos/artifacts y la auditoría. La Figura 12.4 presenta el diagrama entidad-relación con sus claves primarias, foráneas y cardinalidades.
+% CROSS_REFERENCE_NUMBERING_REVIEW_REQUIRED
 
 El diseño refleja las decisiones descritas en los capítulos anteriores: los datos identificatorios del paciente se almacenan de forma segura (Ley N.º 25.326) y los estudios se vinculan mediante una referencia de sujeto seudonimizada (subject\_ref); cada corrida conserva su linaje técnico (model\_key, artifact\_hash, requested/effective\_inference\_mode y trace\_id); las mediciones y los assets quedan vinculados a la corrida y al corte de origen; y la revisión profesional se registra sin sobrescribir el resultado automático original, preservando la trazabilidad y la auditabilidad.
 % CROSS_REFERENCE_MAPPING_REQUIRED
@@ -239,7 +241,8 @@ El flujo principal coincide con el descrito en las secciones 6.1 y 11.5. Desde l
 
 La arquitectura diferencia requestedInferenceMode de effectiveInferenceMode. Una solicitud real\_baseline solo se informa como efectiva cuando el artifact fue verificado y la ejecución PyTorch finalizó correctamente. Si la ejecución falla, el sistema debe informar error o degradación según la configuración; no debe presentar una respuesta de contrato como inferencia real.
 
-La Figura~\ref{fig:arch-flujo-end-to-end} resume la secuencia completa desde la autenticación y la carga del estudio hasta la persistencia y la revisión profesional.
+La Figura 12.6 resume la secuencia completa desde la autenticación y la carga del estudio hasta la persistencia y la revisión profesional.
+% CROSS_REFERENCE_NUMBERING_REVIEW_REQUIRED
 
 \begin{figure}[htbp]
 \centering
@@ -493,7 +496,7 @@ A estas condiciones se suma un criterio de eficiencia señalado en las entrevist
 
 \subsection{Esquemas de las pantallas principales}
 
-% AUTHOR_IMAGE_PLACEHOLDER: Figura 10.8 - insertar wireframes de acceso, worklist y alta de estudio con carga del volumen.
+[ESPACIO PARA INSERTAR: wireframes de acceso, worklist y alta de estudio con carga del volumen]
 
 % FIGURE_PENDING_MIGRATION
 % DOCX_FIGURE_NUMBER: Figura 10.8
@@ -508,7 +511,7 @@ A estas condiciones se suma un criterio de eficiencia señalado en las entrevist
 % LEGACY_ASSET_MATCH: NO_LEGACY_MATCH
 \addcontentsline{lof}{figure}{\protect\numberline{10.8}Wireframes de acceso, worklist y alta de estudio. Fuente: elaboración propia.}
 
-% AUTHOR_IMAGE_PLACEHOLDER: Figura 10.9 - insertar wireframes del workspace multiplanar y del panel de revision con el preinforme editable.
+[ESPACIO PARA INSERTAR: wireframes del workspace multiplanar y del panel de revisión con el preinforme editable]
 
 % FIGURE_PENDING_MIGRATION
 % DOCX_FIGURE_NUMBER: Figura 10.9

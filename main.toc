@@ -289,16 +289,16 @@
 \contentsline {section}{\numberline {C.1}Esquema simplificado de columna lumbar sagital}{129}{section.Alph3.1}%
 \contentsline {section}{\numberline {C.2}Esquema conceptual de segmentación.}{130}{section.Alph3.2}%
 \contentsline {chapter}{\numberline {D}Transcripciones de las entrevistas}{131}{appendix.Alph4}%
-\contentsline {section}{E.1 Entrevista 1 (EN-01) - Dra. Susana Torres (M.N. 179537)}{131}{section*.14}%
-\contentsline {section}{E.2 Entrevista 2 (EN-02) - Dr.~Gonzalo Brito}{135}{section*.15}%
-\contentsline {section}{E.3 Entrevista 3 (EN-03) - Dra. Claudia Cejas}{138}{section*.16}%
-\contentsline {section}{E.4 Entrevista 4 (EN-04) - Dr.~Bruno Bregonzi}{142}{section*.17}%
-\contentsline {section}{E.5 Entrevista 5 (EN-05) - Dr.~Eduardo Luis Castiglione}{145}{section*.18}%
+\contentsline {section}{D.1 Entrevista 1 (EN-01) - Dra. Susana Torres (M.N. 179537)}{131}{section*.9}%
+\contentsline {section}{D.2 Entrevista 2 (EN-02) - Dr.~Gonzalo Brito}{135}{section*.10}%
+\contentsline {section}{D.3 Entrevista 3 (EN-03) - Dra. Claudia Cejas}{138}{section*.11}%
+\contentsline {section}{D.4 Entrevista 4 (EN-04) - Dr.~Bruno Bregonzi}{142}{section*.12}%
+\contentsline {section}{D.5 Entrevista 5 (EN-05) - Dr.~Eduardo Luis Castiglione}{145}{section*.13}%
 \contentsline {chapter}{\numberline {E}Configuración de entrenamiento de los modelos}{150}{appendix.Alph5}%
-\contentsline {section}{F.1 Parámetros de entrenamiento}{150}{section*.19}%
-\contentsline {section}{F.2 Aumentación de datos}{151}{section*.20}%
-\contentsline {section}{F.3 Controles de calidad al cierre del entrenamiento}{152}{section*.21}%
-\contentsline {section}{F.4 Trazabilidad de los artifacts}{152}{section*.22}%
+\contentsline {section}{E.1 Parámetros de entrenamiento}{150}{section*.14}%
+\contentsline {section}{E.2 Aumentación de datos}{151}{section*.15}%
+\contentsline {section}{E.3 Controles de calidad al cierre del entrenamiento}{152}{section*.16}%
+\contentsline {section}{E.4 Trazabilidad de los artifacts}{152}{section*.17}%
 \contentsline {chapter}{\numberline {F}Evolución técnica del desarrollo}{153}{appendix.Alph6}%
 \contentsline {section}{\numberline {F.1}Evolución técnica alcanzada}{153}{section.Alph6.1}%
 \contentsline {subsection}{\numberline {F.1.1}Etapa fundacional y separación en tres repositorios}{153}{subsection.Alph6.1.1}%
@@ -309,14 +309,14 @@
 \contentsline {section}{\numberline {F.3}Evolución del pipeline de inferencia}{159}{section.Alph6.3}%
 \contentsline {section}{\numberline {F.4}Organización interna del módulo de inteligencia artificial}{160}{section.Alph6.4}%
 \contentsline {chapter}{\numberline {G}Registro de decisiones arquitectónicas}{162}{appendix.Alph7}%
-\contentsline {section}{ADR-001 --- Separación de Frontend, Backend y AI Module}{162}{section*.23}%
-\contentsline {section}{ADR-002 --- Spring Boot para el Backend y Python/FastAPI para el AI Module}{162}{section*.24}%
-\contentsline {section}{ADR-003 --- Backend como única frontera pública hacia el AI Module}{163}{section*.25}%
-\contentsline {section}{ADR-004 --- PostgreSQL para persistencia transaccional}{163}{section*.26}%
-\contentsline {section}{ADR-005 --- PyTorch como runtime de inferencia y ONNX Runtime diferido}{163}{section*.27}%
-\contentsline {section}{ADR-006 --- Separación entre código fuente y artifacts de datos y modelos}{164}{section*.28}%
-\contentsline {section}{ADR-007 --- Google Cloud como arquitectura objetivo de despliegue}{164}{section*.29}%
-\contentsline {chapter}{Referencias}{166}{appendix*.31}%
+\contentsline {section}{ADR-001 --- Separación de Frontend, Backend y AI Module}{162}{section*.18}%
+\contentsline {section}{ADR-002 --- Spring Boot para el Backend y Python/FastAPI para el AI Module}{162}{section*.19}%
+\contentsline {section}{ADR-003 --- Backend como única frontera pública hacia el AI Module}{163}{section*.20}%
+\contentsline {section}{ADR-004 --- PostgreSQL para persistencia transaccional}{163}{section*.21}%
+\contentsline {section}{ADR-005 --- PyTorch como runtime de inferencia y ONNX Runtime diferido}{163}{section*.22}%
+\contentsline {section}{ADR-006 --- Separación entre código fuente y artifacts de datos y modelos}{164}{section*.23}%
+\contentsline {section}{ADR-007 --- Google Cloud como arquitectura objetivo de despliegue}{164}{section*.24}%
+\contentsline {chapter}{Referencias}{166}{appendix*.26}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 

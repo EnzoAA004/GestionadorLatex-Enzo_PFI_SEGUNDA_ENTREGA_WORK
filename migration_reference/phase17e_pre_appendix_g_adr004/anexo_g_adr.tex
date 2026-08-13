@@ -1,0 +1,51 @@
+\chapter{Registro de decisiones arquitectónicas}
+\label{anexo:decisiones-arquitectonicas}
+
+Este anexo documenta las principales decisiones de arquitectura adoptadas durante el desarrollo del prototipo mediante Architecture Decision Records (ADR). El objetivo es conservar, además de la decisión final, el contexto que la motivó, las alternativas consideradas y sus principales consecuencias. Los ADR describen decisiones técnicas del prototipo y pueden revisarse si cambian sus requerimientos o condiciones de despliegue.
+
+\section*{ADR-001 --- Separación de Frontend, Backend y AI Module}
+\addcontentsline{toc}{section}{ADR-001 --- Separación de Frontend, Backend y AI Module}
+\label{adr:001-separacion-componentes}
+
+\textbf{Estado:} aceptado.
+
+\textbf{Contexto.} La solución combina una interfaz interactiva, funciones de autenticación y persistencia, y un runtime de procesamiento de imágenes e inteligencia artificial. Estos componentes presentan responsabilidades, dependencias y ciclos de evolución diferentes.
+
+\textbf{Decisión.} Mantener Frontend, Backend y AI Module como componentes diferenciados y alojados en repositorios independientes. Cada componente conserva sus propias dependencias, configuración y pruebas, y la integración se realiza mediante contratos explícitos.
+
+\textbf{Alternativas consideradas.} Unificar el sistema en un único servicio o repositorio; integrar el runtime de IA directamente en el Backend.
+
+\textbf{Consecuencias.} La separación permite modificar modelos o componentes de interfaz sin incorporar sus dependencias al resto del sistema y facilita pruebas y despliegues independientes. Como contrapartida, exige mantener contratos compatibles y coordinar cambios entre repositorios.
+
+\section*{ADR-002 --- Spring Boot para el Backend y Python/FastAPI para el AI Module}
+\addcontentsline{toc}{section}{ADR-002 --- Spring Boot para el Backend y Python/FastAPI para el AI Module}
+\label{adr:002-spring-boot-fastapi}
+
+\textbf{Estado:} aceptado.
+
+\textbf{Contexto.} El Backend concentra responsabilidades de producto —autenticación, autorización, persistencia, auditoría, reglas de negocio y exposición de contratos— mientras que el módulo de IA depende del ecosistema utilizado para procesamiento de imágenes, entrenamiento e inferencia.
+
+\textbf{Decisión.} Utilizar Spring Boot y Java para el Backend de producto, y Python con FastAPI para el AI Module.
+
+\textbf{Alternativas consideradas.} Implementar ambos servicios con Python y FastAPI; ejecutar también la inferencia desde Java.
+
+\textbf{Consecuencias.} Cada componente utiliza un stack alineado con sus responsabilidades y dependencias. PyTorch y SimpleITK permanecen aislados en el servicio de IA, mientras las funciones de producto se mantienen independientes del runtime científico. La principal contrapartida es mantener dos stacks tecnológicos y su integración HTTP.
+
+\section*{ADR-003 --- Backend como única frontera pública hacia el AI Module}
+\addcontentsline{toc}{section}{ADR-003 --- Backend como única frontera pública hacia el AI Module}
+\label{adr:003-backend-frontera-publica-ai}
+
+\textbf{Estado:} aceptado.
+
+\textbf{Contexto.} Los resultados de inferencia contienen información técnica y referencias internas que no necesariamente deben exponerse al cliente web. Además, las operaciones sobre estudios y resultados requieren autenticación, autorización, persistencia y trazabilidad.
+
+\textbf{Decisión.} El Frontend se comunica con el Backend y no consume directamente el AI Module. El Backend autentica y autoriza las operaciones, orquesta las llamadas al servicio de IA, persiste los resultados y expone al Frontend únicamente el contrato público correspondiente.
+
+\textbf{Alternativas consideradas.} Permitir que el Frontend consuma directamente los endpoints del AI Module.
+
+\textbf{Consecuencias.} Se mantiene una única frontera de seguridad y un contrato público controlado, y el runtime de IA puede evolucionar sin convertirse en una dependencia directa de la interfaz. Como contrapartida, el Backend incorpora responsabilidades adicionales de orquestación y existe un salto de comunicación adicional.
+
+% MIGRATION_PENDING: ADR-004
+% MIGRATION_PENDING: ADR-005
+% MIGRATION_PENDING: ADR-006
+% MIGRATION_PENDING: ADR-007

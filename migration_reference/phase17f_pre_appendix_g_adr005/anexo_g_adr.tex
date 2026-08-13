@@ -59,44 +59,6 @@ Este anexo documenta las principales decisiones de arquitectura adoptadas durant
 
 \textbf{Consecuencias.} El modelo relacional permite aplicar restricciones de integridad y mantener relaciones consistentes entre las entidades del flujo. Como contrapartida, requiere gestionar el esquema, sus migraciones y la disponibilidad de la instancia de base de datos.
 
-\section*{ADR-005 --- PyTorch como runtime de inferencia y ONNX Runtime diferido}
-\addcontentsline{toc}{section}{ADR-005 --- PyTorch como runtime de inferencia y ONNX Runtime diferido}
-\label{adr:005-pytorch-onnx-runtime}
-
-\textbf{Estado:} aceptado para PyTorch; ONNX Runtime diferido.
-
-\textbf{Contexto.} Los modelos utilizados por el prototipo fueron entrenados, evaluados y registrados mediante PyTorch, y los checkpoints actuales dependen de dicho runtime.
-
-\textbf{Decisión.} Mantener PyTorch como runtime de inferencia durante esta etapa. Una eventual migración a ONNX Runtime deberá realizarse únicamente después de verificar la equivalencia de las salidas de los modelos convertidos.
-
-\textbf{Alternativas consideradas.} Migrar inmediatamente los modelos a ONNX Runtime o reconstruir la inferencia utilizando otro ecosistema.
-
-\textbf{Consecuencias.} Se evita introducir una conversión adicional sobre modelos ya evaluados y se conserva la reproducibilidad entre entrenamiento e inferencia. Como contrapartida, el despliegue mantiene las dependencias y requerimientos de recursos propios de PyTorch.
-
-\section*{ADR-006 --- Separación entre código fuente y artifacts de datos y modelos}
-\addcontentsline{toc}{section}{ADR-006 --- Separación entre código fuente y artifacts de datos y modelos}
-\label{adr:006-separacion-codigo-artifacts}
-
-\textbf{Estado:} aceptado.
-
-\textbf{Contexto.} Los checkpoints, datasets, volúmenes y demás artifacts poseen tamaños y ciclos de vida distintos de los del código fuente y requieren controles específicos de acceso, integridad y versionado.
-
-\textbf{Decisión.} Mantener el código y la configuración versionable en los repositorios del proyecto, y almacenar modelos, datasets y artifacts de mayor tamaño en almacenamiento externo controlado. Los modelos se identifican mediante manifests, versiones y hashes verificables.
-
-\textbf{Alternativas consideradas.} Incorporar directamente los archivos de modelos y datasets dentro de los repositorios o depender exclusivamente del filesystem local de cada servicio.
-
-\textbf{Consecuencias.} Los repositorios permanecen manejables y los artifacts pueden evolucionar de forma independiente, conservando mecanismos explícitos de trazabilidad. Como contrapartida, la ejecución requiere gestionar disponibilidad, permisos e integridad del almacenamiento externo.
-
-\section*{ADR-007 --- Google Cloud como arquitectura objetivo de despliegue}
-\addcontentsline{toc}{section}{ADR-007 --- Google Cloud como arquitectura objetivo de despliegue}
-\label{adr:007-google-cloud-despliegue}
-
-\textbf{Estado:} aceptado como arquitectura objetivo; implementación pendiente.
-
-\textbf{Contexto.} El prototipo requiere una arquitectura que permita desplegar componentes separados, almacenar artifacts de forma durable, disponer de una base PostgreSQL y controlar el consumo de recursos sin asumir inicialmente una infraestructura de alta disponibilidad propia de un entorno clínico productivo.
-
-\textbf{Decisión.} Utilizar Google Cloud como plataforma objetivo, manteniendo servicios diferenciados para Frontend, Backend y AI Module, una instancia administrada de PostgreSQL, almacenamiento privado para modelos y assets, registro de contenedores y gestión externa de secretos. Los recursos de cómputo se dimensionarán a partir del consumo observado de los componentes, y el uso de GPU se considerará únicamente si la ejecución sobre CPU no satisface los tiempos requeridos.
-
-\textbf{Alternativas consideradas.} Mantener el sistema exclusivamente en ejecución local, administrar infraestructura propia o trasladar la misma arquitectura a otro proveedor de nube.
-
-\textbf{Consecuencias.} La plataforma permite utilizar servicios administrados y ajustar los recursos por componente, evitando incorporar inicialmente infraestructura que no esté justificada para el prototipo. Como contrapartida, introduce configuración específica de nube, necesidad de controlar costos y dependencia de los servicios seleccionados. El despliegue completo permanece fuera del estado implementado de esta entrega.
+% MIGRATION_PENDING: ADR-005
+% MIGRATION_PENDING: ADR-006
+% MIGRATION_PENDING: ADR-007

@@ -1,79 +1,79 @@
 \babel@toc {spanish}{}\relax 
-\contentsline {chapter}{\numberline {1}Introducción}{12}{chapter.1}%
-\contentsline {chapter}{\numberline {2}Planteamiento del problema}{13}{chapter.2}%
-\contentsline {chapter}{\numberline {3}Justificación}{14}{chapter.3}%
-\contentsline {chapter}{\numberline {4}Objetivos}{15}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Objetivo general}{15}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Objetivos específicos}{15}{section.4.2}%
-\contentsline {chapter}{\numberline {5}Alcance}{16}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Funcionalidades incluidas}{16}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Estructuras y mediciones contempladas}{16}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Validación incluida}{17}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Exclusiones del alcance}{17}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Privacidad y gestión de datos}{17}{section.5.5}%
-\contentsline {section}{\numberline {5.6}Alcance del documento final}{18}{section.5.6}%
-\contentsline {chapter}{\numberline {6}Estado del arte}{19}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Propósito y alcance del estado del arte}{19}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Estrategia de búsqueda y criterios de selección}{19}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Datasets y benchmarks para RM lumbar}{20}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}SPIDER como dataset base del MVP}{20}{subsection.6.3.1}%
+\contentsline {chapter}{\numberline {1}Introducción}{13}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Planteamiento del problema}{14}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Justificación}{15}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Objetivos}{16}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Objetivo general}{16}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Objetivos específicos}{16}{section.4.2}%
+\contentsline {chapter}{\numberline {5}Alcance}{17}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Funcionalidades incluidas}{17}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Estructuras y mediciones contempladas}{17}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Validación incluida}{18}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Exclusiones del alcance}{18}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Privacidad y gestión de datos}{18}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Alcance del documento final}{19}{section.5.6}%
+\contentsline {chapter}{\numberline {6}Estado del arte}{20}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Propósito y alcance del estado del arte}{20}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Estrategia de búsqueda y criterios de selección}{20}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Datasets y benchmarks para RM lumbar}{21}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}SPIDER como dataset base del MVP}{21}{subsection.6.3.1}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {subsection}{\numberline {6.3.2}LumbarDISC como referencia complementaria}{21}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.2}LumbarDISC como referencia complementaria}{22}{subsection.6.3.2}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {subsection}{\numberline {6.3.3}Dataset de Sudirman y Al-Kafri como referencia axial}{22}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.3.3}Dataset de Sudirman y Al-Kafri como referencia axial}{23}{subsection.6.3.3}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {subsection}{\numberline {6.3.4}Conclusión parcial sobre datasets}{22}{subsection.6.3.4}%
-\contentsline {section}{\numberline {6.4}Segmentación automática de estructuras lumbares}{23}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}U-Net, nnU-Net y enfoques auto-configurables}{23}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.3.4}Conclusión parcial sobre datasets}{23}{subsection.6.3.4}%
+\contentsline {section}{\numberline {6.4}Segmentación automática de estructuras lumbares}{24}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}U-Net, nnU-Net y enfoques auto-configurables}{24}{subsection.6.4.1}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {subsection}{\numberline {6.4.2}SPINEPS y segmentación multi-estructura}{23}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.4.2}SPINEPS y segmentación multi-estructura}{24}{subsection.6.4.2}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {subsection}{\numberline {6.4.3}Clasificación degenerativa y sistemas complementarios}{24}{subsection.6.4.3}%
+\contentsline {subsection}{\numberline {6.4.3}Clasificación degenerativa y sistemas complementarios}{25}{subsection.6.4.3}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {subsection}{\numberline {6.4.4}Segmentación axial sobre RM lumbar}{24}{subsection.6.4.4}%
+\contentsline {subsection}{\numberline {6.4.4}Segmentación axial sobre RM lumbar}{25}{subsection.6.4.4}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {subsection}{\numberline {6.4.5}Conclusión parcial sobre segmentación}{24}{subsection.6.4.5}%
-\contentsline {section}{\numberline {6.5}Mediciones cuantitativas derivadas de segmentaciones}{25}{section.6.5}%
+\contentsline {subsection}{\numberline {6.4.5}Conclusión parcial sobre segmentación}{25}{subsection.6.4.5}%
+\contentsline {section}{\numberline {6.5}Mediciones cuantitativas derivadas de segmentaciones}{26}{section.6.5}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {section}{\numberline {6.6}Visualización, revisión profesional y salida estructurada}{25}{section.6.6}%
+\contentsline {section}{\numberline {6.6}Visualización, revisión profesional y salida estructurada}{26}{section.6.6}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {section}{\numberline {6.7}Soluciones comerciales y regulatorias}{26}{section.6.7}%
-\contentsline {subsection}{\numberline {6.7.1}CoLumbo}{26}{subsection.6.7.1}%
+\contentsline {section}{\numberline {6.7}Soluciones comerciales y regulatorias}{27}{section.6.7}%
+\contentsline {subsection}{\numberline {6.7.1}CoLumbo}{27}{subsection.6.7.1}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {subsection}{\numberline {6.7.2}MSKai}{26}{subsection.6.7.2}%
+\contentsline {subsection}{\numberline {6.7.2}MSKai}{27}{subsection.6.7.2}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {subsection}{\numberline {6.7.3}RemedyLogic AI MRI Lumbar Spine Reader}{26}{subsection.6.7.3}%
+\contentsline {subsection}{\numberline {6.7.3}RemedyLogic AI MRI Lumbar Spine Reader}{27}{subsection.6.7.3}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {subsection}{\numberline {6.7.4}Prenuvo}{27}{subsection.6.7.4}%
-\contentsline {subsection}{\numberline {6.7.5}Conclusión parcial sobre competencia}{27}{subsection.6.7.5}%
-\contentsline {section}{\numberline {6.8}Herramientas abiertas y sustitutos parciales}{28}{section.6.8}%
-\contentsline {section}{\numberline {6.9}Limitaciones detectadas en los antecedentes}{29}{section.6.9}%
-\contentsline {section}{\numberline {6.10}Brecha identificada y justificación del PFI}{29}{section.6.10}%
-\contentsline {section}{\numberline {6.11}Matriz comparativa de antecedentes}{30}{section.6.11}%
-\contentsline {section}{\numberline {6.12}Análisis competitivo: matriz FODA y fuerzas de Porter}{33}{section.6.12}%
-\contentsline {subsection}{\numberline {6.12.1}Matriz FODA}{33}{subsection.6.12.1}%
-\contentsline {subsection}{\numberline {6.12.2}Fuerzas competitivas de Porter}{34}{subsection.6.12.2}%
-\contentsline {section}{\numberline {6.13}Conclusiones del estado del arte}{36}{section.6.13}%
-\contentsline {chapter}{\numberline {7}Marco teórico}{37}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Propósito y alcance del marco teórico}{37}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Resonancia magnética lumbar}{37}{section.7.2}%
-\contentsline {subsection}{\numberline {7.2.1}Principio general de la resonancia magnética}{37}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {6.7.4}Prenuvo}{28}{subsection.6.7.4}%
+\contentsline {subsection}{\numberline {6.7.5}Conclusión parcial sobre competencia}{28}{subsection.6.7.5}%
+\contentsline {section}{\numberline {6.8}Herramientas abiertas y sustitutos parciales}{29}{section.6.8}%
+\contentsline {section}{\numberline {6.9}Limitaciones detectadas en los antecedentes}{30}{section.6.9}%
+\contentsline {section}{\numberline {6.10}Brecha identificada y justificación del PFI}{30}{section.6.10}%
+\contentsline {section}{\numberline {6.11}Matriz comparativa de antecedentes}{31}{section.6.11}%
+\contentsline {section}{\numberline {6.12}Análisis competitivo: matriz FODA y fuerzas de Porter}{34}{section.6.12}%
+\contentsline {subsection}{\numberline {6.12.1}Matriz FODA}{34}{subsection.6.12.1}%
+\contentsline {subsection}{\numberline {6.12.2}Fuerzas competitivas de Porter}{35}{subsection.6.12.2}%
+\contentsline {section}{\numberline {6.13}Conclusiones del estado del arte}{37}{section.6.13}%
+\contentsline {chapter}{\numberline {7}Marco teórico}{38}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Propósito y alcance del marco teórico}{38}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Resonancia magnética lumbar}{38}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Principio general de la resonancia magnética}{38}{subsection.7.2.1}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
@@ -82,241 +82,241 @@
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {subsection}{\numberline {7.2.2}Secuencias T1 y T2 en columna lumbar}{38}{subsection.7.2.2}%
+\contentsline {subsection}{\numberline {7.2.2}Secuencias T1 y T2 en columna lumbar}{39}{subsection.7.2.2}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {subsection}{\numberline {7.2.3}Planos sagital y axial}{38}{subsection.7.2.3}%
-\contentsline {section}{\numberline {7.3}Anatomía lumbar relevante para el prototipo}{39}{section.7.3}%
-\contentsline {subsection}{\numberline {7.3.1}Organización general de la región lumbar}{39}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.2.3}Planos sagital y axial}{39}{subsection.7.2.3}%
+\contentsline {section}{\numberline {7.3}Anatomía lumbar relevante para el prototipo}{40}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Organización general de la región lumbar}{40}{subsection.7.3.1}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {subsection}{\numberline {7.3.2}Estructuras anatómicas de interés}{39}{subsection.7.3.2}%
+\contentsline {subsection}{\numberline {7.3.2}Estructuras anatómicas de interés}{40}{subsection.7.3.2}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {section}{\numberline {7.4}Representación computacional de imágenes médicas}{40}{section.7.4}%
-\contentsline {subsection}{\numberline {7.4.1}Imagen médica como matriz con metadatos}{40}{subsection.7.4.1}%
-\contentsline {subsection}{\numberline {7.4.2}Formatos DICOM y NIfTI}{41}{subsection.7.4.2}%
+\contentsline {section}{\numberline {7.4}Representación computacional de imágenes médicas}{41}{section.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}Imagen médica como matriz con metadatos}{41}{subsection.7.4.1}%
+\contentsline {subsection}{\numberline {7.4.2}Formatos DICOM y NIfTI}{42}{subsection.7.4.2}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {subsection}{\numberline {7.4.3}Normalización y preprocesamiento}{41}{subsection.7.4.3}%
+\contentsline {subsection}{\numberline {7.4.3}Normalización y preprocesamiento}{42}{subsection.7.4.3}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {section}{\numberline {7.5}Segmentación de imágenes médicas}{41}{section.7.5}%
-\contentsline {subsection}{\numberline {7.5.1}Definición}{41}{subsection.7.5.1}%
+\contentsline {section}{\numberline {7.5}Segmentación de imágenes médicas}{42}{section.7.5}%
+\contentsline {subsection}{\numberline {7.5.1}Definición}{42}{subsection.7.5.1}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {subsection}{\numberline {7.5.2}Tipos de segmentación relevantes}{41}{subsection.7.5.2}%
+\contentsline {subsection}{\numberline {7.5.2}Tipos de segmentación relevantes}{42}{subsection.7.5.2}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {subsection}{\numberline {7.5.3}Desafíos en RM lumbar}{42}{subsection.7.5.3}%
-\contentsline {section}{\numberline {7.6}Aprendizaje supervisado y anotaciones de referencia}{42}{section.7.6}%
-\contentsline {subsection}{\numberline {7.6.1}Concepto de ground truth}{42}{subsection.7.6.1}%
+\contentsline {subsection}{\numberline {7.5.3}Desafíos en RM lumbar}{43}{subsection.7.5.3}%
+\contentsline {section}{\numberline {7.6}Aprendizaje supervisado y anotaciones de referencia}{43}{section.7.6}%
+\contentsline {subsection}{\numberline {7.6.1}Concepto de ground truth}{43}{subsection.7.6.1}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {subsection}{\numberline {7.6.2}Entrenamiento, validación y prueba}{43}{subsection.7.6.2}%
-\contentsline {section}{\numberline {7.7}Modelos de aprendizaje profundo para segmentación}{43}{section.7.7}%
-\contentsline {subsection}{\numberline {7.7.1}Redes neuronales convolucionales}{43}{subsection.7.7.1}%
+\contentsline {subsection}{\numberline {7.6.2}Entrenamiento, validación y prueba}{44}{subsection.7.6.2}%
+\contentsline {section}{\numberline {7.7}Modelos de aprendizaje profundo para segmentación}{44}{section.7.7}%
+\contentsline {subsection}{\numberline {7.7.1}Redes neuronales convolucionales}{44}{subsection.7.7.1}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {subsection}{\numberline {7.7.2}Arquitecturas encoder-decoder}{43}{subsection.7.7.2}%
-\contentsline {subsection}{\numberline {7.7.3}U-Net}{43}{subsection.7.7.3}%
+\contentsline {subsection}{\numberline {7.7.2}Arquitecturas encoder-decoder}{44}{subsection.7.7.2}%
+\contentsline {subsection}{\numberline {7.7.3}U-Net}{44}{subsection.7.7.3}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {subsection}{\numberline {7.7.4}nnU-Net}{43}{subsection.7.7.4}%
+\contentsline {subsection}{\numberline {7.7.4}nnU-Net}{44}{subsection.7.7.4}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {subsection}{\numberline {7.7.5}Attention U-Net y modelos híbridos CNN-Transformer}{44}{subsection.7.7.5}%
+\contentsline {subsection}{\numberline {7.7.5}Attention U-Net y modelos híbridos CNN-Transformer}{45}{subsection.7.7.5}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {subsection}{\numberline {7.7.6}Frameworks especializados en imagen médica}{44}{subsection.7.7.6}%
+\contentsline {subsection}{\numberline {7.7.6}Frameworks especializados en imagen médica}{45}{subsection.7.7.6}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {section}{\numberline {7.8}Mediciones cuantitativas derivadas de máscaras}{44}{section.7.8}%
-\contentsline {subsection}{\numberline {7.8.1}Máscaras como base geométrica}{44}{subsection.7.8.1}%
-\contentsline {subsection}{\numberline {7.8.2}Mediciones posibles en RM lumbar}{44}{subsection.7.8.2}%
+\contentsline {section}{\numberline {7.8}Mediciones cuantitativas derivadas de máscaras}{45}{section.7.8}%
+\contentsline {subsection}{\numberline {7.8.1}Máscaras como base geométrica}{45}{subsection.7.8.1}%
+\contentsline {subsection}{\numberline {7.8.2}Mediciones posibles en RM lumbar}{45}{subsection.7.8.2}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {subsection}{\numberline {7.8.3}Límites clínicos de las mediciones}{45}{subsection.7.8.3}%
-\contentsline {section}{\numberline {7.9}Métricas de evaluación de segmentación}{45}{section.7.9}%
-\contentsline {subsection}{\numberline {7.9.1}Necesidad de evaluación cuantitativa}{45}{subsection.7.9.1}%
+\contentsline {subsection}{\numberline {7.8.3}Límites clínicos de las mediciones}{46}{subsection.7.8.3}%
+\contentsline {section}{\numberline {7.9}Métricas de evaluación de segmentación}{46}{section.7.9}%
+\contentsline {subsection}{\numberline {7.9.1}Necesidad de evaluación cuantitativa}{46}{subsection.7.9.1}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {subsection}{\numberline {7.9.2}Coeficiente Dice}{45}{subsection.7.9.2}%
-\contentsline {subsection}{\numberline {7.9.3}Intersección sobre Unión}{46}{subsection.7.9.3}%
-\contentsline {subsection}{\numberline {7.9.4}Distancia de Hausdorff y HD95}{46}{subsection.7.9.4}%
-\contentsline {subsection}{\numberline {7.9.5}Normalized Surface Dice}{46}{subsection.7.9.5}%
+\contentsline {subsection}{\numberline {7.9.2}Coeficiente Dice}{46}{subsection.7.9.2}%
+\contentsline {subsection}{\numberline {7.9.3}Intersección sobre Unión}{47}{subsection.7.9.3}%
+\contentsline {subsection}{\numberline {7.9.4}Distancia de Hausdorff y HD95}{47}{subsection.7.9.4}%
+\contentsline {subsection}{\numberline {7.9.5}Normalized Surface Dice}{47}{subsection.7.9.5}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {subsection}{\numberline {7.9.6}Interpretación responsable de métricas}{46}{subsection.7.9.6}%
-\contentsline {section}{\numberline {7.10}Visualización, interacción y salida estructurada}{46}{section.7.10}%
-\contentsline {subsection}{\numberline {7.10.1}Visualización superpuesta}{46}{subsection.7.10.1}%
-\contentsline {subsection}{\numberline {7.10.2}Salida estructurada editable}{47}{subsection.7.10.2}%
-\contentsline {subsection}{\numberline {7.10.3}Trazabilidad}{47}{subsection.7.10.3}%
-\contentsline {subsection}{\numberline {7.10.4}Generación de preinformes estructurados}{47}{subsection.7.10.4}%
-\contentsline {section}{\numberline {7.11}Inteligencia artificial asistiva y rol profesional}{48}{section.7.11}%
-\contentsline {subsection}{\numberline {7.11.1}Sistemas de apoyo a la decisión clínica}{48}{subsection.7.11.1}%
+\contentsline {subsection}{\numberline {7.9.6}Interpretación responsable de métricas}{47}{subsection.7.9.6}%
+\contentsline {section}{\numberline {7.10}Visualización, interacción y salida estructurada}{47}{section.7.10}%
+\contentsline {subsection}{\numberline {7.10.1}Visualización superpuesta}{47}{subsection.7.10.1}%
+\contentsline {subsection}{\numberline {7.10.2}Salida estructurada editable}{48}{subsection.7.10.2}%
+\contentsline {subsection}{\numberline {7.10.3}Trazabilidad}{48}{subsection.7.10.3}%
+\contentsline {subsection}{\numberline {7.10.4}Generación de preinformes estructurados}{48}{subsection.7.10.4}%
+\contentsline {section}{\numberline {7.11}Inteligencia artificial asistiva y rol profesional}{49}{section.7.11}%
+\contentsline {subsection}{\numberline {7.11.1}Sistemas de apoyo a la decisión clínica}{49}{subsection.7.11.1}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {subsection}{\numberline {7.11.2}Humano en el circuito}{48}{subsection.7.11.2}%
-\contentsline {subsection}{\numberline {7.11.3}Diferencia entre asistencia y diagnóstico autónomo}{48}{subsection.7.11.3}%
-\contentsline {section}{\numberline {7.12}Privacidad, ética y límites normativos}{49}{section.7.12}%
+\contentsline {subsection}{\numberline {7.11.2}Humano en el circuito}{49}{subsection.7.11.2}%
+\contentsline {subsection}{\numberline {7.11.3}Diferencia entre asistencia y diagnóstico autónomo}{49}{subsection.7.11.3}%
+\contentsline {section}{\numberline {7.12}Privacidad, ética y límites normativos}{50}{section.7.12}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {section}{\numberline {7.13}Síntesis conceptual}{49}{section.7.13}%
-\contentsline {section}{\numberline {7.14}Conclusión del marco teórico}{50}{section.7.14}%
-\contentsline {chapter}{\numberline {8}User research, elicitación y análisis preliminar de requerimientos}{51}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Propósito del capítulo}{51}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Diseño del relevamiento}{51}{section.8.2}%
+\contentsline {section}{\numberline {7.13}Síntesis conceptual}{50}{section.7.13}%
+\contentsline {section}{\numberline {7.14}Conclusión del marco teórico}{51}{section.7.14}%
+\contentsline {chapter}{\numberline {8}User research, elicitación y análisis preliminar de requerimientos}{52}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Propósito del capítulo}{52}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Diseño del relevamiento}{52}{section.8.2}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {section}{\numberline {8.3}Perfil de profesionales entrevistados}{52}{section.8.3}%
-\contentsline {section}{\numberline {8.4}Criterio de tratamiento de las transcripciones}{52}{section.8.4}%
-\contentsline {section}{\numberline {8.5}Matriz de hallazgos}{53}{section.8.5}%
-\contentsline {section}{\numberline {8.6}Lectura analítica de los hallazgos}{55}{section.8.6}%
-\contentsline {section}{\numberline {8.7}Aspectos no consolidados o diferidos}{56}{section.8.7}%
-\contentsline {section}{\numberline {8.8}User persona preliminar}{57}{section.8.8}%
-\contentsline {section}{\numberline {8.9}Necesidades detectadas}{58}{section.8.9}%
-\contentsline {section}{\numberline {8.10}Épicas iniciales y criterios de aceptación}{59}{section.8.10}%
-\contentsline {section}{\numberline {8.11}Encuesta cuantitativa a profesionales}{59}{section.8.11}%
-\contentsline {subsection}{\numberline {8.11.1}Criterio de inclusión y dimensionamiento de la muestra}{59}{subsection.8.11.1}%
+\contentsline {section}{\numberline {8.3}Perfil de profesionales entrevistados}{53}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Criterio de tratamiento de las transcripciones}{53}{section.8.4}%
+\contentsline {section}{\numberline {8.5}Matriz de hallazgos}{54}{section.8.5}%
+\contentsline {section}{\numberline {8.6}Lectura analítica de los hallazgos}{56}{section.8.6}%
+\contentsline {section}{\numberline {8.7}Aspectos no consolidados o diferidos}{57}{section.8.7}%
+\contentsline {section}{\numberline {8.8}User persona preliminar}{58}{section.8.8}%
+\contentsline {section}{\numberline {8.9}Necesidades detectadas}{59}{section.8.9}%
+\contentsline {section}{\numberline {8.10}Épicas iniciales y criterios de aceptación}{60}{section.8.10}%
+\contentsline {section}{\numberline {8.11}Encuesta cuantitativa a profesionales}{60}{section.8.11}%
+\contentsline {subsection}{\numberline {8.11.1}Criterio de inclusión y dimensionamiento de la muestra}{60}{subsection.8.11.1}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {subsection}{\numberline {8.11.2}Resultados}{60}{subsection.8.11.2}%
-\contentsline {subsection}{\numberline {8.11.3}Síntesis de la encuesta}{64}{subsection.8.11.3}%
-\contentsline {section}{\numberline {8.12}Conclusión del capítulo}{64}{section.8.12}%
-\contentsline {chapter}{\numberline {9}Requerimientos funcionales, no funcionales y trazabilidad}{65}{chapter.9}%
-\contentsline {section}{\numberline {9.1}Propósito del capítulo}{65}{section.9.1}%
-\contentsline {section}{\numberline {9.2}Fuentes y criterios de formalización}{65}{section.9.2}%
+\contentsline {subsection}{\numberline {8.11.2}Resultados}{61}{subsection.8.11.2}%
+\contentsline {subsection}{\numberline {8.11.3}Síntesis de la encuesta}{65}{subsection.8.11.3}%
+\contentsline {section}{\numberline {8.12}Conclusión del capítulo}{65}{section.8.12}%
+\contentsline {chapter}{\numberline {9}Requerimientos funcionales, no funcionales y trazabilidad}{66}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Propósito del capítulo}{66}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Fuentes y criterios de formalización}{66}{section.9.2}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {section}{\numberline {9.3}Actores y responsabilidades}{65}{section.9.3}%
-\contentsline {section}{\numberline {9.4}Estados de requerimiento y criterio de prioridad}{66}{section.9.4}%
-\contentsline {section}{\numberline {9.5}Flujos alternativos y excepciones}{67}{section.9.5}%
-\contentsline {section}{\numberline {9.6}Historias de usuario priorizadas}{67}{section.9.6}%
-\contentsline {section}{\numberline {9.7}Requerimientos funcionales}{68}{section.9.7}%
-\contentsline {section}{\numberline {9.8}Requerimientos no funcionales}{71}{section.9.8}%
-\contentsline {section}{\numberline {9.9}Requerimientos de validación}{72}{section.9.9}%
-\contentsline {section}{\numberline {9.10}Matriz de trazabilidad resumida}{72}{section.9.10}%
-\contentsline {section}{\numberline {9.11}Control de alcance y requerimientos diferidos}{73}{section.9.11}%
-\contentsline {section}{\numberline {9.12}Conclusión del capítulo}{74}{section.9.12}%
-\contentsline {chapter}{\numberline {10}Diseño de la solución, arquitectura y selección tecnológica}{75}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Propósito y enfoque arquitectónico}{75}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Decisiones arquitectónicas derivadas de los requerimientos}{76}{section.10.2}%
-\contentsline {section}{\numberline {10.3}Vista lógica}{77}{section.10.3}%
-\contentsline {subsection}{\numberline {10.3.1}Arquitectura lógica consolidada}{77}{subsection.10.3.1}%
-\contentsline {subsection}{\numberline {10.3.2}Modelo de datos}{79}{subsection.10.3.2}%
-\contentsline {subsection}{\numberline {10.3.3}Diagrama de clases}{82}{subsection.10.3.3}%
-\contentsline {section}{\numberline {10.4}Vista de procesos}{84}{section.10.4}%
-\contentsline {subsection}{\numberline {10.4.1}Flujo end-to-end de una corrida}{84}{subsection.10.4.1}%
-\contentsline {subsection}{\numberline {10.4.2}Arquitectura de red, protocolos y seguridad}{84}{subsection.10.4.2}%
-\contentsline {section}{\numberline {10.5}Vista de desarrollo}{86}{section.10.5}%
-\contentsline {subsection}{\numberline {10.5.1}Distribución por repositorios y responsabilidades}{86}{subsection.10.5.1}%
-\contentsline {subsection}{\numberline {10.5.2}Estrategia de datos, modelos y ciclo de vida de artifacts}{86}{subsection.10.5.2}%
-\contentsline {subsection}{\numberline {10.5.3}Selección tecnológica y justificación}{87}{subsection.10.5.3}%
-\contentsline {subsection}{\numberline {10.5.4}Alternativas evaluadas}{88}{subsection.10.5.4}%
-\contentsline {section}{\numberline {10.6}Vista física (despliegue)}{89}{section.10.6}%
-\contentsline {subsection}{\numberline {10.6.1}Arquitectura actual de validación}{89}{subsection.10.6.1}%
-\contentsline {subsection}{\numberline {10.6.2}Arquitectura objetivo en Google Cloud}{89}{subsection.10.6.2}%
-\contentsline {section}{\numberline {10.7}Vista de escenarios (+1)}{92}{section.10.7}%
-\contentsline {section}{\numberline {10.8}Diseño de interfaz: wireframes y decisiones de diseño}{92}{section.10.8}%
-\contentsline {subsection}{\numberline {10.8.1}Criterios de diseño derivados del user research}{93}{subsection.10.8.1}%
-\contentsline {subsection}{\numberline {10.8.2}Esquemas de las pantallas principales}{93}{subsection.10.8.2}%
-\contentsline {subsection}{\numberline {10.8.3}Decisiones de diseño y alternativas descartadas}{94}{subsection.10.8.3}%
-\contentsline {chapter}{\numberline {11}Capacidades del prototipo}{95}{chapter.11}%
-\contentsline {section}{\numberline {11.1}Cómo leer este capítulo}{95}{section.11.1}%
-\contentsline {section}{\numberline {11.2}Ingesta y preparación del estudio}{95}{section.11.2}%
-\contentsline {section}{\numberline {11.3}Segmentación sagital}{96}{section.11.3}%
-\contentsline {section}{\numberline {11.4}Segmentación axial}{97}{section.11.4}%
-\contentsline {section}{\numberline {11.5}Mediciones geométricas}{98}{section.11.5}%
-\contentsline {section}{\numberline {11.6}Asignación de nivel anatómico}{100}{section.11.6}%
-\contentsline {section}{\numberline {11.7}Visualización y navegación por cortes}{101}{section.11.7}%
-\contentsline {section}{\numberline {11.8}Revisión profesional y salida editable}{102}{section.11.8}%
-\contentsline {section}{\numberline {11.9}Persistencia, reapertura y trazabilidad}{102}{section.11.9}%
-\contentsline {section}{\numberline {11.10}Seguridad y estados degradados}{103}{section.11.10}%
-\contentsline {section}{\numberline {11.11}Capacidades desarrolladas y no expuestas}{103}{section.11.11}%
-\contentsline {subsection}{\numberline {11.11.1}Estimación de hallazgos estructurales por nivel}{104}{subsection.11.11.1}%
-\contentsline {subsection}{\numberline {11.11.2}Clasificación de estenosis subarticular}{105}{subsection.11.11.2}%
-\contentsline {section}{\numberline {11.12}Estado consolidado de las capacidades}{105}{section.11.12}%
-\contentsline {chapter}{\numberline {12}Metodología de desarrollo y validación técnica}{107}{chapter.12}%
-\contentsline {section}{\numberline {12.1}Enfoque de trabajo}{107}{section.12.1}%
+\contentsline {section}{\numberline {9.3}Actores y responsabilidades}{66}{section.9.3}%
+\contentsline {section}{\numberline {9.4}Estados de requerimiento y criterio de prioridad}{67}{section.9.4}%
+\contentsline {section}{\numberline {9.5}Flujos alternativos y excepciones}{68}{section.9.5}%
+\contentsline {section}{\numberline {9.6}Historias de usuario priorizadas}{68}{section.9.6}%
+\contentsline {section}{\numberline {9.7}Requerimientos funcionales}{69}{section.9.7}%
+\contentsline {section}{\numberline {9.8}Requerimientos no funcionales}{72}{section.9.8}%
+\contentsline {section}{\numberline {9.9}Requerimientos de validación}{73}{section.9.9}%
+\contentsline {section}{\numberline {9.10}Matriz de trazabilidad resumida}{73}{section.9.10}%
+\contentsline {section}{\numberline {9.11}Control de alcance y requerimientos diferidos}{74}{section.9.11}%
+\contentsline {section}{\numberline {9.12}Conclusión del capítulo}{75}{section.9.12}%
+\contentsline {chapter}{\numberline {10}Diseño de la solución, arquitectura y selección tecnológica}{76}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Propósito y enfoque arquitectónico}{76}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Decisiones arquitectónicas derivadas de los requerimientos}{77}{section.10.2}%
+\contentsline {section}{\numberline {10.3}Vista lógica}{78}{section.10.3}%
+\contentsline {subsection}{\numberline {10.3.1}Arquitectura lógica consolidada}{78}{subsection.10.3.1}%
+\contentsline {subsection}{\numberline {10.3.2}Modelo de datos}{80}{subsection.10.3.2}%
+\contentsline {subsection}{\numberline {10.3.3}Diagrama de clases}{83}{subsection.10.3.3}%
+\contentsline {section}{\numberline {10.4}Vista de procesos}{85}{section.10.4}%
+\contentsline {subsection}{\numberline {10.4.1}Flujo end-to-end de una corrida}{85}{subsection.10.4.1}%
+\contentsline {subsection}{\numberline {10.4.2}Arquitectura de red, protocolos y seguridad}{85}{subsection.10.4.2}%
+\contentsline {section}{\numberline {10.5}Vista de desarrollo}{87}{section.10.5}%
+\contentsline {subsection}{\numberline {10.5.1}Distribución por repositorios y responsabilidades}{87}{subsection.10.5.1}%
+\contentsline {subsection}{\numberline {10.5.2}Estrategia de datos, modelos y ciclo de vida de artifacts}{87}{subsection.10.5.2}%
+\contentsline {subsection}{\numberline {10.5.3}Selección tecnológica y justificación}{88}{subsection.10.5.3}%
+\contentsline {subsection}{\numberline {10.5.4}Alternativas evaluadas}{89}{subsection.10.5.4}%
+\contentsline {section}{\numberline {10.6}Vista física (despliegue)}{90}{section.10.6}%
+\contentsline {subsection}{\numberline {10.6.1}Arquitectura actual de validación}{90}{subsection.10.6.1}%
+\contentsline {subsection}{\numberline {10.6.2}Arquitectura objetivo en Google Cloud}{90}{subsection.10.6.2}%
+\contentsline {section}{\numberline {10.7}Vista de escenarios (+1)}{93}{section.10.7}%
+\contentsline {section}{\numberline {10.8}Diseño de interfaz: wireframes y decisiones de diseño}{93}{section.10.8}%
+\contentsline {subsection}{\numberline {10.8.1}Criterios de diseño derivados del user research}{94}{subsection.10.8.1}%
+\contentsline {subsection}{\numberline {10.8.2}Esquemas de las pantallas principales}{94}{subsection.10.8.2}%
+\contentsline {subsection}{\numberline {10.8.3}Decisiones de diseño y alternativas descartadas}{95}{subsection.10.8.3}%
+\contentsline {chapter}{\numberline {11}Capacidades del prototipo}{96}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Cómo leer este capítulo}{96}{section.11.1}%
+\contentsline {section}{\numberline {11.2}Ingesta y preparación del estudio}{96}{section.11.2}%
+\contentsline {section}{\numberline {11.3}Segmentación sagital}{97}{section.11.3}%
+\contentsline {section}{\numberline {11.4}Segmentación axial}{98}{section.11.4}%
+\contentsline {section}{\numberline {11.5}Mediciones geométricas}{99}{section.11.5}%
+\contentsline {section}{\numberline {11.6}Asignación de nivel anatómico}{101}{section.11.6}%
+\contentsline {section}{\numberline {11.7}Visualización y navegación por cortes}{102}{section.11.7}%
+\contentsline {section}{\numberline {11.8}Revisión profesional y salida editable}{103}{section.11.8}%
+\contentsline {section}{\numberline {11.9}Persistencia, reapertura y trazabilidad}{103}{section.11.9}%
+\contentsline {section}{\numberline {11.10}Seguridad y estados degradados}{104}{section.11.10}%
+\contentsline {section}{\numberline {11.11}Capacidades desarrolladas y no expuestas}{104}{section.11.11}%
+\contentsline {subsection}{\numberline {11.11.1}Estimación de hallazgos estructurales por nivel}{105}{subsection.11.11.1}%
+\contentsline {subsection}{\numberline {11.11.2}Clasificación de estenosis subarticular}{106}{subsection.11.11.2}%
+\contentsline {section}{\numberline {11.12}Estado consolidado de las capacidades}{106}{section.11.12}%
+\contentsline {chapter}{\numberline {12}Metodología de desarrollo y validación técnica}{108}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Enfoque de trabajo}{108}{section.12.1}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {section}{\numberline {12.2}Sistemas de identificación}{107}{section.12.2}%
-\contentsline {section}{\numberline {12.3}Ciclo de trabajo y coordinación}{108}{section.12.3}%
-\contentsline {section}{\numberline {12.4}Criterios de listo, terminado y evidencia}{109}{section.12.4}%
-\contentsline {section}{\numberline {12.5}Validación por capas y pruebas}{109}{section.12.5}%
-\contentsline {section}{\numberline {12.6}Limitaciones metodológicas}{110}{section.12.6}%
-\contentsline {chapter}{\numberline {13}13. Resultados de la evaluación técnica}{111}{chapter.13}%
-\contentsline {section}{\numberline {13.1}Propósito y alcance de la evaluación}{111}{section.13.1}%
-\contentsline {section}{\numberline {13.2}Protocolo de evaluación}{111}{section.13.2}%
-\contentsline {section}{\numberline {13.3}Resultados de segmentación}{112}{section.13.3}%
-\contentsline {section}{\numberline {13.4}Umbral de calidad y estado del artifact axial}{113}{section.13.4}%
-\contentsline {section}{\numberline {13.5}Advertencia sobre la partición de prueba axial}{113}{section.13.5}%
-\contentsline {section}{\numberline {13.6}Verificación por contraste de las mediciones derivadas}{113}{section.13.6}%
-\contentsline {section}{\numberline {13.7}Una medición implementada y no publicada}{114}{section.13.7}%
-\contentsline {section}{\numberline {13.8}Limitaciones de la evaluación}{115}{section.13.8}%
-\contentsline {section}{\numberline {13.9}Conclusión del capítulo}{115}{section.13.9}%
-\contentsline {chapter}{\numberline {14}14. Planificación académica general}{116}{chapter.14}%
-\contentsline {section}{\numberline {14.1}Criterio de planificación}{116}{section.14.1}%
-\contentsline {section}{\numberline {14.2}Planificación por entregables}{116}{section.14.2}%
-\contentsline {section}{\numberline {14.3}Gestión de cambios}{117}{section.14.3}%
-\contentsline {section}{\numberline {14.4}Riesgos de planificación}{117}{section.14.4}%
-\contentsline {section}{\numberline {14.5}Conclusión de la planificación}{117}{section.14.5}%
-\contentsline {chapter}{\numberline {A}Cronograma del proyecto}{119}{appendix.Alph1}%
-\contentsline {section}{\numberline {A.1}Calendario académico}{119}{section.Alph1.1}%
-\contentsline {section}{\numberline {A.2}Diagrama de Gantt}{120}{section.Alph1.2}%
-\contentsline {section}{\numberline {A.3}Desvíos respecto de la planificación original}{121}{section.Alph1.3}%
-\contentsline {chapter}{\numberline {B}Glosario de términos}{122}{appendix.Alph2}%
-\contentsline {chapter}{\numberline {C}Anatomía de la columna lumbar y los discos intervertebrales}{128}{appendix.Alph3}%
-\contentsline {section}{\numberline {C.1}Esquema simplificado de columna lumbar sagital}{128}{section.Alph3.1}%
-\contentsline {section}{\numberline {C.2}Esquema conceptual de segmentación.}{129}{section.Alph3.2}%
-\contentsline {chapter}{\numberline {D}Transcripciones de las entrevistas}{130}{appendix.Alph4}%
-\contentsline {section}{E.1 Entrevista 1 (EN-01) - Dra. Susana Torres (M.N. 179537)}{130}{section*.14}%
-\contentsline {section}{E.2 Entrevista 2 (EN-02) - Dr.~Gonzalo Brito}{134}{section*.15}%
-\contentsline {section}{E.3 Entrevista 3 (EN-03) - Dra. Claudia Cejas}{137}{section*.16}%
-\contentsline {section}{E.4 Entrevista 4 (EN-04) - Dr.~Bruno Bregonzi}{141}{section*.17}%
-\contentsline {section}{E.5 Entrevista 5 (EN-05) - Dr.~Eduardo Luis Castiglione}{144}{section*.18}%
-\contentsline {chapter}{\numberline {E}Configuración de entrenamiento de los modelos}{149}{appendix.Alph5}%
-\contentsline {section}{F.1 Parámetros de entrenamiento}{149}{section*.19}%
-\contentsline {section}{F.2 Aumentación de datos}{150}{section*.20}%
-\contentsline {section}{F.3 Controles de calidad al cierre del entrenamiento}{151}{section*.21}%
-\contentsline {section}{F.4 Trazabilidad de los artifacts}{151}{section*.22}%
-\contentsline {chapter}{\numberline {F}Evolución técnica del desarrollo}{152}{appendix.Alph6}%
-\contentsline {section}{\numberline {F.1}Evolución técnica alcanzada}{152}{section.Alph6.1}%
-\contentsline {subsection}{\numberline {F.1.1}Etapa fundacional y separación en tres repositorios}{152}{subsection.Alph6.1.1}%
-\contentsline {subsection}{\numberline {F.1.2}Backlogs técnicos por repositorio}{153}{subsection.Alph6.1.2}%
-\contentsline {subsection}{\numberline {F.1.3}Bloques coordinados de producto}{153}{subsection.Alph6.1.3}%
-\contentsline {subsection}{\numberline {F.1.4}Estado resultante para la entrega del 50 \%}{156}{subsection.Alph6.1.4}%
-\contentsline {section}{\numberline {F.2}Evolución del producto visible}{157}{section.Alph6.2}%
-\contentsline {section}{\numberline {F.3}Evolución del pipeline de inferencia}{158}{section.Alph6.3}%
-\contentsline {section}{\numberline {F.4}Organización interna del módulo de inteligencia artificial}{159}{section.Alph6.4}%
-\contentsline {chapter}{\numberline {G}Registro de decisiones arquitectónicas}{160}{appendix.Alph7}%
-\contentsline {section}{ADR-001 --- Separación de Frontend, Backend y AI Module}{160}{section*.23}%
-\contentsline {section}{ADR-002 --- Spring Boot para el Backend y Python/FastAPI para el AI Module}{160}{section*.23}%
-\contentsline {section}{ADR-003 --- Backend como única frontera pública hacia el AI Module}{161}{section*.23}%
-\contentsline {section}{ADR-004 --- PostgreSQL para persistencia transaccional}{161}{section*.23}%
-\contentsline {section}{ADR-005 --- PyTorch como runtime de inferencia y ONNX Runtime diferido}{161}{section*.23}%
-\contentsline {section}{ADR-006 --- Separación entre código fuente y artifacts de datos y modelos}{162}{section*.23}%
-\contentsline {section}{ADR-007 --- Google Cloud como arquitectura objetivo de despliegue}{162}{section*.23}%
-\contentsline {chapter}{Referencias}{164}{appendix*.25}%
+\contentsline {section}{\numberline {12.2}Sistemas de identificación}{108}{section.12.2}%
+\contentsline {section}{\numberline {12.3}Ciclo de trabajo y coordinación}{109}{section.12.3}%
+\contentsline {section}{\numberline {12.4}Criterios de listo, terminado y evidencia}{110}{section.12.4}%
+\contentsline {section}{\numberline {12.5}Validación por capas y pruebas}{110}{section.12.5}%
+\contentsline {section}{\numberline {12.6}Limitaciones metodológicas}{111}{section.12.6}%
+\contentsline {chapter}{\numberline {13}Resultados de la evaluación técnica}{112}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Propósito y alcance de la evaluación}{112}{section.13.1}%
+\contentsline {section}{\numberline {13.2}Protocolo de evaluación}{112}{section.13.2}%
+\contentsline {section}{\numberline {13.3}Resultados de segmentación}{113}{section.13.3}%
+\contentsline {section}{\numberline {13.4}Umbral de calidad y estado del artifact axial}{114}{section.13.4}%
+\contentsline {section}{\numberline {13.5}Advertencia sobre la partición de prueba axial}{114}{section.13.5}%
+\contentsline {section}{\numberline {13.6}Verificación por contraste de las mediciones derivadas}{114}{section.13.6}%
+\contentsline {section}{\numberline {13.7}Una medición implementada y no publicada}{115}{section.13.7}%
+\contentsline {section}{\numberline {13.8}Limitaciones de la evaluación}{116}{section.13.8}%
+\contentsline {section}{\numberline {13.9}Conclusión del capítulo}{116}{section.13.9}%
+\contentsline {chapter}{\numberline {14}Planificación académica general}{117}{chapter.14}%
+\contentsline {section}{\numberline {14.1}Criterio de planificación}{117}{section.14.1}%
+\contentsline {section}{\numberline {14.2}Planificación por entregables}{117}{section.14.2}%
+\contentsline {section}{\numberline {14.3}Gestión de cambios}{118}{section.14.3}%
+\contentsline {section}{\numberline {14.4}Riesgos de planificación}{118}{section.14.4}%
+\contentsline {section}{\numberline {14.5}Conclusión de la planificación}{118}{section.14.5}%
+\contentsline {chapter}{\numberline {A}Cronograma del proyecto}{120}{appendix.Alph1}%
+\contentsline {section}{\numberline {A.1}Calendario académico}{120}{section.Alph1.1}%
+\contentsline {section}{\numberline {A.2}Diagrama de Gantt}{121}{section.Alph1.2}%
+\contentsline {section}{\numberline {A.3}Desvíos respecto de la planificación original}{122}{section.Alph1.3}%
+\contentsline {chapter}{\numberline {B}Glosario de términos}{123}{appendix.Alph2}%
+\contentsline {chapter}{\numberline {C}Anatomía de la columna lumbar y los discos intervertebrales}{129}{appendix.Alph3}%
+\contentsline {section}{\numberline {C.1}Esquema simplificado de columna lumbar sagital}{129}{section.Alph3.1}%
+\contentsline {section}{\numberline {C.2}Esquema conceptual de segmentación.}{130}{section.Alph3.2}%
+\contentsline {chapter}{\numberline {D}Transcripciones de las entrevistas}{131}{appendix.Alph4}%
+\contentsline {section}{E.1 Entrevista 1 (EN-01) - Dra. Susana Torres (M.N. 179537)}{131}{section*.14}%
+\contentsline {section}{E.2 Entrevista 2 (EN-02) - Dr.~Gonzalo Brito}{135}{section*.15}%
+\contentsline {section}{E.3 Entrevista 3 (EN-03) - Dra. Claudia Cejas}{138}{section*.16}%
+\contentsline {section}{E.4 Entrevista 4 (EN-04) - Dr.~Bruno Bregonzi}{142}{section*.17}%
+\contentsline {section}{E.5 Entrevista 5 (EN-05) - Dr.~Eduardo Luis Castiglione}{145}{section*.18}%
+\contentsline {chapter}{\numberline {E}Configuración de entrenamiento de los modelos}{150}{appendix.Alph5}%
+\contentsline {section}{F.1 Parámetros de entrenamiento}{150}{section*.19}%
+\contentsline {section}{F.2 Aumentación de datos}{151}{section*.20}%
+\contentsline {section}{F.3 Controles de calidad al cierre del entrenamiento}{152}{section*.21}%
+\contentsline {section}{F.4 Trazabilidad de los artifacts}{152}{section*.22}%
+\contentsline {chapter}{\numberline {F}Evolución técnica del desarrollo}{153}{appendix.Alph6}%
+\contentsline {section}{\numberline {F.1}Evolución técnica alcanzada}{153}{section.Alph6.1}%
+\contentsline {subsection}{\numberline {F.1.1}Etapa fundacional y separación en tres repositorios}{153}{subsection.Alph6.1.1}%
+\contentsline {subsection}{\numberline {F.1.2}Backlogs técnicos por repositorio}{154}{subsection.Alph6.1.2}%
+\contentsline {subsection}{\numberline {F.1.3}Bloques coordinados de producto}{154}{subsection.Alph6.1.3}%
+\contentsline {subsection}{\numberline {F.1.4}Estado resultante para la entrega del 50 \%}{157}{subsection.Alph6.1.4}%
+\contentsline {section}{\numberline {F.2}Evolución del producto visible}{158}{section.Alph6.2}%
+\contentsline {section}{\numberline {F.3}Evolución del pipeline de inferencia}{159}{section.Alph6.3}%
+\contentsline {section}{\numberline {F.4}Organización interna del módulo de inteligencia artificial}{160}{section.Alph6.4}%
+\contentsline {chapter}{\numberline {G}Registro de decisiones arquitectónicas}{161}{appendix.Alph7}%
+\contentsline {section}{ADR-001 --- Separación de Frontend, Backend y AI Module}{161}{section*.23}%
+\contentsline {section}{ADR-002 --- Spring Boot para el Backend y Python/FastAPI para el AI Module}{161}{section*.24}%
+\contentsline {section}{ADR-003 --- Backend como única frontera pública hacia el AI Module}{162}{section*.25}%
+\contentsline {section}{ADR-004 --- PostgreSQL para persistencia transaccional}{162}{section*.26}%
+\contentsline {section}{ADR-005 --- PyTorch como runtime de inferencia y ONNX Runtime diferido}{162}{section*.27}%
+\contentsline {section}{ADR-006 --- Separación entre código fuente y artifacts de datos y modelos}{163}{section*.28}%
+\contentsline {section}{ADR-007 --- Google Cloud como arquitectura objetivo de despliegue}{163}{section*.29}%
+\contentsline {chapter}{Referencias}{165}{appendix*.31}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
@@ -517,7 +517,6 @@
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {chapter}{Bibliograf\'ia y recursos adicionales}{169}{appendix*.27}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 

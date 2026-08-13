@@ -165,7 +165,7 @@
 \BOOKMARK [1][-]{section.12.4}{Criterios\040de\040listo,\040terminado\040y\040evidencia}{chapter.12}% 165
 \BOOKMARK [1][-]{section.12.5}{Validaci\363n\040por\040capas\040y\040pruebas}{chapter.12}% 166
 \BOOKMARK [1][-]{section.12.6}{Limitaciones\040metodol\363gicas}{chapter.12}% 167
-\BOOKMARK [0][-]{chapter.13}{Resultados\040de\040la\040evaluaci\363n\040t\351cnica}{}% 168
+\BOOKMARK [0][-]{chapter.13}{13.\040Resultados\040de\040la\040evaluaci\363n\040t\351cnica}{}% 168
 \BOOKMARK [1][-]{section.13.1}{Prop\363sito\040y\040alcance\040de\040la\040evaluaci\363n}{chapter.13}% 169
 \BOOKMARK [1][-]{section.13.2}{Protocolo\040de\040evaluaci\363n}{chapter.13}% 170
 \BOOKMARK [1][-]{section.13.3}{Resultados\040de\040segmentaci\363n}{chapter.13}% 171
@@ -175,7 +175,7 @@
 \BOOKMARK [1][-]{section.13.7}{Una\040medici\363n\040implementada\040y\040no\040publicada}{chapter.13}% 175
 \BOOKMARK [1][-]{section.13.8}{Limitaciones\040de\040la\040evaluaci\363n}{chapter.13}% 176
 \BOOKMARK [1][-]{section.13.9}{Conclusi\363n\040del\040cap\355tulo}{chapter.13}% 177
-\BOOKMARK [0][-]{chapter.14}{Planificaci\363n\040acad\351mica\040general}{}% 178
+\BOOKMARK [0][-]{chapter.14}{14.\040Planificaci\363n\040acad\351mica\040general}{}% 178
 \BOOKMARK [1][-]{section.14.1}{Criterio\040de\040planificaci\363n}{chapter.14}% 179
 \BOOKMARK [1][-]{section.14.2}{Planificaci\363n\040por\040entregables}{chapter.14}% 180
 \BOOKMARK [1][-]{section.14.3}{Gesti\363n\040de\040cambios}{chapter.14}% 181
@@ -211,10 +211,11 @@
 \BOOKMARK [1][-]{section.Alph6.4}{Organizaci\363n\040interna\040del\040m\363dulo\040de\040inteligencia\040artificial}{appendix.Alph6}% 211
 \BOOKMARK [0][-]{appendix.Alph7}{Registro\040de\040decisiones\040arquitect\363nicas}{}% 212
 \BOOKMARK [1][-]{section*.23}{ADR-001\040\204\040Separaci\363n\040de\040Frontend,\040Backend\040y\040AI\040Module}{appendix.Alph7}% 213
-\BOOKMARK [1][-]{section*.24}{ADR-002\040\204\040Spring\040Boot\040para\040el\040Backend\040y\040Python/FastAPI\040para\040el\040AI\040Module}{appendix.Alph7}% 214
-\BOOKMARK [1][-]{section*.25}{ADR-003\040\204\040Backend\040como\040\372nica\040frontera\040p\372blica\040hacia\040el\040AI\040Module}{appendix.Alph7}% 215
-\BOOKMARK [1][-]{section*.26}{ADR-004\040\204\040PostgreSQL\040para\040persistencia\040transaccional}{appendix.Alph7}% 216
-\BOOKMARK [1][-]{section*.27}{ADR-005\040\204\040PyTorch\040como\040runtime\040de\040inferencia\040y\040ONNX\040Runtime\040diferido}{appendix.Alph7}% 217
-\BOOKMARK [1][-]{section*.28}{ADR-006\040\204\040Separaci\363n\040entre\040c\363digo\040fuente\040y\040artifacts\040de\040datos\040y\040modelos}{appendix.Alph7}% 218
-\BOOKMARK [1][-]{section*.29}{ADR-007\040\204\040Google\040Cloud\040como\040arquitectura\040objetivo\040de\040despliegue}{appendix.Alph7}% 219
-\BOOKMARK [0][-]{appendix*.31}{Referencias}{}% 220
+\BOOKMARK [1][-]{section*.23}{ADR-002\040\204\040Spring\040Boot\040para\040el\040Backend\040y\040Python/FastAPI\040para\040el\040AI\040Module}{appendix.Alph7}% 214
+\BOOKMARK [1][-]{section*.23}{ADR-003\040\204\040Backend\040como\040\372nica\040frontera\040p\372blica\040hacia\040el\040AI\040Module}{appendix.Alph7}% 215
+\BOOKMARK [1][-]{section*.23}{ADR-004\040\204\040PostgreSQL\040para\040persistencia\040transaccional}{appendix.Alph7}% 216
+\BOOKMARK [1][-]{section*.23}{ADR-005\040\204\040PyTorch\040como\040runtime\040de\040inferencia\040y\040ONNX\040Runtime\040diferido}{appendix.Alph7}% 217
+\BOOKMARK [1][-]{section*.23}{ADR-006\040\204\040Separaci\363n\040entre\040c\363digo\040fuente\040y\040artifacts\040de\040datos\040y\040modelos}{appendix.Alph7}% 218
+\BOOKMARK [1][-]{section*.23}{ADR-007\040\204\040Google\040Cloud\040como\040arquitectura\040objetivo\040de\040despliegue}{appendix.Alph7}% 219
+\BOOKMARK [0][-]{appendix*.25}{Referencias}{}% 220
+\BOOKMARK [0][-]{appendix*.27}{Bibliograf\355a\040y\040recursos\040adicionales}{}% 221

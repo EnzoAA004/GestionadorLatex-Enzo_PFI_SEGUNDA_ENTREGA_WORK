@@ -4,7 +4,6 @@
 Este anexo documenta las principales decisiones de arquitectura adoptadas durante el desarrollo del prototipo mediante Architecture Decision Records (ADR). El objetivo es conservar, además de la decisión final, el contexto que la motivó, las alternativas consideradas y sus principales consecuencias. Los ADR describen decisiones técnicas del prototipo y pueden revisarse si cambian sus requerimientos o condiciones de despliegue.
 
 \section*{ADR-001 --- Separación de Frontend, Backend y AI Module}
-\phantomsection
 \addcontentsline{toc}{section}{ADR-001 --- Separación de Frontend, Backend y AI Module}
 \label{adr:001-separacion-componentes}
 
@@ -19,7 +18,6 @@ Este anexo documenta las principales decisiones de arquitectura adoptadas durant
 \textbf{Consecuencias.} La separación permite modificar modelos o componentes de interfaz sin incorporar sus dependencias al resto del sistema y facilita pruebas y despliegues independientes. Como contrapartida, exige mantener contratos compatibles y coordinar cambios entre repositorios.
 
 \section*{ADR-002 --- Spring Boot para el Backend y Python/FastAPI para el AI Module}
-\phantomsection
 \addcontentsline{toc}{section}{ADR-002 --- Spring Boot para el Backend y Python/FastAPI para el AI Module}
 \label{adr:002-spring-boot-fastapi}
 
@@ -34,7 +32,6 @@ Este anexo documenta las principales decisiones de arquitectura adoptadas durant
 \textbf{Consecuencias.} Cada componente utiliza un stack alineado con sus responsabilidades y dependencias. PyTorch y SimpleITK permanecen aislados en el servicio de IA, mientras las funciones de producto se mantienen independientes del runtime científico. La principal contrapartida es mantener dos stacks tecnológicos y su integración HTTP.
 
 \section*{ADR-003 --- Backend como única frontera pública hacia el AI Module}
-\phantomsection
 \addcontentsline{toc}{section}{ADR-003 --- Backend como única frontera pública hacia el AI Module}
 \label{adr:003-backend-frontera-publica-ai}
 
@@ -49,7 +46,6 @@ Este anexo documenta las principales decisiones de arquitectura adoptadas durant
 \textbf{Consecuencias.} Se mantiene una única frontera de seguridad y un contrato público controlado, y el runtime de IA puede evolucionar sin convertirse en una dependencia directa de la interfaz. Como contrapartida, el Backend incorpora responsabilidades adicionales de orquestación y existe un salto de comunicación adicional.
 
 \section*{ADR-004 --- PostgreSQL para persistencia transaccional}
-\phantomsection
 \addcontentsline{toc}{section}{ADR-004 --- PostgreSQL para persistencia transaccional}
 \label{adr:004-postgresql-persistencia}
 
@@ -64,7 +60,6 @@ Este anexo documenta las principales decisiones de arquitectura adoptadas durant
 \textbf{Consecuencias.} El modelo relacional permite aplicar restricciones de integridad y mantener relaciones consistentes entre las entidades del flujo. Como contrapartida, requiere gestionar el esquema, sus migraciones y la disponibilidad de la instancia de base de datos.
 
 \section*{ADR-005 --- PyTorch como runtime de inferencia y ONNX Runtime diferido}
-\phantomsection
 \addcontentsline{toc}{section}{ADR-005 --- PyTorch como runtime de inferencia y ONNX Runtime diferido}
 \label{adr:005-pytorch-onnx-runtime}
 
@@ -79,7 +74,6 @@ Este anexo documenta las principales decisiones de arquitectura adoptadas durant
 \textbf{Consecuencias.} Se evita introducir una conversión adicional sobre modelos ya evaluados y se conserva la reproducibilidad entre entrenamiento e inferencia. Como contrapartida, el despliegue mantiene las dependencias y requerimientos de recursos propios de PyTorch.
 
 \section*{ADR-006 --- Separación entre código fuente y artifacts de datos y modelos}
-\phantomsection
 \addcontentsline{toc}{section}{ADR-006 --- Separación entre código fuente y artifacts de datos y modelos}
 \label{adr:006-separacion-codigo-artifacts}
 
@@ -94,7 +88,6 @@ Este anexo documenta las principales decisiones de arquitectura adoptadas durant
 \textbf{Consecuencias.} Los repositorios permanecen manejables y los artifacts pueden evolucionar de forma independiente, conservando mecanismos explícitos de trazabilidad. Como contrapartida, la ejecución requiere gestionar disponibilidad, permisos e integridad del almacenamiento externo.
 
 \section*{ADR-007 --- Google Cloud como arquitectura objetivo de despliegue}
-\phantomsection
 \addcontentsline{toc}{section}{ADR-007 --- Google Cloud como arquitectura objetivo de despliegue}
 \label{adr:007-google-cloud-despliegue}
 

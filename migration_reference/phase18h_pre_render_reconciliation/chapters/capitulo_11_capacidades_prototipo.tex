@@ -56,7 +56,6 @@ Antes de ejecutar, el sistema valida el formato y los límites aceptados. La aus
 % FIGURE_TYPE: UI_SCREENSHOT
 % SOURCE_VISUAL_MISSING_FROM_DOCX
 % VISUAL_SOURCE_REQUIRED_FROM_AUTHOR: YES
-\addcontentsline{lof}{figure}{\protect\numberline{11.1}Acceso con estado de cuenta pendiente de aprobación y worklist de estudios. Fuente: elaboración propia.}
 % FIGURE_PENDING_MIGRATION
 % DOCX_FIGURE_NUMBER: 11.2
 % DOCX_CAPTION: Carga de un estudio DICOM con sus series identificadas y clasificadas. Fuente: elaboración propia.
@@ -67,7 +66,6 @@ Antes de ejecutar, el sistema valida el formato y los límites aceptados. La aus
 % FIGURE_TYPE: UI_SCREENSHOT
 % SOURCE_VISUAL_MISSING_FROM_DOCX
 % VISUAL_SOURCE_REQUIRED_FROM_AUTHOR: YES
-\addcontentsline{lof}{figure}{\protect\numberline{11.2}Carga de un estudio DICOM con sus series identificadas y clasificadas. Fuente: elaboración propia.}
 Qué evidencia lo respalda. Pruebas automatizadas de lectura de volúmenes, de preprocesamiento y de selección de corte, y regresión sobre fixtures de-identificados. El acceso requiere autenticación y una cuenta nueva permanece pendiente de aprobación hasta que un administrador la habilite.
 
 Qué límites tiene. Cuando la fuente no aporta espaciado válido, las mediciones derivadas se expresan en píxeles y la unidad lo declara: el sistema no infiere geometría física ausente. Las series y modalidades no soportadas quedan disponibles como imagen base e informan que no poseen inferencia automática.
@@ -91,7 +89,6 @@ Cada corrida resuelve el artifact correspondiente al plano solicitado, verifica 
 % SOURCE_VISUAL_MISSING_FROM_DOCX
 % VISUAL_SOURCE_REQUIRED_FROM_AUTHOR: YES
 % CROSS_REFERENCE_MAPPING_REQUIRED
-\addcontentsline{lof}{figure}{\protect\numberline{11.3}Workspace sagital con la máscara superpuesta sobre la imagen original. Fuente: elaboración propia.}
 Qué evidencia lo respalda. Coeficiente Dice macro de 0,893 sobre una partición retenida separada a nivel de paciente, con 152 pacientes de entrenamiento, 33 de validación y 33 de prueba. El artifact supera el umbral de calidad del proyecto y está registrado como baseline técnico validado. El protocolo completo, las particiones y el criterio del umbral se desarrollan en el Capítulo 13; la configuración de entrenamiento, en el Anexo E.
 
 Qué límites tiene. El modelo produce clases agrupadas: no distingue una vértebra de otra ni un disco de otro. Toda afirmación sobre niveles anatómicos individuales depende del mecanismo descrito en la sección~\ref{sec:cap-asignacion-nivel-anatomico} y no del modelo. La evaluación mide coincidencia con las anotaciones del conjunto, de modo que reproduce también los criterios de quien anotó. No se informan métricas de distancia, que aportarían información sobre la precisión del contorno que el coeficiente Dice no captura en estructuras de tamaño considerable.
@@ -143,7 +140,6 @@ La correspondencia queda congelada en el manifest del artifact y replicada en la
 % FIGURE_TYPE: OVERLAY
 % SOURCE_VISUAL_MISSING_FROM_DOCX
 % VISUAL_SOURCE_REQUIRED_FROM_AUTHOR: YES
-\addcontentsline{lof}{figure}{\protect\numberline{11.4}Workspace axial con la máscara superpuesta sobre la imagen original. Fuente: elaboración propia.}
 Qué evidencia lo respalda. Coeficiente Dice macro de 0,811 sobre las cuatro estructuras anatómicas y de 0,679 cuando se incluyen las dos clases de fondo, sobre una partición separada a nivel de paciente. La diferencia se explica porque una de las clases de fondo obtiene un coeficiente de 0,15 y arrastra el promedio.
 
 % CROSS_REFERENCE_MAPPING_REQUIRED
@@ -203,7 +199,6 @@ El diámetro anteroposterior del canal se mide fila por fila. La primera impleme
 % SOURCE_VISUAL_MISSING_FROM_DOCX
 % VISUAL_SOURCE_REQUIRED_FROM_AUTHOR: YES
 % CROSS_REFERENCE_MAPPING_REQUIRED
-\addcontentsline{lof}{figure}{\protect\numberline{11.5}Panel de mediciones con la estructura, el plano y el corte de origen de cada valor. Fuente: elaboración propia.}
 Qué evidencia lo respalda. Una verificación por contraste contra rangos conocidos, desarrollada en el Capítulo 13. El diámetro anteroposterior del canal arroja una mediana compatible con el saco tecal lumbar, y la suma de ángulos segmentarios entre la primera y la quinta vértebra lumbar da 36 grados frente a una lordosis habitual de entre 40 y 60.
 
 Qué límites tiene. Esa verificación no equivale a una validación. Un contraste con rangos poblacionales permite descartar valores manifiestamente incompatibles, pero no establece la exactitud de una medición individual. No existe comparación contra mediciones realizadas por profesionales sobre los mismos estudios, que requeriría un conjunto anotado específicamente para ese fin.
@@ -245,7 +240,6 @@ Cómo funciona. El contrato volumétrico define, por serie, el plano, la cantida
 % FIGURE_TYPE: RESULT_VIEW
 % SOURCE_VISUAL_MISSING_FROM_DOCX
 % VISUAL_SOURCE_REQUIRED_FROM_AUTHOR: YES
-\addcontentsline{lof}{figure}{\protect\numberline{11.6}Navegación por cortes del volumen con el resultado vinculado a su corte. Fuente: elaboración propia.}
 Qué evidencia lo respalda. El procesamiento de la serie completa está implementado y los assets se persisten y se sirven por corte. Las pruebas verifican la cantidad y el orden de los cortes, el eje, el índice computacional y la numeración mostrada, con índice interno desde cero y numeración de interfaz desde uno.
 
 Qué límites tiene. La superposición automática no se presupone para todos los cortes de todas las series: solo se muestra donde hay resultado, y los cortes sin inferencia lo declaran en lugar de presentarse vacíos. El visor no simula una correspondencia espacial entre el plano sagital y el axial cuando la metadata geométrica no permite demostrarla; la relación entre planos se establece por la asignación de nivel de la sección~\ref{sec:cap-asignacion-nivel-anatomico} y no por una superposición supuesta. La integración definitiva de los contratos congelados en el frontend y el cierre del recorrido extremo a extremo con interfaz permanecen pendientes.
@@ -268,7 +262,6 @@ El preinforme se construye mediante plantillas que combinan los valores derivado
 % FIGURE_TYPE: MEASUREMENT_VIEW
 % SOURCE_VISUAL_MISSING_FROM_DOCX
 % VISUAL_SOURCE_REQUIRED_FROM_AUTHOR: YES
-\addcontentsline{lof}{figure}{\protect\numberline{11.7}Controles de revisión profesional sobre una estructura segmentada. Fuente: elaboración propia.}
 % FIGURE_PENDING_MIGRATION
 % DOCX_FIGURE_NUMBER: 11.8
 % DOCX_CAPTION: Preinforme automático revisable con estructuras, mediciones y estado de revisión. Fuente: elaboración propia.
@@ -280,7 +273,6 @@ El preinforme se construye mediante plantillas que combinan los valores derivado
 % SOURCE_VISUAL_MISSING_FROM_DOCX
 % VISUAL_SOURCE_REQUIRED_FROM_AUTHOR: YES
 % CROSS_REFERENCE_MAPPING_REQUIRED
-\addcontentsline{lof}{figure}{\protect\numberline{11.8}Preinforme automático revisable con estructuras, mediciones y estado de revisión. Fuente: elaboración propia.}
 Qué evidencia lo respalda. El flujo de revisión está implementado y persistido, y la reapertura de un estudio recupera el estado de revisión junto con los resultados. El relevamiento con profesionales identificó la posibilidad de corregir manualmente cada resultado como el requisito más votado para confiar en una segmentación automática, según se informa en la sección 8.12.
 
 Qué límites tiene. El preinforme es un punto de partida editable y no un informe clínico: su función es reducir la transcripción manual de valores y organizarlos en un orden anatómico previsible, mientras la redacción final, la interpretación y la responsabilidad permanecen en el profesional. La evaluación de utilidad del flujo de revisión con profesionales sobre el producto integrado permanece pendiente.
@@ -301,7 +293,6 @@ Cómo funciona. Un estudio actúa como contenedor lógico y una corrida represen
 % FIGURE_TYPE: RESULT_VIEW
 % SOURCE_VISUAL_MISSING_FROM_DOCX
 % VISUAL_SOURCE_REQUIRED_FROM_AUTHOR: YES
-\addcontentsline{lof}{figure}{\protect\numberline{11.9}Historial de corridas y reapertura de un estudio ya procesado. Fuente: elaboración propia.}
 Qué evidencia lo respalda. La prueba de aceptación de esta capacidad consiste en abrir un estudio persistido con el módulo de inferencia apagado y comprobar que recupera resultados, mediciones y estado de revisión. Esa prueba está incorporada al repositorio y se ejecuta como regresión.
 
 Qué límites tiene. Las corridas anteriores a la incorporación del catálogo de cortes conservan únicamente los assets que existían en su momento y se abren en modo de compatibilidad, sin fabricar un catálogo que no se generó.
@@ -322,7 +313,6 @@ El sistema distingue el modo de ejecución solicitado del modo efectivamente apl
 % RELATIONSHIP_IDS: NONE
 % MEDIA_FILES: NONE
 % FIGURE_TYPE: UI_SCREENSHOT
-\addcontentsline{lof}{figure}{\protect\numberline{11.10}Estado degradado informado de forma explícita ante indisponibilidad del módulo de inferencia. Fuente: elaboración propia.}
 % SOURCE_VISUAL_MISSING_FROM_DOCX
 % VISUAL_SOURCE_REQUIRED_FROM_AUTHOR: YES
 Qué evidencia lo respalda. Pruebas de autenticación, autorización, contratos, auditoría y comportamiento ante archivo inválido, artifact ausente, rol insuficiente y asset faltante. El contrato público no expone probabilidades, salidas crudas, mapas de confianza ni rutas internas.

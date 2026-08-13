@@ -1745,38 +1745,6 @@
       \field{title}{Software requirements}
       \field{year}{2013}
     \endentry
-    \entry{kruchten_4plus1_1995}{article}{}{}
-      \name{author}{1}{}{%
-        {{hash=1d00515fe991ba26ce9b4c5ca06934fa}{%
-           family={Kruchten},
-           familyi={K\bibinitperiod},
-           given={Philippe},
-           giveni={P\bibinitperiod}}}%
-      }
-      \strng{namehash}{1d00515fe991ba26ce9b4c5ca06934fa}
-      \strng{fullhash}{1d00515fe991ba26ce9b4c5ca06934fa}
-      \strng{fullhashraw}{1d00515fe991ba26ce9b4c5ca06934fa}
-      \strng{bibnamehash}{1d00515fe991ba26ce9b4c5ca06934fa}
-      \strng{authorbibnamehash}{1d00515fe991ba26ce9b4c5ca06934fa}
-      \strng{authornamehash}{1d00515fe991ba26ce9b4c5ca06934fa}
-      \strng{authorfullhash}{1d00515fe991ba26ce9b4c5ca06934fa}
-      \strng{authorfullhashraw}{1d00515fe991ba26ce9b4c5ca06934fa}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE Software}
-      \field{number}{6}
-      \field{title}{The 4+1 view model of architecture}
-      \field{volume}{12}
-      \field{year}{1995}
-      \true{nocite}
-      \field{pages}{42\bibrangedash 50}
-      \range{pages}{9}
-      \verb{doi}
-      \verb 10.1109/52.469759
-      \endverb
-    \endentry
     \entry{larman_basili_iterative_incremental_2003}{article}{}{}
       \name{author}{2}{}{%
         {{hash=be7db5922f05fc919bdc1c036502e5ee}{%
@@ -1811,6 +1779,38 @@
       \range{pages}{10}
       \verb{doi}
       \verb 10.1109/MC.2003.1204375
+      \endverb
+    \endentry
+    \entry{kruchten_4plus1_1995}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=1d00515fe991ba26ce9b4c5ca06934fa}{%
+           family={Kruchten},
+           familyi={K\bibinitperiod},
+           given={Philippe},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{1d00515fe991ba26ce9b4c5ca06934fa}
+      \strng{fullhash}{1d00515fe991ba26ce9b4c5ca06934fa}
+      \strng{fullhashraw}{1d00515fe991ba26ce9b4c5ca06934fa}
+      \strng{bibnamehash}{1d00515fe991ba26ce9b4c5ca06934fa}
+      \strng{authorbibnamehash}{1d00515fe991ba26ce9b4c5ca06934fa}
+      \strng{authornamehash}{1d00515fe991ba26ce9b4c5ca06934fa}
+      \strng{authorfullhash}{1d00515fe991ba26ce9b4c5ca06934fa}
+      \strng{authorfullhashraw}{1d00515fe991ba26ce9b4c5ca06934fa}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Software}
+      \field{number}{6}
+      \field{title}{The 4+1 view model of architecture}
+      \field{volume}{12}
+      \field{year}{1995}
+      \true{nocite}
+      \field{pages}{42\bibrangedash 50}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1109/52.469759
       \endverb
     \endentry
     \entry{pfirrmann_disc_degeneration_2001}{article}{}{}

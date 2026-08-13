@@ -198,7 +198,6 @@
 \titlespacing*{\subsubsection}{0pt}{12pt}{6pt}
 
 \usepackage{tocloft}
-\cftsetindents{figure}{0em}{4em}
 \cftsetindents{table}{0em}{4em}
 \renewcommand{\cfttoctitlefont}{\bfseries\fontsize{14pt}{16pt}\selectfont}
 \setlength{\cftbeforetoctitleskip}{12pt}
@@ -266,7 +265,6 @@ El \'{i}ndice desarrolla hasta tres niveles de titulaci\'on, dentro del m\'aximo
 \input{chapters/capitulo_09_requerimientos}
 \input{chapters/capitulo_10_diseno_arquitectura}
 \input{chapters/capitulo_11_capacidades_prototipo}
-\nocite{kruchten_4plus1_1995}
 \input{chapters/capitulo_12_metodologia_validacion}
 \input{chapters/capitulo_13_resultados_evaluacion}
 \input{chapters/capitulo_14_planificacion_academica}
@@ -280,10 +278,14 @@ El \'{i}ndice desarrolla hasta tres niveles de titulaci\'on, dentro del m\'aximo
 \input{appendices/anexo_f_evolucion_tecnica}
 \input{appendices/anexo_g_adr}
 
-\nocite{pfirrmann_disc_degeneration_2001}
+\nocite{kirillov_panoptic_2019,kruchten_4plus1_1995,pfirrmann_disc_degeneration_2001}
 
 \cleardoublepage
 \phantomsection
-\printbibliography[heading=bibintoc,title={Referencias}]
+\printbibliography[notkeyword={adicional},heading=bibintoc,title={Referencias}]
+
+\cleardoublepage
+\phantomsection
+\printbibliography[keyword={adicional},heading=bibintoc,title={Bibliograf\'ia y recursos adicionales}]
 
 \end{document}

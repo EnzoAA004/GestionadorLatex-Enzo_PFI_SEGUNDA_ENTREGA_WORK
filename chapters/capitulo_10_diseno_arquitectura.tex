@@ -153,9 +153,9 @@ La superposición automática no se presupone para todos los cortes de todas las
 
 \subsection{Modelo de datos}
 
-La persistencia se apoya en un modelo relacional en PostgreSQL organizado alrededor de tres ejes: la identidad y el control de acceso (usuarios, roles), la organización de los estudios (sujeto de-identificado, estudio) y la evidencia de cada análisis (corrida, mediciones, revisiones, assets y catálogo de cortes), complementados con el registro de modelos/artifacts y la auditoría. La Figura~\ref{fig:arch-modelo-datos} presenta el diagrama entidad-relación con sus claves primarias, foráneas y cardinalidades.
+La persistencia se apoya en un modelo relacional en PostgreSQL organizado alrededor de tres ejes: la identidad y el control de acceso (usuarios y roles), la organización longitudinal de los estudios mediante una entidad Patient de-identificada y sus Studies asociados, y la evidencia de cada análisis (corridas, mediciones, revisiones, assets y catálogo de cortes), complementados con el registro de modelos/artifacts y la auditoría. La Figura~\ref{fig:arch-modelo-datos} presenta el diagrama entidad-relación con sus claves primarias, foráneas y cardinalidades.
 
-El diseño refleja las decisiones descritas en los capítulos anteriores: los datos identificatorios del paciente se almacenan de forma segura (Ley N.º 25.326) y los estudios se vinculan mediante una referencia de sujeto seudonimizada (subject\_ref); cada corrida conserva su linaje técnico (model\_key, artifact\_hash, requested/effective\_inference\_mode y trace\_id); las mediciones y los assets quedan vinculados a la corrida y al corte de origen; y la revisión profesional se registra sin sobrescribir el resultado automático original, preservando la trazabilidad y la auditabilidad.
+El modelo separa explícitamente la identidad longitudinal de-identificada del paciente de la identidad técnica de cada estudio. Patient posee un identificador interno UUID y una patientReference seudónima; Study conserva su identificador, caseId y una asociación opcional mediante patientId. El campo subjectRef permanece disponible como referencia interna opcional y mecanismo de compatibilidad con etapas anteriores, pero no se utiliza como identidad longitudinal principal ni para reconstruir automáticamente pacientes históricos. Cada corrida conserva su linaje técnico; las mediciones y los assets permanecen vinculados a la corrida y al corte de origen; y la revisión profesional se registra sin sobrescribir el resultado automático original, preservando trazabilidad y auditabilidad.
 % CROSS_REFERENCE_MAPPING_REQUIRED
 
 \begin{figure}[htbp]
@@ -186,8 +186,8 @@ Entidades principales
 \endfoot
 usuario & Cuenta del sistema. Atributos: id (PK), email, password\_hash, estado\_aprobacion, fecha\_registro. \\
 rol / usuario\_rol & Roles ADMIN, DOCTOR y REVIEWER, asociados a usuarios mediante una tabla intermedia (relación muchos a muchos). \\
-sujeto & Referencia de-identificada del paciente. Atributos: subject\_ref (PK). No almacena datos identificatorios. \\
-estudio & Contenedor lógico de un caso. Atributos: study\_id (PK), subject\_ref (FK), creado\_por (FK usuario), fecha, metadata. \\
+patient & Identidad longitudinal de-identificada del paciente. Atributos principales: id (PK, UUID), patient\_reference (única), created\_at y updated\_at. No almacena identificadores directos del paciente. \\
+estudio (Study) & Contenedor lógico de un caso. Atributos principales: id (PK), case\_id, patient\_id (FK nullable a Patient), subject\_ref (opcional), estado, fecha del estudio, modalidad, descripción, prioridad de revisión y timestamps. \\
 corrida (run) & Ejecución de análisis por plano. Atributos: run\_id (PK), study\_id (FK), model\_key (FK), plano, multiplanar\_run\_id, artifact\_hash, requested/effective\_inference\_mode, trace\_id, estado. \\
 modelo / artifact & Modelo registrado y su artifact verificable. Atributos: model\_key (PK), plano, version, artifact\_hash, manifest\_uri, arquitectura. \\
 medicion & Valor geométrico derivado de una máscara. Atributos: id (PK), run\_id (FK), estructura/label, plano, slice\_index, valor, unidad, confidence, estado\_revision. \\
@@ -202,7 +202,8 @@ evento\_auditoria & Registro de trazabilidad. Atributos: id (PK), usuario\_id (F
 Relaciones principales
 
 \begin{itemize}
-  \item Un sujeto agrupa uno o varios estudios; un estudio contiene una o varias corridas.
+  \item Un Patient puede asociarse con cero o múltiples Studies; cada Study puede referenciar opcionalmente un Patient mediante patientId. Un Study puede permanecer sin Patient asociado, especialmente en registros históricos o durante etapas intermedias del flujo. Cada Study contiene una o múltiples corridas.
+  \item La asociación Study--Patient es explícita y auditable. La primera asociación y una eventual corrección se realizan como operaciones diferenciadas; subjectRef no se utiliza para inferir automáticamente esta relación.
   \item Cada corrida referencia el modelo/artifact ejecutado y genera múltiples mediciones, assets y entradas del catálogo de cortes.
   \item Una corrida acumula una o varias revisiones profesionales sin eliminar el resultado automático original.
   \item Los usuarios se asocian con roles (muchos a muchos) y quedan registrados como autores de estudios, revisiones y eventos de auditoría.
@@ -216,7 +217,7 @@ El diagrama de clases presenta las entidades del dominio y los servicios princip
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.72\textwidth]{images/architecture/fig_10_05_clases_dominio.png}
+\includegraphics[width=0.94\textwidth]{images/architecture/fig_10_05_clases_dominio.png}
 \caption{Diagrama de clases del dominio y servicios. Fuente: elaboración propia.}
 \label{fig:arch-clases-dominio}
 \end{figure}
@@ -233,13 +234,13 @@ La vista de procesos describe el comportamiento en ejecución: la secuencia de u
 
 \subsection{Flujo end-to-end de una corrida}
 
-El flujo principal coincide con el descrito en las secciones 6.1 y 11.5. Desde la perspectiva arquitectónica interesa destacar su trazabilidad extremo a extremo: el estudio ingresa como DICOM completo (ZIP), el Backend identifica y clasifica las series, registra los inputs compatibles (Sagital T1, Sagital T2 y Axial de forma independiente), solicita al AI Module la segmentación de la serie completa y, cuando corresponde, la línea de hallazgos P10.7, y persiste resultados, mediciones y revisión en PostgreSQL. Los formatos MHA/NIfTI se mantienen como compatibilidad técnica, no como flujo principal.
+Desde la perspectiva arquitectónica, el recorrido comienza con la autenticación del usuario y la selección o creación de un Patient de-identificado. El profesional completa luego los datos propios del Study, incluido su caseId, y carga el estudio DICOM completo en formato ZIP. El Backend valida la solicitud y coordina la ingesta con el AI Module, que identifica y clasifica las series disponibles y registra inputs independientes para las modalidades soportadas. A partir de esos inputs se ejecuta la corrida principal, se generan las segmentaciones y mediciones correspondientes y, cuando el contrato lo permite, las extensiones de procesamiento full-series y la línea de hallazgos P10.7. El Backend valida los contratos resultantes, persiste la corrida y su evidencia en PostgreSQL y mantiene la asociación explícita entre el Study y el Patient. El Frontend presenta posteriormente el estudio en el espacio de revisión profesional, desde donde pueden consultarse resultados persistidos y reabrirse el caso sin repetir necesariamente la inferencia. Los formatos MHA/NIfTI se mantienen como compatibilidad técnica y fixtures de investigación, no como flujo principal de producto.
 % CROSS_REFERENCE_MAPPING_REQUIRED
 % CROSS_REFERENCE_MAPPING_REQUIRED
 
 La arquitectura diferencia requestedInferenceMode de effectiveInferenceMode. Una solicitud real\_baseline solo se informa como efectiva cuando el artifact fue verificado y la ejecución PyTorch finalizó correctamente. Si la ejecución falla, el sistema debe informar error o degradación según la configuración; no debe presentar una respuesta de contrato como inferencia real.
 
-La Figura~\ref{fig:arch-flujo-end-to-end} resume la secuencia completa desde la autenticación y la carga del estudio hasta la persistencia y la revisión profesional.
+La Figura~\ref{fig:arch-flujo-end-to-end} resume la secuencia completa desde la autenticación y la selección del Patient hasta la persistencia, la asociación del Study y la revisión profesional.
 
 \begin{figure}[htbp]
 \centering

@@ -15,7 +15,7 @@ Una advertencia de lectura vale para todo el capítulo: capacidad implementada n
 
 Qué hace. Recibe un estudio de resonancia magnética lumbar completo, identifica las series que contiene, las clasifica por plano y ponderación, y las prepara para el procesamiento.
 
-Cómo funciona. La vía principal es un estudio en formato DICOM empaquetado, del que el sistema extrae las series y determina cuáles son compatibles con los modelos disponibles. El usuario no selecciona imágenes de a una: la cantidad de cortes se obtiene del propio volumen. Se conserva compatibilidad con otros formatos, empleados como fixtures de prueba y en flujos de investigación.
+Cómo funciona. Antes de iniciar un nuevo análisis, el profesional selecciona un Patient de-identificado existente o crea uno mediante una \texttt{patientReference} seudónima. Luego define el \texttt{caseId} y los datos propios del Study. La vía principal de ingesta continúa siendo un estudio en formato DICOM empaquetado, del que el sistema extrae las series y determina automáticamente cuáles son compatibles con los modelos disponibles. El usuario no selecciona imágenes de a una: la cantidad de cortes se obtiene del propio volumen. Se conserva compatibilidad con otros formatos, empleados como fixtures de prueba y en flujos de investigación.
 
 {\small
 \setlength{\LTleft}{0pt}
@@ -246,9 +246,9 @@ Cómo funciona. El contrato volumétrico define, por serie, el plano, la cantida
 % SOURCE_VISUAL_MISSING_FROM_DOCX
 % VISUAL_SOURCE_REQUIRED_FROM_AUTHOR: YES
 \addcontentsline{lof}{figure}{\protect\numberline{11.6}Navegación por cortes del volumen con el resultado vinculado a su corte. Fuente: elaboración propia.}
-Qué evidencia lo respalda. El procesamiento de la serie completa está implementado y los assets se persisten y se sirven por corte. Las pruebas verifican la cantidad y el orden de los cortes, el eje, el índice computacional y la numeración mostrada, con índice interno desde cero y numeración de interfaz desde uno.
+Qué evidencia lo respalda. El procesamiento de la serie completa está implementado y los assets se persisten y se sirven por corte. El frontend consume la integración contractual P10.9 y presenta el catálogo full-series en un visor navegable. Las pruebas verifican la cantidad y el orden de los cortes, el eje, el índice computacional y la numeración mostrada, con índice interno desde cero y numeración de interfaz desde uno.
 
-Qué límites tiene. La superposición automática no se presupone para todos los cortes de todas las series: solo se muestra donde hay resultado, y los cortes sin inferencia lo declaran en lugar de presentarse vacíos. El visor no simula una correspondencia espacial entre el plano sagital y el axial cuando la metadata geométrica no permite demostrarla; la relación entre planos se establece por la asignación de nivel de la sección~\ref{sec:cap-asignacion-nivel-anatomico} y no por una superposición supuesta. La integración definitiva de los contratos congelados en el frontend y el cierre del recorrido extremo a extremo con interfaz permanecen pendientes.
+Qué límites tiene. La superposición automática no se presupone para todos los cortes de todas las series: solo se muestra donde hay resultado, y los cortes sin inferencia lo declaran en lugar de presentarse vacíos. El visor no simula una correspondencia espacial entre el plano sagital y el axial cuando la metadata geométrica no permite demostrarla; la relación entre planos se establece por la asignación de nivel de la sección~\ref{sec:cap-asignacion-nivel-anatomico} y no por una superposición supuesta. La integración de los contratos congelados en el frontend está implementada. El recorrido extremo a extremo completo con interfaz sobre el stack real permanece pendiente de cierre y evidencia.
 
 \section{Revisión profesional y salida editable}
 
@@ -289,7 +289,7 @@ Qué límites tiene. El preinforme es un punto de partida editable y no un infor
 
 Qué hace. Conserva cada corrida con su modelo, su artifact, sus resultados, sus mediciones y su estado de revisión, de modo que un estudio pueda recuperarse más tarde sin volver a ejecutar la inferencia.
 
-Cómo funciona. Un estudio actúa como contenedor lógico y una corrida representa una ejecución concreta, de manera que ejecutar de nuevo no sobrescribe la evidencia anterior. Los estudios de un mismo paciente se vinculan mediante una referencia de sujeto seudonimizada, sin exponer datos identificatorios en el flujo de trabajo. Cada corrida genera identificadores que permiten seguirla: el del caso, el de la ejecución, el que agrupa ambos planos y el que correlaciona solicitudes y registros técnicos.
+Cómo funciona. Un estudio actúa como contenedor lógico y una corrida representa una ejecución concreta, de manera que ejecutar de nuevo no sobrescribe la evidencia anterior. Los estudios de un mismo paciente de-identificado se vinculan mediante una asociación explícita entre Study y Patient. Patient posee una referencia de-identificada visible para el flujo de trabajo, mientras que \texttt{patientId} mantiene la relación longitudinal en persistencia. El campo \texttt{subjectRef} del Study se conserva como referencia interna opcional y no sustituye esa asociación. Cada corrida genera identificadores que permiten seguirla: el del caso, el de la ejecución, el que agrupa ambos planos y el que correlaciona solicitudes y registros técnicos.
 
 % FIGURE_PENDING_MIGRATION
 % DOCX_FIGURE_NUMBER: 11.9
@@ -304,7 +304,7 @@ Cómo funciona. Un estudio actúa como contenedor lógico y una corrida represen
 \addcontentsline{lof}{figure}{\protect\numberline{11.9}Historial de corridas y reapertura de un estudio ya procesado. Fuente: elaboración propia.}
 Qué evidencia lo respalda. La prueba de aceptación de esta capacidad consiste en abrir un estudio persistido con el módulo de inferencia apagado y comprobar que recupera resultados, mediciones y estado de revisión. Esa prueba está incorporada al repositorio y se ejecuta como regresión.
 
-Qué límites tiene. Las corridas anteriores a la incorporación del catálogo de cortes conservan únicamente los assets que existían en su momento y se abren en modo de compatibilidad, sin fabricar un catálogo que no se generó.
+Qué límites tiene. Las corridas anteriores a la incorporación del catálogo de cortes conservan únicamente los assets que existían en su momento y se abren en modo de compatibilidad, sin fabricar un catálogo que no se generó. Los registros históricos pueden no tener un Patient asociado, porque \texttt{patientId} es nullable y no se infiere retroactivamente desde \texttt{subjectRef}. Cuando la evidencia ya existe, la reapertura utiliza los datos persistidos y no requiere repetir la inferencia.
 
 \section{Seguridad y estados degradados}
 
@@ -412,10 +412,10 @@ Segmentación sagital & 11.3 & Implementada y evaluada; baseline técnico \\
 Segmentación axial & 11.4 & Implementada y evaluada; artifact por debajo del umbral \\
 Mediciones geométricas & 11.5 & Implementadas y persistidas; verificadas por contraste, sin validación \\
 Asignación de nivel anatómico & 11.6 & Implementada; sin métrica de acierto \\
-Visualización y navegación por cortes & 11.7 & Implementada; integración final en el frontend pendiente \\
+Visualización y navegación por cortes & 11.7 & Implementada; P10.9 integrado en frontend con catálogo full-series y visor navegable; E2E real pendiente de cierre \\
 Revisión profesional & 11.8 & Implementada en su flujo principal \\
 Preinforme automático revisable & 11.8 & Implementado; editable y no diagnóstico \\
-Persistencia, reapertura y trazabilidad & 11.9 & Implementadas \\
+Persistencia, reapertura y trazabilidad & 11.9 & Implementadas; Patient es la identidad longitudinal y Study se asocia mediante \texttt{patientId} cuando corresponde \\
 Seguridad, roles y estados degradados & 11.10 & Implementados; endurecimiento productivo posterior \\
 Estimación de hallazgos estructurales & 11.11.1 & Desarrollada y evaluada sobre partición sellada; no expuesta por desempeño heterogéneo \\
 Clasificación de estenosis subarticular & 11.11.2 & Bloqueada \\

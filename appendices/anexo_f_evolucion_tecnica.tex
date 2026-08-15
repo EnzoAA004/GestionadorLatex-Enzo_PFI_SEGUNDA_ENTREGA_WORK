@@ -106,7 +106,7 @@ La evolución del producto puede resumirse en los siguientes hitos:
   \item Ingesta de estudio DICOM completo y procesamiento full-series (Backend + AI Module), línea de hallazgos degenerativos por nivel (P10.7), visor navegable e integración P10.9 en Frontend, seguida por el dominio Patient y la asociación explícita Study--Patient; el cierre Full Product UI E2E permanece pendiente.
 \end{itemize}
 
-En una etapa posterior, la organización longitudinal dejó de depender de una referencia técnica de sujeto y se incorporó Patient como entidad de-identificada explícita. Los Studies se asocian mediante patientId, mientras que subjectRef permanece como compatibilidad opcional y no se utiliza para inferir retrospectivamente pacientes históricos.
+En una etapa posterior, la organización longitudinal dejó de depender de una referencia técnica de sujeto y se incorporó Patient como entidad de-identificada explícita, con id interno UUID y patientReference como referencia seudónima de trabajo. Los Studies se asocian mediante patientId, mientras que subjectRef permanece como compatibilidad opcional y no se utiliza para inferir retrospectivamente pacientes históricos.
 
 La incorporación axial no reemplaza el modelo sagital ni implica que ambos modelos segmenten las mismas clases. Cada plano conserva su dataset, preprocesamiento, artifact, clases de salida y criterios de validación. El prototipo integra los resultados en una experiencia común, pero no fusiona artificialmente modelos incompatibles.
 

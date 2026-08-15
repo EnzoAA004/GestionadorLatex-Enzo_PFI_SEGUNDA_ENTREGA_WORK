@@ -43,7 +43,7 @@ Documentación del 50 \% & en integración & documento maestro, capítulos revis
 \hline
 Google Cloud & arquitectura objetivo documentada; implementación pendiente & servicios, costos, seguridad y prueba de despliegue. \\
 \hline
-Validación profesional sobre producto & pendiente de ampliar & recorrido, observaciones y ajustes priorizados. \\
+Validación profesional sobre producto & pendiente sobre la versión integrada & recorrido, checklist, observaciones y ajustes priorizados. \\
 \hline
 Entrega del 75 \% y defensa & futura & producto consolidado, resultados, discusión y presentación. \\
 \hline
@@ -53,9 +53,11 @@ P10.7 hallazgos degenerativos asistivos por nivel & implementado e integrado & c
 \hline
 P10.8 preflight y guardas & cerrado sin entrenamiento adicional & verificación de factibilidad y guardas de contrato Cerrado sin entrenamiento adicional; estado congelado en su rama de checkpoint. \\
 \hline
-P10.9 consolidación de producto (Backend + AI) & congelado para traspaso de Frontend & commits coordinados; Backend\ensuremath{\leftrightarrow}AI validado; contrato público sanitizado; fixtures P10.9 Backend + AI congelados para handoff de Frontend en rama de checkpoint identificable, con commit y evidencia del runner técnico. \\
+P10.9 consolidación de producto (Backend + AI) & congelado para traspaso de Frontend & commits coordinados; Backend\ensuremath{\leftrightarrow}AI validado; contrato público sanitizado; fixtures P10.9 Backend + AI congelados para handoff de Frontend en rama de checkpoint identificable, con commit y evidencia del runner técnico; base posteriormente integrada en Frontend. \\
 \hline
-Integración P10.9 en Frontend y E2E con interfaz & pendiente & próximo tramo antes de la validación profesional \\
+Integración P10.9 en Frontend & implementada & contratos P10.9 consumidos por el Frontend, catálogo full-series, visor navegable, reapertura integrada y flujo Patient--Study según el alcance implementado. \\
+\hline
+Recorrido Full Product UI E2E sobre stack real & pendiente de cierre y evidencia & recorrido completo Frontend--Backend--AI Module--persistencia y reapertura con evidencia reproducible antes de la validación profesional. \\
 \hline
 \end{longtable}
 \endgroup
@@ -74,4 +76,4 @@ Las mitigaciones son: checkpoints compartidos, commits coordinados, criterios de
 
 \section{Conclusión de la planificación}
 
-La planificación no reinicia el proyecto después del 25 \%: toma como base los modelos, la integración multiplanar y la arquitectura ya desarrollados. El camino crítico ya no pasa por generar y persistir las vistas previas de todos los cortes, capacidad hoy resuelta, sino por integrar en el frontend los contratos congelados en P10.9, cerrar el recorrido extremo a extremo con interfaz, realizar la validación profesional y avanzar hacia el despliegue. La región de interés axial automática constituye una línea paralela que no condiciona ninguno de esos pasos.
+La planificación no reinicia el proyecto después del 25 \%: toma como base los modelos, la integración multiplanar y la arquitectura ya desarrollados. El camino crítico ya no pasa por generar y persistir las vistas previas de todos los cortes ni por integrar los contratos P10.9 en el Frontend, capacidades actualmente implementadas. El tramo pendiente consiste en cerrar y documentar el recorrido extremo a extremo completo con interfaz sobre el stack real, realizar la validación profesional sobre esa versión integrada y avanzar hacia el despliegue y la consolidación de la evidencia final. La región de interés axial automática constituye una línea paralela que no condiciona ninguno de esos pasos.

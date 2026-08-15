@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2600" height="1450" viewBox="0 0 2600 1450">
+<rect width="2600" height="1450" fill="#ffffff"/>
+<defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L10,4 L0,8 Z" fill="#111111"/></marker></defs>
+<rect x="95" y="95" width="2410" height="235" rx="12" ry="12" fill="#f4f4f4" stroke="#4d4d4d" stroke-width="3"/>
+<text x="131" y="155" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#111111" text-anchor="start">Nivel académico / producto</text>
+<rect x="145" y="195" width="71" height="41" rx="5" ry="5" fill="#ffffff" stroke="#4d4d4d" stroke-width="3"/>
+<text x="163" y="230" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="400" fill="#111111" text-anchor="start">E1</text>
+<rect x="244" y="195" width="71" height="41" rx="5" ry="5" fill="#ffffff" stroke="#4d4d4d" stroke-width="3"/>
+<text x="262" y="230" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="400" fill="#111111" text-anchor="start">E2</text>
+<rect x="343" y="195" width="60" height="23" rx="5" ry="5" fill="#ffffff" stroke="#4d4d4d" stroke-width="3"/>
+<text x="361" y="230" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="400" fill="#111111" text-anchor="start">...</text>
+<rect x="431" y="195" width="87" height="41" rx="5" ry="5" fill="#ffffff" stroke="#4d4d4d" stroke-width="3"/>
+<text x="449" y="230" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="400" fill="#111111" text-anchor="start">E10</text>
+<text x="588" y="241" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="400" fill="#111111" text-anchor="start">Épicas derivadas del user research y los requerimientos</text>
+<rect x="95" y="372" width="2410" height="330" rx="12" ry="12" fill="#f4f4f4" stroke="#4d4d4d" stroke-width="3"/>
+<text x="131" y="432" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#111111" text-anchor="start">Backlogs técnicos por repositorio</text>
+<text x="145" y="518" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="400" fill="#111111" text-anchor="start">AI Module:</text>
+<rect x="309" y="477" width="83" height="40" rx="5" ry="5" fill="#ffffff" stroke="#4d4d4d" stroke-width="3"/>
+<text x="327" y="512" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="400" fill="#111111" text-anchor="start">AI-*</text>
+<text x="426" y="518" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="400" fill="#111111" text-anchor="start">Backend:</text>
+<rect x="570" y="477" width="92" height="40" rx="5" ry="5" fill="#ffffff" stroke="#4d4d4d" stroke-width="3"/>
+<text x="588" y="512" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="400" fill="#111111" text-anchor="start">BE-*</text>
+<text x="696" y="518" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="400" fill="#111111" text-anchor="start">Frontend:</text>
+<rect x="842" y="477" width="421" height="40" rx="5" ry="5" fill="#ffffff" stroke="#4d4d4d" stroke-width="3"/>
+<text x="860" y="512" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="400" fill="#111111" text-anchor="start">FE-* / FE-RD-* / FE-P1...FE-P8</text>
+<text x="1297" y="518" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="400" fill="#111111" text-anchor="start">Infraestructura:</text>
+<rect x="1520" y="477" width="112" height="40" rx="5" ry="5" fill="#ffffff" stroke="#4d4d4d" stroke-width="3"/>
+<text x="1538" y="512" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="400" fill="#111111" text-anchor="start">DEV-*</text>
+<rect x="145" y="597" width="478" height="45" rx="5" ry="5" fill="#ffffff" stroke="#4d4d4d" stroke-width="3"/>
+<text x="163" y="632" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="400" fill="#111111" text-anchor="start">E experimental ≠ épica académica E</text>
+<rect x="668" y="597" width="316" height="45" rx="5" ry="5" fill="#ffffff" stroke="#4d4d4d" stroke-width="3"/>
+<text x="686" y="632" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="400" fill="#111111" text-anchor="start">FE-P8 ≠ checkpoint P8</text>
+<rect x="95" y="744" width="2410" height="330" rx="12" ry="12" fill="#f4f4f4" stroke="#4d4d4d" stroke-width="3"/>
+<text x="131" y="804" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#111111" text-anchor="start">Checkpoints coordinados de producto</text>
+<rect x="145" y="847" width="71" height="41" rx="5" ry="5" fill="#ffffff" stroke="#4d4d4d" stroke-width="3"/>
+<text x="163" y="882" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="400" fill="#111111" text-anchor="start">P8</text>
+<line x1="226" y1="867" x2="258" y2="867" stroke="#111111" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="270" y="847" width="71" height="41" rx="5" ry="5" fill="#ffffff" stroke="#4d4d4d" stroke-width="3"/>
+<text x="288" y="882" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="400" fill="#111111" text-anchor="start">P9</text>
+<line x1="351" y1="867" x2="383" y2="867" stroke="#111111" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="395" y="847" width="87" height="41" rx="5" ry="5" fill="#ffffff" stroke="#4d4d4d" stroke-width="3"/>
+<text x="413" y="882" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="400" fill="#111111" text-anchor="start">P10</text>
+<line x1="492" y1="867" x2="524" y2="867" stroke="#111111" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="536" y="847" width="111" height="41" rx="5" ry="5" fill="#ffffff" stroke="#4d4d4d" stroke-width="3"/>
+<text x="554" y="882" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="400" fill="#111111" text-anchor="start">P10.5</text>
+<line x1="657" y1="867" x2="689" y2="867" stroke="#111111" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="701" y="847" width="111" height="41" rx="5" ry="5" fill="#ffffff" stroke="#4d4d4d" stroke-width="3"/>
+<text x="719" y="882" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="400" fill="#111111" text-anchor="start">P10.6</text>
+<line x1="822" y1="867" x2="854" y2="867" stroke="#111111" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="866" y="847" width="111" height="41" rx="5" ry="5" fill="#ffffff" stroke="#4d4d4d" stroke-width="3"/>
+<text x="884" y="882" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="400" fill="#111111" text-anchor="start">P10.7</text>
+<line x1="987" y1="867" x2="1019" y2="867" stroke="#111111" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="1031" y="847" width="111" height="41" rx="5" ry="5" fill="#ffffff" stroke="#4d4d4d" stroke-width="3"/>
+<text x="1049" y="882" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="400" fill="#111111" text-anchor="start">P10.8</text>
+<line x1="1152" y1="867" x2="1184" y2="867" stroke="#111111" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="1196" y="847" width="111" height="41" rx="5" ry="5" fill="#ffffff" stroke="#4d4d4d" stroke-width="3"/>
+<text x="1214" y="882" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="400" fill="#111111" text-anchor="start">P10.9</text>
+<text x="145" y="1013" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="400" fill="#111111" text-anchor="start">Dentro de P10.5:</text>
+<rect x="401" y="970" width="135" height="40" rx="5" ry="5" fill="#ffffff" stroke="#4d4d4d" stroke-width="3"/>
+<text x="419" y="1005" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="400" fill="#111111" text-anchor="start">P10.5-A</text>
+<text x="560" y="1016" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="400" fill="#111111" text-anchor="start">...</text>
+<rect x="618" y="970" width="133" height="40" rx="5" ry="5" fill="#ffffff" stroke="#4d4d4d" stroke-width="3"/>
+<text x="636" y="1005" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="400" fill="#111111" text-anchor="start">P10.5-F</text>
+<text x="821" y="1015" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="400" fill="#111111" text-anchor="start">Objetivos compartidos entre repositorios</text>
+<rect x="95" y="1116" width="2410" height="225" rx="12" ry="12" fill="#f4f4f4" stroke="#4d4d4d" stroke-width="3"/>
+<text x="131" y="1176" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#111111" text-anchor="start">Convención auxiliar</text>
+<rect x="145" y="1221" width="113" height="40" rx="5" ry="5" fill="#ffffff" stroke="#4d4d4d" stroke-width="3"/>
+<text x="163" y="1256" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="400" fill="#111111" text-anchor="start">EN-01</text>
+<text x="282" y="1267" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="400" fill="#111111" text-anchor="start">...</text>
+<rect x="340" y="1221" width="113" height="40" rx="5" ry="5" fill="#ffffff" stroke="#4d4d4d" stroke-width="3"/>
+<text x="358" y="1256" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="400" fill="#111111" text-anchor="start">EN-05</text>
+<text x="523" y="1266" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="400" fill="#111111" text-anchor="start">Profesionales entrevistados</text>
+</svg>

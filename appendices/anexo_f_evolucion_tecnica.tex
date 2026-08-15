@@ -51,7 +51,7 @@ P9 · Contrato multiplanar & El acoplamiento entre capas se sostenía en acuerdo
 \hline
 P10 · Seguridad y trazabilidad & Un error interno podía revelar detalles de implementación y no existía forma de reconstruir qué había ocurrido en una corrida fallida. & Autenticación, activación de cuentas, tratamiento de errores, traza distribuida, sanitización de mensajes, auditoría y observabilidad. Contrapartida de sesión en el frontend. & Fronteras explícitas de seguridad y degradación controlada. & Consolidado \\
 \hline
-P10.5 · Evolución volumétrica & El producto exponía únicamente el corte analizado, cuando el volumen contiene muchos y un resultado sin contexto de vecindad es difícil de evaluar. & Seis bloques encadenados. P10.5-A definió el contrato navegable y es el único cerrado en los tres repositorios a la vez; P10.5-B a P10.5-F distribuyeron catálogo, serving, visor, vinculación por corte y reapertura. & Navegación por cortes con el resultado vinculado a su corte de origen. & Implementado; integración final del frontend pendiente \\
+P10.5 · Evolución volumétrica & El producto exponía únicamente el corte analizado, cuando el volumen contiene muchos y un resultado sin contexto de vecindad es difícil de evaluar. & Seis bloques encadenados. P10.5-A definió el contrato navegable y es el único cerrado en los tres repositorios a la vez; P10.5-B a P10.5-F distribuyeron catálogo, serving, visor, vinculación por corte y reapertura. & Navegación por cortes con el resultado vinculado a su corte de origen. & Implementado \\
 \hline
 P10.6 · Estenosis subarticular & — & Modelo entrenado y evaluado internamente sobre RSNA / LumbarDISC, con checkpoint congelado. & Capacidad no disponible de forma automática: el modelo axial no incluye clase de vértebra y falta la generación de la región de interés que el clasificador requiere. & Bloqueado \\
 \hline
@@ -59,7 +59,7 @@ P10.7 · Hallazgos por nivel & — & Ocho tipos de hallazgo degenerativo, sujeto
 \hline
 P10.8 · Preflight y guardas & — & Cierre del preflight de expansión clínica e incorporación de guardas, sin entrenamiento adicional. & Verificación de factibilidad previa a la ejecución. & Cerrado \\
 \hline
-P10.9 · Consolidación & — & Congelamiento del backend y del módulo de IA para el traspaso al frontend, con recorrido técnico verificado mediante un runner automatizado. & Frontera común para continuar el desarrollo. & Congelado; recorrido con interfaz pendiente \\
+P10.9 · Consolidación & — & Congelamiento del backend y del módulo de IA para el traspaso al frontend, con recorrido técnico verificado mediante un runner automatizado. & Frontera contractual común posteriormente integrada en Frontend. & Integrado en Frontend; E2E completo pendiente de cierre \\
 \hline
 \end{longtable}
 
@@ -69,16 +69,16 @@ P10.5-A estableció el contrato volumétrico común entre Frontend, Backend y AI
 
 Sobre esa base, P10.5-B a P10.5-F distribuyeron la implementación entre las capas del producto. El AI Module incorporó el procesamiento full-series y la generación de metadata y assets para los cortes de las series soportadas; el Backend incorporó la persistencia y el serving controlado del catálogo y sus assets; el Frontend desarrolló el visor navegable con selección de serie y corte; y la integración vinculó cada resultado y medición con su imagen de origen. El último bloque verificó además la reapertura de resultados persistidos sin necesidad de repetir la inferencia.
 
-El resultado de P10.5 fue una capacidad de navegación volumétrica que permite recorrer el estudio conservando el contexto de cada salida automática. P10.5-A quedó consolidado como contrato común entre los tres repositorios, mientras que los bloques P10.5-B a P10.5-F fueron implementados y verificados dentro de sus respectivos alcances técnicos. Esto no implica que todas esas capacidades hayan quedado consolidadas simultáneamente sobre una única línea integrada de los tres repositorios. En particular, P10.5-F verificó la persistencia, reapertura y vinculación de resultados dentro del alcance de ese bloque; esta verificación no equivale al Full Product UI E2E pendiente luego de P10.9. Lo que permanece pendiente es la integración final del contrato congelado en P10.9 dentro del Frontend y, posteriormente, la ejecución del recorrido completo de interfaz sobre dichos contratos finales.
+El resultado de P10.5 fue una capacidad de navegación volumétrica que permite recorrer el estudio conservando el contexto de cada salida automática. P10.5-A quedó consolidado como contrato común entre los tres repositorios, mientras que los bloques P10.5-B a P10.5-F fueron implementados y verificados dentro de sus respectivos alcances técnicos. Esto no implica que todas esas capacidades hayan quedado consolidadas simultáneamente sobre una única línea integrada de los tres repositorios. En particular, P10.5-F verificó la persistencia, reapertura y vinculación de resultados dentro del alcance de ese bloque; esta verificación no equivale al Full Product UI E2E pendiente luego de P10.9. La integración del contrato P10.9 en el Frontend fue completada posteriormente. Esta integración no equivale por sí sola al cierre del Full Product UI E2E: permanece pendiente ejecutar y documentar el recorrido completo de interfaz sobre el stack real y reunir la evidencia correspondiente.
 
 \subsection{Estado resultante para la entrega del 50 \%}
 \label{anexo:f-estado-entrega-50}
 
 El estado del proyecto al cierre de esta versión admite tres categorías que no deben mezclarse.
 
-\textbf{Hecho.} La separación en tres repositorios con responsabilidades delimitadas por contrato; los modelos sagital y axial entrenados, congelados y ejecutables sobre entrada real; el runtime de inferencia con gestión de artefactos verificados por hash; la persistencia de estudios, corridas, assets y revisiones sobre PostgreSQL con migraciones versionadas; la reapertura de estudios ya procesados; la navegación por cortes con el resultado vinculado a su corte de origen; y la revisión profesional obligatoria.
+\textbf{Hecho.} La separación en tres repositorios con responsabilidades delimitadas por contrato; los modelos sagital y axial entrenados, congelados y ejecutables sobre entrada real; el runtime de inferencia con gestión de artefactos verificados por hash; la persistencia de estudios, corridas, assets y revisiones sobre PostgreSQL con migraciones versionadas; la reapertura de estudios ya procesados; la navegación por cortes con el resultado vinculado a su corte de origen; la integración P10.9 en Frontend; la incorporación de Patient como identidad longitudinal de-identificada; la asociación explícita y auditable de Studies mediante patientId; y la revisión profesional obligatoria.
 
-\textbf{Pendiente.} La integración final de los contratos congelados en el frontend; el recorrido extremo a extremo con interfaz; la validación profesional sobre el producto integrado; el despliegue objetivo; y la consolidación de la evidencia final.
+\textbf{Pendiente.} El cierre y la documentación del recorrido Full Product UI E2E sobre el stack real; la validación profesional sobre el producto integrado; el despliegue objetivo; y la consolidación de la evidencia final.
 
 \textbf{Bloqueado.} La automatización de P10.6, por ausencia de una región de interés axial automática validada. Es un bloqueo de capacidad y no un trabajo pendiente de ejecución: su resolución depende de una etapa de localización anatómica que no está disponible y cuyos sustitutos se descartaron por razones metodológicas.
 
@@ -103,8 +103,10 @@ La evolución del producto puede resumirse en los siguientes hitos:
   \item Autenticación, roles y autorización por recurso.
   \item Workspace multiplanar con overlays, mediciones y revisión profesional.
   \item Definición del contrato volumétrico P10.5-A.
-  \item Ingesta de estudio DICOM completo y procesamiento full-series (Backend + AI Module), línea de hallazgos degenerativos por nivel (P10.7) y visor navegable implementado; Backend y AI Module congelados para el traspaso al Frontend (P10.9), con la integración final del contrato en el Frontend pendiente.
+  \item Ingesta de estudio DICOM completo y procesamiento full-series (Backend + AI Module), línea de hallazgos degenerativos por nivel (P10.7), visor navegable e integración P10.9 en Frontend, seguida por el dominio Patient y la asociación explícita Study--Patient; el cierre Full Product UI E2E permanece pendiente.
 \end{itemize}
+
+En una etapa posterior, la organización longitudinal dejó de depender de una referencia técnica de sujeto y se incorporó Patient como entidad de-identificada explícita. Los Studies se asocian mediante patientId, mientras que subjectRef permanece como compatibilidad opcional y no se utiliza para inferir retrospectivamente pacientes históricos.
 
 La incorporación axial no reemplaza el modelo sagital ni implica que ambos modelos segmenten las mismas clases. Cada plano conserva su dataset, preprocesamiento, artifact, clases de salida y criterios de validación. El prototipo integra los resultados en una experiencia común, pero no fusiona artificialmente modelos incompatibles.
 

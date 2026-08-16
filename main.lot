@@ -124,36 +124,36 @@
 \contentsline {table}{\numberline {9.7}{Matriz de trazabilidad resumida}}{74}{table.9.7}%
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {10.1}{Componentes funcionales del prototipo}}{77}{table.10.1}%
-\contentsline {table}{\numberline {10.10}{Relación entre zonas de la interfaz, necesidades del relevamiento y requerimientos}}{93}{table.10.10}%
+\contentsline {table}{\numberline {10.10}{Relación entre zonas de la interfaz, necesidades del relevamiento y requerimientos}}{94}{table.10.10}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {11.1}{Formatos admitidos y uso previsto.}}{95}{table.11.1}%
-\contentsline {table}{\numberline {11.2}{Correspondencia entre clases del modelo axial y estructuras anatómicas.}}{99}{table.11.2}%
-\contentsline {table}{\numberline {11.3}{Catálogo de mediciones derivadas de las máscaras.}}{100}{table.11.3}%
-\contentsline {table}{\numberline {11.4}{Desempeño de la estimación estructural sobre la partición sellada.}}{109}{table.11.4}%
-\contentsline {table}{\numberline {11.5}{Estado de las capacidades al cierre de esta entrega.}}{110}{table.11.5}%
+\contentsline {table}{\numberline {11.1}{Formatos admitidos y uso previsto.}}{96}{table.11.1}%
+\contentsline {table}{\numberline {11.2}{Correspondencia entre clases del modelo axial y estructuras anatómicas.}}{100}{table.11.2}%
+\contentsline {table}{\numberline {11.3}{Catálogo de mediciones derivadas de las máscaras.}}{101}{table.11.3}%
+\contentsline {table}{\numberline {11.4}{Desempeño de la estimación estructural sobre la partición sellada.}}{110}{table.11.4}%
+\contentsline {table}{\numberline {11.5}{Estado de las capacidades al cierre de esta entrega.}}{111}{table.11.5}%
 \addvspace {10\p@ }
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {13.1}{Partición de los conjuntos de datos empleados en el entrenamiento y la evaluación.}}{116}{table.13.1}%
-\contentsline {table}{\numberline {13.2}{Coeficiente Dice sobre la partición retenida, por modelo.}}{117}{table.13.2}%
-\contentsline {table}{\numberline {13.3}{Verificación por contraste de las mediciones sobre el estudio de referencia.}}{119}{table.13.3}%
+\contentsline {table}{\numberline {13.1}{Partición de los conjuntos de datos empleados en el entrenamiento y la evaluación.}}{117}{table.13.1}%
+\contentsline {table}{\numberline {13.2}{Coeficiente Dice sobre la partición retenida, por modelo.}}{118}{table.13.2}%
+\contentsline {table}{\numberline {13.3}{Verificación por contraste de las mediciones sobre el estudio de referencia.}}{120}{table.13.3}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {14.1}{Roadmap actualizado para la entrega del 50 \%.}}{121}{table.14.1}%
+\contentsline {table}{\numberline {14.1}{Roadmap actualizado para la entrega del 50 \%.}}{122}{table.14.1}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {A.1}{Hitos académicos del proyecto.}}{124}{table.A.1}%
-\contentsline {table}{\numberline {A.2}{Distribución temporal de las actividades por carril.}}{125}{table.A.2}%
-\contentsline {table}{\numberline {A.3}{Desvíos registrados y justificación técnica.}}{126}{table.A.3}%
-\addvspace {10\p@ }
-\addvspace {10\p@ }
+\contentsline {table}{\numberline {A.1}{Hitos académicos del proyecto.}}{125}{table.A.1}%
+\contentsline {table}{\numberline {A.2}{Distribución temporal de las actividades por carril.}}{126}{table.A.2}%
+\contentsline {table}{\numberline {A.3}{Desvíos registrados y justificación técnica.}}{127}{table.A.3}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {E.1}{\ignorespaces Configuración comparada del entrenamiento de ambos modelos.}}{154}{table.Alph5.1}%
-\contentsline {table}{\numberline {E.2}{\ignorespaces Transformaciones de aumentación aplicadas durante el entrenamiento.}}{155}{table.Alph5.2}%
-\contentsline {table}{\numberline {E.3}{\ignorespaces Condiciones evaluadas antes de promover un artifact.}}{156}{table.Alph5.3}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {F.1}{Bloques coordinados de producto, de P8 a P10.9.}}{159}{table.F.1}%
-\contentsline {table}{\numberline {F.2}{Evolución de la implementación del pipeline de IA.}}{164}{table.F.2}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {E.1}{\ignorespaces Configuración comparada del entrenamiento de ambos modelos.}}{155}{table.Alph5.1}%
+\contentsline {table}{\numberline {E.2}{\ignorespaces Transformaciones de aumentación aplicadas durante el entrenamiento.}}{156}{table.Alph5.2}%
+\contentsline {table}{\numberline {E.3}{\ignorespaces Condiciones evaluadas antes de promover un artifact.}}{157}{table.Alph5.3}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {F.1}{Bloques coordinados de producto, de P8 a P10.9.}}{160}{table.F.1}%
+\contentsline {table}{\numberline {F.2}{Evolución de la implementación del pipeline de IA.}}{165}{table.F.2}%
 \addvspace {10\p@ }
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 

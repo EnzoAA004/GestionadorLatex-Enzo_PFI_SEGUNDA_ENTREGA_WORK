@@ -115,31 +115,31 @@
 \contentsline {figure}{\numberline {10.5}{\ignorespaces Diagrama de clases del dominio y servicios. Fuente: elaboración propia.}}{83}{figure.10.5}%
 \contentsline {figure}{\numberline {10.6}{\ignorespaces Flujo de interacción end-to-end. Fuente: elaboración propia.}}{85}{figure.10.6}%
 \contentsline {figure}{\numberline {10.7}{\ignorespaces Arquitectura objetivo de despliegue en Google Cloud. Fuente: elaboración propia.}}{92}{figure.10.7}%
-\contentsline {figure}{\numberline {10.8}Wireframes de acceso, worklist y alta de estudio. Fuente: elaboración propia.}{93}{subsection.10.8.2}%
-\contentsline {figure}{\numberline {10.9}Wireframes del workspace multiplanar y de la revisión profesional. Fuente: elaboración propia.}{93}{subsection.10.8.2}%
+\contentsline {figure}{\numberline {10.8}{\ignorespaces Wireframe de baja fidelidad del workspace multiplanar propuesto, incluyendo visualización sagital y axial, navegación full-series, superposición de resultados y panel de mediciones vinculadas al nivel anatómico. Fuente: elaboración propia.}}{93}{figure.10.8}%
+\contentsline {figure}{\numberline {10.9}{\ignorespaces Wireframe de baja fidelidad del flujo de revisión profesional y preinforme, mostrando la trazabilidad entre el resultado automático, la corrección del profesional, el estado de revisión y la salida estructurada revisable. Fuente: elaboración propia.}}{94}{figure.10.9}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {11.1}{\ignorespaces Acceso con estado de cuenta pendiente de aprobación y worklist de estudios. Fuente: elaboración propia.}}{96}{figure.11.1}%
-\contentsline {figure}{\numberline {11.2}{\ignorespaces Carga de un estudio DICOM con sus series identificadas y clasificadas. Fuente: elaboración propia.}}{97}{figure.11.2}%
-\contentsline {figure}{\numberline {11.3}{\ignorespaces Workspace sagital con la máscara superpuesta sobre la imagen original. Fuente: elaboración propia.}}{98}{figure.11.3}%
-\contentsline {figure}{\numberline {11.4}{\ignorespaces Workspace axial con la máscara superpuesta sobre la imagen original. Fuente: elaboración propia.}}{100}{figure.11.4}%
-\contentsline {figure}{\numberline {11.5}{\ignorespaces Panel de mediciones con la estructura, el plano y el corte de origen de cada valor. Fuente: elaboración propia.}}{102}{figure.11.5}%
-\contentsline {figure}{\numberline {11.6}{\ignorespaces Navegación por cortes del volumen con el resultado vinculado a su corte. Fuente: elaboración propia.}}{104}{figure.11.6}%
-\contentsline {figure}{\numberline {11.7}{\ignorespaces Controles de revisión profesional sobre una estructura segmentada. Fuente: elaboración propia.}}{105}{figure.11.7}%
-\contentsline {figure}{\numberline {11.8}{\ignorespaces Preinforme automático revisable con estructuras, mediciones y estado de revisión. Fuente: elaboración propia.}}{106}{figure.11.8}%
-\contentsline {figure}{\numberline {11.9}{\ignorespaces Historial de corridas y reapertura de un estudio ya procesado. Fuente: elaboración propia.}}{107}{figure.11.9}%
-\contentsline {figure}{\numberline {11.10}{\ignorespaces Estado degradado informado de forma explícita ante indisponibilidad del módulo de inferencia. Fuente: elaboración propia.}}{108}{figure.11.10}%
+\contentsline {figure}{\numberline {11.1}{\ignorespaces Acceso con estado de cuenta pendiente de aprobación y worklist de estudios. Fuente: elaboración propia.}}{97}{figure.11.1}%
+\contentsline {figure}{\numberline {11.2}{\ignorespaces Carga de un estudio DICOM con sus series identificadas y clasificadas. Fuente: elaboración propia.}}{98}{figure.11.2}%
+\contentsline {figure}{\numberline {11.3}{\ignorespaces Workspace sagital con la máscara superpuesta sobre la imagen original. Fuente: elaboración propia.}}{99}{figure.11.3}%
+\contentsline {figure}{\numberline {11.4}{\ignorespaces Workspace axial con la máscara superpuesta sobre la imagen original. Fuente: elaboración propia.}}{101}{figure.11.4}%
+\contentsline {figure}{\numberline {11.5}{\ignorespaces Panel de mediciones con la estructura, el plano y el corte de origen de cada valor. Fuente: elaboración propia.}}{103}{figure.11.5}%
+\contentsline {figure}{\numberline {11.6}{\ignorespaces Navegación por cortes del volumen con el resultado vinculado a su corte. Fuente: elaboración propia.}}{105}{figure.11.6}%
+\contentsline {figure}{\numberline {11.7}{\ignorespaces Controles de revisión profesional sobre una estructura segmentada. Fuente: elaboración propia.}}{106}{figure.11.7}%
+\contentsline {figure}{\numberline {11.8}{\ignorespaces Preinforme automático revisable con estructuras, mediciones y estado de revisión. Fuente: elaboración propia.}}{107}{figure.11.8}%
+\contentsline {figure}{\numberline {11.9}{\ignorespaces Historial de corridas y reapertura de un estudio ya procesado. Fuente: elaboración propia.}}{108}{figure.11.9}%
+\contentsline {figure}{\numberline {11.10}{\ignorespaces Estado degradado informado de forma explícita ante indisponibilidad del módulo de inferencia. Fuente: elaboración propia.}}{109}{figure.11.10}%
 \addvspace {10\p@ }
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {figure}{\numberline {12.1}{\ignorespaces Sistemas de identificación utilizados en el proyecto}}{113}{figure.12.1}%
+\contentsline {figure}{\numberline {12.1}{\ignorespaces Sistemas de identificación utilizados en el proyecto}}{114}{figure.12.1}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Diagrama de Gantt del Proyecto Final de Ingeniería, marzo a diciembre de 2026. Fuente: elaboración propia.}}{125}{figure.Alph1.1}%
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Diagrama de Gantt del Proyecto Final de Ingeniería, marzo a diciembre de 2026. Fuente: elaboración propia.}}{126}{figure.Alph1.1}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {C.1}{\ignorespaces Esquema simplificado de vértebras lumbares, discos intervertebrales y canal espinal en vista sagital. Fuente: elaboración propia.}}{134}{figure.Alph3.1}%
-\contentsline {figure}{\numberline {C.2}{\ignorespaces Esquema conceptual del pasaje desde una RM lumbar hacia máscaras de segmentación. Fuente: elaboración propia.}}{134}{figure.Alph3.2}%
+\contentsline {figure}{\numberline {C.1}{\ignorespaces Esquema simplificado de vértebras lumbares, discos intervertebrales y canal espinal en vista sagital. Fuente: elaboración propia.}}{135}{figure.Alph3.1}%
+\contentsline {figure}{\numberline {C.2}{\ignorespaces Esquema conceptual del pasaje desde una RM lumbar hacia máscaras de segmentación. Fuente: elaboración propia.}}{135}{figure.Alph3.2}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

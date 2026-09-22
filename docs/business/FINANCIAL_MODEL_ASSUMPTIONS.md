@@ -51,3 +51,46 @@ Key audit observations:
 10. A temporary 48/60-month projection did not show Base reaching operating break-even or payback under the current assumptions.
 
 The workbook should therefore remain unchanged unless future evidence changes the underlying assumptions or a later audit identifies an actual formula/modeling defect.
+
+## Cloud cost methodology refinement
+
+This refinement replaces the initial cloud-cost placeholders with technically defendible estimates while keeping pricing, acquisition, churn, and institutional study volume marked as business assumptions. No Cloud resource was created, modified, or deployed for this update.
+
+Evidence used:
+
+- Current deployed state: Artifact Registry/WIF, Backend Cloud Run DEV, and Frontend Cloud Run DEV are deployed/validated.
+- Not deployed: private AI Cloud Run, Cloud SQL, Secret Manager, productive Storage, DEMO environment, and live monitoring/alerting.
+- Local performance baseline: Frontend p95 CPU ~1.98% / RAM ~14.68 MiB; Backend p95 CPU ~7.67% / RAM ~267.50 MiB; AI p95 CPU ~346.62% / RAM ~801.20 MiB / peak RAM ~940.80 MiB; Postgres p95 CPU ~4.13% / RAM ~37.19 MiB.
+- Planned DEV resources: Backend Cloud Run 1 vCPU/512Mi/min 0/max 2/concurrency 80/timeout 300s; Frontend Cloud Run 1 vCPU/256Mi/min 0/max 2/concurrency 80; planned AI Cloud Run 2 vCPU/2Gi/min 0/max 1/concurrency 4; planned Cloud SQL PostgreSQL 15 Enterprise db-f1-micro, us-central1, ZONAL, 10 GB, no HA/backups/PITR for DEV.
+
+Refined workbook inputs:
+
+| Input | Pesimista | Base | Optimista | Status |
+|---|---:|---:|---:|---|
+| Cloud cost per study | 0.20 | 0.08 | 0.03 | ESTIMATED |
+| Storage cost per study | 0.06 | 0.03 | 0.015 | ESTIMATED |
+| AI processing cost per study | 0.30 | 0.10 | 0.04 | ESTIMATED |
+| Fixed infrastructure/month | 45 | 65 | 110 | ESTIMATED |
+
+These values are not billing measurements. They are a planning envelope derived from request-based Cloud Run economics, scale-to-zero assumptions, projected Cloud SQL fixed cost, light storage retention, and the local resource baseline. The AI duration per study remains a missing input; therefore, AI processing is kept as an estimated range rather than a verified cost.
+
+Refined Base result:
+
+- VAN/NPV: -31692 USD
+- Operating break-even: month 17
+- Payback: >36 months
+- Annualized TIR: -5.19%
+
+The previous Base-negative interpretation was correct for the prior placeholder inputs. After replacing the technical cloud placeholders, Base reaches operating break-even inside the 36-month horizon, but it still does not reach payback or a positive VAN. This must be read narrowly: technical cloud cost was refined; market pricing and commercial adoption remain unvalidated.
+
+## Base Viable Exploratory
+
+The workbook now includes `08_BASE_VIABLE` as a sensitivity-only sheet. It does not replace Pesimista, Base, or Optimista and must not be described as a forecast. It shows the minimum explored direction in which the refined Base economics remain viable:
+
+- Acquisition multiplier: 1.00x
+- Pricing multiplier: 1.00x
+- Fixed operating cost multiplier: 0.95x
+- VAN/NPV: -21162 USD
+- Payback: month 36
+
+Remaining missing inputs are institutional willingness-to-pay, real monthly study volumes per customer tier, real inference duration per complete study on Cloud Run, real Cloud billing after deployment, retention/storage policy, support burden, and observed acquisition/churn.

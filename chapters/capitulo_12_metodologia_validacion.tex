@@ -112,10 +112,21 @@ La validación del visor volumétrico comprueba cantidad y orden de los cortes, 
 
 La seguridad se integra desde el diseño: las operaciones protegidas requieren autenticación y autorización, las cuentas nuevas quedan pendientes de aprobación, los assets no se sirven mediante rutas internas y los secretos se mantienen fuera del código.
 
+\section{Diferencia entre instancias de validacion}
+\label{sec:metodologia-instancias-validacion}
+
+El proyecto distingue cuatro instancias que cumplen objetivos distintos y no deben mezclarse. Las entrevistas EN-01 a EN-05 constituyen user research exploratorio: identificaron necesidades, riesgos, lenguaje de dominio y criterios iniciales de alcance. Las sesiones posteriores con la Dra. Susana Torres y la Dra. Claudia Cejas se clasifican como validacion profesional cualitativa del prototipo: profesionales observaron y comentaron una version funcional/intermedia del producto, con foco en utilidad, flujo, comprension, priorizacion funcional y confianza. La validacion tecnica automatizada corresponde a pruebas de software, modelos, contratos, persistencia, seguridad, recorridos browser y despliegue. Finalmente, la validacion cruzada profesional queda pendiente como etapa superior: requiere comparar la lectura independiente del profesional con el resultado del sistema sobre los mismos estudios.
+
+La validacion profesional cualitativa no se interpreta como validacion clinica, diagnostica, ensayo clinico, evaluacion de performance clinica ni validacion contra ground truth. Su muestra es pequena e intencional, y sus resultados se analizan de forma narrativa. Sirve para orientar decisiones de producto y priorizar trabajo futuro; no permite estimar sensibilidad, especificidad, exactitud diagnostica ni seguridad clinica.
+
+\subsection{Validacion profesional final pendiente}
+\label{sec:metodologia-validacion-cruzada-pendiente}
+
+La siguiente etapa de validacion profesional debe realizarse con un protocolo cruzado. En primer lugar, el profesional analiza uno o mas estudios de forma independiente y registra interpretacion, mediciones y hallazgos relevantes. En segundo lugar, el sistema procesa los mismos estudios bajo configuracion controlada. Luego se comparan niveles, segmentaciones, mediciones, hallazgos, omisiones y falsos positivos. Finalmente, el profesional revisa las diferencias, explica concordancias y discrepancias, y se documenta que parte del desacuerdo corresponde a limitaciones del sistema, variabilidad de criterio o ausencia de informacion clinica. Esta etapa no se realizo todavia y se presenta como el siguiente nivel de validacion, no como evidencia ya obtenida.
 \section{Limitaciones metodológicas}
 
 La metodología se desarrolla bajo restricciones propias de un proyecto final: equipo reducido, tiempo académico, hardware limitado, conjuntos de datos públicos con taxonomías diferentes, infraestructura temporal y ausencia de validación clínica multicéntrica. Estas condiciones limitan el alcance de las conclusiones, pero no invalidan la evaluación de ingeniería, la reproducibilidad ni el aporte de integración.
 
-Las entrevistas EN-01 a EN-05 constituyen user research exploratorio: identificaron necesidades, riesgos y criterios de diseño, y no reemplazan una validación clínica ni una prueba de usabilidad formal. Sus resultados se analizan de forma cualitativa y no se generalizan a toda la población profesional ni se utilizan para afirmar eficacia diagnóstica.
+Las entrevistas EN-01 a EN-05 constituyen user research exploratorio y las sesiones posteriores de producto constituyen validacion profesional cualitativa sobre una version intermedia del prototipo. Ninguna de esas instancias reemplaza una validacion clinica ni una prueba de performance diagnostica. Sus resultados se analizan de forma cualitativa y no se generalizan a toda la poblacion profesional ni se utilizan para afirmar eficacia diagnostica.
 
 Existe además el riesgo de que la documentación quede desactualizada frente a un desarrollo rápido. Para mitigarlo se emplean checkpoints, estados explícitos y una revisión editorial antes de continuar con nuevos capítulos.

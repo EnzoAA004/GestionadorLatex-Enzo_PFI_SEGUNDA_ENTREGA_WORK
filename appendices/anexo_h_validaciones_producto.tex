@@ -1,0 +1,93 @@
+\chapter{Validaciones de producto con profesionales}
+\label{anexo:validaciones-producto}
+
+Este anexo documenta las sesiones de validacion profesional del prototipo realizadas con la Dra. Susana Torres y la Dra. Claudia Cejas. No corresponde mezclarlas con las entrevistas exploratorias del Anexo D: aquellas entrevistas sirvieron para identificar necesidades y alcance inicial; estas sesiones posteriores observaron y comentaron una version funcional/intermedia del producto.
+
+El material se presenta como registro depurado y ficha de evidencia cualitativa. Se eliminaron repeticiones y ruido sin valor analitico, y se conservaron solo observaciones tecnicas respaldadas por las transcripciones provistas. Cuando una sugerencia refiere a una capacidad no implementada, se consigna como futura, parcial o fuera de alcance. Esta evidencia no constituye validacion clinica, diagnostica, ensayo clinico, evaluacion de performance clinica ni comparacion contra ground truth.
+
+\section{Validacion Susana Torres}
+\label{anexo:h-validacion-susana}
+
+\subsection*{Profesional}
+Dra. Susana Torres.
+
+\subsection*{Contexto}
+Sesion posterior a las entrevistas exploratorias iniciales. La profesional observo y comento una version funcional/intermedia del prototipo, con foco en utilidad, flujo de revision, visualizacion, confianza y priorizacion de mejoras.
+
+\subsection*{Funciones mostradas o discutidas}
+Segmentacion como apoyo visual, overlays o mascaras sobre la imagen, posibilidad de apagar mascaras, correccion manual de mediciones, comparacion longitudinal, correlacion sagital--axial, revision de multiples cortes y salida revisable por el profesional.
+
+\subsection*{Observaciones}
+La profesional mostro interes en comparar con resonancias previas y en usar historial o comparacion longitudinal para observar evolucion de cambios degenerativos. Valoro la segmentacion como apoyo visual, pero remarco que la lectura inicial deberia poder hacerse sobre la imagen sin segmentacion para evitar sesgo, activando luego la asistencia. Tambien destaco la importancia de poder apagar mascaras, corregir mediciones y conservar colores consistentes entre estructuras.
+
+En el plano anatomico, remarco la relevancia del diametro anteroposterior y transverso del saco o canal, los neuroforamenes como entidad diferenciada, la grasa alrededor de raices y la utilidad para valorar estenosis. Tambien menciono cambios degenerativos, hipertrofia del ligamento amarillo como posible futuro, cambios Modic, perdida de altura discal, revision de multiples cortes, correlacion sagital--axial y necesidad de respetar la inclinacion del disco.
+
+\subsection*{Problemas detectados}
+Riesgo de sesgo si la mascara aparece antes de la lectura profesional; riesgo de confusion visual si hay demasiada superposicion; necesidad de evitar que la asistencia se interprete como diagnostico; necesidad de no reducir la revision a un unico corte central.
+
+\subsection*{Sugerencias}
+Permitir activar y desactivar mascaras, mantener colores consistentes, habilitar correccion manual de mediciones, mejorar la correlacion sagital--axial, revisar multiples cortes, considerar neuroforamenes y cambios Modic, y registrar hipertrofia del ligamento amarillo como extension futura.
+
+\subsection*{Valoracion general}
+La valoracion fue favorable para un sistema de asistencia visual y documental, siempre que el profesional conserve la lectura, la correccion y la decision final.
+
+\subsection*{Cambios derivados}
+Se refuerzan controles de visibilidad de overlays, mediciones editables, comparacion longitudinal descriptiva, revision multi-corte, correlacion sagital--axial experimental y priorizacion futura de neuroforamenes/cambios Modic. No se convierten estas sugerencias en features implementadas si no estan respaldadas por el estado tecnico final.
+
+\subsection*{Limitaciones}
+La sesion es cualitativa, con una sola profesional, sobre una version intermedia. No incluye comparacion contra lectura independiente, ground truth, sensibilidad, especificidad ni validacion clinica.
+
+\section{Validacion Claudia Cejas}
+\label{anexo:h-validacion-claudia}
+
+\subsection*{Profesional}
+Dra. Claudia Cejas.
+
+\subsection*{Contexto}
+Sesion posterior a las entrevistas exploratorias iniciales, orientada a evaluar utilidad y priorizacion funcional de una version funcional/intermedia del prototipo.
+
+\subsection*{Funciones mostradas o discutidas}
+Identificacion de nivel o contador, segmentacion visual, correccion manual de mediciones, medicion del canal, revision de multiples cortes, deteccion asistida de protrusiones focales o laterales, distincion entre canal central, canal lateral y neuroforamen, comparacion longitudinal e informe estructurado editable.
+
+\subsection*{Observaciones}
+La profesional destaco el contador o nivel como apoyo practico, la utilidad de la segmentacion visual y la correccion manual de mediciones. Priorizo el diametro del canal y recomendo medir perpendicular al eje del canal. Tambien remarco la importancia del neuroforamen, la estenosis foraminal, el receso subarticular o canal lateral, y la necesidad de distinguir canal central, canal lateral y neuroforamen.
+
+En el flujo de trabajo, destaco la revision de multiples cortes, la deteccion de protrusiones focales o laterales y la importancia de que la IA no omita patologia. Asocio el uso de colores con la reduccion de omisiones en contexto de carga laboral y fatiga. Tambien senalo cambios Modic, degeneracion discal, perdida de altura, comparacion longitudinal y valor de un informe estructurado editable.
+
+\subsection*{Problemas detectados}
+Riesgo de omision de patologia relevante, necesidad de revisar mas de un corte, riesgo de convertir rangos mencionados verbalmente en umbrales sin respaldo bibliografico y necesidad de mantener al profesional dentro del circuito de decision.
+
+\subsection*{Sugerencias}
+Priorizar deteccion/asistencia antes que diagnostico automatico, mostrar informacion visual con colores, permitir correccion profesional, medir el canal con criterio geometrico adecuado, considerar neuroforamen y receso lateral/subarticular, y mantener informe estructurado editable. La sobredeteccion puede ser aceptable si el profesional puede revisar y descartar.
+
+\subsection*{Valoracion general}
+La valoracion fue favorable hacia una herramienta asistiva que reduzca omisiones y ordene el reporte, especialmente en contextos de carga laboral, siempre que no reemplace al profesional.
+
+\subsection*{Cambios derivados}
+Se refuerza la decision de mantener revision profesional obligatoria, evidencia visual, mediciones editables, reporte estructurado, revision multi-corte y planificacion de neuroforamen/receso lateral como capacidades futuras o parciales. Los numeros o rangos sugeridos verbalmente deben verificarse bibliograficamente antes de convertirse en umbrales del sistema.
+
+\subsection*{Limitaciones}
+La sesion es cualitativa, con una sola profesional, sobre una version intermedia. No constituye prueba clinica, comparacion contra ground truth ni evaluacion de sensibilidad/especificidad.
+
+\section{Sintesis transversal}
+\label{anexo:h-sintesis-transversal}
+
+\subsection*{Usabilidad}
+Las dos sesiones respaldan overlays utiles, mascaras activables o desactivables, edicion manual, zoom o precision visual y colores consistentes. El prototipo debe evitar superposiciones confusas y permitir que el profesional controle la asistencia visual.
+
+\subsection*{Valor clinico-operativo}
+Las profesionales valoraron deteccion asistida, reduccion de omisiones, apoyo ante carga laboral, seguimiento longitudinal y correlacion sagital--axial. Esa valoracion se interpreta como utilidad potencial de producto, no como validacion clinica.
+
+\subsection*{Mediciones priorizadas}
+Se priorizan canal central, neuroforamen, receso lateral o subarticular y altura discal. Otras mediciones deben incorporarse solo si aportan valor real y pueden verificarse tecnica o bibliograficamente.
+
+\subsection*{Hallazgos relevantes}
+Aparecen protrusion o herniacion, estenosis, perdida de altura, cambios degenerativos o Modic, foramenes y raices. Algunos se encuentran fuera del producto validado y quedan como futuras lineas de trabajo.
+
+\subsection*{Confianza}
+La confianza depende de revision profesional obligatoria, posibilidad de corregir, transparencia del estado de la IA y ausencia de diagnostico autonomo. Mostrar confianza puede ser util cuando corresponda, pero no debe sustituir la revision.
+
+\section{Validacion cruzada pendiente}
+\label{anexo:h-validacion-cruzada-pendiente}
+
+La validacion final pendiente debe comparar una lectura profesional independiente contra el resultado del sistema sobre los mismos estudios. El protocolo propuesto consiste en: profesional analiza el estudio sin asistencia; registra interpretacion, mediciones y hallazgos; el sistema procesa el mismo estudio; se comparan niveles, segmentaciones, mediciones, hallazgos, omisiones y falsos positivos; el profesional revisa discrepancias; y se documentan concordancias, discrepancias y causas probables. Esa validacion todavia no se realizo.

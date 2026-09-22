@@ -303,6 +303,10 @@ Las siguientes capacidades no se consideran requerimientos terminados del MVP in
 
 Una función propuesta que no pueda relacionarse con necesidad, historia, criterio y evidencia debe considerarse candidata a postergación. Esta regla evita que capacidades visualmente atractivas desplacen el cierre de seguridad, persistencia, navegación volumétrica y validación.
 
+
+\section{Actualizacion tecnica de alcance final}
+
+El cierre tecnico agrega capacidades que no modifican el principio de no diagnostico, pero si amplian la trazabilidad del prototipo: exportacion PDF/JSON, historial por \texttt{subjectRef}, comparacion longitudinal descriptiva en Demo Mode, concordance descriptiva, review analytics, feedback curation, Grad-CAM experimental, chat contextual con proveedor mock y despliegue Cloud parcial DEV. Estas capacidades se interpretan con estados diferenciados: validadas tecnicamente, parciales, experimentales, demo-only, bloqueadas o planificadas. En particular, Patient queda parcial por la diferencia entre Backend/API y Frontend visible; Cloud queda parcial por el despliegue DEV de Backend/Frontend sin AI privado ni persistencia gestionada; y las capacidades 67B2, 67C y P10.7 quedan sujetas a sus gates de paridad y validacion.
 \section{Conclusión del capítulo}
 
 La especificación conecta cada requerimiento con una necesidad del relevamiento, un componente responsable, un criterio de aceptación y su evidencia. Los requerimientos declarados como parciales o futuros se identifican como tales, de modo que la matriz de trazabilidad describe el estado real del producto y no su estado deseado.

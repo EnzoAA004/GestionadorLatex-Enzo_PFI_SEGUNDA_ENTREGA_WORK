@@ -41,7 +41,7 @@ P10.5-B a P10.5-F evolución del visor volumétrico & implementado & catálogo d
 \hline
 Documentación del 50 \% & en integración & documento maestro, capítulos revisados, matrices y diagramas. \\
 \hline
-Google Cloud & arquitectura objetivo documentada; implementación pendiente & servicios, costos, seguridad y prueba de despliegue. \\
+Google Cloud & despliegue parcial DEV y arquitectura objetivo documentada & Artifact Registry/WIF, Backend Cloud Run DEV y Frontend Cloud Run DEV desplegados; AI privado, Cloud SQL, Secret Manager, storage productivo, DEMO environment y monitoring live pendientes. \\
 \hline
 Validación profesional sobre producto & pendiente sobre la versión integrada & recorrido, checklist, observaciones y ajustes priorizados. \\
 \hline
@@ -49,22 +49,22 @@ Entrega del 75 \% y defensa & futura & producto consolidado, resultados, discusi
 \hline
 P10.6 clasificador subarticular (Axial T2) & modelo entrenado y evaluado; capacidad automática bloqueada & checkpoint congelado sobre RSNA / LumbarDISC; falta ROI axial automática validada \\
 \hline
-P10.7 hallazgos degenerativos asistivos por nivel & implementado e integrado & checkpoint congelado; ocho tipos de hallazgo por contrato; salida sin probabilidades; revisión profesional Implementado e integrado en Backend + AI dentro del checkpoint congelado (rama de checkpoint + commit + evidencia). \\
+P10.7 hallazgos degenerativos asistivos por nivel & implementado pero bloqueado para inferencia productiva automatica & checkpoint y contratos existen; \texttt{blocked\_preprocessing\_parity} y \texttt{automaticInferenceEnabled=false}; no se presenta como productivo. \\
 \hline
 P10.8 preflight y guardas & cerrado sin entrenamiento adicional & verificación de factibilidad y guardas de contrato Cerrado sin entrenamiento adicional; estado congelado en su rama de checkpoint. \\
 \hline
 P10.9 consolidación de producto (Backend + AI) & congelado para traspaso de Frontend & commits coordinados; Backend\ensuremath{\leftrightarrow}AI validado; contrato público sanitizado; fixtures P10.9 Backend + AI congelados para handoff de Frontend en rama de checkpoint identificable, con commit y evidencia del runner técnico; base posteriormente integrada en Frontend. \\
 \hline
-Integración P10.9 en Frontend & implementada & contratos P10.9 consumidos por el Frontend, catálogo full-series, visor navegable, reapertura integrada y flujo Patient--Study según el alcance implementado. \\
+Integración P10.9 en Frontend & implementada & contratos P10.9 consumidos por el Frontend, catálogo full-series, visor navegable y reapertura integrada; Patient queda parcial porque el historial/longitudinal visible usa principalmente \texttt{subjectRef}. \\
 \hline
-Recorrido Full Product UI E2E sobre stack real & pendiente de cierre y evidencia & recorrido completo Frontend--Backend--AI Module--persistencia y reapertura con evidencia reproducible antes de la validación profesional. \\
+Recorrido Full Product UI E2E sobre stack real & validado funcionalmente & Playwright final 11/11 PASS sobre el recorrido demo/producto; no equivale a validacion clinica ni a Patient browser-level completo. \\
 \hline
 \end{longtable}
 \endgroup
 
 \section{Gestión de cambios}
 
-Los cambios de alcance deben registrarse con su origen. La incorporación axial se vincula con user research y factibilidad de datos. El visor volumétrico se vincula con la constatación de que los MHA ya contienen múltiples cortes y con la necesidad de aproximar la experiencia a un lector real. La comparación longitudinal surge como evolución de producto, pero permanece fuera del alcance inmediato.
+Los cambios de alcance deben registrarse con su origen. La incorporación axial se vincula con user research y factibilidad de datos. El visor volumétrico se vincula con la constatación de que los MHA ya contienen múltiples cortes y con la necesidad de aproximar la experiencia a un lector real. La comparación longitudinal fue implementada y validada funcionalmente en Demo Mode y flujo basado en \texttt{subjectRef}; para entradas reales no-demo depende de una localización anatómica resuelta.
 
 Cada cambio debe actualizar requerimientos, roadmap, arquitectura, contratos, pruebas y documentación. No corresponde modificar solo la interfaz cuando la capacidad depende de nuevos assets o persistencia.
 
@@ -76,4 +76,4 @@ Las mitigaciones son: checkpoints compartidos, commits coordinados, criterios de
 
 \section{Conclusión de la planificación}
 
-La planificación no reinicia el proyecto después del 25 \%: toma como base los modelos, la integración multiplanar y la arquitectura ya desarrollados. El camino crítico ya no pasa por generar y persistir las vistas previas de todos los cortes ni por integrar los contratos P10.9 en el Frontend, capacidades actualmente implementadas. El tramo pendiente consiste en cerrar y documentar el recorrido extremo a extremo completo con interfaz sobre el stack real, realizar la validación profesional sobre esa versión integrada y avanzar hacia el despliegue y la consolidación de la evidencia final. La región de interés axial automática constituye una línea paralela que no condiciona ninguno de esos pasos.
+La planificación no reinicia el proyecto después del 25 \%: toma como base los modelos, la integración multiplanar y la arquitectura ya desarrollados. El camino crítico ya no pasa por generar y persistir las vistas previas de todos los cortes ni por integrar los contratos P10.9 en el Frontend, capacidades actualmente implementadas. El tramo pendiente ya no consiste en cerrar el recorrido E2E funcional, sino en documentar la validación profesional final, completar el análisis económico/negocio, terminar el cierre discursivo de la tesis y avanzar desde el despliegue parcial DEV hacia los recursos Cloud no desplegados. La región de interés axial automática constituye una línea paralela que no condiciona ninguno de esos pasos.

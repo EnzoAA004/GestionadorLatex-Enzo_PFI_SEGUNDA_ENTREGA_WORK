@@ -112,11 +112,11 @@ La arquitectura se organiza en capas desacopladas. El navegador consume el Front
 \endhead
 \hline
 \endfoot
-Frontend & React, Vite y TypeScript & Autenticación visual, worklist, alta y consulta de estudios, workspace sagital–axial, visor de cortes, revisión, historial y diagnósticos técnicos. \\
-Backend & Spring Boot y Java & Seguridad, reglas de negocio, persistencia, auditoría, proxy hacia IA, contratos canónicos, serving de assets y reapertura. \\
-AI Module & Python y FastAPI & Registry de modelos, manifests, hashing, preprocesamiento, inferencia, reportes, catálogo volumétrico y generación de previews. \\
+Frontend & React, TypeScript y Vite & Autenticación visual, worklist, alta y consulta de estudios, workspace sagital--axial, visor de cortes, revisión, historial, longitudinal y diagnósticos técnicos. \\
+Backend & Spring Boot y Java 21 & Frontera de producto, seguridad, persistencia y orquestación: autenticación, reglas de negocio, auditoría, proxy hacia IA, contratos canónicos, serving de assets, reportes, chat y reapertura. \\
+AI Module & Python, FastAPI y PyTorch & Servicio especializado de IA: registry de modelos, manifests, hashing, preprocesamiento, inferencia, catálogo volumétrico, overlays, Grad-CAM experimental y generación de previews. \\
 Runtime de inferencia & PyTorch & Reconstrucción de arquitecturas, carga de state\_dict, model.eval(), torch.inference\_mode() y predicción. \\
-Persistencia & PostgreSQL & Usuarios, roles, estudios, corridas, revisiones, mediciones, artifacts y eventos de auditoría. \\
+Persistencia & PostgreSQL & Usuarios, roles, pacientes, estudios, corridas, revisiones, mediciones, evidencia, chat, feedback, artifacts y eventos de auditoría. \\
 Storage de modelos y archivos & Storage externo controlado & Checkpoints, manifests, datasets y, en la arquitectura objetivo, volúmenes y assets durables. \\
 Entorno experimental & Google Colab, Drive y notebooks & Entrenamiento, evaluación, generación de checkpoints y evidencia reproducible. \\
 \hline
@@ -153,9 +153,9 @@ La superposición automática no se presupone para todos los cortes de todas las
 
 \subsection{Modelo de datos}
 
-La persistencia se apoya en un modelo relacional en PostgreSQL organizado alrededor de tres ejes: la identidad y el control de acceso (usuarios y roles), la organización longitudinal de los estudios mediante una entidad Patient de-identificada y sus Studies asociados, y la evidencia de cada análisis (corridas, mediciones, revisiones, assets y catálogo de cortes), complementados con el registro de modelos/artifacts y la auditoría. La Figura~\ref{fig:arch-modelo-datos} presenta el diagrama entidad-relación con sus claves primarias, foráneas y cardinalidades.
+La persistencia se apoya en un modelo relacional en PostgreSQL organizado alrededor de tres ejes: la identidad y el control de acceso (usuarios y roles), la evidencia de cada análisis (corridas, mediciones, revisiones, assets y catálogo de cortes), y el dominio Patient de-identificado del Backend. Este último existe como entidad persistida y API, pero su adopción por la interfaz final es parcial: el historial y la comparación longitudinal que consume el Frontend siguen operando principalmente con \texttt{subjectRef}. La Figura~\ref{fig:arch-modelo-datos} presenta el diagrama entidad-relación con sus claves primarias, foráneas y cardinalidades.
 
-El modelo separa explícitamente la identidad longitudinal de-identificada del paciente de la identidad técnica de cada estudio. Patient posee un identificador interno UUID y una patientReference seudónima; Study conserva su identificador, caseId y una asociación opcional mediante patientId. El campo subjectRef permanece disponible como referencia interna opcional y mecanismo de compatibilidad con etapas anteriores, pero no se utiliza como identidad longitudinal principal ni para reconstruir automáticamente pacientes históricos. Cada corrida conserva su linaje técnico; las mediciones y los assets permanecen vinculados a la corrida y al corte de origen; y la revisión profesional se registra sin sobrescribir el resultado automático original, preservando trazabilidad y auditabilidad.
+El modelo separa la identidad técnica de cada estudio de la identidad longitudinal de-identificada cuando esta se encuentra disponible. En Backend, \texttt{Patient} posee un identificador interno UUID y una \texttt{patientReference} seudónima; \texttt{Study} conserva su identificador, \texttt{caseId}, \texttt{subjectRef} y una asociación opcional mediante \texttt{patientId}. La asociación \texttt{Patient--Study} está implementada, persistida y validada a nivel API. Sin embargo, en el producto visible final la navegación histórica y longitudinal del Frontend continúa basada en \texttt{subjectRef}; las pantallas de historial consumen endpoints de \texttt{/api/subjects} y no un flujo browser completo de alta o selección de entidades \texttt{Patient}. Por este motivo, el dominio Patient se clasifica como implementación parcial y no como gestión integral de pacientes end-to-end en interfaz. Cada corrida conserva su linaje técnico; las mediciones y los assets permanecen vinculados a la corrida y al corte de origen; y la revisión profesional se registra sin sobrescribir el resultado automático original, preservando trazabilidad y auditabilidad.
 % CROSS_REFERENCE_MAPPING_REQUIRED
 
 \begin{figure}[htbp]
@@ -234,7 +234,7 @@ La vista de procesos describe el comportamiento en ejecución: la secuencia de u
 
 \subsection{Flujo end-to-end de una corrida}
 
-Desde la perspectiva arquitectónica, el recorrido comienza con la autenticación del usuario y la selección o creación de un Patient de-identificado. El profesional completa luego los datos propios del Study, incluido su caseId, y carga el estudio DICOM completo en formato ZIP. El Backend valida la solicitud y coordina la ingesta con el AI Module, que identifica y clasifica las series disponibles y registra inputs independientes para las modalidades soportadas. A partir de esos inputs se ejecuta la corrida principal, se generan las segmentaciones y mediciones correspondientes y, cuando el contrato lo permite, las extensiones de procesamiento full-series y la línea de hallazgos P10.7. El Backend valida los contratos resultantes, persiste la corrida y su evidencia en PostgreSQL y mantiene la asociación explícita entre el Study y el Patient. El Frontend presenta posteriormente el estudio en el espacio de revisión profesional, desde donde pueden consultarse resultados persistidos y reabrirse el caso sin repetir necesariamente la inferencia. Los formatos MHA/NIfTI se mantienen como compatibilidad técnica y fixtures de investigación, no como flujo principal de producto.
+Desde la perspectiva arquitectónica, el recorrido funcional final es: sujeto o referencia seudónima, Study, DICOM, identificación de series, análisis sagital y axial cuando corresponde, mediciones, evidencia visual, revisión profesional, reporte, historial y comparación longitudinal. El Backend actúa como frontera de producto, seguridad, persistencia y orquestación: valida la solicitud, coordina la ingesta con el AI Module, persiste los contratos resultantes en PostgreSQL, sirve assets autorizados, compone reportes y media el acceso al proveedor LLM. El AI Module permanece como servicio especializado: identifica y clasifica series, registra inputs, ejecuta modelos PyTorch, genera máscaras, overlays y salidas experimentales. La línea P10.7 no debe describirse como inferencia productiva automática: su endpoint existe, pero permanece bloqueado por \texttt{blocked\_preprocessing\_parity} y \texttt{automaticInferenceEnabled=false}. El Frontend presenta posteriormente el estudio en el espacio de revisión profesional, desde donde pueden consultarse resultados persistidos y reabrirse el caso sin repetir necesariamente la inferencia. Los formatos MHA/NIfTI se mantienen como compatibilidad técnica y fixtures de investigación, no como flujo principal de producto.
 % CROSS_REFERENCE_MAPPING_REQUIRED
 % CROSS_REFERENCE_MAPPING_REQUIRED
 
@@ -360,14 +360,14 @@ La selección tecnológica se realizó considerando la responsabilidad de cada c
 \endhead
 \hline
 \endfoot
-Spring Boot / Java & Backend de producto & Se utiliza como frontera de producto para concentrar autenticación, autorización, reglas de negocio, persistencia, auditoría y contratos públicos en un servicio independiente del runtime científico. Esta separación evita trasladar al Backend las dependencias propias del procesamiento y de los modelos de inteligencia artificial. \\
+Spring Boot / Java 21 & Backend de producto & Se utiliza como frontera de producto para concentrar autenticación, autorización, reglas de negocio, persistencia, auditoría, reportes, chat y contratos públicos en un servicio independiente del runtime científico. Esta separación evita trasladar al Backend las dependencias propias del procesamiento y de los modelos de inteligencia artificial. \\
 Python + FastAPI & Servicio IA & Se utiliza en el AI Module por su integración directa con PyTorch, SimpleITK y el código de preprocesamiento e inferencia. FastAPI permite exponer estas capacidades mediante una API HTTP interna consumida por el Backend, manteniendo desacoplado el runtime científico del resto del producto. \\
 PyTorch & Entrenamiento e inferencia & Se mantiene como runtime porque los modelos y checkpoints del proyecto fueron entrenados, evaluados y registrados dentro de este ecosistema. Sustituirlo requeriría validar previamente la equivalencia de las salidas del nuevo runtime. \\
 React + Vite + TypeScript & Frontend & Se utiliza para construir una interfaz web interactiva y modular. TypeScript aporta contratos tipados y React facilita la composición del visor, la worklist y los flujos de revisión. El Frontend consume exclusivamente el contrato público expuesto por el Backend. \\
 PostgreSQL & Persistencia & Se utiliza por la necesidad de mantener integridad transaccional y relaciones consistentes entre usuarios, estudios, corridas, mediciones, revisiones y eventos de auditoría. \\
 Docker & Portabilidad & Permite encapsular las dependencias y configuraciones de cada servicio, reproducir los entornos de ejecución y desplegar Backend y AI Module de manera desacoplada. \\
 Google Colab + Drive & Experimentación & Se utilizan para entrenamiento, evaluación y conservación de la evidencia experimental y académica. No forman parte del runtime operativo del producto. \\
-Google Cloud & Arquitectura objetivo & Se definió como plataforma objetivo por disponer de servicios administrados para cómputo, persistencia, almacenamiento y gestión operativa, manteniendo la separación entre componentes y permitiendo controlar los recursos asignados. Su implementación completa permanece planificada. \\
+Google Cloud & Arquitectura objetivo y despliegue parcial DEV & Se definió como plataforma objetivo por disponer de servicios administrados para cómputo, persistencia, almacenamiento y gestión operativa. Al cierre técnico sólo están desplegados/validados Artifact Registry/WIF, Backend Cloud Run DEV y Frontend Cloud Run DEV; AI Cloud Run privado, Cloud SQL, Secret Manager, storage productivo, DEMO environment y monitoreo/alerting live permanecen no desplegados. \\
 \hline
 \end{longtable}
 }
@@ -418,19 +418,11 @@ La vista física describe el mapeo del sistema a la infraestructura: el entorno 
 
 \subsection{Arquitectura actual de validación}
 
-Durante la integración se utiliza una infraestructura temporal que permite validar la comunicación distribuida antes de completar Google Cloud:
-
-Frontend — Vercel.
-
-Backend y PostgreSQL — Railway.
-
-AI Module — contenedor Docker ejecutado en entorno controlado y expuesto temporalmente mediante túnel seguro de prueba.
-
-Esta infraestructura se documenta como entorno de validación, no como arquitectura final. Su función fue demostrar autenticación, proxy, persistencia, assets y comunicación real entre componentes. Los túneles temporales y URLs efímeras no forman parte del diseño de producción.
+Durante la integración final se utilizaron dos niveles de infraestructura. El primero fue el stack local containerizado para validar el producto completo con PostgreSQL, AI Module, mock LLM, Backend y Frontend. El segundo fue el despliegue DEV parcial en Google Cloud, donde quedaron corroborados Artifact Registry/WIF y servicios Cloud Run para Backend y Frontend. Esta evidencia no equivale a un despliegue productivo completo: el AI Module privado en Cloud Run, Cloud SQL, Secret Manager, storage productivo, DEMO environment y monitoreo/alerting live permanecen no desplegados.
 
 \subsection{Arquitectura objetivo en Google Cloud}
 
-La plataforma objetivo del sistema es Google Cloud, con una migración organizada por fases para no crear recursos cuyo costo o necesidad no estén justificados. El frontend se serviría como sitio estático o contenedor; el backend y el módulo de inteligencia artificial como servicios con escalado a cero y máximo de instancias acotado; la base de datos como instancia gestionada de PostgreSQL sin alta disponibilidad, acorde a un prototipo académico; los modelos, volúmenes y assets en almacenamiento privado con región controlada; las imágenes de contenedor en un registro con política de limpieza; y los secretos fuera del código. El uso de aceleración por GPU se contempla únicamente si el procesamiento en CPU no cumple los tiempos, con límites estrictos de duración.
+La plataforma objetivo del sistema es Google Cloud, con una migración organizada por fases para no crear recursos cuyo costo o necesidad no estén justificados. La arquitectura objetivo conecta GitHub Actions con Workload Identity Federation, Artifact Registry, Cloud Run Frontend, Cloud Run Backend y, para una etapa posterior, Cloud Run AI privado protegido con Google ID Token. El Backend se conectaría a Cloud SQL y utilizaría Secret Manager, Cloud Storage y Cloud Monitoring/Logging como servicios gestionados. Al cierre técnico, sólo Artifact Registry/WIF y Cloud Run DEV para Backend y Frontend cuentan con evidencia de despliegue; el resto debe leerse como arquitectura objetivo.
 
 El dimensionamiento de la infraestructura objetivo se definirá a partir del consumo observado de los componentes ejecutados en contenedores, en lugar de asignar recursos únicamente a partir de estimaciones teóricas. Para ello se consideran por separado el Backend, el AI Module y la base de datos, registrando consumo de memoria y CPU tanto en reposo como durante un recorrido representativo de procesamiento. En el caso del AI Module resulta especialmente relevante registrar el consumo con los modelos cargados y durante la inferencia, dado que constituye el componente de mayor demanda computacional. La necesidad de aceleración mediante GPU se evaluará únicamente si las mediciones sobre CPU muestran tiempos incompatibles con el flujo previsto.
 
@@ -459,7 +451,7 @@ PostgreSQL & Persistencia durante recorrido E2E & p95: 4,13 \%; pico: 30,81 \% &
 \end{longtable}
 }
 
-Las mediciones corresponden a una ejecución local containerizada del prototipo sobre Docker Desktop, con 16 procesadores lógicos visibles para Docker y 7,39 GiB de memoria disponible en dicho entorno. Durante la prueba se ejecutó un recorrido E2E real de 77,24 segundos que incluyó ingestión DICOM, clasificación de series, segmentación sagital y axial, procesamiento full-series, inferencia real de los hallazgos degenerativos P10.7, persistencia y revisión profesional. El AI Module fue el componente de mayor demanda, con un percentil 95 de CPU de 346,62 \% y un pico de 405,09 \%, equivalentes aproximadamente al uso concurrente de 3,47 y 4,05 núcleos de CPU respectivamente. La utilización máxima de memoria del mismo componente fue de 940,80 MiB. La GPU disponible en el host no fue utilizada por el contenedor durante esta prueba, por lo que no se considera necesaria para la configuración inicial evaluada. Estos resultados constituyen una línea base para el dimensionamiento preliminar del prototipo y deberán contrastar posteriormente con mediciones realizadas sobre la infraestructura desplegada en Google Cloud.
+Las mediciones corresponden a una ejecución local containerizada del prototipo sobre Docker Desktop, con 16 procesadores lógicos visibles para Docker y 7,39 GiB de memoria disponible en dicho entorno. Durante la prueba se ejecutó un recorrido E2E local de 77,24 segundos que incluyó ingestión DICOM, clasificación de series, segmentación sagital y axial, procesamiento full-series, persistencia y revisión profesional; no debe interpretarse como habilitación productiva de P10.7, que permanece bloqueado por paridad de preprocesamiento. El AI Module fue el componente de mayor demanda, con un percentil 95 de CPU de 346,62 \% y un pico de 405,09 \%, equivalentes aproximadamente al uso concurrente de 3,47 y 4,05 núcleos de CPU respectivamente. La utilización máxima de memoria del mismo componente fue de 940,80 MiB. La GPU disponible en el host no fue utilizada por el contenedor durante esta prueba, por lo que no se considera necesaria para la configuración inicial evaluada. Estos resultados constituyen una línea base para el dimensionamiento preliminar del prototipo y deberán contrastar posteriormente con mediciones realizadas sobre la infraestructura desplegada en Google Cloud.
 
 \begin{figure}[htbp]
 \centering
@@ -468,8 +460,42 @@ Las mediciones corresponden a una ejecución local containerizada del prototipo 
 \label{fig:arch-despliegue-google-cloud}
 \end{figure}
 
-El principio financiero adoptado es no crear un recurso cuyo costo máximo no pueda estimarse de antemano. Esta arquitectura está documentada y no implementada: el despliegue objetivo permanece como trabajo pendiente y no debe interpretarse como parte del estado actual del producto.
+El principio financiero adoptado es no crear un recurso cuyo costo máximo no pueda estimarse de antemano. Esta arquitectura debe leerse por estado de madurez: Artifact Registry/WIF, Backend Cloud Run DEV y Frontend Cloud Run DEV están desplegados y validados; AI Cloud Run privado, Cloud SQL, Secret Manager, storage productivo completo, DEMO environment y monitoreo/alerting live no están desplegados y no deben presentarse como parte del estado operativo actual.
 
+
+\subsection{Estado real del despliegue Cloud}
+
+El estado Cloud final es mixto y debe documentarse por recurso, no como un bloque unico desplegado. La Tabla~\ref{tab:arch-cloud-estado-final} separa la evidencia disponible del objetivo arquitectonico pendiente.
+
+{\scriptsize
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.28\textwidth} >{\raggedright\arraybackslash}p{0.20\textwidth} >{\raggedright\arraybackslash}p{0.44\textwidth}}
+\caption{Estado final de despliegue Cloud por recurso.}\label{tab:arch-cloud-estado-final}\\
+\hline
+\textbf{Recurso} & \textbf{Estado} & \textbf{Lectura para la tesis} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Recurso} & \textbf{Estado} & \textbf{Lectura para la tesis} \\
+\hline
+\endhead
+\hline
+\endfoot
+Artifact Registry y Workload Identity Federation & Desplegado / validado & Existe evidencia de publicacion de imagenes y federacion CI hacia Google Cloud. \\
+Backend Cloud Run DEV & Desplegado / validado & Servicio DEV corroborado; no implica ambiente productivo ni DEMO final. \\
+Frontend Cloud Run DEV & Desplegado / validado & Servicio DEV corroborado; no implica ambiente productivo ni DEMO final. \\
+AI Cloud Run privado & No desplegado & El codigo de autenticacion con Google ID Token esta listo para despliegue, pero no fue ejercitado contra un servicio AI privado real. \\
+Cloud SQL & No desplegado & Permanece como arquitectura objetivo para persistencia gestionada. \\
+Secret Manager & No desplegado & Permanece como arquitectura objetivo para secretos fuera del codigo. \\
+Storage productivo & No desplegado & Permanece como arquitectura objetivo para modelos, volumenes y assets durables. \\
+DEMO environment & No desplegado & No existe promocion DEV--DEMO ejecutada. \\
+Monitoring/alerting live & No desplegado & La observabilidad esta disenada, pero no operada con trafico real ni alertas live. \\
+\hline
+\end{longtable}
+}
 \section{Vista de escenarios (+1)}
 
 Los escenarios articulan las cuatro vistas anteriores mediante casos de uso concretos. El escenario principal (autenticación, carga del estudio, ejecución multiplanar, persistencia, visualización y revisión profesional) recorre la vista de procesos (sección 10.4.1), se apoya en los componentes de la vista lógica y en la organización de la vista de desarrollo, y se ejecuta sobre la infraestructura de la vista física. Las historias de usuario del Capítulo 9 formalizan estos escenarios y permiten validar que la arquitectura satisface los requerimientos.

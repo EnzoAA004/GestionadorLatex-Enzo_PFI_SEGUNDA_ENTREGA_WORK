@@ -98,12 +98,56 @@ Este anexo documenta las principales decisiones de arquitectura adoptadas durant
 \addcontentsline{toc}{section}{ADR-007 --- Google Cloud como arquitectura objetivo de despliegue}
 \label{adr:007-google-cloud-despliegue}
 
-\textbf{Estado:} aceptado como arquitectura objetivo; implementación pendiente.
+\textbf{Estado:} aceptado como arquitectura objetivo; despliegue parcial DEV validado.
 
 \textbf{Contexto.} El prototipo requiere una arquitectura que permita desplegar componentes separados, almacenar artifacts de forma durable, disponer de una base PostgreSQL y controlar el consumo de recursos sin asumir inicialmente una infraestructura de alta disponibilidad propia de un entorno clínico productivo.
 
-\textbf{Decisión.} Utilizar Google Cloud como plataforma objetivo, manteniendo servicios diferenciados para Frontend, Backend y AI Module, una instancia administrada de PostgreSQL, almacenamiento privado para modelos y assets, registro de contenedores y gestión externa de secretos. Los recursos de cómputo se dimensionarán a partir del consumo observado de los componentes, y el uso de GPU se considerará únicamente si la ejecución sobre CPU no satisface los tiempos requeridos.
+\textbf{Decisión.} Utilizar Google Cloud como plataforma objetivo, manteniendo servicios diferenciados para Frontend, Backend y AI Module, una instancia administrada de PostgreSQL, almacenamiento privado para modelos y assets, registro de contenedores y gestión externa de secretos. Al cierre técnico se validaron Artifact Registry/WIF, Backend Cloud Run DEV y Frontend Cloud Run DEV. AI Cloud Run privado, Cloud SQL, Secret Manager, storage productivo, DEMO environment y monitoreo/alerting live permanecen no desplegados.
 
 \textbf{Alternativas consideradas.} Mantener el sistema exclusivamente en ejecución local, administrar infraestructura propia o trasladar la misma arquitectura a otro proveedor de nube.
 
 \textbf{Consecuencias.} La plataforma permite utilizar servicios administrados y ajustar los recursos por componente, evitando incorporar inicialmente infraestructura que no esté justificada para el prototipo. Como contrapartida, introduce configuración específica de nube, necesidad de controlar costos y dependencia de los servicios seleccionados. El despliegue completo permanece fuera del estado implementado de esta entrega.
+
+\section*{ADR-008 --- Inferencia fail-closed y revision profesional obligatoria}
+\addcontentsline{toc}{section}{ADR-008 --- Inferencia fail-closed y revision profesional obligatoria}
+
+\textbf{Estado:} aceptado.
+
+\textbf{Contexto.} Algunas capacidades de IA poseen checkpoints, metricas offline o contratos implementados, pero no cuentan con paridad runtime o preprocesamiento validado para uso automatico real.
+
+\textbf{Decisión.} Mantener un comportamiento fail-closed: si un modelo o etapa no puede demostrar artifact, manifest, preprocesamiento y paridad runtime, el sistema debe abstenerse, bloquear o declarar estado parcial en lugar de fabricar una salida. Toda salida asistiva permanece sujeta a revision profesional obligatoria.
+
+\textbf{Consecuencias.} Esta decision reduce el riesgo de sobreinterpretar resultados experimentales. Como contrapartida, algunas capacidades quedan visibles como bloqueadas o experimentales aunque existan componentes tecnicos parciales.
+
+\section*{ADR-009 --- Demo Mode deterministico y no clinico}
+\addcontentsline{toc}{section}{ADR-009 --- Demo Mode deterministico y no clinico}
+
+\textbf{Estado:} aceptado.
+
+\textbf{Contexto.} El producto necesita un recorrido reproducible para testing, defensa academica y validacion funcional, pero la localizacion anatomica real permanece bloqueada por falta de paridad runtime.
+
+\textbf{Decisión.} Incorporar Demo Mode con fixtures deterministicos, cuatro studies y dos subjects, \texttt{source=DEMO\_FIXTURE}, \texttt{validated=false} y advertencias explicitas de no inferencia real.
+
+\textbf{Consecuencias.} Demo Mode permite Playwright E2E y demostracion completa de producto sin afirmar inferencia clinica. No debe usarse como evidencia de validacion clinica ni como reemplazo de datos reales.
+
+\section*{ADR-010 --- Integracion parcial del dominio Patient}
+\addcontentsline{toc}{section}{ADR-010 --- Integracion parcial del dominio Patient}
+
+\textbf{Estado:} aceptado como estado actual.
+
+\textbf{Contexto.} Backend implementa \texttt{Patient}, \texttt{/api/patients}, \texttt{Study.patientId} y persistencia Patient--Study. El Frontend final conserva historial y longitudinal basados principalmente en \texttt{subjectRef}.
+
+\textbf{Decisión.} Documentar Patient como dominio implementado parcialmente y evitar describirlo como gestion integral de pacientes end-to-end en browser.
+
+\textbf{Consecuencias.} La tesis mantiene una afirmacion fiel al producto real: hay base Backend para evolucionar hacia Patient completo, pero el flujo visible actual no consume plenamente ese dominio.
+
+\section*{ADR-011 --- No aprendizaje automatico desde correcciones profesionales}
+\addcontentsline{toc}{section}{ADR-011 --- No aprendizaje automatico desde correcciones profesionales}
+
+\textbf{Estado:} aceptado.
+
+\textbf{Contexto.} El sistema registra revisiones, correcciones y candidatos de curacion profesional.
+
+\textbf{Decisión.} No utilizar esas correcciones para reentrenamiento automatico ni aprendizaje online. La curacion alimenta una linea futura controlada, no un bucle activo de actualizacion de modelos.
+
+\textbf{Consecuencias.} Se preserva reproducibilidad, trazabilidad y control de calidad de artifacts. Cualquier entrenamiento posterior requerira dataset, versionado y validacion explicitos.

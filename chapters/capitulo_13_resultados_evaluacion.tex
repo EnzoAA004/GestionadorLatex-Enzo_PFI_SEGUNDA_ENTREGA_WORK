@@ -62,8 +62,8 @@ En el caso axial, la separación a nivel de paciente está confirmada en el mani
 \hline
 \endfoot
 Sagital, SPIDER & Vértebras, canal y discos, sin fondo & 0,893 & 0,70 & Supera el umbral \\
-Axial, Sudirman y Al-Kafri & Cuatro estructuras y dos fondos & 0,679 & 0,70 & No alcanza el umbral \\
-Axial, excluyendo el fondo del conjunto de origen & Cuatro estructuras y un fondo & 0,811 & 0,70 & Supera el umbral \\
+Axial, Sudirman y Al-Kafri & Primer plano oficial, incluyendo \texttt{raw\_0} & 0,679348283374592 (IoU 0,5699727598420694) & 0,70 & No alcanza el umbral \\
+Axial, excluyendo \texttt{raw\_0} & Analisis secundario de estructuras & 0,8105661875685084 (IoU 0,6915400877715925) & 0,70 & Lectura secundaria; no reemplaza el gate \\
 \hline
 \end{longtable}
 }
@@ -72,7 +72,7 @@ El valor informado corresponde al promedio macro del coeficiente Dice, es decir 
 
 La diferencia entre las dos lecturas del modelo axial requiere explicación, porque es de una magnitud considerable y no responde a un cambio en el modelo sino en el conjunto de clases sobre el que se promedia. Según establece la Tabla~\ref{tab:cap-clases-modelo-axial}, el modelo axial distingue seis clases, de las cuales dos corresponden a fondo. Una de ellas, la que designa la región exterior al paciente en el conjunto de origen, obtiene un coeficiente Dice de 0,15 y arrastra el promedio macro cuando se la incluye entre las clases de primer plano.
 
-El desempeño del modelo sobre las cuatro estructuras anatómicas que efectivamente interesan al proyecto, disco intervertebral, elemento posterior, saco tecal y región anteroposterior, es de 0,811. Ese es el valor que describe la capacidad de segmentación anatómica del módulo. El valor de 0,679 describe el promedio de un conjunto que incluye una clase de fondo, y se informa porque es el que el umbral evalúa.
+El desempeño secundario excluyendo \texttt{raw\_0} es de 0,8105661875685084 para Dice y 0,6915400877715925 para IoU. Esa lectura ayuda a describir la segmentación de las estructuras de interes, pero no sustituye la metrica oficial del artifact: \texttt{qualityGatePassed=false}, con razon \texttt{dice\_macro\_foreground\_below\_threshold}.
 
 \section{Umbral de calidad y estado del artifact axial}
 
@@ -130,22 +130,80 @@ El contraste con el ángulo segmentario, que sí se publica con carácter experi
 
 La decisión se documenta porque describe un criterio que el proyecto aplica de forma general: una medición se publica cuando puede verificarse, y no cuando puede calcularse.
 
+
+\section{Resultados finales de validacion tecnica por capa}
+\label{sec:resultados-validacion-final}
+
+Ademas de la evaluacion offline de modelos, el cierre tecnico del producto incluyo verificaciones de software, integracion y recorrido browser. Estas pruebas validan el comportamiento funcional del prototipo bajo condiciones controladas; no constituyen validacion clinica.
+
+{\scriptsize
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} >{\raggedright\arraybackslash}p{0.28\textwidth} >{\raggedright\arraybackslash}p{0.38\textwidth}}
+\caption{Validacion tecnica final del prototipo.}\label{tab:res-validacion-tecnica-final}\\
+\hline
+\textbf{Validacion} & \textbf{Resultado} & \textbf{Interpretacion} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Validacion} & \textbf{Resultado} & \textbf{Interpretacion} \\
+\hline
+\endhead
+\hline
+\endfoot
+Backend Java 21, suite reconciliada & 1053 tests, 0 failures, 0 errors, 78 skipped & Suite final verde para el alcance ejecutado; los skipped corresponden a tests condicionados por Postgres/Testcontainers. No mezclar con conteos baseline previos. \\
+Backend focal & 67/67 PASS & Cubre Patient API, controlador AI, seguridad, validadores y asociacion Study--Patient a nivel Backend. \\
+Frontend & lint PASS, typecheck PASS, build PASS, unit tests PASS & Valida calidad estatica y construccion de la interfaz final. \\
+AI focal/product regressions & PASS; 67 passed y 1 skipped en el recorte focal & Valida product orchestration, multiplanar, real baseline, Grad-CAM y subarticular en el alcance focal. \\
+AI full suite & 479 passed / 40 failed & No se presenta como suite totalmente verde: los fallos son brechas ambientales preexistentes asociadas a \texttt{highdicom} y resolucion de subprocess. \\
+Docker full stack & PASS & Construccion del stack completo con imagenes requeridas. \\
+Browser E2E & Playwright 11/11 PASS & Validacion funcional del producto en recorrido demo/final; no equivale a validacion clinica ni a Patient entity browser-level completo. \\
+Patient API smoke & 8/8 PASS & Valida create/associate/list/detail/longitudinal/report/reload/persist-after-restart a nivel API/Backend. \\
+Persistencia & PASS & Resultados, asociaciones y series sobreviven reinicio del Backend. \\
+Product-analysis & PASS en demo path; bloqueado en path real sin 67B2 parity & El producto no fabrica nivel anatomico cuando la paridad runtime no esta probada. \\
+Longitudinal & PASS & Comparacion deterministica en Demo Mode y flujo \texttt{subjectRef}. \\
+Reporte / PDF / JSON & PASS & Reporte estructurado \texttt{pfi.study-report.v1}; exportaciones PDF y JSON verificadas. \\
+Chat contextual & PASS en mock LLM & Valida integracion funcional con proveedor deterministico; no despliegue productivo de Qwen. \\
+Evidencia visual & PASS & Overlays/assets servidos por Backend; limitados por registro AI efimero tras reinicio. \\
+DICOM invalido & 422 \texttt{UNSUPPORTED\_INPUT} PASS & El sistema falla de forma controlada ante input no procesable. \\
+Secret scan & Sin credenciales reales & Hallazgos revisados como falsos positivos; no se detectaron secretos productivos. \\
+\hline
+\end{longtable}
+}
+
+\section{Niveles de validacion y alcance}
+\label{sec:resultados-niveles-validacion}
+
+El cierre distingue cinco niveles. La validacion de modelo offline mide desempeno contra anotaciones o particiones congeladas. La validacion tecnica de software verifica contratos, persistencia, seguridad y errores controlados. La validacion E2E recorre el producto integrado en browser y stack containerizado. La validacion profesional/usabilidad requiere que profesionales revisen el producto integrado y emitan observaciones; esa etapa no se completa en este documento. La validacion clinica requeriria un protocolo especifico con datos, comparadores y criterios clinicos; no fue realizada y no se afirma.
+
+Esta separacion es central para interpretar las metricas. Por ejemplo, 67B2 tiene resultados offline altos, pero conserva \texttt{67B2\_RUNTIME\_PARITY\_NOT\_PROVEN}, \texttt{productEnabled=false} y \texttt{parityVerified=false}; por lo tanto no habilita inferencia productiva real. Del mismo modo, Playwright 11/11 valida el recorrido funcional del prototipo, no la exactitud clinica de sus salidas.
 \section{Limitaciones de la evaluación}
+\label{sec:resultados-limitaciones}
 
-Corresponde declarar seis limitaciones que acotan el alcance de los resultados presentados.
+La evaluación final permite afirmar la consistencia funcional y técnica del prototipo académico, pero no habilita conclusiones clínicas ni productivas fuera del alcance declarado. Las limitaciones principales son:
 
-\begin{itemize}
-\item La evaluación mide coincidencia con anotaciones de referencia, no exactitud clínica. Una máscara que coincide con la anotación reproduce también los criterios y los errores del anotador.
-\item Los conteos de la partición de entrenamiento del módulo axial no están publicados y su recuperación permanece pendiente.
-\item La partición de prueba axial fue evaluada previamente, de modo que el resultado es comparativo y no independiente.
-\item Las mediciones no cuentan con validación contra mediciones profesionales, solo con verificación por contraste sobre un estudio de referencia.
-\item No se informan métricas de distancia como la distancia de Hausdorff en su percentil 95, definidas en el Capítulo 7. Su cálculo está previsto para la instancia siguiente y aportaría información sobre la precisión del contorno que el coeficiente Dice no captura en estructuras de tamaño considerable.
-\item La revisión cualitativa profesional sobre el producto integrado no se ha realizado.
-\end{itemize}
-
+\begin{enumerate}
+    \item No se realizó validación clínica prospectiva ni retrospectiva con profesionales sobre una cohorte independiente.
+    \item El recorrido Playwright 11/11 valida comportamiento funcional de interfaz, no desempeño clínico.
+    \item El modo demo usa fixtures determinísticos y no debe interpretarse como inferencia médica real.
+    \item La integración Patient está implementada en Backend/API/persistencia, pero la interfaz conserva flujos basados en \texttt{subjectRef} y no ofrece creación/selección completa de Patient en navegador.
+    \item La prueba Patient E2E 8/8 corresponde a validación API-level/smoke, no a recorrido browser-level completo.
+    \item El modelo axial oficial no supera el umbral de calidad definido, por lo que queda como capacidad experimental o complementaria.
+    \item La mejora axial secundaria que excluye \texttt{raw\_0} es evidencia exploratoria y no reemplaza la métrica oficial de gate.
+    \item El modelo 67B2 tiene métricas offline verificadas, pero no se probó paridad runtime productiva y permanece con \texttt{productEnabled=false}.
+    \item P10.7 mantiene \texttt{automaticInferenceEnabled=false} por \texttt{blocked\_preprocessing\_parity}.
+    \item 67C no se declara validado productivamente.
+    \item Grad-CAM cuenta con pruebas AI específicas, contrato API y wiring Frontend, pero permanece experimental y no fue ejercitado explícitamente en el recorrido browser E2E final.
+    \item El chat contextual se validó con mock determinístico; el uso de Qwen queda como ruta objetivo, no como disponibilidad productiva demostrada.
+    \item El despliegue Cloud está limitado a recursos DEV corroborados; AI Cloud Run privado, Cloud SQL, Secret Manager, storage productivo, DEMO environment y monitoreo/alerting real no fueron desplegados.
+    \item El escaneo de secretos no encontró credenciales reales, pero no reemplaza una auditoría de seguridad formal.
+    \item El sistema no aprende automáticamente de correcciones profesionales; la curación de feedback queda como insumo controlado para entrenamiento offline futuro.
+\end{enumerate}
 \section{Conclusión del capítulo}
 
-El módulo sagital alcanza un coeficiente Dice macro de 0,893 sobre una partición retenida separada a nivel de paciente, supera el umbral establecido y se documenta como baseline técnico del prototipo. El módulo axial alcanza 0,811 sobre las estructuras anatómicas y 0,679 cuando se incluye la clase de fondo del conjunto de origen; bajo el criterio vigente no supera el umbral, y su artifact permanece registrado como candidato.
+El módulo sagital alcanza un coeficiente Dice macro de 0,893 sobre una partición retenida separada a nivel de paciente, supera el umbral establecido y se documenta como baseline técnico del prototipo. El módulo axial registra una métrica oficial Dice 0,679348283374592 e IoU 0,5699727598420694, por debajo del umbral; la lectura secundaria que excluye \texttt{raw\_0} alcanza Dice 0,8105661875685084 e IoU 0,6915400877715925, pero no reemplaza el gate oficial.
 
 Los resultados sostienen que la segmentación de estructuras lumbares en el plano sagital es viable con los datos y la arquitectura empleados, y que el módulo axial requiere trabajo adicional antes de considerarse consolidado. Ninguno de los dos resultados autoriza afirmaciones sobre desempeño clínico, que dependen de una validación que este trabajo no realiza y declara como fuera de su alcance.
 

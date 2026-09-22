@@ -15,7 +15,7 @@ Una advertencia de lectura vale para todo el capítulo: capacidad implementada n
 
 Qué hace. Recibe un estudio de resonancia magnética lumbar completo, identifica las series que contiene, las clasifica por plano y ponderación, y las prepara para el procesamiento.
 
-Cómo funciona. Antes de iniciar un nuevo análisis, el profesional selecciona un Patient de-identificado existente o crea uno mediante una \texttt{patientReference} seudónima. Luego define el \texttt{caseId} y los datos propios del Study. La vía principal de ingesta continúa siendo un estudio en formato DICOM empaquetado, del que el sistema extrae las series y determina automáticamente cuáles son compatibles con los modelos disponibles. El usuario no selecciona imágenes de a una: la cantidad de cortes se obtiene del propio volumen. Se conserva compatibilidad con otros formatos, empleados como fixtures de prueba y en flujos de investigación.
+Cómo funciona. Antes de iniciar un nuevo análisis, el profesional define el \texttt{caseId} y una referencia seudónima de sujeto para el Study. En Backend existe además el dominio \texttt{Patient}: entidad persistida, endpoint \texttt{/api/patients}, campo \texttt{Study.patientId} y asociación Patient--Study validada a nivel API. Sin embargo, la interfaz final de historial y longitudinal continúa operando principalmente con \texttt{subjectRef}; no existe todavía un flujo browser completo de alta o selección de entidades \texttt{Patient} persistidas. Por eso la capacidad se describe como implementación parcial del dominio Patient. La vía principal de ingesta continúa siendo un estudio en formato DICOM empaquetado, del que el sistema extrae las series y determina automáticamente cuáles son compatibles con los modelos disponibles. El usuario no selecciona imágenes de a una: la cantidad de cortes se obtiene del propio volumen. Se conserva compatibilidad con otros formatos, empleados como fixtures de prueba y en flujos de investigación.
 
 {\small
 \setlength{\LTleft}{0pt}
@@ -144,7 +144,7 @@ La correspondencia queda congelada en el manifest del artifact y replicada en la
 % SOURCE_VISUAL_MISSING_FROM_DOCX
 % VISUAL_SOURCE_REQUIRED_FROM_AUTHOR: YES
 \addcontentsline{lof}{figure}{\protect\numberline{11.4}Workspace axial con la máscara superpuesta sobre la imagen original. Fuente: elaboración propia.}
-Qué evidencia lo respalda. Coeficiente Dice macro de 0,811 sobre las cuatro estructuras anatómicas y de 0,679 cuando se incluyen las dos clases de fondo, sobre una partición separada a nivel de paciente. La diferencia se explica porque una de las clases de fondo obtiene un coeficiente de 0,15 y arrastra el promedio.
+Qué evidencia lo respalda. El gate oficial del artifact axial registra \texttt{qualityGatePassed=false}. La métrica oficial de primer plano es Dice macro \(0{,}679348283374592\) e IoU macro \(0{,}5699727598420694\), con razón \texttt{dice\_macro\_foreground\_below\_threshold}. Como análisis secundario, excluyendo la clase \texttt{raw\_0}, el Dice es \(0{,}8105661875685084\) y el IoU \(0{,}6915400877715925\). Esta segunda lectura ayuda a interpretar el comportamiento sobre estructuras anatómicas, pero no reemplaza la métrica oficial del gate.
 
 % CROSS_REFERENCE_MAPPING_REQUIRED
 Qué límites tiene. El artifact no alcanzó el umbral de calidad de 0,70 en la métrica que lo evalúa, que incluye las clases de fondo, y permanece registrado como candidato sin promoverse a baseline técnico. El umbral no se modificó para acomodar el resultado. La partición de prueba había sido evaluada previamente para una versión anterior del mismo modelo, de modo que el resultado es comparativo y no una validación sobre datos enteramente no observados. Los conteos de la partición de entrenamiento no fueron publicados en el manifest y su recuperación permanece pendiente. El capítulo 13 desarrolla estos tres puntos.
@@ -248,7 +248,7 @@ Cómo funciona. El contrato volumétrico define, por serie, el plano, la cantida
 \addcontentsline{lof}{figure}{\protect\numberline{11.6}Navegación por cortes del volumen con el resultado vinculado a su corte. Fuente: elaboración propia.}
 Qué evidencia lo respalda. El procesamiento de la serie completa está implementado y los assets se persisten y se sirven por corte. El frontend consume la integración contractual P10.9 y presenta el catálogo full-series en un visor navegable. Las pruebas verifican la cantidad y el orden de los cortes, el eje, el índice computacional y la numeración mostrada, con índice interno desde cero y numeración de interfaz desde uno.
 
-Qué límites tiene. La superposición automática no se presupone para todos los cortes de todas las series: solo se muestra donde hay resultado, y los cortes sin inferencia lo declaran en lugar de presentarse vacíos. El visor no simula una correspondencia espacial entre el plano sagital y el axial cuando la metadata geométrica no permite demostrarla; la relación entre planos se establece por la asignación de nivel de la sección~\ref{sec:cap-asignacion-nivel-anatomico} y no por una superposición supuesta. La integración de los contratos congelados en el frontend está implementada. El recorrido extremo a extremo completo con interfaz sobre el stack real permanece pendiente de cierre y evidencia.
+Qué límites tiene. La superposición automática no se presupone para todos los cortes de todas las series: solo se muestra donde hay resultado, y los cortes sin inferencia lo declaran en lugar de presentarse vacíos. El visor no simula una correspondencia espacial entre el plano sagital y el axial cuando la metadata geométrica no permite demostrarla; la relación entre planos se establece por la asignación de nivel de la sección~\ref{sec:cap-asignacion-nivel-anatomico} y no por una superposición supuesta. La integración de los contratos congelados en el frontend está implementada. El recorrido browser E2E final obtuvo 11/11 en Playwright sobre el stack final, pero ese resultado valida el flujo funcional del prototipo y Demo Mode; no convierte a Patient en una entidad browser-level completa ni habilita inferencia clínica.
 
 \section{Revisión profesional y salida editable}
 
@@ -289,7 +289,7 @@ Qué límites tiene. El preinforme es un punto de partida editable y no un infor
 
 Qué hace. Conserva cada corrida con su modelo, su artifact, sus resultados, sus mediciones y su estado de revisión, de modo que un estudio pueda recuperarse más tarde sin volver a ejecutar la inferencia.
 
-Cómo funciona. Un estudio actúa como contenedor lógico y una corrida representa una ejecución concreta, de manera que ejecutar de nuevo no sobrescribe la evidencia anterior. Los estudios de un mismo paciente de-identificado se vinculan mediante una asociación explícita entre Study y Patient. Patient posee una referencia de-identificada visible para el flujo de trabajo, mientras que \texttt{patientId} mantiene la relación longitudinal en persistencia. El campo \texttt{subjectRef} del Study se conserva como referencia interna opcional y no sustituye esa asociación. Cada corrida genera identificadores que permiten seguirla: el del caso, el de la ejecución, el que agrupa ambos planos y el que correlaciona solicitudes y registros técnicos.
+Cómo funciona. Un estudio actúa como contenedor lógico y una corrida representa una ejecución concreta, de manera que ejecutar de nuevo no sobrescribe la evidencia anterior. Backend permite vincular Studies con una entidad Patient mediante \texttt{patientId}, y esa asociación se persiste y se valida por API. En la interfaz final, sin embargo, el historial y la comparación longitudinal siguen recorriendo principalmente la identidad \texttt{subjectRef}. Por lo tanto, \texttt{patientId} debe leerse como dominio de Backend implementado, no como flujo visual completo de gestión de pacientes. Cada corrida genera identificadores que permiten seguirla: el del caso, el de la ejecución, el que agrupa ambos planos y el que correlaciona solicitudes y registros técnicos.
 
 % FIGURE_PENDING_MIGRATION
 % DOCX_FIGURE_NUMBER: 11.9
@@ -387,6 +387,50 @@ Se entrenó y evaluó internamente un modelo de estenosis subarticular sobre cor
 
 Se trata de un bloqueo de capacidad y no de un trabajo pendiente de ejecución. Su resolución depende de una etapa de localización anatómica que no está disponible.
 
+
+\section{Demo Mode y validacion funcional reproducible}
+\label{sec:cap-demo-mode}
+
+Demo Mode es un recorrido deterministico, no clinico, construido para defensa academica, testing E2E y validacion funcional del producto. Utiliza datos sinteticos o fixtures controlados y no debe presentarse como sustituto de inferencia clinica real. La configuracion final contiene cuatro studies y dos subjects de demostracion; cuando el localizador real no puede habilitarse, el flujo usa \texttt{localizationStatus=demo\_fixture}, \texttt{source=DEMO\_FIXTURE}, \texttt{validated=false} y una advertencia explicita de no inferencia real.
+
+El valor de Demo Mode es que permite recorrer de punta a punta el producto sin fabricar un nivel anatomico no validado. En ese recorrido se ejercitan ingesta, corrida AI, mediciones, evidencia visual, revision profesional, reporte, exportacion PDF/JSON, chat contextual contra proveedor mock y comparacion longitudinal deterministica. La comparacion longitudinal usa valores controlados por \texttt{caseId}; por ejemplo, el flujo final valida una variacion absoluta de 0,6 mm luego de una correccion profesional. El resultado browser E2E final fue Playwright 11/11 PASS, interpretado como validacion funcional del prototipo y no como validacion clinica.
+
+\section{Disponibilidad productiva de modelos y extensiones}
+
+La Tabla~\ref{tab:cap-modelos-disponibilidad-final} resume la diferencia entre evaluacion offline, disponibilidad runtime y exposicion de producto. Esta distincion evita presentar una metrica experimental como si habilitara automaticamente una capacidad clinica o productiva.
+
+{\scriptsize
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.18\textwidth} >{\raggedright\arraybackslash}p{0.22\textwidth} >{\raggedright\arraybackslash}p{0.22\textwidth} >{\raggedright\arraybackslash}p{0.30\textwidth}}
+\caption{Estado final de modelos y extensiones.}\label{tab:cap-modelos-disponibilidad-final}\\
+\hline
+\textbf{Capacidad} & \textbf{Evidencia} & \textbf{Estado} & \textbf{Limitacion principal} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Capacidad} & \textbf{Evidencia} & \textbf{Estado} & \textbf{Limitacion principal} \\
+\hline
+\endhead
+\hline
+\endfoot
+Sagital SPIDER U-Net2D & Test Dice macro 0,8934 e IoU 0,8080; quality gate aprobado & Validada tecnicamente & Dataset academico, sin validacion clinica. \\
+Axial Sudirman/Al-Kafri U-Net2D & Dice oficial 0,679348283374592; IoU 0,5699727598420694 & Experimental & \texttt{qualityGatePassed=false}; la lectura excluyendo \texttt{raw\_0} no reemplaza el gate. \\
+67B2 localizacion lumbar absoluta & DEV top1 0,9343629343629344; top2 0,972972972972973; MRR 0,9617117117117117; n=259. Locked Top1 0,9049295774647887; Top2 0,9612676056338029; MRR 0,9448356807511736; pipeline accuracy given emit 0,9909502262443439 & Parcial/offline & \texttt{67B2\_RUNTIME\_PARITY\_NOT\_PROVEN}; \texttt{productEnabled=false}; \texttt{parityVerified=false}. \\
+67C pairing sagital--axial & Algoritmo geometrico deterministico con flags de contrato & Experimental & \texttt{experimental=true}, \texttt{validated=false}, \texttt{reviewRequired=true}; depende de 67B2. \\
+P10.7 hallazgos degenerativos & Checkpoints y contratos existen & Bloqueada & \texttt{blocked\_preprocessing\_parity}; \texttt{automaticInferenceEnabled=false}. \\
+Grad-CAM & Tests AI especificos PASS, contrato API validado, wiring Frontend presente & Experimental & No fue ejercitado explicitamente en el browser E2E final; no es validacion clinica. \\
+\hline
+\end{longtable}
+}
+
+\section{Capacidades extendidas de revision y analisis}
+
+Ademas del flujo principal de segmentacion, medicion y reporte, el producto final incorpora extensiones de revision con alcance controlado. Concordance compara evidencia del mismo fenomeno, nivel y lado como regla descriptiva, no clinica. Review analytics agrega telemetria de revision para observar tiempos y estados, sin medir exactitud medica. Feedback curation registra candidatos de curacion profesional, pero no activa reentrenamiento automatico ni aprendizaje online. Grad-CAM expone mapas experimentales para el clasificador subarticular, siempre con \texttt{experimental=true}. Product-analysis integra resultados del flujo de producto: en Demo Mode puede completar un nivel deterministico, mientras que en entradas reales conserva el fallo seguro cuando 67B2 no prueba paridad runtime.
+
+El chat contextual usa una abstraccion de proveedor LLM. En el recorrido demo se valida contra un mock deterministico; Qwen/self-hosted se documenta como target soportado, no como despliegue productivo ejercitado. Esta capacidad acompana la lectura del caso, pero no genera diagnostico, tratamiento ni decision automatica.
 \section{Estado consolidado de las capacidades}
 
 {\scriptsize
@@ -412,17 +456,17 @@ Segmentación sagital & 11.3 & Implementada y evaluada; baseline técnico \\
 Segmentación axial & 11.4 & Implementada y evaluada; artifact por debajo del umbral \\
 Mediciones geométricas & 11.5 & Implementadas y persistidas; verificadas por contraste, sin validación \\
 Asignación de nivel anatómico & 11.6 & Implementada; sin métrica de acierto \\
-Visualización y navegación por cortes & 11.7 & Implementada; P10.9 integrado en frontend con catálogo full-series y visor navegable; E2E real pendiente de cierre \\
+Visualización y navegación por cortes & 11.7 & Implementada; P10.9 integrado en frontend con catálogo full-series y visor navegable; Playwright final 11/11 PASS en recorrido funcional del prototipo \\
 Revisión profesional & 11.8 & Implementada en su flujo principal \\
 Preinforme automático revisable & 11.8 & Implementado; editable y no diagnóstico \\
-Persistencia, reapertura y trazabilidad & 11.9 & Implementadas; Patient es la identidad longitudinal y Study se asocia mediante \texttt{patientId} cuando corresponde \\
+Persistencia, reapertura y trazabilidad & 11.9 & Implementadas; Patient/API/persistencia validado en Backend, con UI longitudinal todavia basada principalmente en \texttt{subjectRef} \\
 Seguridad, roles y estados degradados & 11.10 & Implementados; endurecimiento productivo posterior \\
 Estimación de hallazgos estructurales & 11.11.1 & Desarrollada y evaluada sobre partición sellada; no expuesta por desempeño heterogéneo \\
 Clasificación de estenosis subarticular & 11.11.2 & Bloqueada \\
-Recorrido extremo a extremo con interfaz & — & Pendiente \\
+Recorrido extremo a extremo con interfaz & --- & Validado funcionalmente en Playwright 11/11 sobre Demo Mode y recorrido de producto; no equivale a validacion clinica \\
 Validación profesional sobre el producto & — & Pendiente \\
-Comparación longitudinal & — & Futura \\
-Despliegue en la plataforma objetivo & — & Planificado \\
+Comparación longitudinal & — & Implementada y validada en flujo demo/\texttt{subjectRef}; los inputs reales no-demo dependen de localizacion anatomica resuelta \\
+Despliegue en la plataforma objetivo & — & Parcial: Artifact Registry/WIF y Cloud Run DEV Backend/Frontend desplegados; AI privado, Cloud SQL, Secret Manager, storage productivo, DEMO environment y monitoreo live no desplegados \\
 \hline
 \end{longtable}
 }

@@ -55,11 +55,11 @@ P10.5 · Evolución volumétrica & El producto exponía únicamente el corte ana
 \hline
 P10.6 · Estenosis subarticular & — & Modelo entrenado y evaluado internamente sobre RSNA / LumbarDISC, con checkpoint congelado. & Capacidad no disponible de forma automática: el modelo axial no incluye clase de vértebra y falta la generación de la región de interés que el clasificador requiere. & Bloqueado \\
 \hline
-P10.7 · Hallazgos por nivel & — & Ocho tipos de hallazgo degenerativo, sujetos a revisión profesional y con estado de despliegue asociado. Las probabilidades internas no se exponen. & Salida asistiva por nivel. Los ocho tipos no tienen el mismo soporte empírico y no se presentan como equivalentes. & Implementado \\
+P10.7 · Hallazgos por nivel & — & Ocho tipos de hallazgo degenerativo, sujetos a revisión profesional y con estado de despliegue asociado. Las probabilidades internas no se exponen. & Salida asistiva por nivel. Los ocho tipos no tienen el mismo soporte empírico y el flujo real permanece bloqueado por paridad de preprocesamiento. & Implementado, no productivo \\
 \hline
 P10.8 · Preflight y guardas & — & Cierre del preflight de expansión clínica e incorporación de guardas, sin entrenamiento adicional. & Verificación de factibilidad previa a la ejecución. & Cerrado \\
 \hline
-P10.9 · Consolidación & — & Congelamiento del backend y del módulo de IA para el traspaso al frontend, con recorrido técnico verificado mediante un runner automatizado. & Frontera contractual común posteriormente integrada en Frontend. & Integrado en Frontend; E2E completo pendiente de cierre \\
+P10.9 · Consolidación & — & Congelamiento del backend y del módulo de IA para el traspaso al frontend, con recorrido técnico verificado mediante un runner automatizado. & Frontera contractual común posteriormente integrada en Frontend. & Integrado en Frontend; E2E funcional final 11/11 PASS \\
 \hline
 \end{longtable}
 
@@ -69,16 +69,16 @@ P10.5-A estableció el contrato volumétrico común entre Frontend, Backend y AI
 
 Sobre esa base, P10.5-B a P10.5-F distribuyeron la implementación entre las capas del producto. El AI Module incorporó el procesamiento full-series y la generación de metadata y assets para los cortes de las series soportadas; el Backend incorporó la persistencia y el serving controlado del catálogo y sus assets; el Frontend desarrolló el visor navegable con selección de serie y corte; y la integración vinculó cada resultado y medición con su imagen de origen. El último bloque verificó además la reapertura de resultados persistidos sin necesidad de repetir la inferencia.
 
-El resultado de P10.5 fue una capacidad de navegación volumétrica que permite recorrer el estudio conservando el contexto de cada salida automática. P10.5-A quedó consolidado como contrato común entre los tres repositorios, mientras que los bloques P10.5-B a P10.5-F fueron implementados y verificados dentro de sus respectivos alcances técnicos. Esto no implica que todas esas capacidades hayan quedado consolidadas simultáneamente sobre una única línea integrada de los tres repositorios. En particular, P10.5-F verificó la persistencia, reapertura y vinculación de resultados dentro del alcance de ese bloque; esta verificación no equivale al Full Product UI E2E pendiente luego de P10.9. La integración del contrato P10.9 en el Frontend fue completada posteriormente. Esta integración no equivale por sí sola al cierre del Full Product UI E2E: permanece pendiente ejecutar y documentar el recorrido completo de interfaz sobre el stack real y reunir la evidencia correspondiente.
+El resultado de P10.5 fue una capacidad de navegación volumétrica que permite recorrer el estudio conservando el contexto de cada salida automática. P10.5-A quedó consolidado como contrato común entre los tres repositorios, mientras que los bloques P10.5-B a P10.5-F fueron implementados y verificados dentro de sus respectivos alcances técnicos. Esto no implica que todas esas capacidades hayan quedado consolidadas simultáneamente sobre una única línea integrada de los tres repositorios. En particular, P10.5-F verificó la persistencia, reapertura y vinculación de resultados dentro del alcance de ese bloque; esta verificación no equivale al Full Product UI E2E pendiente luego de P10.9. La integración del contrato P10.9 en el Frontend fue completada posteriormente. Esta integración no equivale por sí sola al cierre del Full Product UI E2E: esa evidencia se consolidó posteriormente con el recorrido browser E2E final 11/11 PASS, dentro del alcance funcional demo/producto.
 
 \subsection{Estado resultante para la entrega del 50 \%}
 \label{anexo:f-estado-entrega-50}
 
 El estado del proyecto al cierre de esta versión admite tres categorías que no deben mezclarse.
 
-\textbf{Hecho.} La separación en tres repositorios con responsabilidades delimitadas por contrato; los modelos sagital y axial entrenados, congelados y ejecutables sobre entrada real; el runtime de inferencia con gestión de artefactos verificados por hash; la persistencia de estudios, corridas, assets y revisiones sobre PostgreSQL con migraciones versionadas; la reapertura de estudios ya procesados; la navegación por cortes con el resultado vinculado a su corte de origen; la integración P10.9 en Frontend; la incorporación de Patient como identidad longitudinal de-identificada; la asociación explícita y auditable de Studies mediante patientId; y la revisión profesional obligatoria.
+\textbf{Hecho.} La separación en tres repositorios con responsabilidades delimitadas por contrato; los modelos sagital y axial entrenados, congelados y ejecutables sobre entrada real; el runtime de inferencia con gestión de artefactos verificados por hash; la persistencia de estudios, corridas, assets y revisiones sobre PostgreSQL con migraciones versionadas; la reapertura de estudios ya procesados; la navegación por cortes con el resultado vinculado a su corte de origen; la integración P10.9 en Frontend; la implementación Backend/API/persistencia del dominio Patient; la asociación explícita y auditable de Studies mediante patientId; la persistencia de un flujo visible que todavía usa principalmente subjectRef para historial y longitudinal; y la revisión profesional obligatoria.
 
-\textbf{Pendiente.} El cierre y la documentación del recorrido Full Product UI E2E sobre el stack real; la validación profesional sobre el producto integrado; el despliegue objetivo; y la consolidación de la evidencia final.
+\textbf{Pendiente.} La validación profesional sobre el producto integrado, el análisis de negocio, el cierre final de conclusiones y el despliegue Cloud completo. El recorrido funcional Full Product UI E2E ya cuenta con evidencia final.
 
 \textbf{Bloqueado.} La automatización de P10.6, por ausencia de una región de interés axial automática validada. Es un bloqueo de capacidad y no un trabajo pendiente de ejecución: su resolución depende de una etapa de localización anatómica que no está disponible y cuyos sustitutos se descartaron por razones metodológicas.
 
@@ -103,10 +103,10 @@ La evolución del producto puede resumirse en los siguientes hitos:
   \item Autenticación, roles y autorización por recurso.
   \item Workspace multiplanar con overlays, mediciones y revisión profesional.
   \item Definición del contrato volumétrico P10.5-A.
-  \item Ingesta de estudio DICOM completo y procesamiento full-series (Backend + AI Module), línea de hallazgos degenerativos por nivel (P10.7), visor navegable e integración P10.9 en Frontend, seguida por el dominio Patient y la asociación explícita Study--Patient; el cierre Full Product UI E2E permanece pendiente.
+  \item Ingesta de estudio DICOM completo y procesamiento full-series (Backend + AI Module), línea de hallazgos degenerativos por nivel (P10.7) bloqueada para inferencia automática real, visor navegable e integración P10.9 en Frontend, seguida por el dominio Patient parcial y la asociación Study--Patient validada en Backend; el cierre funcional Full Product UI E2E fue completado.
 \end{itemize}
 
-En una etapa posterior, la organización longitudinal dejó de depender de una referencia técnica de sujeto y se incorporó Patient como entidad de-identificada explícita, con id interno UUID y patientReference como referencia seudónima de trabajo. Los Studies se asocian mediante patientId, mientras que subjectRef permanece como compatibilidad opcional y no se utiliza para inferir retrospectivamente pacientes históricos.
+En una etapa posterior se incorporó Patient como entidad de-identificada explícita en Backend, con id interno UUID y patientReference como referencia seudónima de trabajo. Los Studies pueden asociarse mediante patientId y esa relación se persiste. Sin embargo, el Frontend final conserva historial y longitudinal principalmente mediante subjectRef; por eso el dominio Patient queda como implementación parcial y no como gestión browser-level completa.
 
 La incorporación axial no reemplaza el modelo sagital ni implica que ambos modelos segmenten las mismas clases. Cada plano conserva su dataset, preprocesamiento, artifact, clases de salida y criterios de validación. El prototipo integra los resultados en una experiencia común, pero no fusiona artificialmente modelos incompatibles.
 
@@ -150,3 +150,12 @@ El módulo de inteligencia artificial agrupa responsabilidades que no correspond
 La reconstrucción de las arquitecturas se realiza con carga estricta: si los nombres de capa del artifact no coinciden con los de la arquitectura declarada, la carga falla de forma explícita en lugar de completar los pesos faltantes con valores iniciales. Cada artifact conserva un manifest con sus clases, su configuración, sus métricas y su resumen criptográfico, y el sistema verifica esa correspondencia antes de habilitar el modelo.
 
 La condición de disponibilidad se comprueba antes de aceptar una solicitud: deben existir el artifact local completo, un manifest coherente y una arquitectura compatible. Si alguna de las tres falta, el servicio lo informa como estado de indisponibilidad y no como resultado de análisis.
+
+\section{Cierre tecnico final y fuente canonica}
+\label{anexo:f-cierre-tecnico-final}
+
+El cierre tecnico posterior a la entrega del 50 \% siguio una secuencia trazable: post-E50, extensiones de producto, integracion \texttt{integration/final-2026}, reconciliacion del Backend y congelamiento en \texttt{main}. La fuente tecnica canonica final quedo documentada en el repositorio Backend como \texttt{docs/final/FINAL\_PRODUCT\_TECHNICAL\_SOURCE\_OF\_TRUTH.md}.
+
+Los SHAs finales usados como base documental son: Backend \texttt{33081f7cc3702afe4db04a2b63de4762408b5d50}, Frontend \texttt{ff191e1195a4e6bf06312ae8e266d37894c5b7b1} y AI Module \texttt{22b12e04ce37f5c9ba6a02f356ac2022390bf06e}. En el caso del Backend, ese SHA corresponde a un commit documental sobre el merge funcional previo: distingue la fuente de verdad escrita del estado funcional ya reconciliado.
+
+El estado final no se deriva de un unico repositorio. Backend aporta seguridad, persistencia, Patient API, reportes, PDF/JSON, Cloud Run DEV y orquestacion; Frontend aporta el flujo visible, historial basado en \texttt{subjectRef}, review panels, longitudinal, Grad-CAM wiring y Playwright final 11/11; AI aporta modelos, runtime, Demo Mode, product-analysis, 67B2/67C/P10.7 con sus gates y limitaciones. Esta separacion evita degradar o inflar una capacidad por mirar solo una capa.

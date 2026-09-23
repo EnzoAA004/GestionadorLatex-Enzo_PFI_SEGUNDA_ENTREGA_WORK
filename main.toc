@@ -295,71 +295,71 @@
 \contentsline {section}{\numberline {14.4}Segmentación de clientes: Starter, Professional y Enterprise}{129}{section.14.4}%
 \contentsline {section}{\numberline {14.5}Pricing por volumen de estudios}{129}{section.14.5}%
 \contentsline {section}{\numberline {14.6}Estructura de ingresos}{130}{section.14.6}%
-\contentsline {section}{\numberline {14.7}Estructura de costos}{131}{section.14.7}%
-\contentsline {subsection}{\numberline {14.7.1}Costos variables: infraestructura Cloud medida}{131}{subsection.14.7.1}%
-\contentsline {subsection}{\numberline {14.7.2}Costo variable por escenario}{132}{subsection.14.7.2}%
-\contentsline {subsection}{\numberline {14.7.3}Costos fijos del negocio}{132}{subsection.14.7.3}%
-\contentsline {section}{\numberline {14.8}Metodología financiera a 36 meses}{133}{section.14.8}%
-\contentsline {section}{\numberline {14.9}Escenarios financieros: Pesimista, Base y Optimista}{134}{section.14.9}%
-\contentsline {section}{\numberline {14.10}Resultado del escenario Base conservador}{135}{section.14.10}%
-\contentsline {section}{\numberline {14.11}Análisis de sensibilidad}{136}{section.14.11}%
-\contentsline {section}{\numberline {14.12}Propuesta de Base Comercial Objetivo}{136}{section.14.12}%
-\contentsline {section}{\numberline {14.13}Comparación entre el Base conservador y el Base Comercial Objetivo}{137}{section.14.13}%
-\contentsline {section}{\numberline {14.14}Limitaciones del modelo económico}{138}{section.14.14}%
-\contentsline {section}{\numberline {14.15}Interpretación final}{139}{section.14.15}%
-\contentsline {chapter}{\numberline {15}Planificación académica general}{140}{chapter.15}%
-\contentsline {section}{\numberline {15.1}Criterio de planificación}{140}{section.15.1}%
-\contentsline {section}{\numberline {15.2}Planificación por entregables}{140}{section.15.2}%
-\contentsline {section}{\numberline {15.3}Gestión de cambios}{141}{section.15.3}%
-\contentsline {section}{\numberline {15.4}Riesgos de planificación}{141}{section.15.4}%
-\contentsline {section}{\numberline {15.5}Conclusión de la planificación}{142}{section.15.5}%
-\contentsline {chapter}{\numberline {A}Cronograma del proyecto}{143}{appendix.Alph1}%
-\contentsline {section}{\numberline {A.1}Calendario académico}{143}{section.Alph1.1}%
-\contentsline {section}{\numberline {A.2}Diagrama de Gantt}{144}{section.Alph1.2}%
-\contentsline {section}{\numberline {A.3}Desvíos respecto de la planificación original}{145}{section.Alph1.3}%
-\contentsline {chapter}{\numberline {B}Glosario de términos}{146}{appendix.Alph2}%
-\contentsline {chapter}{\numberline {C}Anatomía de la columna lumbar y los discos intervertebrales}{152}{appendix.Alph3}%
-\contentsline {section}{\numberline {C.1}Esquema simplificado de columna lumbar sagital}{152}{section.Alph3.1}%
-\contentsline {section}{\numberline {C.2}Esquema conceptual de segmentación.}{153}{section.Alph3.2}%
-\contentsline {chapter}{\numberline {D}Transcripciones de las entrevistas}{154}{appendix.Alph4}%
-\contentsline {section}{D.1 Entrevista 1 (EN-01) - Dra. Susana Torres (M.N. 179537)}{154}{section*.9}%
-\contentsline {section}{D.2 Entrevista 2 (EN-02) - Dr.~Gonzalo Brito}{158}{section*.10}%
-\contentsline {section}{D.3 Entrevista 3 (EN-03) - Dra. Claudia Cejas}{161}{section*.11}%
-\contentsline {section}{D.4 Entrevista 4 (EN-04) - Dr.~Bruno Bregonzi}{165}{section*.12}%
-\contentsline {section}{D.5 Entrevista 5 (EN-05) - Dr.~Eduardo Luis Castiglione}{168}{section*.13}%
-\contentsline {chapter}{\numberline {E}Configuración de entrenamiento de los modelos}{173}{appendix.Alph5}%
-\contentsline {section}{E.1 Parámetros de entrenamiento}{173}{section*.14}%
-\contentsline {section}{E.2 Aumentación de datos}{174}{section*.15}%
-\contentsline {section}{E.3 Controles de calidad al cierre del entrenamiento}{175}{section*.16}%
-\contentsline {section}{E.4 Trazabilidad de los artifacts}{175}{section*.17}%
-\contentsline {chapter}{\numberline {F}Evolución técnica del desarrollo}{176}{appendix.Alph6}%
-\contentsline {section}{\numberline {F.1}Evolución técnica alcanzada}{176}{section.Alph6.1}%
-\contentsline {subsection}{\numberline {F.1.1}Etapa fundacional y separación en tres repositorios}{176}{subsection.Alph6.1.1}%
-\contentsline {subsection}{\numberline {F.1.2}Backlogs técnicos por repositorio}{177}{subsection.Alph6.1.2}%
-\contentsline {subsection}{\numberline {F.1.3}Bloques coordinados de producto}{177}{subsection.Alph6.1.3}%
-\contentsline {subsection}{\numberline {F.1.4}Estado resultante para la entrega del 50 \%}{181}{subsection.Alph6.1.4}%
-\contentsline {section}{\numberline {F.2}Evolución del producto visible}{181}{section.Alph6.2}%
-\contentsline {section}{\numberline {F.3}Evolución del pipeline de inferencia}{183}{section.Alph6.3}%
-\contentsline {section}{\numberline {F.4}Organización interna del módulo de inteligencia artificial}{184}{section.Alph6.4}%
-\contentsline {section}{\numberline {F.5}Cierre tecnico final y fuente canonica}{184}{section.Alph6.5}%
-\contentsline {chapter}{\numberline {G}Registro de decisiones arquitectónicas}{186}{appendix.Alph7}%
-\contentsline {section}{ADR-001 --- Separación de Frontend, Backend y AI Module}{186}{section*.18}%
-\contentsline {section}{ADR-002 --- Spring Boot para el Backend y Python/FastAPI para el AI Module}{186}{section*.19}%
-\contentsline {section}{ADR-003 --- Backend como única frontera pública hacia el AI Module}{187}{section*.20}%
-\contentsline {section}{ADR-004 --- PostgreSQL para persistencia transaccional}{187}{section*.21}%
-\contentsline {section}{ADR-005 --- PyTorch como runtime de inferencia y ONNX Runtime diferido}{187}{section*.22}%
-\contentsline {section}{ADR-006 --- Separación entre código fuente y artifacts de datos y modelos}{188}{section*.23}%
-\contentsline {section}{ADR-007 --- Google Cloud como arquitectura objetivo de despliegue}{188}{section*.24}%
-\contentsline {section}{ADR-008 --- Inferencia fail-closed y revision profesional obligatoria}{189}{section*.24}%
-\contentsline {section}{ADR-009 --- Demo Mode deterministico y no clinico}{189}{section*.24}%
-\contentsline {section}{ADR-010 --- Integracion parcial del dominio Patient}{189}{section*.24}%
-\contentsline {section}{ADR-011 --- No aprendizaje automatico desde correcciones profesionales}{190}{section*.24}%
-\contentsline {chapter}{\numberline {H}Validaciones de producto con profesionales}{191}{appendix.Alph8}%
-\contentsline {section}{\numberline {H.1}Validacion Susana Torres}{191}{section.Alph8.1}%
-\contentsline {section}{\numberline {H.2}Validacion Claudia Cejas}{192}{section.Alph8.2}%
-\contentsline {section}{\numberline {H.3}Sintesis transversal}{194}{section.Alph8.3}%
-\contentsline {section}{\numberline {H.4}Validacion cruzada pendiente}{195}{section.Alph8.4}%
-\contentsline {chapter}{Referencias}{196}{appendix*.26}%
+\contentsline {section}{\numberline {14.7}Estructura de costos}{130}{section.14.7}%
+\contentsline {subsection}{\numberline {14.7.1}Costos variables: infraestructura Cloud medida}{130}{subsection.14.7.1}%
+\contentsline {subsection}{\numberline {14.7.2}Costo variable por escenario}{131}{subsection.14.7.2}%
+\contentsline {subsection}{\numberline {14.7.3}Costos fijos del negocio}{131}{subsection.14.7.3}%
+\contentsline {section}{\numberline {14.8}Metodología financiera a 36 meses}{132}{section.14.8}%
+\contentsline {section}{\numberline {14.9}Escenarios financieros: Pesimista, Base y Optimista}{133}{section.14.9}%
+\contentsline {section}{\numberline {14.10}Resultado del escenario Base conservador}{134}{section.14.10}%
+\contentsline {section}{\numberline {14.11}Análisis de sensibilidad}{134}{section.14.11}%
+\contentsline {section}{\numberline {14.12}Propuesta de Base Comercial Objetivo}{135}{section.14.12}%
+\contentsline {section}{\numberline {14.13}Comparación entre el Base conservador y el Base Comercial Objetivo}{135}{section.14.13}%
+\contentsline {section}{\numberline {14.14}Limitaciones del modelo económico}{136}{section.14.14}%
+\contentsline {section}{\numberline {14.15}Interpretación final}{137}{section.14.15}%
+\contentsline {chapter}{\numberline {15}Planificación académica general}{138}{chapter.15}%
+\contentsline {section}{\numberline {15.1}Criterio de planificación}{138}{section.15.1}%
+\contentsline {section}{\numberline {15.2}Planificación por entregables}{138}{section.15.2}%
+\contentsline {section}{\numberline {15.3}Gestión de cambios}{139}{section.15.3}%
+\contentsline {section}{\numberline {15.4}Riesgos de planificación}{139}{section.15.4}%
+\contentsline {section}{\numberline {15.5}Conclusión de la planificación}{140}{section.15.5}%
+\contentsline {chapter}{\numberline {A}Cronograma del proyecto}{141}{appendix.Alph1}%
+\contentsline {section}{\numberline {A.1}Calendario académico}{141}{section.Alph1.1}%
+\contentsline {section}{\numberline {A.2}Diagrama de Gantt}{142}{section.Alph1.2}%
+\contentsline {section}{\numberline {A.3}Desvíos respecto de la planificación original}{143}{section.Alph1.3}%
+\contentsline {chapter}{\numberline {B}Glosario de términos}{144}{appendix.Alph2}%
+\contentsline {chapter}{\numberline {C}Anatomía de la columna lumbar y los discos intervertebrales}{150}{appendix.Alph3}%
+\contentsline {section}{\numberline {C.1}Esquema simplificado de columna lumbar sagital}{150}{section.Alph3.1}%
+\contentsline {section}{\numberline {C.2}Esquema conceptual de segmentación.}{151}{section.Alph3.2}%
+\contentsline {chapter}{\numberline {D}Transcripciones de las entrevistas}{152}{appendix.Alph4}%
+\contentsline {section}{D.1 Entrevista 1 (EN-01) - Dra. Susana Torres (M.N. 179537)}{152}{section*.9}%
+\contentsline {section}{D.2 Entrevista 2 (EN-02) - Dr.~Gonzalo Brito}{156}{section*.10}%
+\contentsline {section}{D.3 Entrevista 3 (EN-03) - Dra. Claudia Cejas}{159}{section*.11}%
+\contentsline {section}{D.4 Entrevista 4 (EN-04) - Dr.~Bruno Bregonzi}{163}{section*.12}%
+\contentsline {section}{D.5 Entrevista 5 (EN-05) - Dr.~Eduardo Luis Castiglione}{166}{section*.13}%
+\contentsline {chapter}{\numberline {E}Configuración de entrenamiento de los modelos}{171}{appendix.Alph5}%
+\contentsline {section}{E.1 Parámetros de entrenamiento}{171}{section*.14}%
+\contentsline {section}{E.2 Aumentación de datos}{172}{section*.15}%
+\contentsline {section}{E.3 Controles de calidad al cierre del entrenamiento}{173}{section*.16}%
+\contentsline {section}{E.4 Trazabilidad de los artifacts}{173}{section*.17}%
+\contentsline {chapter}{\numberline {F}Evolución técnica del desarrollo}{174}{appendix.Alph6}%
+\contentsline {section}{\numberline {F.1}Evolución técnica alcanzada}{174}{section.Alph6.1}%
+\contentsline {subsection}{\numberline {F.1.1}Etapa fundacional y separación en tres repositorios}{174}{subsection.Alph6.1.1}%
+\contentsline {subsection}{\numberline {F.1.2}Backlogs técnicos por repositorio}{175}{subsection.Alph6.1.2}%
+\contentsline {subsection}{\numberline {F.1.3}Bloques coordinados de producto}{175}{subsection.Alph6.1.3}%
+\contentsline {subsection}{\numberline {F.1.4}Estado resultante para la entrega del 50 \%}{179}{subsection.Alph6.1.4}%
+\contentsline {section}{\numberline {F.2}Evolución del producto visible}{179}{section.Alph6.2}%
+\contentsline {section}{\numberline {F.3}Evolución del pipeline de inferencia}{181}{section.Alph6.3}%
+\contentsline {section}{\numberline {F.4}Organización interna del módulo de inteligencia artificial}{182}{section.Alph6.4}%
+\contentsline {section}{\numberline {F.5}Cierre tecnico final y fuente canonica}{182}{section.Alph6.5}%
+\contentsline {chapter}{\numberline {G}Registro de decisiones arquitectónicas}{184}{appendix.Alph7}%
+\contentsline {section}{ADR-001 --- Separación de Frontend, Backend y AI Module}{184}{section*.18}%
+\contentsline {section}{ADR-002 --- Spring Boot para el Backend y Python/FastAPI para el AI Module}{184}{section*.19}%
+\contentsline {section}{ADR-003 --- Backend como única frontera pública hacia el AI Module}{185}{section*.20}%
+\contentsline {section}{ADR-004 --- PostgreSQL para persistencia transaccional}{185}{section*.21}%
+\contentsline {section}{ADR-005 --- PyTorch como runtime de inferencia y ONNX Runtime diferido}{185}{section*.22}%
+\contentsline {section}{ADR-006 --- Separación entre código fuente y artifacts de datos y modelos}{186}{section*.23}%
+\contentsline {section}{ADR-007 --- Google Cloud como arquitectura objetivo de despliegue}{186}{section*.24}%
+\contentsline {section}{ADR-008 --- Inferencia fail-closed y revision profesional obligatoria}{187}{section*.24}%
+\contentsline {section}{ADR-009 --- Demo Mode deterministico y no clinico}{187}{section*.24}%
+\contentsline {section}{ADR-010 --- Integracion parcial del dominio Patient}{187}{section*.24}%
+\contentsline {section}{ADR-011 --- No aprendizaje automatico desde correcciones profesionales}{188}{section*.24}%
+\contentsline {chapter}{\numberline {H}Validaciones de producto con profesionales}{189}{appendix.Alph8}%
+\contentsline {section}{\numberline {H.1}Validacion Susana Torres}{189}{section.Alph8.1}%
+\contentsline {section}{\numberline {H.2}Validacion Claudia Cejas}{190}{section.Alph8.2}%
+\contentsline {section}{\numberline {H.3}Sintesis transversal}{192}{section.Alph8.3}%
+\contentsline {section}{\numberline {H.4}Validacion cruzada pendiente}{193}{section.Alph8.4}%
+\contentsline {chapter}{Referencias}{194}{appendix*.26}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 

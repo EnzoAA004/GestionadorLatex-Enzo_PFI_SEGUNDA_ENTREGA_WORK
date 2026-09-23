@@ -25,7 +25,12 @@ La fuente primaria de las cifras de este capítulo es el modelo financiero edita
 
 El producto se dirige a instituciones, no a pacientes individuales. El usuario que interactúa con el sistema --segmentación, mediciones, evidencia visual, comparación longitudinal y reporte estructurado-- es el profesional de diagnóstico por imágenes; quien contrata y paga el servicio es la institución de la que ese profesional forma parte.
 
-\begin{longtable}{>{\raggedright\arraybackslash}p{0.20\textwidth} >{\raggedright\arraybackslash}p{0.35\textwidth} >{\raggedright\arraybackslash}p{0.40\textwidth}}
+{\scriptsize
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.18\textwidth} >{\raggedright\arraybackslash}p{0.33\textwidth} >{\raggedright\arraybackslash}p{0.38\textwidth}}
 \caption{Roles económicos distinguidos en el modelo de negocio.}\label{tab:mn-roles}\\
 \hline
 \textbf{Rol} & \textbf{Descripción} & \textbf{Relación con el producto} \\
@@ -43,6 +48,7 @@ Referente técnico & Equipo de TI o infraestructura institucional & Evalúa desp
 Beneficiario indirecto & Paciente y equipo médico referente & Se beneficia únicamente a través de un flujo mediado por el profesional. \\
 \hline
 \end{longtable}
+}
 
 La propuesta de valor es asistiva y no diagnóstica: organiza segmentación, mediciones, evidencia visual, contexto longitudinal y reporte estructurado en un flujo trazable donde el radiólogo conserva la responsabilidad de interpretación y validación final. El sistema no realiza diagnóstico autónomo ni reemplaza el criterio profesional, condición que se mantiene como restricción de producto en todos los planes comerciales.
 
@@ -75,7 +81,12 @@ La segmentación reutiliza los mismos supuestos de adquisición, \textit{churn} 
 
 El esquema de \textit{pricing} combina una cuota de suscripción mensual, un volumen de estudios incluido y un cargo por estudio excedente. La Tabla~\ref{tab:mn-planes} presenta la estructura de planes correspondiente a la \textbf{Base Comercial Objetivo} (Sección~\ref{sec:mn-comercial-objetivo}), que es la propuesta de \textit{pricing} final de este capítulo.
 
-\begin{longtable}{>{\raggedright\arraybackslash}p{0.16\textwidth} >{\raggedright\arraybackslash}p{0.14\textwidth} >{\raggedright\arraybackslash}p{0.16\textwidth} >{\raggedright\arraybackslash}p{0.14\textwidth} >{\raggedright\arraybackslash}p{0.20\textwidth} >{\raggedright\arraybackslash}p{0.20\textwidth}}
+{\scriptsize
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.13\textwidth} >{\raggedright\arraybackslash}p{0.11\textwidth} >{\raggedright\arraybackslash}p{0.11\textwidth} >{\raggedright\arraybackslash}p{0.11\textwidth} >{\raggedright\arraybackslash}p{0.20\textwidth} >{\raggedright\arraybackslash}p{0.20\textwidth}}
 \caption{Tabla 1 --- Planes comerciales propuestos (Base Comercial Objetivo).}\label{tab:mn-planes}\\
 \hline
 \textbf{Plan} & \textbf{Cuota mensual} & \textbf{Estudios incluidos} & \textbf{Excedente/estudio} & \textbf{Destinatario} & \textbf{Estado de validación} \\
@@ -92,6 +103,7 @@ Professional & USD 1.850 & 500 & USD 7 & Centro de diagnóstico de volumen medio
 Enterprise & USD 5.200 & 1.500 & USD 4,50 & Institución grande o red de centros & Objetivo comercial; pendiente de validación \textit{willingness-to-pay} \\
 \hline
 \end{longtable}
+}
 
 Estos valores reemplazan, como propuesta final, un conjunto de precios más conservador utilizado en el escenario Base original del modelo financiero (Starter USD 600, Professional USD 1.600, Enterprise USD 4.500, con excedentes de USD 8, 6 y 4 respectivamente). La Sección~\ref{sec:mn-sensibilidad} explica por qué se propuso este ajuste y la Sección~\ref{sec:mn-comparacion} compara ambos conjuntos de resultados de forma explícita. Ninguno de los dos conjuntos de precios está validado por mercado; la diferencia entre ellos es una decisión de modelado informada por el análisis de sensibilidad, no evidencia comercial nueva.
 
@@ -117,7 +129,12 @@ Los costos del modelo se dividen en variables, que escalan con el volumen de est
 
 El componente Cloud del costo variable no es una estimación teórica: proviene de una medición real ejecutada sobre el entorno de Google Cloud desplegado para este proyecto (Backend, IA privada, Cloud SQL y almacenamiento durable en GCS), utilizando una \textit{fixture} DICOM sintética y no identificable, en 35 estudios medidos exitosamente sobre dos lotes independientes de 10 y 25 estudios cada uno, cuyos resultados convergieron de forma consistente.
 
-\begin{longtable}{>{\raggedright\arraybackslash}p{0.30\textwidth} >{\raggedright\arraybackslash}p{0.22\textwidth} >{\raggedright\arraybackslash}p{0.48\textwidth}}
+{\scriptsize
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.27\textwidth} >{\raggedright\arraybackslash}p{0.20\textwidth} >{\raggedright\arraybackslash}p{0.45\textwidth}}
 \caption{Tabla 4 --- Costos Cloud observados (evidencia experimental, Etapa 10/10B).}\label{tab:mn-costos-cloud}\\
 \hline
 \textbf{Componente} & \textbf{Costo por estudio (USD)} & \textbf{Observación} \\
@@ -136,6 +153,7 @@ Almacenamiento (GCS) & 0,0000078 & 391.490 bytes por estudio, valor idéntico en
 Costo fijo Cloud & 11,08 a 13,08 USD/mes & Dominado por Cloud SQL; no escala con el volumen de estudios. \\
 \hline
 \end{longtable}
+}
 
 \textbf{Aclaración obligatoria sobre el valor observado.} El costo variable de USD~0,00236 por estudio proviene de una \textit{fixture} DICOM sintética de menor resolución y complejidad que un estudio clínico real --imágenes de prueba de baja resolución diseñadas para ejercitar el mismo camino de código que un estudio real, no para representar su volumen de datos--. El tiempo de inferencia observado está dominado por la carga del modelo y el arranque de PyTorch, no por el procesamiento de píxeles de una imagen de resolución clínica. En consecuencia, este valor debe leerse como \textbf{piso observado o referencia experimental de la mecánica de costos}, y no como el costo definitivo de procesar estudios clínicos reales en producción. El modelo financiero de este capítulo compensa esa limitación aplicando un margen de escenario explícito (Sección~\ref{sec:mn-costos-escenarios}), en lugar de proyectar directamente el valor medido.
 
@@ -146,7 +164,12 @@ Adicionalmente, se confirmó durante esta medición que el costo fijo de Cloud (
 
 Para incorporar la incertidumbre sobre el costo real de procesar imágenes de resolución clínica, el modelo financiero define tres escenarios de costo Cloud, cada uno preservando la misma composición relativa Backend/IA/almacenamiento observada:
 
-\begin{longtable}{>{\raggedright\arraybackslash}p{0.30\textwidth} >{\raggedright\arraybackslash}p{0.30\textwidth} >{\raggedright\arraybackslash}p{0.40\textwidth}}
+{\scriptsize
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.27\textwidth} >{\raggedright\arraybackslash}p{0.27\textwidth} >{\raggedright\arraybackslash}p{0.37\textwidth}}
 \caption{Costo variable Cloud por escenario.}\label{tab:mn-costo-escenarios}\\
 \hline
 \textbf{Escenario} & \textbf{Costo variable/estudio (USD)} & \textbf{Interpretación} \\
@@ -163,6 +186,7 @@ Base & 0,0067 & Aproximadamente 2,8 veces el valor medido; margen moderado para 
 Pesimista & 0,020 & Aproximadamente 8,5 veces el valor medido; margen conservador ante incertidumbre de producción. \\
 \hline
 \end{longtable}
+}
 
 El escenario financiero Base de este capítulo (Sección~\ref{sec:mn-resultado-base}) utiliza el costo Cloud Base de esta tabla, no el valor optimista medido directamente.
 
@@ -223,7 +247,12 @@ El modelo define tres escenarios de adopción y costo sobre el mismo horizonte d
 
 La Tabla~\ref{tab:mn-escenarios-comparativa} resume los indicadores de los tres escenarios sobre la estructura de \textit{pricing} conservadora original, junto con el escenario Base Comercial Objetivo que se introduce en la Sección~\ref{sec:mn-comercial-objetivo}.
 
-\begin{longtable}{>{\raggedright\arraybackslash}p{0.20\textwidth} >{\raggedright\arraybackslash}p{0.14\textwidth} >{\raggedright\arraybackslash}p{0.14\textwidth} >{\raggedright\arraybackslash}p{0.14\textwidth} >{\raggedright\arraybackslash}p{0.13\textwidth} >{\raggedright\arraybackslash}p{0.13\textwidth}}
+{\scriptsize
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.19\textwidth} >{\raggedright\arraybackslash}p{0.13\textwidth} >{\raggedright\arraybackslash}p{0.13\textwidth} >{\raggedright\arraybackslash}p{0.13\textwidth} >{\raggedright\arraybackslash}p{0.12\textwidth} >{\raggedright\arraybackslash}p{0.12\textwidth}}
 \caption{Comparación de escenarios financieros a 36 meses.}\label{tab:mn-escenarios-comparativa}\\
 \hline
 \textbf{Escenario} & \textbf{MRR mes 36 (USD)} & \textbf{ARR \textit{run-rate} (USD)} & \textbf{VAN (USD)} & \textbf{TIR anual.} & \textbf{Payback} \\
@@ -241,6 +270,7 @@ Optimista & 74.020 & 888.237 & +678.867 & 541,3\% & mes 11 \\
 Base Comercial Objetivo & 18.735 & 224.826 & +17.477 & 41,9\% & mes 29 \\
 \hline
 \end{longtable}
+}
 
 El escenario Pesimista no alcanza punto de equilibrio operativo ni recupera la inversión dentro de los 36 meses modelados, y su patrón de flujo de fondos no permite calcular una TIR con significado económico. El escenario Optimista muestra la mejor combinación posible bajo supuestos favorables simultáneos y no debe leerse como el resultado esperado. El escenario Base conservador y el Base Comercial Objetivo se desarrollan en detalle en las secciones siguientes, porque son los que sostienen la interpretación final de este capítulo.
 
@@ -249,6 +279,11 @@ El escenario Pesimista no alcanza punto de equilibrio operativo ni recupera la i
 
 El escenario Base conservador utiliza los supuestos centrales de adquisición, \textit{churn} y volumen de estudios descritos en la Sección~\ref{sec:mn-escenarios}, el costo variable Cloud Base de la Tabla~\ref{tab:mn-costo-escenarios} y la estructura de \textit{pricing} conservadora original mencionada en la Sección~\ref{sec:mn-pricing} (Starter USD~600, Professional USD~1.600, Enterprise USD~4.500).
 
+{\scriptsize
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.18}
 \begin{longtable}{>{\raggedright\arraybackslash}p{0.45\textwidth} >{\raggedright\arraybackslash}p{0.45\textwidth}}
 \caption{Indicadores del escenario Base conservador, mes 36.}\label{tab:mn-base-resultado}\\
 \hline
@@ -271,6 +306,7 @@ Valor Actual Neto (VAN) & -USD~18.492 \\
 Tasa Interna de Retorno anualizada (TIR) & 7,3\% \\
 \hline
 \end{longtable}
+}
 
 El escenario Base conservador alcanza equilibrio operativo relativamente temprano, en el mes 16, y recupera la inversión inicial dentro del horizonte modelado, en el mes 35. Sin embargo, el Valor Actual Neto resulta negativo bajo la tasa de descuento del 25\% anual seleccionada, y la TIR anualizada de 7,3\% queda por debajo de esa tasa de descuento. En otras palabras: el negocio, bajo estos supuestos, se aproxima al equilibrio financiero pero no lo alcanza en términos de valor presente neto ni de retorno ajustado por riesgo, con la estructura de precios conservadora original.
 
@@ -279,7 +315,12 @@ El escenario Base conservador alcanza equilibrio operativo relativamente tempran
 
 Para identificar qué variable condiciona más la viabilidad del escenario Base, se recalculó el VAN variando una única palanca por vez, manteniendo el resto de los supuestos sin cambios: primero el \textit{pricing} en $\pm 20\%$, luego el costo variable Cloud en $\pm 30\%$.
 
-\begin{longtable}{>{\raggedright\arraybackslash}p{0.30\textwidth} >{\raggedright\arraybackslash}p{0.22\textwidth} >{\raggedright\arraybackslash}p{0.22\textwidth} >{\raggedright\arraybackslash}p{0.22\textwidth}}
+{\scriptsize
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.27\textwidth} >{\raggedright\arraybackslash}p{0.21\textwidth} >{\raggedright\arraybackslash}p{0.21\textwidth} >{\raggedright\arraybackslash}p{0.21\textwidth}}
 \caption{Tabla 3 --- Sensibilidad del VAN sobre el escenario Base.}\label{tab:mn-sensibilidad}\\
 \hline
 \textbf{Palanca} & \textbf{VAN (USD)} & \textbf{Punto de equilibrio} & \textbf{\textit{Payback}} \\
@@ -299,6 +340,7 @@ Costo Cloud/estudio base & -18.492 & mes 16 & mes 35 \\
 Costo Cloud/estudio +30\% & -18.609 & mes 16 & mes 35 \\
 \hline
 \end{longtable}
+}
 
 El contraste es contundente. Una variación de $\pm 20\%$ en el \textit{pricing} desplaza el VAN en más de USD~90.000 entre sus extremos --de -USD~63.896 a +USD~26.911-- y cambia el resultado cualitativo del proyecto, de claramente inviable a claramente viable bajo la tasa de descuento seleccionada. Una variación de $\pm 30\%$ en el costo variable Cloud, en cambio, mueve el VAN apenas USD~233 en total --de -USD~18.376 a -USD~18.609-- sin alterar el mes de equilibrio operativo ni el mes de \textit{payback} en ninguno de los dos sentidos.
 
@@ -316,7 +358,12 @@ La propuesta utiliza los planes de la Tabla~\ref{tab:mn-planes} (Starter USD~700
 \section{Comparación entre el Base conservador y el Base Comercial Objetivo}
 \label{sec:mn-comparacion}
 
-\begin{longtable}{>{\raggedright\arraybackslash}p{0.28\textwidth} >{\raggedright\arraybackslash}p{0.36\textwidth} >{\raggedright\arraybackslash}p{0.36\textwidth}}
+{\scriptsize
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} >{\raggedright\arraybackslash}p{0.33\textwidth} >{\raggedright\arraybackslash}p{0.33\textwidth}}
 \caption{Tabla 2 --- Base conservador frente a Base Comercial Objetivo.}\label{tab:mn-base-vs-objetivo}\\
 \hline
 \textbf{Indicador} & \textbf{Base conservador} & \textbf{Base Comercial Objetivo} \\
@@ -339,6 +386,7 @@ Punto de equilibrio operativo & mes 16 & mes 13 \\
 Margen bruto técnico mes 36 & $\approx$99,83\% & $\approx$99,85\% \\
 \hline
 \end{longtable}
+}
 
 Los clientes activos y el volumen de estudios procesados son idénticos entre ambos escenarios por construcción: la única variable que cambia es el \textit{pricing} y el cargo por excedente. Bajo ese único ajuste, el VAN pasa de negativo a positivo, la TIR anualizada pasa de 7,3\% a 41,9\% --superando ampliamente la tasa de descuento del 25\% anual utilizada--, el punto de equilibrio operativo se adelanta tres meses y el \textit{payback} se adelanta seis meses. El margen bruto técnico --ingreso menos costo variable de cómputo, IA y almacenamiento-- permanece por encima del 99\% en ambos casos, lo que confirma nuevamente que el costo de infraestructura no es la variable que separa un escenario viable de uno inviable en este modelo.
 

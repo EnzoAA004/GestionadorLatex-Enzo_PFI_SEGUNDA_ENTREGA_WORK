@@ -173,6 +173,69 @@ Secret scan & Sin credenciales reales & Hallazgos revisados como falsos positivo
 \end{longtable}
 }
 
+\section{Validación técnica en Google Cloud}
+\label{sec:resultados-cloud-e2e}
+
+La tabla anterior valida el prototipo en un entorno local/contenedorizado. Por separado, se ejecutó una validación técnica de extremo a extremo sobre el proyecto real de Google Cloud \texttt{pfi-asplanatti-fabrello-v1} (Backend Green \texttt{pfi-backend-v2-dev}, IA privada \texttt{pfi-ai-module}, Frontend \texttt{pfi-frontend-dev}, Cloud SQL \texttt{pfi-postgres-dev}, bucket durable \texttt{gs://pfi-backend-durable-dev} y bucket de checkpoint \texttt{gs://pfi-rm-lumbar-artifacts-2026-ef}), documentada en el repositorio Backend (\texttt{docs/cloud/CLOUD\_STAGE\_6} a \texttt{10B}). Esta evidencia es técnica de infraestructura, no clínica.
+
+{\scriptsize
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.30\textwidth} >{\raggedright\arraybackslash}p{0.14\textwidth} >{\raggedright\arraybackslash}p{0.48\textwidth}}
+\caption{Validación técnica de Cloud, extremo a extremo (Etapas 6--10B).}\label{tab:res-cloud-e2e}\\
+\hline
+\textbf{Verificación} & \textbf{Resultado} & \textbf{Interpretación} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Verificación} & \textbf{Resultado} & \textbf{Interpretación} \\
+\hline
+\endhead
+\hline
+\endfoot
+Autenticación privada Backend--IA & PASS & Google ID Token real, audiencia validada; acceso directo no autenticado a la IA responde 403. \\
+E2E completo con DICOM real & PASS & Carga, procesamiento y persistencia de un estudio DICOM real de punta a punta sobre los servicios Cloud. \\
+Durabilidad tras reinicio & PASS & Assets e índices recuperables tras reiniciar Backend/IA, con verificación de tamaño/checksum. \\
+Reproceso sin re-subida & PASS & \texttt{POST /studies/\{id\}/reprocess} reutiliza el ZIP durable ya almacenado; sin duplicar objetos en 16+ ejecuciones acumuladas. \\
+Persistencia final estable & Sí & Estable bajo reinicio y bajo concurrencia moderada, con evidencia cruzada (bytes en GCS, filas en SQL, checksums). \\
+Conmutación Frontend a Backend Green & PASS & \texttt{env.js} en runtime confirmado apuntando a \texttt{pfi-backend-v2-dev}. \\
+Recorrido browser completo en Cloud & Parcial & Verificado por capas (red, runtime config, autenticación); el click-through completo de subida de archivo quedó limitado por el tooling de automatización de navegador de la sesión, no por un defecto del producto. \\
+Modelo de costo real & Listo & Construido sobre mediciones reales (ver Tabla~\ref{tab:res-cloud-costos-performance}), no sobre estimaciones teóricas. \\
+Cierre técnico de la etapa Cloud & Completo & Las siete verificaciones anteriores cubren el alcance técnico definido para esta etapa. \\
+\hline
+\end{longtable}
+}
+
+{\scriptsize
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.20\textwidth} >{\raggedright\arraybackslash}p{0.16\textwidth} >{\raggedright\arraybackslash}p{0.16\textwidth} >{\raggedright\arraybackslash}p{0.16\textwidth} >{\raggedright\arraybackslash}p{0.28\textwidth}}
+\caption{Costo y performance Cloud medidos (Etapa 10/10B).}\label{tab:res-cloud-costos-performance}\\
+\hline
+\textbf{Lote} & \textbf{Éxito} & \textbf{p50} & \textbf{p95} & \textbf{Nota} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Lote} & \textbf{Éxito} & \textbf{p50} & \textbf{p95} & \textbf{Nota} \\
+\hline
+\endhead
+\hline
+\endfoot
+10 estudios & 10/10 & 19,465 s & 20,814 s & Fixture DICOM sintética, no identificable. \\
+25 estudios & 25/25 & 18,794 s & 21,812 s & Métricas convergentes respecto del lote de 10. \\
+50 estudios & No ejecutado & --- & --- & No fue necesario: las métricas ya habían convergido entre los lotes de 10 y 25. \\
+\hline
+\end{longtable}
+}
+
+El costo variable observado fue de aproximadamente USD~0,00236 por estudio (Backend + IA + almacenamiento), sobre una \textit{fixture} sintética de menor resolución que un estudio clínico real; se trata de un piso empírico de referencia, no del costo de operación clínica productiva. El desarrollo completo de este costo, su traducción a escenarios financieros (Optimista/Base/Pesimista) y su papel en el análisis de sensibilidad se presentan en el Capítulo~\ref{chap:modelo-negocio}, que reutiliza esta misma evidencia sin remedirla.
+
+Al cierre de este documento, el entorno Cloud fue pausado intencionalmente para minimizar consumo de crédito mientras continúa el trabajo de documentación (ningún recurso fue eliminado; Cloud SQL detenido, Cloud Run en su estado de costo cero por inactividad). El procedimiento de pausa y los comandos de restauración están documentados en el repositorio Backend (\texttt{docs/cloud/CLOUD\_PAUSE\_RESTORE\_COMMANDS.md}).
+
 \section{Niveles de validacion y alcance}
 \label{sec:resultados-niveles-validacion}
 

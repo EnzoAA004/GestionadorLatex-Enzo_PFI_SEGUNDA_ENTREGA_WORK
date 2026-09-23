@@ -141,32 +141,34 @@
 \contentsline {table}{\numberline {13.2}{Coeficiente Dice sobre la partición retenida, por modelo.}}{118}{table.13.2}%
 \contentsline {table}{\numberline {13.3}{Verificación por contraste de las mediciones sobre el estudio de referencia.}}{120}{table.13.3}%
 \contentsline {table}{\numberline {13.4}{Validacion tecnica final del prototipo.}}{121}{table.13.4}%
-\contentsline {table}{\numberline {13.5}{Cambios de producto derivados de la validacion profesional cualitativa.}}{124}{table.13.5}%
+\contentsline {table}{\numberline {13.5}{Validación técnica de Cloud, extremo a extremo (Etapas 6--10B).}}{122}{table.13.5}%
+\contentsline {table}{\numberline {13.6}{Costo y performance Cloud medidos (Etapa 10/10B).}}{122}{table.13.6}%
+\contentsline {table}{\numberline {13.7}{Cambios de producto derivados de la validacion profesional cualitativa.}}{125}{table.13.7}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {14.1}{Roles económicos distinguidos en el modelo de negocio.}}{128}{table.14.1}%
-\contentsline {table}{\numberline {14.2}{Tabla 1 --- Planes comerciales propuestos (Base Comercial Objetivo).}}{129}{table.14.2}%
-\contentsline {table}{\numberline {14.3}{Tabla 4 --- Costos Cloud observados (evidencia experimental, Etapa 10/10B).}}{130}{table.14.3}%
-\contentsline {table}{\numberline {14.4}{Costo variable Cloud por escenario.}}{131}{table.14.4}%
-\contentsline {table}{\numberline {14.5}{Comparación de escenarios financieros a 36 meses.}}{133}{table.14.5}%
-\contentsline {table}{\numberline {14.6}{Indicadores del escenario Base conservador, mes 36.}}{134}{table.14.6}%
-\contentsline {table}{\numberline {14.7}{Tabla 3 --- Sensibilidad del VAN sobre el escenario Base.}}{134}{table.14.7}%
-\contentsline {table}{\numberline {14.8}{Tabla 2 --- Base conservador frente a Base Comercial Objetivo.}}{135}{table.14.8}%
+\contentsline {table}{\numberline {14.1}{Roles económicos distinguidos en el modelo de negocio.}}{130}{table.14.1}%
+\contentsline {table}{\numberline {14.2}{Tabla 1 --- Planes comerciales propuestos (Base Comercial Objetivo).}}{131}{table.14.2}%
+\contentsline {table}{\numberline {14.3}{Tabla 4 --- Costos Cloud observados (evidencia experimental, Etapa 10/10B).}}{132}{table.14.3}%
+\contentsline {table}{\numberline {14.4}{Costo variable Cloud por escenario.}}{133}{table.14.4}%
+\contentsline {table}{\numberline {14.5}{Comparación de escenarios financieros a 36 meses.}}{135}{table.14.5}%
+\contentsline {table}{\numberline {14.6}{Indicadores del escenario Base conservador, mes 36.}}{136}{table.14.6}%
+\contentsline {table}{\numberline {14.7}{Tabla 3 --- Sensibilidad del VAN sobre el escenario Base.}}{136}{table.14.7}%
+\contentsline {table}{\numberline {14.8}{Tabla 2 --- Base conservador frente a Base Comercial Objetivo.}}{138}{table.14.8}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {15.1}{Roadmap actualizado para la entrega del 50 \%.}}{138}{table.15.1}%
+\contentsline {table}{\numberline {15.1}{Roadmap actualizado para la entrega del 50 \%.}}{141}{table.15.1}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {A.1}{Hitos académicos del proyecto.}}{141}{table.A.1}%
-\contentsline {table}{\numberline {A.2}{Distribución temporal de las actividades por carril.}}{142}{table.A.2}%
-\contentsline {table}{\numberline {A.3}{Desvíos registrados y justificación técnica.}}{143}{table.A.3}%
-\addvspace {10\p@ }
-\addvspace {10\p@ }
+\contentsline {table}{\numberline {A.1}{Hitos académicos del proyecto.}}{144}{table.A.1}%
+\contentsline {table}{\numberline {A.2}{Distribución temporal de las actividades por carril.}}{145}{table.A.2}%
+\contentsline {table}{\numberline {A.3}{Desvíos registrados y justificación técnica.}}{146}{table.A.3}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {E.1}{\ignorespaces Configuración comparada del entrenamiento de ambos modelos.}}{171}{table.Alph5.1}%
-\contentsline {table}{\numberline {E.2}{\ignorespaces Transformaciones de aumentación aplicadas durante el entrenamiento.}}{172}{table.Alph5.2}%
-\contentsline {table}{\numberline {E.3}{\ignorespaces Condiciones evaluadas antes de promover un artifact.}}{173}{table.Alph5.3}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {F.1}{Bloques coordinados de producto, de P8 a P10.9.}}{176}{table.F.1}%
-\contentsline {table}{\numberline {F.2}{Evolución de la implementación del pipeline de IA.}}{181}{table.F.2}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {E.1}{\ignorespaces Configuración comparada del entrenamiento de ambos modelos.}}{174}{table.Alph5.1}%
+\contentsline {table}{\numberline {E.2}{\ignorespaces Transformaciones de aumentación aplicadas durante el entrenamiento.}}{175}{table.Alph5.2}%
+\contentsline {table}{\numberline {E.3}{\ignorespaces Condiciones evaluadas antes de promover un artifact.}}{176}{table.Alph5.3}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {F.1}{Bloques coordinados de producto, de P8 a P10.9.}}{179}{table.F.1}%
+\contentsline {table}{\numberline {F.2}{Evolución de la implementación del pipeline de IA.}}{184}{table.F.2}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \babel@toc {spanish}{}\relax 

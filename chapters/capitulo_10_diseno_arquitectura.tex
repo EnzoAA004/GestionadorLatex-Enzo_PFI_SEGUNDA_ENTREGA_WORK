@@ -460,12 +460,12 @@ Las mediciones corresponden a una ejecución local containerizada del prototipo 
 \label{fig:arch-despliegue-google-cloud}
 \end{figure}
 
-El principio financiero adoptado es no crear un recurso cuyo costo máximo no pueda estimarse de antemano. Esta arquitectura debe leerse por estado de madurez: Artifact Registry/WIF, Backend Cloud Run DEV y Frontend Cloud Run DEV están desplegados y validados; AI Cloud Run privado, Cloud SQL, Secret Manager, storage productivo completo, DEMO environment y monitoreo/alerting live no están desplegados y no deben presentarse como parte del estado operativo actual.
+El principio financiero adoptado es no crear un recurso cuyo costo máximo no pueda estimarse de antemano. Esta arquitectura debe leerse por estado de madurez: Artifact Registry/WIF, Backend Cloud Run DEV (legacy y Green), Frontend Cloud Run DEV, AI Cloud Run privado, Cloud SQL, Secret Manager y storage durable están desplegados y validados de punta a punta (Capítulo~\ref{chap:resultados-evaluacion}, Sección~\ref{sec:resultados-validacion-final}); DEMO environment y monitoreo/alerting live no están desplegados y no deben presentarse como parte del estado operativo actual. El entorno Cloud se encuentra además pausado intencionalmente al cierre de este documento para minimizar consumo de crédito mientras continúa el trabajo de documentación; el procedimiento de pausa y el de restauración están documentados en el repositorio Backend (\texttt{docs/cloud/CLOUD\_PAUSE\_RESTORE\_COMMANDS.md}).
 
 
 \subsection{Estado real del despliegue Cloud}
 
-El estado Cloud final es mixto y debe documentarse por recurso, no como un bloque unico desplegado. La Tabla~\ref{tab:arch-cloud-estado-final} separa la evidencia disponible del objetivo arquitectonico pendiente.
+El estado Cloud final se documenta por recurso en la Tabla~\ref{tab:arch-cloud-estado-final}. Esta tabla resume el estado de despliegue de cada recurso; la evidencia técnica completa de extremo a extremo (autenticación privada, persistencia durable, resiliencia ante reinicio, reproceso sin re-subida, costo y performance reales) se desarrolla en el Capítulo~\ref{chap:resultados-evaluacion}, Sección~\ref{sec:resultados-cloud-e2e}.
 
 {\scriptsize
 \setlength{\LTleft}{0pt}
@@ -485,12 +485,12 @@ El estado Cloud final es mixto y debe documentarse por recurso, no como un bloqu
 \hline
 \endfoot
 Artifact Registry y Workload Identity Federation & Desplegado / validado & Existe evidencia de publicacion de imagenes y federacion CI hacia Google Cloud. \\
-Backend Cloud Run DEV & Desplegado / validado & Servicio DEV corroborado; no implica ambiente productivo ni DEMO final. \\
-Frontend Cloud Run DEV & Desplegado / validado & Servicio DEV corroborado; no implica ambiente productivo ni DEMO final. \\
-AI Cloud Run privado & No desplegado & El codigo de autenticacion con Google ID Token esta listo para despliegue, pero no fue ejercitado contra un servicio AI privado real. \\
-Cloud SQL & No desplegado & Permanece como arquitectura objetivo para persistencia gestionada. \\
-Secret Manager & No desplegado & Permanece como arquitectura objetivo para secretos fuera del codigo. \\
-Storage productivo & No desplegado & Permanece como arquitectura objetivo para modelos, volumenes y assets durables. \\
+Backend Cloud Run DEV (legacy y Green) & Desplegado / validado & Dos servicios: legacy (\texttt{pfi-backend-dev}) y Green (\texttt{pfi-backend-v2-dev}); el Frontend fue conmutado a Green (Capítulo~\ref{chap:resultados-evaluacion}). No implica ambiente productivo ni DEMO final. \\
+Frontend Cloud Run DEV & Desplegado / validado & Servicio DEV corroborado, apuntando en runtime a Backend Green; no implica ambiente productivo ni DEMO final. \\
+AI Cloud Run privado & Desplegado / validado & Autenticacion con Google ID Token ejercitada de punta a punta contra el servicio AI privado real; acceso no autenticado verificado en 403. \\
+Cloud SQL & Desplegado / validado & Utilizada como persistencia gestionada real (Postgres) para el Backend Green, con durabilidad verificada ante reinicio. \\
+Secret Manager & Desplegado / validado & \texttt{DATABASE\_URL} y el secreto JWT del Backend Green se sirven desde Secret Manager, no desde variables en texto plano. \\
+Storage durable (GCS) & Desplegado / validado & Dos buckets en uso real: assets durables del producto y checkpoint del modelo, con integridad verificada por tamaño tras materializacion. \\
 DEMO environment & No desplegado & No existe promocion DEV--DEMO ejecutada. \\
 Monitoring/alerting live & No desplegado & La observabilidad esta disenada, pero no operada con trafico real ni alertas live. \\
 \hline

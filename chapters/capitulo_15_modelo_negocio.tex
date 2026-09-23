@@ -1,0 +1,366 @@
+\chapter{Modelo de negocio y viabilidad económica}
+\label{chap:modelo-negocio}
+
+\section{Alcance y política de evidencia}
+\label{sec:mn-alcance}
+
+Este capítulo evalúa la viabilidad económica del producto como complemento a la evaluación técnica del Capítulo~\ref{chap:resultados-evaluacion}. Responde preguntas distintas: no si el prototipo segmenta correctamente, sino si un modelo comercial construido sobre él podría sostenerse financieramente bajo supuestos explícitos.
+
+Toda cifra que seguirá se clasifica en una de cuatro categorías, y esa clasificación se mantiene visible a lo largo del capítulo:
+
+\begin{itemize}
+    \item \textbf{Evidencia técnica medida}: proviene de la infraestructura Cloud desplegada y validada en el Capítulo~\ref{chap:resultados-evaluacion} y su documentación asociada, mediante cargas de trabajo reales ejecutadas sobre Google Cloud.
+    \item \textbf{Supuesto de negocio}: una elección de modelado --precio, adquisición de clientes, \textit{churn}, costos de soporte y mantenimiento-- necesaria para construir el flujo de fondos, sin respaldo en ventas reales.
+    \item \textbf{Escenario proyectado}: un resultado posible derivado de aplicar los supuestos anteriores a 36 meses.
+    \item \textbf{Propuesta comercial pendiente de validación}: un ajuste de \textit{pricing} derivado del modelo financiero, que todavía no fue contrastado con entrevistas de \textit{willingness-to-pay} ni con procesos reales de adquisición institucional.
+    \item Fuente de evidencia técnica: los estudios sintéticos utilizados en el Capítulo~\ref{chap:resultados-evaluacion} para medir costo real de Google Cloud.
+\end{itemize}
+
+Este capítulo no afirma que los precios propuestos estén validados por el mercado, que existan hospitales dispuestos a pagarlos, que exista demanda institucional demostrada, ni que un valor actual neto positivo garantice éxito comercial. Tampoco afirma que el costo de infraestructura observado corresponda a un volumen de estudios clínicos reales de resolución productiva: los estudios medidos fueron sintéticos, no identificables y de menor resolución que una resonancia lumbar clínica real, por lo que ese costo debe leerse como piso empírico de referencia, no como costo definitivo de operación clínica.
+
+La fuente primaria de las cifras de este capítulo es el modelo financiero editable \texttt{PFI\_RM\_LUMBAR\_FINANCIAL\_MODEL\_36M\_COMERCIAL\_TARGET.xlsx}, un libro de cálculo de 36 meses con hojas separadas de supuestos, \textit{pricing}, flujo de fondos, indicadores, escenarios, punto de equilibrio, sensibilidad, evidencia Cloud y propuesta comercial. El libro no fue modificado como parte de la redacción de este capítulo; se lo utilizó exclusivamente como fuente de lectura.
+
+\section{Modelo de negocio}
+\label{sec:mn-modelo}
+
+El producto se dirige a instituciones, no a pacientes individuales. El usuario que interactúa con el sistema --segmentación, mediciones, evidencia visual, comparación longitudinal y reporte estructurado-- es el profesional de diagnóstico por imágenes; quien contrata y paga el servicio es la institución de la que ese profesional forma parte.
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.20\textwidth} >{\raggedright\arraybackslash}p{0.35\textwidth} >{\raggedright\arraybackslash}p{0.40\textwidth}}
+\caption{Roles económicos distinguidos en el modelo de negocio.}\label{tab:mn-roles}\\
+\hline
+\textbf{Rol} & \textbf{Descripción} & \textbf{Relación con el producto} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Rol} & \textbf{Descripción} & \textbf{Relación con el producto} \\
+\hline
+\endhead
+\hline
+\endfoot
+Usuario & Radiólogo o profesional de diagnóstico por imágenes & Revisa, edita, valida y exporta resultados; conserva la responsabilidad de interpretación. \\
+Comprador económico & Centro de diagnóstico por imágenes, clínica u hospital & Contrata y paga la suscripción, integración y soporte. \\
+Referente técnico & Equipo de TI o infraestructura institucional & Evalúa despliegue, seguridad, integración y gobierno de datos. \\
+Beneficiario indirecto & Paciente y equipo médico referente & Se beneficia únicamente a través de un flujo mediado por el profesional. \\
+\hline
+\end{longtable}
+
+La propuesta de valor es asistiva y no diagnóstica: organiza segmentación, mediciones, evidencia visual, contexto longitudinal y reporte estructurado en un flujo trazable donde el radiólogo conserva la responsabilidad de interpretación y validación final. El sistema no realiza diagnóstico autónomo ni reemplaza el criterio profesional, condición que se mantiene como restricción de producto en todos los planes comerciales.
+
+\section{Justificación del modelo SaaS B2B}
+\label{sec:mn-justificacion-saas}
+
+Se adopta un modelo de suscripción \textit{business-to-business} (B2B) tipo \textit{Software as a Service} (SaaS), por sobre alternativas como licencia perpetua, venta \textit{on-premise} o cobro exclusivamente por estudio sin suscripción base. La justificación es doble.
+
+Primero, la infraestructura del producto ya está construida sobre un patrón de servicio gestionado --Backend, IA privada, base de datos y almacenamiento durable desplegados en Google Cloud, según el Capítulo~\ref{chap:resultados-evaluacion}-- por lo que un modelo de suscripción con actualizaciones continuas y sin instalación local en la institución compradora es coherente con la arquitectura ya validada, y evita trasladar a cada cliente la complejidad de operar su propia instancia.
+
+Segundo, el costo de infraestructura mostró dos características relevantes para la elección de modelo: es mayormente variable por estudio procesado, con un componente fijo de base de datos que no depende del volumen (Sección~\ref{sec:mn-costos}), lo que favorece un esquema de suscripción con volumen incluido y sobreconsumo cobrado aparte, en lugar de un precio plano independiente del uso o un cobro puramente transaccional sin previsibilidad de ingresos.
+
+Cada plan incluye revisión profesional obligatoria como condición no negociable, no como característica opcional: el modelo de negocio no ofrece, en ningún nivel, un modo de uso sin profesional a cargo.
+
+\section{Segmentación de clientes: Starter, Professional y Enterprise}
+\label{sec:mn-segmentacion}
+
+Se definen tres segmentos de cliente institucional, diferenciados por volumen mensual de estudios y complejidad organizacional, no por funcionalidad restringida de forma artificial:
+
+\begin{itemize}
+    \item \textbf{Starter}: centros pequeños o pilotos institucionales, con volumen mensual bajo y necesidad de validar el producto antes de un compromiso mayor.
+    \item \textbf{Professional}: centros de diagnóstico de volumen medio y hospitales docentes, con necesidad de revisión analítica y comparación longitudinal sistemática.
+    \item \textbf{Enterprise}: instituciones grandes o redes de centros, con volumen alto y requisitos adicionales de soporte, seguridad y acuerdos de nivel de servicio.
+\end{itemize}
+
+La segmentación reutiliza los mismos supuestos de adquisición, \textit{churn} y volumen de estudios por cliente en todos los escenarios financieros de este capítulo (Sección~\ref{sec:mn-escenarios}); lo que cambia entre escenarios es el precio y el volumen incluido por plan, no la definición de los segmentos.
+
+\section{Pricing por volumen de estudios}
+\label{sec:mn-pricing}
+
+El esquema de \textit{pricing} combina una cuota de suscripción mensual, un volumen de estudios incluido y un cargo por estudio excedente. La Tabla~\ref{tab:mn-planes} presenta la estructura de planes correspondiente a la \textbf{Base Comercial Objetivo} (Sección~\ref{sec:mn-comercial-objetivo}), que es la propuesta de \textit{pricing} final de este capítulo.
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.16\textwidth} >{\raggedright\arraybackslash}p{0.14\textwidth} >{\raggedright\arraybackslash}p{0.16\textwidth} >{\raggedright\arraybackslash}p{0.14\textwidth} >{\raggedright\arraybackslash}p{0.20\textwidth} >{\raggedright\arraybackslash}p{0.20\textwidth}}
+\caption{Tabla 1 --- Planes comerciales propuestos (Base Comercial Objetivo).}\label{tab:mn-planes}\\
+\hline
+\textbf{Plan} & \textbf{Cuota mensual} & \textbf{Estudios incluidos} & \textbf{Excedente/estudio} & \textbf{Destinatario} & \textbf{Estado de validación} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Plan} & \textbf{Cuota mensual} & \textbf{Estudios incluidos} & \textbf{Excedente/estudio} & \textbf{Destinatario} & \textbf{Estado de validación} \\
+\hline
+\endhead
+\hline
+\endfoot
+Starter & USD 700 & 120 & USD 9 & Centro pequeño o piloto institucional & Objetivo comercial; pendiente de validación \textit{willingness-to-pay} \\
+Professional & USD 1.850 & 500 & USD 7 & Centro de diagnóstico de volumen medio u hospital docente & Objetivo comercial; pendiente de validación \textit{willingness-to-pay} \\
+Enterprise & USD 5.200 & 1.500 & USD 4,50 & Institución grande o red de centros & Objetivo comercial; pendiente de validación \textit{willingness-to-pay} \\
+\hline
+\end{longtable}
+
+Estos valores reemplazan, como propuesta final, un conjunto de precios más conservador utilizado en el escenario Base original del modelo financiero (Starter USD 600, Professional USD 1.600, Enterprise USD 4.500, con excedentes de USD 8, 6 y 4 respectivamente). La Sección~\ref{sec:mn-sensibilidad} explica por qué se propuso este ajuste y la Sección~\ref{sec:mn-comparacion} compara ambos conjuntos de resultados de forma explícita. Ninguno de los dos conjuntos de precios está validado por mercado; la diferencia entre ellos es una decisión de modelado informada por el análisis de sensibilidad, no evidencia comercial nueva.
+
+\section{Estructura de ingresos}
+\label{sec:mn-ingresos}
+
+El ingreso mensual de cada cliente activo se compone de dos partidas:
+
+\begin{itemize}
+    \item \textbf{Ingreso por suscripción}: la cuota mensual fija del plan contratado, independiente del volumen efectivamente procesado dentro del límite incluido.
+    \item \textbf{Ingreso por excedente}: el producto entre los estudios procesados por encima del volumen incluido y el precio de excedente del plan, calculado como $\max(0,\ \text{estudios reales} - \text{estudios incluidos}) \times \text{precio de excedente}$.
+\end{itemize}
+
+El ingreso recurrente mensual total (\textit{Monthly Recurring Revenue}, MRR) es la suma de ingresos por suscripción y por excedente de todos los clientes activos en un mes dado. El ingreso recurrente anualizado (\textit{Annual Recurring Revenue}, ARR \textit{run-rate}) se estima como el MRR de un mes multiplicado por doce, bajo el supuesto de que ese nivel de ingreso se sostiene durante el año siguiente sin cambios --una proyección, no un contrato anual real.
+
+\section{Estructura de costos}
+\label{sec:mn-costos}
+
+Los costos del modelo se dividen en variables, que escalan con el volumen de estudios procesados, y fijos, que no dependen de dicho volumen dentro del horizonte modelado.
+
+\subsection{Costos variables: infraestructura Cloud medida}
+\label{sec:mn-costos-cloud}
+
+El componente Cloud del costo variable no es una estimación teórica: proviene de una medición real ejecutada sobre el entorno de Google Cloud desplegado para este proyecto (Backend, IA privada, Cloud SQL y almacenamiento durable en GCS), utilizando una \textit{fixture} DICOM sintética y no identificable, en 35 estudios medidos exitosamente sobre dos lotes independientes de 10 y 25 estudios cada uno, cuyos resultados convergieron de forma consistente.
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.30\textwidth} >{\raggedright\arraybackslash}p{0.22\textwidth} >{\raggedright\arraybackslash}p{0.48\textwidth}}
+\caption{Tabla 4 --- Costos Cloud observados (evidencia experimental, Etapa 10/10B).}\label{tab:mn-costos-cloud}\\
+\hline
+\textbf{Componente} & \textbf{Costo por estudio (USD)} & \textbf{Observación} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Componente} & \textbf{Costo por estudio (USD)} & \textbf{Observación} \\
+\hline
+\endhead
+\hline
+\endfoot
+Backend (Cloud Run) & 0,000485 & Tiempo de cómputo asignado durante la ingesta y la espera sincrónica de la respuesta de IA. \\
+IA (Cloud Run, privado) & 0,001869 & Componente dominante del costo variable; inferencia real sobre \textit{checkpoint} PyTorch. \\
+Almacenamiento (GCS) & 0,0000078 & 391.490 bytes por estudio, valor idéntico entre ambos lotes medidos. \\
+\textbf{Total variable observado} & \textbf{0,00236} & Piso empírico; no representa resolución clínica productiva (ver aclaración más abajo). \\
+Costo fijo Cloud & 11,08 a 13,08 USD/mes & Dominado por Cloud SQL; no escala con el volumen de estudios. \\
+\hline
+\end{longtable}
+
+\textbf{Aclaración obligatoria sobre el valor observado.} El costo variable de USD~0,00236 por estudio proviene de una \textit{fixture} DICOM sintética de menor resolución y complejidad que un estudio clínico real --imágenes de prueba de baja resolución diseñadas para ejercitar el mismo camino de código que un estudio real, no para representar su volumen de datos--. El tiempo de inferencia observado está dominado por la carga del modelo y el arranque de PyTorch, no por el procesamiento de píxeles de una imagen de resolución clínica. En consecuencia, este valor debe leerse como \textbf{piso observado o referencia experimental de la mecánica de costos}, y no como el costo definitivo de procesar estudios clínicos reales en producción. El modelo financiero de este capítulo compensa esa limitación aplicando un margen de escenario explícito (Sección~\ref{sec:mn-costos-escenarios}), en lugar de proyectar directamente el valor medido.
+
+Adicionalmente, se confirmó durante esta medición que el costo fijo de Cloud (USD~11,08--13,08 por mes) es órdenes de magnitud menor que el costo operativo fijo total del negocio (Sección~\ref{sec:mn-costos-fijos-negocio}): la infraestructura técnica representa una fracción marginal de la estructura de costos fijos, hallazgo que se retoma en la Sección~\ref{sec:mn-sensibilidad}.
+
+\subsection{Costo variable por escenario}
+\label{sec:mn-costos-escenarios}
+
+Para incorporar la incertidumbre sobre el costo real de procesar imágenes de resolución clínica, el modelo financiero define tres escenarios de costo Cloud, cada uno preservando la misma composición relativa Backend/IA/almacenamiento observada:
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.30\textwidth} >{\raggedright\arraybackslash}p{0.30\textwidth} >{\raggedright\arraybackslash}p{0.40\textwidth}}
+\caption{Costo variable Cloud por escenario.}\label{tab:mn-costo-escenarios}\\
+\hline
+\textbf{Escenario} & \textbf{Costo variable/estudio (USD)} & \textbf{Interpretación} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Escenario} & \textbf{Costo variable/estudio (USD)} & \textbf{Interpretación} \\
+\hline
+\endhead
+\hline
+\endfoot
+Optimista & 0,0024 & Igual al valor medido; supone que la resolución clínica no incrementa materialmente el tiempo de inferencia. \\
+Base & 0,0067 & Aproximadamente 2,8 veces el valor medido; margen moderado para mayor resolución de imagen real. \\
+Pesimista & 0,020 & Aproximadamente 8,5 veces el valor medido; margen conservador ante incertidumbre de producción. \\
+\hline
+\end{longtable}
+
+El escenario financiero Base de este capítulo (Sección~\ref{sec:mn-resultado-base}) utiliza el costo Cloud Base de esta tabla, no el valor optimista medido directamente.
+
+\subsection{Costos fijos del negocio}
+\label{sec:mn-costos-fijos-negocio}
+
+Más allá de la infraestructura Cloud, el modelo incorpora costos fijos operativos mensuales que sostienen el negocio como organización, no como sistema técnico:
+
+\begin{itemize}
+    \item Mantenimiento y desarrollo de software.
+    \item Soporte base a clientes.
+    \item Administración, contabilidad y aspectos legales.
+    \item Comercialización y actividades de adquisición de clientes.
+    \item Gastos fijos misceláneos.
+\end{itemize}
+
+En el escenario Base, estos rubros --sumados al costo fijo de Cloud-- totalizan aproximadamente USD~8.112 por mes, de los cuales el costo técnico de Cloud representa apenas cerca del 0,15\% del total. Este dato sostiene numéricamente la afirmación central de la Sección~\ref{sec:mn-sensibilidad}: la infraestructura técnica no es la restricción económica relevante del negocio.
+
+A esto se suma un costo variable de soporte por cliente activo, que escala con la cantidad de clientes y no con el volumen de estudios, y una inversión inicial (\textit{CAPEX}) que cubre desarrollo remanente, configuración de infraestructura Cloud y preparación de lanzamiento.
+
+\section{Metodología financiera a 36 meses}
+\label{sec:mn-metodologia}
+
+El modelo proyecta un flujo de fondos mensual a 36 meses, con la siguiente estructura de cálculo:
+
+\begin{align*}
+\text{Clientes activos}(t) &= \text{Clientes activos}(t-1) + \text{Nuevos}(t) - \text{Bajas}(t) \\
+\text{Ingreso por suscripción}(t) &= \sum_{\text{planes}} \text{clientes activos} \times \text{cuota mensual} \\
+\text{Ingreso por excedente}(t) &= \max(0,\ \text{estudios reales} - \text{estudios incluidos}) \times \text{precio de excedente} \\
+\text{Ingreso total}(t) &= \text{Ingreso por suscripción}(t) + \text{Ingreso por excedente}(t) \\
+\text{Costos variables}(t) &= \text{estudios procesados} \times \text{costo variable/estudio} + \text{soporte variable} \\
+\text{Flujo operativo}(t) &= \text{Ingreso total}(t) - \text{Costos variables}(t) - \text{Costos fijos}(t) \\
+\text{Flujo neto}(t) &= \text{Flujo operativo}(t) - \text{CAPEX/gastos únicos}(t) \\
+\text{Flujo acumulado}(t) &= \text{Flujo acumulado}(t-1) + \text{Flujo neto}(t)
+\end{align*}
+
+Sobre esta serie mensual se calculan cuatro indicadores financieros estándar:
+
+\begin{itemize}
+    \item \textbf{Punto de equilibrio operativo}: el primer mes en que el ingreso total cubre los costos variables y fijos del mes ($\text{Ingreso total} \geq \text{Costos variables} + \text{Costos fijos}$).
+    \item \textbf{\textit{Payback} (recuperación de la inversión)}: el primer mes en que el flujo de fondos acumulado es mayor o igual a cero.
+    \item \textbf{Valor Actual Neto (VAN)}: la inversión inicial negativa más la suma de los flujos de fondos netos mensuales descontados a una tasa mensual derivada de la tasa de descuento anual seleccionada, $\text{VAN} = -\text{Inversión inicial} + \sum_{t=1}^{36} \dfrac{\text{Flujo neto}(t)}{(1+r_m)^t}$, con $r_m = (1+r_a)^{1/12}-1$.
+    \item \textbf{Tasa Interna de Retorno (TIR)}: la tasa de descuento mensual que hace el VAN igual a cero, reportada además en su forma anualizada, $\text{TIR}_{\text{anual}} = (1+\text{TIR}_{\text{mensual}})^{12}-1$.
+\end{itemize}
+
+La tasa de descuento anual utilizada en el escenario Base es del 25\%, seleccionada como tasa de riesgo ajustada para un producto en etapa de prototipo, y no como una tasa de mercado validada externamente.
+
+\section{Escenarios financieros: Pesimista, Base y Optimista}
+\label{sec:mn-escenarios}
+
+El modelo define tres escenarios de adopción y costo sobre el mismo horizonte de 36 meses, variando simultáneamente adquisición de clientes, volumen de estudios por cliente, \textit{churn}, \textit{pricing} y costo variable Cloud (Tabla~\ref{tab:mn-costo-escenarios}):
+
+\begin{itemize}
+    \item \textbf{Pesimista}: adquisición lenta de clientes, volumen de estudios por cliente bajo, mayor \textit{churn}, menor tarifa efectiva y mayor costo variable por estudio. Sirve para evaluar el riesgo a la baja y la estructura operativa mínima viable.
+    \item \textbf{Base}: adopción gradual, volumen de estudios moderado, suscripción estable, costos variables controlados y algo de ingreso por excedente. Es el caso central antes de validar supuestos comerciales.
+    \item \textbf{Optimista}: adquisición más rápida, mayor volumen de estudios, mayor proporción de clientes en planes superiores, menor \textit{churn} y mejor eficiencia de infraestructura por estudio. Sirve para evaluar escalabilidad y atractivo de inversión bajo condiciones favorables.
+\end{itemize}
+
+La Tabla~\ref{tab:mn-escenarios-comparativa} resume los indicadores de los tres escenarios sobre la estructura de \textit{pricing} conservadora original, junto con el escenario Base Comercial Objetivo que se introduce en la Sección~\ref{sec:mn-comercial-objetivo}.
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.20\textwidth} >{\raggedright\arraybackslash}p{0.14\textwidth} >{\raggedright\arraybackslash}p{0.14\textwidth} >{\raggedright\arraybackslash}p{0.14\textwidth} >{\raggedright\arraybackslash}p{0.13\textwidth} >{\raggedright\arraybackslash}p{0.13\textwidth}}
+\caption{Comparación de escenarios financieros a 36 meses.}\label{tab:mn-escenarios-comparativa}\\
+\hline
+\textbf{Escenario} & \textbf{MRR mes 36 (USD)} & \textbf{ARR \textit{run-rate} (USD)} & \textbf{VAN (USD)} & \textbf{TIR anual.} & \textbf{Payback} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Escenario} & \textbf{MRR mes 36 (USD)} & \textbf{ARR \textit{run-rate} (USD)} & \textbf{VAN (USD)} & \textbf{TIR anual.} & \textbf{Payback} \\
+\hline
+\endhead
+\hline
+\endfoot
+Pesimista & 2.147 & 25.769 & -105.094 & n/a (sin cambio de signo) & no alcanzado en 36 meses \\
+Base (conservador) & 16.175 & 194.098 & -18.492 & 7,3\% & mes 35 \\
+Optimista & 74.020 & 888.237 & +678.867 & 541,3\% & mes 11 \\
+Base Comercial Objetivo & 18.735 & 224.826 & +17.477 & 41,9\% & mes 29 \\
+\hline
+\end{longtable}
+
+El escenario Pesimista no alcanza punto de equilibrio operativo ni recupera la inversión dentro de los 36 meses modelados, y su patrón de flujo de fondos no permite calcular una TIR con significado económico. El escenario Optimista muestra la mejor combinación posible bajo supuestos favorables simultáneos y no debe leerse como el resultado esperado. El escenario Base conservador y el Base Comercial Objetivo se desarrollan en detalle en las secciones siguientes, porque son los que sostienen la interpretación final de este capítulo.
+
+\section{Resultado del escenario Base conservador}
+\label{sec:mn-resultado-base}
+
+El escenario Base conservador utiliza los supuestos centrales de adquisición, \textit{churn} y volumen de estudios descritos en la Sección~\ref{sec:mn-escenarios}, el costo variable Cloud Base de la Tabla~\ref{tab:mn-costo-escenarios} y la estructura de \textit{pricing} conservadora original mencionada en la Sección~\ref{sec:mn-pricing} (Starter USD~600, Professional USD~1.600, Enterprise USD~4.500).
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.45\textwidth} >{\raggedright\arraybackslash}p{0.45\textwidth}}
+\caption{Indicadores del escenario Base conservador, mes 36.}\label{tab:mn-base-resultado}\\
+\hline
+\textbf{Indicador} & \textbf{Valor} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Indicador} & \textbf{Valor} \\
+\hline
+\endhead
+\hline
+\endfoot
+MRR mes 36 & USD~16.175 \\
+ARR \textit{run-rate} & USD~194.098 \\
+Clientes activos mes 36 & 13,41 \\
+Estudios procesados mes 36 & 4.185 \\
+Punto de equilibrio operativo & mes 16 \\
+\textit{Payback} (recuperación de la inversión) & mes 35 \\
+Valor Actual Neto (VAN) & -USD~18.492 \\
+Tasa Interna de Retorno anualizada (TIR) & 7,3\% \\
+\hline
+\end{longtable}
+
+El escenario Base conservador alcanza equilibrio operativo relativamente temprano, en el mes 16, y recupera la inversión inicial dentro del horizonte modelado, en el mes 35. Sin embargo, el Valor Actual Neto resulta negativo bajo la tasa de descuento del 25\% anual seleccionada, y la TIR anualizada de 7,3\% queda por debajo de esa tasa de descuento. En otras palabras: el negocio, bajo estos supuestos, se aproxima al equilibrio financiero pero no lo alcanza en términos de valor presente neto ni de retorno ajustado por riesgo, con la estructura de precios conservadora original.
+
+\section{Análisis de sensibilidad}
+\label{sec:mn-sensibilidad}
+
+Para identificar qué variable condiciona más la viabilidad del escenario Base, se recalculó el VAN variando una única palanca por vez, manteniendo el resto de los supuestos sin cambios: primero el \textit{pricing} en $\pm 20\%$, luego el costo variable Cloud en $\pm 30\%$.
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.30\textwidth} >{\raggedright\arraybackslash}p{0.22\textwidth} >{\raggedright\arraybackslash}p{0.22\textwidth} >{\raggedright\arraybackslash}p{0.22\textwidth}}
+\caption{Tabla 3 --- Sensibilidad del VAN sobre el escenario Base.}\label{tab:mn-sensibilidad}\\
+\hline
+\textbf{Palanca} & \textbf{VAN (USD)} & \textbf{Punto de equilibrio} & \textbf{\textit{Payback}} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Palanca} & \textbf{VAN (USD)} & \textbf{Punto de equilibrio} & \textbf{\textit{Payback}} \\
+\hline
+\endhead
+\hline
+\endfoot
+\textit{Pricing} -20\% & -63.896 & mes 21 & no alcanzado en 36 meses \\
+Base (referencia) & -18.492 & mes 16 & mes 35 \\
+\textit{Pricing} +20\% & +26.911 & mes 12 & mes 28 \\
+Costo Cloud/estudio -30\% & -18.376 & mes 16 & mes 35 \\
+Costo Cloud/estudio base & -18.492 & mes 16 & mes 35 \\
+Costo Cloud/estudio +30\% & -18.609 & mes 16 & mes 35 \\
+\hline
+\end{longtable}
+
+El contraste es contundente. Una variación de $\pm 20\%$ en el \textit{pricing} desplaza el VAN en más de USD~90.000 entre sus extremos --de -USD~63.896 a +USD~26.911-- y cambia el resultado cualitativo del proyecto, de claramente inviable a claramente viable bajo la tasa de descuento seleccionada. Una variación de $\pm 30\%$ en el costo variable Cloud, en cambio, mueve el VAN apenas USD~233 en total --de -USD~18.376 a -USD~18.609-- sin alterar el mes de equilibrio operativo ni el mes de \textit{payback} en ninguno de los dos sentidos.
+
+La conclusión técnica de este análisis es clara: \textbf{la sensibilidad del VAN al \textit{pricing} institucional es varios órdenes de magnitud mayor que su sensibilidad al costo de infraestructura Cloud}. La variable técnica que este trabajo controla directamente --el costo de cómputo, IA y almacenamiento por estudio-- tiene un efecto marginal sobre la viabilidad económica del negocio. Los principales condicionantes pasan a ser el \textit{pricing} institucional, la velocidad de adquisición de clientes, el \textit{churn}, y la estructura de costos de mantenimiento, soporte y comercialización, ninguno de los cuales fue medido empíricamente en este trabajo.
+
+\section{Propuesta de Base Comercial Objetivo}
+\label{sec:mn-comercial-objetivo}
+
+A partir del hallazgo de la Sección~\ref{sec:mn-sensibilidad}, se construyó un escenario comercial objetivo que modifica \'unicamente el \textit{pricing} y el cargo por excedente respecto del escenario Base conservador, manteniendo sin cambios la adquisición de clientes, el \textit{churn}, el volumen de estudios, el costo variable Cloud, el costo de soporte y la estructura de costos fijos operativos.
+
+La propuesta utiliza los planes de la Tabla~\ref{tab:mn-planes} (Starter USD~700/120 estudios/USD~9 excedente; Professional USD~1.850/500 estudios/USD~7 excedente; Enterprise USD~5.200/1.500 estudios/USD~4,50 excedente), redondeados a partir de un barrido de incrementos de \textit{pricing} sobre el Base conservador que exploró aumentos del $+10\%$, $+12,5\%$ y $+15\%$ antes de fijar el valor propuesto.
+
+\textbf{Esta propuesta de \textit{pricing} es un objetivo comercial derivado del modelo financiero y del análisis de sensibilidad, no un resultado validado por investigación de mercado, entrevistas de \textit{willingness-to-pay} ni procesos reales de adquisición institucional.} Se presenta como hipótesis de trabajo a validar, no como conclusión comercial.
+
+\section{Comparación entre el Base conservador y el Base Comercial Objetivo}
+\label{sec:mn-comparacion}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.28\textwidth} >{\raggedright\arraybackslash}p{0.36\textwidth} >{\raggedright\arraybackslash}p{0.36\textwidth}}
+\caption{Tabla 2 --- Base conservador frente a Base Comercial Objetivo.}\label{tab:mn-base-vs-objetivo}\\
+\hline
+\textbf{Indicador} & \textbf{Base conservador} & \textbf{Base Comercial Objetivo} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Indicador} & \textbf{Base conservador} & \textbf{Base Comercial Objetivo} \\
+\hline
+\endhead
+\hline
+\endfoot
+MRR mes 36 & USD~16.175 & USD~18.735 \\
+ARR \textit{run-rate} & USD~194.098 & USD~224.826 \\
+Clientes activos mes 36 & 13,41 & 13,41 (sin cambio) \\
+Estudios procesados mes 36 & 4.185 & 4.185 (sin cambio) \\
+VAN & -USD~18.492 & +USD~17.477 \\
+TIR anualizada & 7,3\% & 41,9\% \\
+Punto de equilibrio operativo & mes 16 & mes 13 \\
+\textit{Payback} & mes 35 & mes 29 \\
+Margen bruto técnico mes 36 & $\approx$99,83\% & $\approx$99,85\% \\
+\hline
+\end{longtable}
+
+Los clientes activos y el volumen de estudios procesados son idénticos entre ambos escenarios por construcción: la única variable que cambia es el \textit{pricing} y el cargo por excedente. Bajo ese único ajuste, el VAN pasa de negativo a positivo, la TIR anualizada pasa de 7,3\% a 41,9\% --superando ampliamente la tasa de descuento del 25\% anual utilizada--, el punto de equilibrio operativo se adelanta tres meses y el \textit{payback} se adelanta seis meses. El margen bruto técnico --ingreso menos costo variable de cómputo, IA y almacenamiento-- permanece por encima del 99\% en ambos casos, lo que confirma nuevamente que el costo de infraestructura no es la variable que separa un escenario viable de uno inviable en este modelo.
+
+\section{Limitaciones del modelo económico}
+\label{sec:mn-limitaciones}
+
+\begin{enumerate}
+    \item Ningún precio de este capítulo está validado por investigación de mercado, entrevistas de \textit{willingness-to-pay} con compradores institucionales reales, ni procesos de adquisición o licitación efectivamente realizados.
+    \item No existen clientes, contratos, cartas de intención ni ventas reales asociadas a este producto; todo el flujo de fondos es una proyección construida sobre supuestos de adopción, \textit{churn} y volumen no observados.
+    \item El costo variable Cloud medido (Sección~\ref{sec:mn-costos-cloud}) proviene de una \textit{fixture} sintética de menor resolución que un estudio clínico real; el modelo compensa esta limitación con escenarios de margen (Sección~\ref{sec:mn-costos-escenarios}), pero esos márgenes son supuestos de modelado, no mediciones adicionales.
+    \item Los costos fijos de mantenimiento, soporte, administración y comercialización (Sección~\ref{sec:mn-costos-fijos-negocio}) son supuestos de negocio sin respaldo en una estructura de equipo o proveedores contratados; no provienen de cotizaciones reales.
+    \item La tasa de descuento anual del 25\% utilizada en el escenario Base es una elección de modelado --tasa de riesgo ajustada para un prototipo en etapa temprana-- y no una tasa de mercado, de costo de capital institucional ni de referencia sectorial validada externamente.
+    \item El horizonte de 36 meses y la ausencia de eventos posteriores --nuevas rondas de inversión, cambios regulatorios, competencia entrante-- son simplificaciones del modelo, no proyecciones de la realidad completa del mercado.
+    \item Un Valor Actual Neto positivo bajo estos supuestos no garantiza éxito comercial; únicamente indica que, si los supuestos se cumplieran, el proyecto generaría valor presente positivo bajo la tasa de descuento elegida.
+    \item El modelo no incorpora costos regulatorios ni de certificación sanitaria que podrían ser exigidos según jurisdicción, y que quedan fuera del alcance de este capítulo.
+    \item La estructura de \textit{pricing} por volumen de estudios no fue comparada de forma sistemática contra herramientas competidoras de segmentación o flujo de trabajo en imagenología, más allá de la referencia general al Capítulo~\ref{chap:resultados-evaluacion}.
+    \item El costo de infraestructura Cloud fue medido sobre un único entorno de desarrollo (\textit{DEV}), no sobre un entorno productivo con los volúmenes, redundancia y requisitos de disponibilidad de una operación institucional real; la Sección~\ref{sec:mn-costos-fijos-negocio} no incorpora, por ejemplo, alta disponibilidad de base de datos ni monitoreo productivo.
+\end{enumerate}
+
+\section{Interpretación final}
+\label{sec:mn-interpretacion}
+
+La evaluación económica indica que la infraestructura técnica no constituye el principal condicionante de la sostenibilidad financiera del producto. Bajo el escenario Base conservador, el proyecto alcanza equilibrio operativo y recupera la inversión dentro del horizonte analizado, aunque no genera Valor Actual Neto positivo bajo la tasa de descuento seleccionada. El análisis de sensibilidad muestra que la variable de mayor impacto es el \textit{pricing} institucional, mientras que las variaciones del costo Cloud presentan un efecto marginal. A partir de estos resultados se propone un esquema comercial objetivo basado en suscripción SaaS por volumen de estudios, que permite alcanzar indicadores financieros positivos sin modificar los supuestos de adopción, \textit{churn} o estructura operativa. No obstante, dicho \textit{pricing} constituye una propuesta derivada del modelo y requiere validación comercial mediante entrevistas de \textit{willingness-to-pay} y procesos reales de adquisición institucional.
+
+En síntesis, este capítulo no concluye que el proyecto no sea viable, ni que ya sea comercialmente viable. Concluye que la factibilidad técnica y de infraestructura fue validada de forma empírica sobre Google Cloud; que el costo de esa infraestructura no representa una barrera económica relevante frente a los demás costos operativos del negocio; que el escenario financiero conservador se aproxima al equilibrio sin alcanzar valor presente positivo; y que un ajuste moderado y explícito de \textit{pricing} --todavía sin validar comercialmente-- alcanzaría indicadores financieros positivos bajo los mismos supuestos de adopción y costos. La validación de ese \textit{pricing} con compradores institucionales reales queda, junto con la validación clínica descrita en el Capítulo~\ref{chap:resultados-evaluacion}, como trabajo futuro explícito y no resuelto por este trabajo.

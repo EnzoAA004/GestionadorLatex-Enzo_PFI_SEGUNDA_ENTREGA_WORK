@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1430" height="1180" viewBox="0 0 1430 1180"><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="context-stroke" /></marker><marker id="arrowopen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10" fill="none" stroke="context-stroke" stroke-width="1.6" /></marker><marker id="diamond" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M 0 6 L 6 1 L 12 6 L 6 11 z" fill="context-stroke" /></marker><marker id="triangle" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M 0 0 L 12 6 L 0 12 z" fill="#ffffff" stroke="context-stroke" stroke-width="1.3" /></marker></defs><rect width="1430" height="1180" fill="#ffffff" /><text x="715.0" y="34.0" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" font-style="normal" fill="#16305c" text-anchor="middle">Automatizacion de integracion y publicacion en Google Cloud</text>
+<text x="715.0" y="56.0" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12.4" font-weight="normal" font-style="normal" fill="#4b5563" text-anchor="middle">GitHub -&gt; GitHub Actions -&gt; autenticacion federada (OIDC/WIF) -&gt; Artifact Registry -&gt; promocion controlada a Cloud Run</text>
+<rect x="20.0" y="90.0" width="1390.0" height="130.0" rx="3" fill="#fbfcfe" stroke="#e2e8f1" stroke-width="1.0" />
+<rect x="20.0" y="90.0" width="118.0" height="130.0" rx="3" fill="#eef3fb" stroke="#1f4e9c" stroke-width="1.2" />
+<text x="79.0" y="150.0" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" fill="#1f4e9c" text-anchor="middle">CODIGO</text>
+<text x="79.0" y="172.0" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" fill="#1f4e9c" text-anchor="middle">FUENTE</text>
+<rect x="20.0" y="240.0" width="1390.0" height="170.0" rx="3" fill="#fbfcfe" stroke="#e2e8f1" stroke-width="1.0" />
+<rect x="20.0" y="240.0" width="118.0" height="170.0" rx="3" fill="#eaf4ef" stroke="#2f7d5f" stroke-width="1.2" />
+<text x="79.0" y="320.0" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" fill="#2f7d5f" text-anchor="middle">GITHUB</text>
+<text x="79.0" y="342.0" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" fill="#2f7d5f" text-anchor="middle">ACTIONS</text>
+<rect x="20.0" y="430.0" width="1390.0" height="190.0" rx="3" fill="#fbfcfe" stroke="#e2e8f1" stroke-width="1.0" />
+<rect x="20.0" y="430.0" width="118.0" height="190.0" rx="3" fill="#f2eefa" stroke="#5b3f8f" stroke-width="1.2" />
+<text x="79.0" y="520.0" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" fill="#5b3f8f" text-anchor="middle">AUTENTICACION</text>
+<text x="79.0" y="542.0" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" fill="#5b3f8f" text-anchor="middle">FEDERADA</text>
+<rect x="20.0" y="640.0" width="1390.0" height="190.0" rx="3" fill="#fbfcfe" stroke="#e2e8f1" stroke-width="1.0" />
+<rect x="20.0" y="640.0" width="118.0" height="190.0" rx="3" fill="#e8f5f5" stroke="#1f7a7a" stroke-width="1.2" />
+<text x="79.0" y="730.0" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" fill="#1f7a7a" text-anchor="middle">ARTIFACT</text>
+<text x="79.0" y="752.0" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" fill="#1f7a7a" text-anchor="middle">REGISTRY</text>
+<rect x="20.0" y="850.0" width="1390.0" height="130.0" rx="3" fill="#fbfcfe" stroke="#e2e8f1" stroke-width="1.0" />
+<rect x="20.0" y="850.0" width="118.0" height="130.0" rx="3" fill="#fdf3e3" stroke="#b07316" stroke-width="1.2" />
+<text x="79.0" y="921.0" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" fill="#b07316" text-anchor="middle">CLOUD RUN</text>
+<rect x="140.0" y="110.0" width="380.0" height="90.0" rx="4.0" fill="#eef3fb" stroke="#1f4e9c" stroke-width="1.2" />
+<text x="330.0" y="151.5" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f2937" text-anchor="middle">Backend repository</text>
+<text x="330.0" y="169.0" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" font-style="normal" fill="#4b5563" text-anchor="middle">PFI_MVPTest_Enzo_Backend</text>
+<rect x="550.0" y="110.0" width="380.0" height="90.0" rx="4.0" fill="#eef3fb" stroke="#1f4e9c" stroke-width="1.2" />
+<text x="740.0" y="151.5" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f2937" text-anchor="middle">Frontend repository</text>
+<text x="740.0" y="169.0" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" font-style="normal" fill="#4b5563" text-anchor="middle">PFI_MVPTest_Enzo_Frontend</text>
+<rect x="960.0" y="110.0" width="380.0" height="90.0" rx="4.0" fill="#eef3fb" stroke="#1f4e9c" stroke-width="1.2" />
+<text x="1150.0" y="151.5" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f2937" text-anchor="middle">AI Module repository</text>
+<text x="1150.0" y="169.0" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" font-style="normal" fill="#4b5563" text-anchor="middle">PFI_MVPTest_Enzo_AImodule</text>
+<text x="140.0" y="262.0" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#2f7d5f" text-anchor="start">Workflow: cloud-03-publish-image.yml</text>
+<rect x="165.0" y="280.0" width="290.0" height="80.0" rx="4.0" fill="#eaf4ef" stroke="#2f7d5f" stroke-width="1.2" />
+<text x="310.0" y="308.2" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" fill="#1f2937" text-anchor="middle">Disparo</text>
+<text x="310.0" y="324.8" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#4b5563" text-anchor="middle">push a rama Cloud aislada</text>
+<text x="310.0" y="341.2" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#4b5563" text-anchor="middle">o workflow_dispatch</text>
+<rect x="475.0" y="280.0" width="290.0" height="80.0" rx="4.0" fill="#eaf4ef" stroke="#2f7d5f" stroke-width="1.2" />
+<text x="620.0" y="316.5" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" fill="#1f2937" text-anchor="middle">checkout</text>
+<text x="620.0" y="333.0" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#4b5563" text-anchor="middle">codigo del repositorio</text>
+<rect x="785.0" y="280.0" width="290.0" height="80.0" rx="4.0" fill="#eaf4ef" stroke="#2f7d5f" stroke-width="1.2" />
+<text x="930.0" y="316.5" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" fill="#1f2937" text-anchor="middle">Docker Buildx</text>
+<text x="930.0" y="333.0" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#4b5563" text-anchor="middle">build multi-plataforma</text>
+<rect x="1095.0" y="280.0" width="290.0" height="80.0" rx="4.0" fill="#eaf4ef" stroke="#2f7d5f" stroke-width="1.2" />
+<text x="1240.0" y="316.5" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" fill="#1f2937" text-anchor="middle">Build de imagen</text>
+<text x="1240.0" y="333.0" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#4b5563" text-anchor="middle">contenedor versionado</text>
+<rect x="140.0" y="452.0" width="380.0" height="80.0" rx="4.0" fill="#f2eefa" stroke="#5b3f8f" stroke-width="1.2" />
+<text x="330.0" y="480.2" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" fill="#1f2937" text-anchor="middle">GitHub OIDC token</text>
+<text x="330.0" y="496.8" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#4b5563" text-anchor="middle">identidad temporal de</text>
+<text x="330.0" y="513.2" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#4b5563" text-anchor="middle">corta duracion</text>
+<rect x="550.0" y="452.0" width="380.0" height="80.0" rx="4.0" fill="#f2eefa" stroke="#5b3f8f" stroke-width="1.2" />
+<text x="740.0" y="480.2" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" fill="#1f2937" text-anchor="middle">Workload Identity</text>
+<text x="740.0" y="496.8" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#4b5563" text-anchor="middle">Federation</text>
+<text x="740.0" y="513.2" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#4b5563" text-anchor="middle">vincula el token al proyecto GCP</text>
+<rect x="960.0" y="452.0" width="380.0" height="80.0" rx="4.0" fill="#f2eefa" stroke="#5b3f8f" stroke-width="1.2" />
+<text x="1150.0" y="480.2" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" fill="#1f2937" text-anchor="middle">Service account de</text>
+<text x="1150.0" y="496.8" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#4b5563" text-anchor="middle">publicacion</text>
+<text x="1150.0" y="513.2" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#4b5563" text-anchor="middle">permisos acotados a Artifact Registry</text>
+<rect x="140.0" y="546.0" width="1200.0" height="54.0" rx="4" fill="#f2eefa" stroke="#5b3f8f" stroke-width="1.0" />
+<text x="740.0" y="578.0" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="normal" font-style="italic" fill="#5b3f8f" text-anchor="middle">Sin clave JSON permanente de cuenta de servicio almacenada en el repositorio</text>
+<rect x="140.0" y="662.0" width="380.0" height="80.0" rx="4.0" fill="#e8f5f5" stroke="#1f7a7a" stroke-width="1.2" />
+<text x="330.0" y="707.2" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f2937" text-anchor="middle">backend:&lt;git SHA&gt;</text>
+<rect x="550.0" y="662.0" width="380.0" height="80.0" rx="4.0" fill="#e8f5f5" stroke="#1f7a7a" stroke-width="1.2" />
+<text x="740.0" y="707.2" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f2937" text-anchor="middle">frontend:&lt;git SHA&gt;</text>
+<rect x="960.0" y="662.0" width="380.0" height="80.0" rx="4.0" fill="#e8f5f5" stroke="#1f7a7a" stroke-width="1.2" />
+<text x="1150.0" y="707.2" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f2937" text-anchor="middle">ai:&lt;git SHA&gt;</text>
+<rect x="140.0" y="756.0" width="1200.0" height="54.0" rx="4" fill="#e8f5f5" stroke="#1f7a7a" stroke-width="1.0" />
+<text x="740.0" y="788.0" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="normal" font-style="italic" fill="#1f7a7a" text-anchor="middle">Imagenes versionadas por commit: no se utiliza la etiqueta :latest</text>
+<rect x="140.0" y="880.0" width="380.0" height="80.0" rx="4.0" fill="#fdf3e3" stroke="#b07316" stroke-width="1.2" />
+<text x="330.0" y="916.5" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f2937" text-anchor="middle">Cloud Run</text>
+<text x="330.0" y="934.0" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" font-style="normal" fill="#4b5563" text-anchor="middle">Frontend</text>
+<rect x="550.0" y="880.0" width="380.0" height="80.0" rx="4.0" fill="#fdf3e3" stroke="#b07316" stroke-width="1.2" />
+<text x="740.0" y="916.5" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f2937" text-anchor="middle">Cloud Run</text>
+<text x="740.0" y="934.0" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" font-style="normal" fill="#4b5563" text-anchor="middle">Backend (Green)</text>
+<rect x="960.0" y="880.0" width="380.0" height="80.0" rx="4.0" fill="#fdf3e3" stroke="#b07316" stroke-width="1.2" />
+<text x="1150.0" y="916.5" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f2937" text-anchor="middle">Cloud Run</text>
+<text x="1150.0" y="934.0" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" font-style="normal" fill="#4b5563" text-anchor="middle">AI Module</text>
+<path d="M 330.0 200 L 330.0 232 L 715 232" fill="none" stroke="#1f4e9c" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)" />
+<path d="M 740.0 200 L 740.0 232 L 715 232" fill="none" stroke="#1f4e9c" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)" />
+<path d="M 1150.0 200 L 1150.0 232 L 715 232" fill="none" stroke="#1f4e9c" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)" />
+<path d="M 715 232 L 310.0 232 L 310.0 277" fill="none" stroke="#1f4e9c" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)" />
+<path d="M 455 320.0 L 472 320.0" fill="none" stroke="#2f7d5f" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)" />
+<path d="M 765 320.0 L 782 320.0" fill="none" stroke="#2f7d5f" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)" />
+<path d="M 1075 320.0 L 1092 320.0" fill="none" stroke="#2f7d5f" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)" />
+<path d="M 1240.0 360 L 1240.0 422 L 715 422" fill="none" stroke="#2f7d5f" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)" />
+<path d="M 715 422 L 330.0 422 L 330.0 449" fill="none" stroke="#2f7d5f" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)" />
+<path d="M 715 422 L 740.0 422 L 740.0 449" fill="none" stroke="#2f7d5f" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)" />
+<path d="M 715 422 L 1150.0 422 L 1150.0 449" fill="none" stroke="#2f7d5f" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)" />
+<path d="M 1150.0 532 L 1150.0 632 L 715 632" fill="none" stroke="#5b3f8f" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)" />
+<path d="M 715 632 L 330.0 632 L 330.0 659" fill="none" stroke="#5b3f8f" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)" />
+<path d="M 715 632 L 740.0 632 L 740.0 659" fill="none" stroke="#5b3f8f" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)" />
+<path d="M 715 632 L 1150.0 632 L 1150.0 659" fill="none" stroke="#5b3f8f" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)" />
+<path d="M 330.0 742 L 330.0 842 L 715 842" fill="none" stroke="#b07316" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="7 5" marker-end="url(#arrow)" />
+<path d="M 715 842 L 330.0 842 L 330.0 877" fill="none" stroke="#b07316" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="7 5" marker-end="url(#arrow)" />
+<path d="M 715 842 L 740.0 842 L 740.0 877" fill="none" stroke="#b07316" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="7 5" marker-end="url(#arrow)" />
+<path d="M 715 842 L 1150.0 842 L 1150.0 877" fill="none" stroke="#b07316" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="7 5" marker-end="url(#arrow)" />
+<text x="729.0" y="838.0" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="normal" font-style="italic" fill="#b07316" text-anchor="start">promocion / despliegue controlado</text>
+<rect x="20.0" y="1000.0" width="1390.0" height="150.0" rx="3" fill="#fbfcfe" stroke="#e2e8f1" stroke-width="1.0" />
+<line x1="140.0" y1="1030.0" x2="210.0" y2="1030.0" stroke="#5a6472" stroke-width="2.2" />
+<text x="222.0" y="1035.0" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="normal" font-style="normal" fill="#1f2937" text-anchor="start">Flujo automatizado validado: GitHub -&gt; Actions -&gt; autenticacion federada -&gt; Artifact Registry</text>
+<line x1="140.0" y1="1058.0" x2="210.0" y2="1058.0" stroke="#b07316" stroke-width="2.2" stroke-dasharray="7 5" />
+<text x="222.0" y="1063.0" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="normal" font-style="normal" fill="#1f2937" text-anchor="start">Promocion / despliegue controlado hacia Cloud Run (no es un despliegue automatico)</text>
+<text x="140.0" y="1100.0" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" font-style="italic" fill="#4b5563" text-anchor="start">Backend y Frontend: rama Cloud aislada o workflow_dispatch. AI Module: publicacion mediante workflow_dispatch manual.</text>
+<text x="140.0" y="1124.0" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" font-style="italic" fill="#4b5563" text-anchor="start">Cloud Run consume imagenes ya publicadas en Artifact Registry; un push a GitHub no despliega Cloud Run automaticamente.</text></svg>

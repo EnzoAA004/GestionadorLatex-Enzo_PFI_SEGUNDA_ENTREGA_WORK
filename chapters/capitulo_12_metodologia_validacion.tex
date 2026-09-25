@@ -92,6 +92,23 @@ La coordinación entre repositorios se apoya en contratos antes que en acuerdos 
 
 Los cambios de alcance se aceptan cuando tienen evidencia de origen y análisis de impacto. La incorporación del plano axial surgió del user research y de la disponibilidad de datos; el visor volumétrico, de la necesidad de revisar múltiples cortes. Cada ampliación debe actualizar requerimientos, roadmap, arquitectura, contratos, pruebas y documentación.
 
+\subsection{Automatización de integración y publicación}
+
+Como extensión del ciclo de desarrollo se incorporó una ruta de automatización para la publicación de artifacts de software hacia Google Cloud. GitHub Actions se integra con Google Cloud mediante Workload Identity Federation, evitando almacenar claves JSON permanentes de cuentas de servicio en los repositorios. Las imágenes de los servicios se construyen como contenedores versionados y se publican en Artifact Registry, desde donde pueden ser utilizadas por Cloud Run.
+
+Esta automatización reduce la dependencia de credenciales locales, mejora la reproducibilidad del proceso de publicación y mantiene separadas las responsabilidades entre código, artifact de contenedor y configuración de infraestructura. Durante el PFI, la promoción de revisiones y los cambios de configuración de Cloud se realizaron de manera controlada y por etapas; por lo tanto, no se presenta este mecanismo como una canalización de despliegue productivo completamente autónoma, sino como una automatización de integración y publicación validada para el entorno académico.
+
+Las imágenes se publican de forma versionada utilizando el identificador del commit Git como tag, evitando depender de una etiqueta mutable \texttt{latest}. De esta manera, una imagen almacenada en Artifact Registry puede vincularse con el estado exacto del código fuente que la generó. La automatización implementada cubre la autenticación federada, la construcción y la publicación de contenedores; la promoción de una imagen hacia un servicio Cloud Run se mantiene como una acción controlada.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.94\textwidth]{images/methodology/fig_12_02_publicacion_cloud_wif.png}
+\caption{Flujo automatizado de construcción y publicación de imágenes de contenedor mediante GitHub Actions, Workload Identity Federation y Artifact Registry. La promoción hacia Cloud Run se mantiene como una acción controlada. Fuente: elaboración propia.}
+\label{fig:metodologia-publicacion-cloud-wif}
+\end{figure}
+
+La Figura \ref{fig:metodologia-publicacion-cloud-wif} resume este mecanismo. GitHub no almacena una clave JSON permanente de cuenta de servicio: cada ejecución de \texttt{cloud-03-publish-image.yml} obtiene de GitHub un token OIDC de corta duración, que Workload Identity Federation vincula con una identidad acotada en Google Cloud sin exponer credenciales estáticas. Con esa identidad temporal, el workflow construye la imagen del servicio correspondiente y la publica en Artifact Registry identificada por el hash del commit que la originó. Artifact Registry desacopla así la construcción del despliegue: Cloud Run no reconstruye ni recibe la imagen de forma directa, sino que consume una imagen ya publicada cuando dicha promoción se ejecuta de manera controlada. Backend y Frontend habilitan esta publicación sobre sus ramas Cloud aisladas o mediante \texttt{workflow\_dispatch}, mientras que el módulo de inteligencia artificial la ejecuta exclusivamente mediante \texttt{workflow\_dispatch} manual.
+
 \section{Criterios de listo, terminado y evidencia}
 
 Una tarea está lista para comenzar cuando cuenta con objetivo concreto, necesidad o requerimiento de origen, responsable, repositorio, dependencias identificadas, entrada real o fixture, criterio de aceptación, plan de prueba y consideraciones de privacidad.

@@ -465,6 +465,8 @@ Cloud SQL constituye el principal componente de costo fijo del entorno DEV, mien
 
 Esta configuración no debe interpretarse como dimensionamiento productivo definitivo. Fue suficiente para validar el prototipo académico y su integración técnica de extremo a extremo. Una eventual operación clínica requeriría reevaluar capacidad, alta disponibilidad, monitoreo, seguridad institucional y volumen real de estudios.
 
+La Figura \ref{fig:arch-despliegue-google-cloud} sintetiza la arquitectura utilizada durante la validación del entorno DEV en Google Cloud. El Frontend se publica mediante Cloud Run y consume exclusivamente al Backend Green por HTTPS. El Backend actúa como frontera de producto: centraliza autenticación, persistencia y serving de assets, y realiza la invocación del AI Module privado mediante un Google ID Token. La información transaccional se conserva en Cloud SQL, mientras que los inputs, outputs y checkpoints se almacenan en Google Cloud Storage. Secret Manager mantiene la configuración sensible fuera del código y Artifact Registry provee las imágenes de contenedor utilizadas por los servicios de Cloud Run.
+
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.92\textwidth]{images/architecture/fig_10_07_despliegue_google_cloud.png}

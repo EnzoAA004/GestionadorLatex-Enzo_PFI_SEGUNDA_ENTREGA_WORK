@@ -274,7 +274,7 @@
 \contentsline {section}{\numberline {13.7}Una medición implementada y no publicada}{120}{section.13.7}%
 \contentsline {section}{\numberline {13.8}Validación técnica en Google Cloud}{121}{section.13.8}%
 \contentsline {section}{\numberline {13.9}Limitaciones de la evaluación}{122}{section.13.9}%
-\contentsline {section}{\numberline {13.10}Conclusión del capítulo}{122}{section.13.10}%
+\contentsline {section}{\numberline {13.10}Conclusión del capítulo}{123}{section.13.10}%
 \contentsline {chapter}{\numberline {14}Planificación académica general}{124}{chapter.14}%
 \contentsline {section}{\numberline {14.1}Criterio de planificación}{124}{section.14.1}%
 \contentsline {section}{\numberline {14.2}Planificación por entregables}{124}{section.14.2}%

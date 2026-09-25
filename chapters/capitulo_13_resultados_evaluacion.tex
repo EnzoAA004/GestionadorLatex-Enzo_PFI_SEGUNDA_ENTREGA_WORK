@@ -154,18 +154,18 @@ La validación se ejecutó con una fixture DICOM sintética, válida y no identi
 \hline
 \endfoot
 Backend $\rightarrow$ AI privada & PASS \\
-Full Cloud DICOM E2E & PASS \\
-Durabilidad tras restart & PASS \\
-Reprocess sin re-upload & PASS \\
+Cloud DICOM E2E (fixture sintética) & PASS \\
+Durabilidad tras reinicio & PASS \\
+Reprocesamiento sin nueva carga & PASS \\
 Persistencia final & PASS \\
 Frontend $\rightarrow$ Backend Green & PASS \\
-Browser Cloud E2E & PARTIAL \\
+Cloud E2E desde navegador & PARTIAL \\
 Modelo de costo & READY \\
 \hline
 \end{longtable}
 }
 
-Los resultados PASS corresponden a verificaciones funcionales completadas sobre la fixture descrita. El resultado PARTIAL en Browser Cloud E2E y el estado READY del modelo de costo se informan tal como fueron registrados, sin atribuirles una causa que no esté documentada en la evidencia disponible.
+Los resultados PASS corresponden a verificaciones funcionales completadas sobre la fixture descrita. El resultado PARTIAL en Cloud E2E desde navegador y el estado READY del modelo de costo se informan tal como fueron registrados, sin atribuirles una causa que no esté documentada en la evidencia disponible.
 
 Sobre la misma configuración se ejecutaron dos lotes de procesamiento para observar el comportamiento del pipeline bajo distintos tamaños de carga.
 
@@ -208,7 +208,7 @@ Corresponde declarar siete limitaciones que acotan el alcance de los resultados 
 \item La partición de prueba axial fue evaluada previamente, de modo que el resultado es comparativo y no independiente.
 \item Las mediciones no cuentan con validación contra mediciones profesionales, solo con verificación por contraste sobre un estudio de referencia.
 \item No se informan métricas de distancia como la distancia de Hausdorff en su percentil 95, definidas en el Capítulo 7. Su cálculo está previsto para la instancia siguiente y aportaría información sobre la precisión del contorno que el coeficiente Dice no captura en estructuras de tamaño considerable.
-\item La revisión cualitativa profesional sobre el producto integrado no se ha realizado.
+\item La revisión cualitativa profesional sobre una versión funcional del producto ya fue realizada. Sin embargo, permanece pendiente la validación cruzada final, en la que profesionales analicen independientemente los mismos estudios procesados por el sistema y posteriormente revisen las discrepancias entre ambas lecturas.
 \item La validación técnica en Google Cloud (sección 13.8) empleó una fixture DICOM sintética y, por lo tanto, sus resultados de latencia, costo y almacenamiento no permiten extrapolar a estudios clínicos reales de tamaño arbitrario.
 \end{itemize}
 

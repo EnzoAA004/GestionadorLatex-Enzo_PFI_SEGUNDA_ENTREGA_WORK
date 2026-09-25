@@ -272,51 +272,52 @@
 \contentsline {section}{\numberline {13.5}Advertencia sobre la partición de prueba axial}{119}{section.13.5}%
 \contentsline {section}{\numberline {13.6}Verificación por contraste de las mediciones derivadas}{119}{section.13.6}%
 \contentsline {section}{\numberline {13.7}Una medición implementada y no publicada}{120}{section.13.7}%
-\contentsline {section}{\numberline {13.8}Limitaciones de la evaluación}{121}{section.13.8}%
-\contentsline {section}{\numberline {13.9}Conclusión del capítulo}{121}{section.13.9}%
-\contentsline {chapter}{\numberline {14}Planificación académica general}{122}{chapter.14}%
-\contentsline {section}{\numberline {14.1}Criterio de planificación}{122}{section.14.1}%
-\contentsline {section}{\numberline {14.2}Planificación por entregables}{122}{section.14.2}%
-\contentsline {section}{\numberline {14.3}Gestión de cambios}{123}{section.14.3}%
-\contentsline {section}{\numberline {14.4}Riesgos de planificación}{123}{section.14.4}%
-\contentsline {section}{\numberline {14.5}Conclusión de la planificación}{123}{section.14.5}%
-\contentsline {chapter}{\numberline {A}Cronograma del proyecto}{125}{appendix.Alph1}%
-\contentsline {section}{\numberline {A.1}Calendario académico}{125}{section.Alph1.1}%
-\contentsline {section}{\numberline {A.2}Diagrama de Gantt}{126}{section.Alph1.2}%
-\contentsline {section}{\numberline {A.3}Desvíos respecto de la planificación original}{127}{section.Alph1.3}%
-\contentsline {chapter}{\numberline {B}Glosario de términos}{128}{appendix.Alph2}%
-\contentsline {chapter}{\numberline {C}Anatomía de la columna lumbar y los discos intervertebrales}{134}{appendix.Alph3}%
-\contentsline {section}{\numberline {C.1}Esquema simplificado de columna lumbar sagital}{134}{section.Alph3.1}%
-\contentsline {section}{\numberline {C.2}Esquema conceptual de segmentación.}{135}{section.Alph3.2}%
-\contentsline {chapter}{\numberline {D}Transcripciones de las entrevistas}{136}{appendix.Alph4}%
-\contentsline {section}{D.1 Entrevista 1 (EN-01) - Dra. Susana Torres (M.N. 179537)}{136}{section*.9}%
-\contentsline {section}{D.2 Entrevista 2 (EN-02) - Dr.~Gonzalo Brito}{140}{section*.10}%
-\contentsline {section}{D.3 Entrevista 3 (EN-03) - Dra. Claudia Cejas}{143}{section*.11}%
-\contentsline {section}{D.4 Entrevista 4 (EN-04) - Dr.~Bruno Bregonzi}{147}{section*.12}%
-\contentsline {section}{D.5 Entrevista 5 (EN-05) - Dr.~Eduardo Luis Castiglione}{150}{section*.13}%
-\contentsline {chapter}{\numberline {E}Configuración de entrenamiento de los modelos}{155}{appendix.Alph5}%
-\contentsline {section}{E.1 Parámetros de entrenamiento}{155}{section*.14}%
-\contentsline {section}{E.2 Aumentación de datos}{156}{section*.15}%
-\contentsline {section}{E.3 Controles de calidad al cierre del entrenamiento}{157}{section*.16}%
-\contentsline {section}{E.4 Trazabilidad de los artifacts}{157}{section*.17}%
-\contentsline {chapter}{\numberline {F}Evolución técnica del desarrollo}{158}{appendix.Alph6}%
-\contentsline {section}{\numberline {F.1}Evolución técnica alcanzada}{158}{section.Alph6.1}%
-\contentsline {subsection}{\numberline {F.1.1}Etapa fundacional y separación en tres repositorios}{158}{subsection.Alph6.1.1}%
-\contentsline {subsection}{\numberline {F.1.2}Backlogs técnicos por repositorio}{159}{subsection.Alph6.1.2}%
-\contentsline {subsection}{\numberline {F.1.3}Bloques coordinados de producto}{159}{subsection.Alph6.1.3}%
-\contentsline {subsection}{\numberline {F.1.4}Estado resultante para la entrega del 50 \%}{163}{subsection.Alph6.1.4}%
-\contentsline {section}{\numberline {F.2}Evolución del producto visible}{163}{section.Alph6.2}%
-\contentsline {section}{\numberline {F.3}Evolución del pipeline de inferencia}{164}{section.Alph6.3}%
-\contentsline {section}{\numberline {F.4}Organización interna del módulo de inteligencia artificial}{165}{section.Alph6.4}%
-\contentsline {chapter}{\numberline {G}Registro de decisiones arquitectónicas}{167}{appendix.Alph7}%
-\contentsline {section}{ADR-001 --- Separación de Frontend, Backend y AI Module}{167}{section*.18}%
-\contentsline {section}{ADR-002 --- Spring Boot para el Backend y Python/FastAPI para el AI Module}{167}{section*.19}%
-\contentsline {section}{ADR-003 --- Backend como única frontera pública hacia el AI Module}{168}{section*.20}%
-\contentsline {section}{ADR-004 --- PostgreSQL para persistencia transaccional}{168}{section*.21}%
-\contentsline {section}{ADR-005 --- PyTorch como runtime de inferencia y ONNX Runtime diferido}{168}{section*.22}%
-\contentsline {section}{ADR-006 --- Separación entre código fuente y artifacts de datos y modelos}{169}{section*.23}%
-\contentsline {section}{ADR-007 --- Google Cloud como arquitectura objetivo de despliegue}{169}{section*.24}%
-\contentsline {chapter}{Referencias}{171}{appendix*.26}%
+\contentsline {section}{\numberline {13.8}Validación técnica en Google Cloud}{121}{section.13.8}%
+\contentsline {section}{\numberline {13.9}Limitaciones de la evaluación}{122}{section.13.9}%
+\contentsline {section}{\numberline {13.10}Conclusión del capítulo}{122}{section.13.10}%
+\contentsline {chapter}{\numberline {14}Planificación académica general}{124}{chapter.14}%
+\contentsline {section}{\numberline {14.1}Criterio de planificación}{124}{section.14.1}%
+\contentsline {section}{\numberline {14.2}Planificación por entregables}{124}{section.14.2}%
+\contentsline {section}{\numberline {14.3}Gestión de cambios}{125}{section.14.3}%
+\contentsline {section}{\numberline {14.4}Riesgos de planificación}{125}{section.14.4}%
+\contentsline {section}{\numberline {14.5}Conclusión de la planificación}{125}{section.14.5}%
+\contentsline {chapter}{\numberline {A}Cronograma del proyecto}{127}{appendix.Alph1}%
+\contentsline {section}{\numberline {A.1}Calendario académico}{127}{section.Alph1.1}%
+\contentsline {section}{\numberline {A.2}Diagrama de Gantt}{128}{section.Alph1.2}%
+\contentsline {section}{\numberline {A.3}Desvíos respecto de la planificación original}{129}{section.Alph1.3}%
+\contentsline {chapter}{\numberline {B}Glosario de términos}{130}{appendix.Alph2}%
+\contentsline {chapter}{\numberline {C}Anatomía de la columna lumbar y los discos intervertebrales}{136}{appendix.Alph3}%
+\contentsline {section}{\numberline {C.1}Esquema simplificado de columna lumbar sagital}{136}{section.Alph3.1}%
+\contentsline {section}{\numberline {C.2}Esquema conceptual de segmentación.}{137}{section.Alph3.2}%
+\contentsline {chapter}{\numberline {D}Transcripciones de las entrevistas}{138}{appendix.Alph4}%
+\contentsline {section}{D.1 Entrevista 1 (EN-01) - Dra. Susana Torres (M.N. 179537)}{138}{section*.9}%
+\contentsline {section}{D.2 Entrevista 2 (EN-02) - Dr.~Gonzalo Brito}{142}{section*.10}%
+\contentsline {section}{D.3 Entrevista 3 (EN-03) - Dra. Claudia Cejas}{145}{section*.11}%
+\contentsline {section}{D.4 Entrevista 4 (EN-04) - Dr.~Bruno Bregonzi}{149}{section*.12}%
+\contentsline {section}{D.5 Entrevista 5 (EN-05) - Dr.~Eduardo Luis Castiglione}{152}{section*.13}%
+\contentsline {chapter}{\numberline {E}Configuración de entrenamiento de los modelos}{157}{appendix.Alph5}%
+\contentsline {section}{E.1 Parámetros de entrenamiento}{157}{section*.14}%
+\contentsline {section}{E.2 Aumentación de datos}{158}{section*.15}%
+\contentsline {section}{E.3 Controles de calidad al cierre del entrenamiento}{159}{section*.16}%
+\contentsline {section}{E.4 Trazabilidad de los artifacts}{159}{section*.17}%
+\contentsline {chapter}{\numberline {F}Evolución técnica del desarrollo}{160}{appendix.Alph6}%
+\contentsline {section}{\numberline {F.1}Evolución técnica alcanzada}{160}{section.Alph6.1}%
+\contentsline {subsection}{\numberline {F.1.1}Etapa fundacional y separación en tres repositorios}{160}{subsection.Alph6.1.1}%
+\contentsline {subsection}{\numberline {F.1.2}Backlogs técnicos por repositorio}{161}{subsection.Alph6.1.2}%
+\contentsline {subsection}{\numberline {F.1.3}Bloques coordinados de producto}{161}{subsection.Alph6.1.3}%
+\contentsline {subsection}{\numberline {F.1.4}Estado resultante para la entrega del 50 \%}{165}{subsection.Alph6.1.4}%
+\contentsline {section}{\numberline {F.2}Evolución del producto visible}{165}{section.Alph6.2}%
+\contentsline {section}{\numberline {F.3}Evolución del pipeline de inferencia}{166}{section.Alph6.3}%
+\contentsline {section}{\numberline {F.4}Organización interna del módulo de inteligencia artificial}{167}{section.Alph6.4}%
+\contentsline {chapter}{\numberline {G}Registro de decisiones arquitectónicas}{169}{appendix.Alph7}%
+\contentsline {section}{ADR-001 --- Separación de Frontend, Backend y AI Module}{169}{section*.18}%
+\contentsline {section}{ADR-002 --- Spring Boot para el Backend y Python/FastAPI para el AI Module}{169}{section*.19}%
+\contentsline {section}{ADR-003 --- Backend como única frontera pública hacia el AI Module}{170}{section*.20}%
+\contentsline {section}{ADR-004 --- PostgreSQL para persistencia transaccional}{170}{section*.21}%
+\contentsline {section}{ADR-005 --- PyTorch como runtime de inferencia y ONNX Runtime diferido}{170}{section*.22}%
+\contentsline {section}{ADR-006 --- Separación entre código fuente y artifacts de datos y modelos}{171}{section*.23}%
+\contentsline {section}{ADR-007 --- Google Cloud como arquitectura objetivo de despliegue}{171}{section*.24}%
+\contentsline {chapter}{Referencias}{173}{appendix*.26}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 

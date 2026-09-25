@@ -130,9 +130,77 @@ El contraste con el ángulo segmentario, que sí se publica con carácter experi
 
 La decisión se documenta porque describe un criterio que el proyecto aplica de forma general: una medición se publica cuando puede verificarse, y no cuando puede calcularse.
 
+\section{Validación técnica en Google Cloud}
+
+Esta sección documenta los resultados observados al validar, en un entorno DEV real, la configuración de Google Cloud descrita en la sección \ref{tab:arch-cloud-configuracion-validada} del Capítulo 10. El Capítulo 10 documenta la asignación y configuración de recursos; este capítulo reporta los resultados efectivamente medidos sobre esa infraestructura, sin repetir la información arquitectónica ya presentada.
+
+La validación se ejecutó con una fixture DICOM sintética, válida y no identificable, compuesta por cinco series y treinta cortes. Esta prueba valida la arquitectura y el pipeline técnico del despliegue. No constituye validación clínica, no aporta evidencia sobre pacientes reales y no constituye una evaluación de generalización médica.
+
+{\scriptsize
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.45\textwidth} >{\raggedright\arraybackslash}p{0.20\textwidth}}
+\caption{Verificación funcional del despliegue Cloud sobre la fixture DICOM sintética.}\label{tab:res-cloud-verificacion}\\
+\hline
+\textbf{Verificación} & \textbf{Resultado} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Verificación} & \textbf{Resultado} \\
+\hline
+\endhead
+\hline
+\endfoot
+Backend $\rightarrow$ AI privada & PASS \\
+Full Cloud DICOM E2E & PASS \\
+Durabilidad tras restart & PASS \\
+Reprocess sin re-upload & PASS \\
+Persistencia final & PASS \\
+Frontend $\rightarrow$ Backend Green & PASS \\
+Browser Cloud E2E & PARTIAL \\
+Modelo de costo & READY \\
+\hline
+\end{longtable}
+}
+
+Los resultados PASS corresponden a verificaciones funcionales completadas sobre la fixture descrita. El resultado PARTIAL en Browser Cloud E2E y el estado READY del modelo de costo se informan tal como fueron registrados, sin atribuirles una causa que no esté documentada en la evidencia disponible.
+
+Sobre la misma configuración se ejecutaron dos lotes de procesamiento para observar el comportamiento del pipeline bajo distintos tamaños de carga.
+
+{\scriptsize
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.18\textwidth} >{\raggedright\arraybackslash}p{0.20\textwidth} >{\raggedright\arraybackslash}p{0.18\textwidth} >{\raggedright\arraybackslash}p{0.18\textwidth}}
+\caption{Rendimiento observado por lote sobre la fixture DICOM sintética.}\label{tab:res-cloud-rendimiento-lotes}\\
+\hline
+\textbf{Lote} & \textbf{Completados} & \textbf{p50} & \textbf{p95} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Lote} & \textbf{Completados} & \textbf{p50} & \textbf{p95} \\
+\hline
+\endhead
+\hline
+\endfoot
+10 & 10/10 & 19,465 s & 20,814 s \\
+25 & 25/25 & 18,794 s & 21,812 s \\
+\hline
+\end{longtable}
+}
+
+El comportamiento se mantuvo estable entre ambos lotes: los percentiles 50 y 95 no muestran degradación relevante al incrementar el tamaño del lote de diez a veinticinco estudios. Estas cifras corresponden a la fixture y a la configuración evaluada, y no deben interpretarse como una caracterización general de latencia para estudios clínicos de tamaño o complejidad arbitraria.
+
+Por separado, se ejecutó una prueba de estabilidad bajo concurrencia con cuarenta solicitudes simultáneas, de las cuales cuarenta resultaron satisfactorias (40/40), con un percentil 95 aproximado de 0,703 segundos. Esta cifra corresponde al test de endpoints de reprocesamiento (\textit{reprocess}) utilizado en esa prueba y no representa la latencia completa de inferencia de un estudio.
+
+Sobre la misma fixture se registró un costo variable observado de aproximadamente USD~0,00236 por estudio, y un volumen de almacenamiento en Google Cloud Storage de aproximadamente 391.490 bytes por estudio. Ambos valores son empíricos del escenario sintético evaluado y no constituyen costos ni volúmenes definitivos de una operación clínica real; no se identificó en el estado actual del capítulo ninguna afirmación previa sobre un lote de cincuenta estudios que debiera corregirse.
+
 \section{Limitaciones de la evaluación}
 
-Corresponde declarar seis limitaciones que acotan el alcance de los resultados presentados.
+Corresponde declarar siete limitaciones que acotan el alcance de los resultados presentados.
 
 \begin{itemize}
 \item La evaluación mide coincidencia con anotaciones de referencia, no exactitud clínica. Una máscara que coincide con la anotación reproduce también los criterios y los errores del anotador.
@@ -141,11 +209,14 @@ Corresponde declarar seis limitaciones que acotan el alcance de los resultados p
 \item Las mediciones no cuentan con validación contra mediciones profesionales, solo con verificación por contraste sobre un estudio de referencia.
 \item No se informan métricas de distancia como la distancia de Hausdorff en su percentil 95, definidas en el Capítulo 7. Su cálculo está previsto para la instancia siguiente y aportaría información sobre la precisión del contorno que el coeficiente Dice no captura en estructuras de tamaño considerable.
 \item La revisión cualitativa profesional sobre el producto integrado no se ha realizado.
+\item La validación técnica en Google Cloud (sección 13.8) empleó una fixture DICOM sintética y, por lo tanto, sus resultados de latencia, costo y almacenamiento no permiten extrapolar a estudios clínicos reales de tamaño arbitrario.
 \end{itemize}
 
 \section{Conclusión del capítulo}
 
 El módulo sagital alcanza un coeficiente Dice macro de 0,893 sobre una partición retenida separada a nivel de paciente, supera el umbral establecido y se documenta como baseline técnico del prototipo. El módulo axial alcanza 0,811 sobre las estructuras anatómicas y 0,679 cuando se incluye la clase de fondo del conjunto de origen; bajo el criterio vigente no supera el umbral, y su artifact permanece registrado como candidato.
+
+Además de las métricas de los modelos, la sección 13.8 verificó la factibilidad técnica del despliegue en Google Cloud sobre una fixture DICOM sintética, sin que esa verificación constituya validación clínica.
 
 Los resultados sostienen que la segmentación de estructuras lumbares en el plano sagital es viable con los datos y la arquitectura empleados, y que el módulo axial requiere trabajo adicional antes de considerarse consolidado. Ninguno de los dos resultados autoriza afirmaciones sobre desempeño clínico, que dependen de una validación que este trabajo no realiza y declara como fuera de su alcance.
 

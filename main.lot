@@ -138,22 +138,24 @@
 \contentsline {table}{\numberline {13.1}{Partición de los conjuntos de datos empleados en el entrenamiento y la evaluación.}}{117}{table.13.1}%
 \contentsline {table}{\numberline {13.2}{Coeficiente Dice sobre la partición retenida, por modelo.}}{118}{table.13.2}%
 \contentsline {table}{\numberline {13.3}{Verificación por contraste de las mediciones sobre el estudio de referencia.}}{120}{table.13.3}%
+\contentsline {table}{\numberline {13.4}{Verificación funcional del despliegue Cloud sobre la fixture DICOM sintética.}}{121}{table.13.4}%
+\contentsline {table}{\numberline {13.5}{Rendimiento observado por lote sobre la fixture DICOM sintética.}}{121}{table.13.5}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {14.1}{Roadmap actualizado para la entrega del 50 \%.}}{122}{table.14.1}%
+\contentsline {table}{\numberline {14.1}{Roadmap actualizado para la entrega del 50 \%.}}{124}{table.14.1}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {A.1}{Hitos académicos del proyecto.}}{125}{table.A.1}%
-\contentsline {table}{\numberline {A.2}{Distribución temporal de las actividades por carril.}}{126}{table.A.2}%
-\contentsline {table}{\numberline {A.3}{Desvíos registrados y justificación técnica.}}{127}{table.A.3}%
-\addvspace {10\p@ }
-\addvspace {10\p@ }
+\contentsline {table}{\numberline {A.1}{Hitos académicos del proyecto.}}{127}{table.A.1}%
+\contentsline {table}{\numberline {A.2}{Distribución temporal de las actividades por carril.}}{128}{table.A.2}%
+\contentsline {table}{\numberline {A.3}{Desvíos registrados y justificación técnica.}}{129}{table.A.3}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {E.1}{\ignorespaces Configuración comparada del entrenamiento de ambos modelos.}}{155}{table.Alph5.1}%
-\contentsline {table}{\numberline {E.2}{\ignorespaces Transformaciones de aumentación aplicadas durante el entrenamiento.}}{156}{table.Alph5.2}%
-\contentsline {table}{\numberline {E.3}{\ignorespaces Condiciones evaluadas antes de promover un artifact.}}{157}{table.Alph5.3}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {F.1}{Bloques coordinados de producto, de P8 a P10.9.}}{160}{table.F.1}%
-\contentsline {table}{\numberline {F.2}{Evolución de la implementación del pipeline de IA.}}{165}{table.F.2}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {E.1}{\ignorespaces Configuración comparada del entrenamiento de ambos modelos.}}{157}{table.Alph5.1}%
+\contentsline {table}{\numberline {E.2}{\ignorespaces Transformaciones de aumentación aplicadas durante el entrenamiento.}}{158}{table.Alph5.2}%
+\contentsline {table}{\numberline {E.3}{\ignorespaces Condiciones evaluadas antes de promover un artifact.}}{159}{table.Alph5.3}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {F.1}{Bloques coordinados de producto, de P8 a P10.9.}}{162}{table.F.1}%
+\contentsline {table}{\numberline {F.2}{Evolución de la implementación del pipeline de IA.}}{167}{table.F.2}%
 \addvspace {10\p@ }
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 

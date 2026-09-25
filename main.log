@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.9.20)  25 SEP 2026 23:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.9.20)  25 SEP 2026 23:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -7369,13 +7369,13 @@ Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 [113]
 <images/methodology/fig_12_02_publicacion_cloud_wif.png, id=2562, 3731.9425pt x
- 3079.505pt>
+ 3392.675pt>
 File: images/methodology/fig_12_02_publicacion_cloud_wif.png Graphic file (type
  png)
 <use images/methodology/fig_12_02_publicacion_cloud_wif.png>
 Package pdftex.def Info: images/methodology/fig_12_02_publicacion_cloud_wif.png
   used on input line 105.
-(pdftex.def)             Requested size: 428.53233pt x 353.59525pt.
+(pdftex.def)             Requested size: 428.53233pt x 389.5541pt.
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 111.
@@ -10274,7 +10274,7 @@ exlive/2026/texmf-dist/fonts/type1/public/lm/lmtt8.pfb></usr/local/texlive/2026
 e1/urw/times/utmbi8a.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/ti
 mes/utmr8a.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmri8
 a.pfb>
-Output written on main.pdf (205 pages, 3762553 bytes).
+Output written on main.pdf (205 pages, 3801393 bytes).
 PDF statistics:
  3250 PDF objects out of 3580 (max. 8388607)
  2930 compressed objects within 30 object streams

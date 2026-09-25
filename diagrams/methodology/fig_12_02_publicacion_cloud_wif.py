@@ -39,23 +39,24 @@ from pfi_diagram import (  # noqa: E402
     BLUE, FILL, GREEN, GREY, INK, INK_SOFT, ORANGE, PURPLE, RED, TEAL, Scene,
 )
 
-W, H = 1430, 1180
+W, H = 1430, 1300
 s = Scene(W, H)
 
 s.title(
     "Automatizacion de integracion y publicacion en Google Cloud",
-    "GitHub -> GitHub Actions -> autenticacion federada (OIDC/WIF) -> Artifact Registry -> promocion controlada a Cloud Run",
-    size=20,
+    "Repositorio -> checkout -> autenticacion federada (OIDC/WIF) -> build + push -> Artifact Registry -> promocion controlada a Cloud Run",
+    size=19,
 )
 
 LX, LW, BAND = 20, 118, 1390
 
 LANES = [
-    ("CODIGO\nFUENTE", BLUE, 90, 130),
-    ("GITHUB\nACTIONS", GREEN, 240, 170),
-    ("AUTENTICACION\nFEDERADA", PURPLE, 430, 190),
-    ("ARTIFACT\nREGISTRY", TEAL, 640, 190),
-    ("CLOUD RUN", ORANGE, 850, 130),
+    ("CODIGO\nFUENTE", BLUE, 90, 150),
+    ("GITHUB\nACTIONS", GREEN, 260, 110),
+    ("AUTENTICACION\nFEDERADA", PURPLE, 390, 190),
+    ("BUILD Y\nPUSH", GREEN, 600, 130),
+    ("ARTIFACT\nREGISTRY", TEAL, 750, 190),
+    ("CLOUD RUN", ORANGE, 960, 130),
 ]
 
 for name, color, y, h in LANES:
@@ -69,72 +70,77 @@ for name, color, y, h in LANES:
                anchor="middle")
         cy += 22
 
-# --------------------------------------------------------------- bloque 1
+# --------------------------------------------------------------- bloque 1: codigo fuente y triggers
 CODE_X = [140, 550, 960]
 CODE_W = 380
-be = s.node("be_repo", CODE_X[0], 110, CODE_W, 90,
-            ["Backend repository", "PFI_MVPTest_Enzo_Backend"],
-            color=BLUE, font=14)
-fe = s.node("fe_repo", CODE_X[1], 110, CODE_W, 90,
-            ["Frontend repository", "PFI_MVPTest_Enzo_Frontend"],
-            color=BLUE, font=14)
-ai = s.node("ai_repo", CODE_X[2], 110, CODE_W, 90,
-            ["AI Module repository", "PFI_MVPTest_Enzo_AImodule"],
-            color=BLUE, font=14)
+be = s.node("be_repo", CODE_X[0], 110, CODE_W, 110,
+            ["Backend repository", "PFI_MVPTest_Enzo_Backend",
+             "push rama Cloud aislada", "o workflow_dispatch"],
+            color=BLUE, font=13.5)
+fe = s.node("fe_repo", CODE_X[1], 110, CODE_W, 110,
+            ["Frontend repository", "PFI_MVPTest_Enzo_Frontend",
+             "push rama Cloud aislada", "o workflow_dispatch"],
+            color=BLUE, font=13.5)
+ai = s.node("ai_repo", CODE_X[2], 110, CODE_W, 110,
+            ["AI Module repository", "PFI_MVPTest_Enzo_AImodule",
+             "workflow_dispatch manual", "(sin push automatico)"],
+            color=BLUE, font=13.5)
 
-# --------------------------------------------------------------- bloque 2
-s.text(140, 262, "Workflow: cloud-03-publish-image.yml", size=14,
+# --------------------------------------------------------------- bloque 2: checkout (unico paso previo a auth)
+s.text(140, 282, "Workflow: cloud-03-publish-image.yml", size=14,
        weight="bold", color=GREEN)
-STEP_X = [165, 475, 785, 1095]
-STEP_W = 290
-trig = s.node("trigger", STEP_X[0], 280, STEP_W, 80,
-              ["Disparo", "push a rama Cloud aislada", "o workflow_dispatch"],
-              color=GREEN, font=13)
-chk = s.node("checkout", STEP_X[1], 280, STEP_W, 80,
-             ["checkout", "codigo del repositorio"], color=GREEN, font=13)
-bx = s.node("buildx", STEP_X[2], 280, STEP_W, 80,
-            ["Docker Buildx", "build multi-plataforma"], color=GREEN,
-            font=13)
-build = s.node("build", STEP_X[3], 280, STEP_W, 80,
-               ["Build de imagen", "contenedor versionado"], color=GREEN,
-               font=13)
+chk = s.node("checkout", 550, 296, 330, 60,
+             ["checkout", "codigo del repositorio disparador"],
+             color=GREEN, font=13.5)
 
-# --------------------------------------------------------------- bloque 3
+# --------------------------------------------------------------- bloque 3: autenticacion federada (antes del build)
 AUTH_X = [140, 550, 960]
-oidc = s.node("oidc", AUTH_X[0], 452, CODE_W, 80,
+oidc = s.node("oidc", AUTH_X[0], 412, CODE_W, 80,
               ["GitHub OIDC token", "identidad temporal de", "corta duracion"],
               color=PURPLE, font=13)
-wif = s.node("wif", AUTH_X[1], 452, CODE_W, 80,
+wif = s.node("wif", AUTH_X[1], 412, CODE_W, 80,
              ["Workload Identity", "Federation", "vincula el token al proyecto GCP"],
              color=PURPLE, font=13)
-sa = s.node("sa", AUTH_X[2], 452, CODE_W, 80,
-            ["Service account de", "publicacion", "permisos acotados a Artifact Registry"],
+sa = s.node("sa", AUTH_X[2], 412, CODE_W, 80,
+            ["Service account de", "publicacion", "credenciales temporales"],
             color=PURPLE, font=13)
-s.rect(140, 546, 1200, 54, fill="#f2eefa", stroke=PURPLE, width=1.0, rx=4)
-s.text(140 + 600, 578,
+s.rect(140, 506, 1200, 54, fill="#f2eefa", stroke=PURPLE, width=1.0, rx=4)
+s.text(140 + 600, 538,
        "Sin clave JSON permanente de cuenta de servicio almacenada en el repositorio",
        size=13.5, weight="italic", color=PURPLE, anchor="middle")
 
-# --------------------------------------------------------------- bloque 4
+# --------------------------------------------------------------- bloque 4: build y push (despues de autenticar)
+BUILD_X = [140, 550, 960]
+dcfg = s.node("dcfg", BUILD_X[0], 620, CODE_W, 90,
+              ["Configuracion de Docker", "para Artifact Registry",
+               "con credenciales temporales"], color=GREEN, font=13)
+bx = s.node("buildx", BUILD_X[1], 620, CODE_W, 90,
+            ["Docker Buildx", "build multi-plataforma"], color=GREEN,
+            font=13)
+build = s.node("build", BUILD_X[2], 620, CODE_W, 90,
+               ["Build + push", "imagen versionada"], color=GREEN,
+               font=13)
+
+# --------------------------------------------------------------- bloque 5: artifact registry
 REG_X = [140, 550, 960]
-r_be = s.node("r_be", REG_X[0], 662, CODE_W, 80,
+r_be = s.node("r_be", REG_X[0], 770, CODE_W, 80,
               ["backend:<git SHA>"], color=TEAL, font=14)
-r_fe = s.node("r_fe", REG_X[1], 662, CODE_W, 80,
+r_fe = s.node("r_fe", REG_X[1], 770, CODE_W, 80,
               ["frontend:<git SHA>"], color=TEAL, font=14)
-r_ai = s.node("r_ai", REG_X[2], 662, CODE_W, 80,
+r_ai = s.node("r_ai", REG_X[2], 770, CODE_W, 80,
               ["ai:<git SHA>"], color=TEAL, font=14)
-s.rect(140, 756, 1200, 54, fill="#e8f5f5", stroke=TEAL, width=1.0, rx=4)
-s.text(140 + 600, 788,
+s.rect(140, 864, 1200, 54, fill="#e8f5f5", stroke=TEAL, width=1.0, rx=4)
+s.text(140 + 600, 896,
        "Imagenes versionadas por commit: no se utiliza la etiqueta :latest",
        size=13.5, weight="italic", color=TEAL, anchor="middle")
 
-# --------------------------------------------------------------- bloque 5
+# --------------------------------------------------------------- bloque 6: cloud run
 RUN_X = [140, 550, 960]
-cr_fe = s.node("cr_fe", RUN_X[0], 880, CODE_W, 80,
+cr_fe = s.node("cr_fe", RUN_X[0], 980, CODE_W, 80,
                ["Cloud Run", "Frontend"], color=ORANGE, font=14)
-cr_be = s.node("cr_be", RUN_X[1], 880, CODE_W, 80,
+cr_be = s.node("cr_be", RUN_X[1], 980, CODE_W, 80,
                ["Cloud Run", "Backend (Green)"], color=ORANGE, font=14)
-cr_ai = s.node("cr_ai", RUN_X[2], 880, CODE_W, 80,
+cr_ai = s.node("cr_ai", RUN_X[2], 980, CODE_W, 80,
                ["Cloud Run", "AI Module"], color=ORANGE, font=14)
 
 
@@ -143,54 +149,67 @@ def flow(d, color=GREY, width=1.8, dash=None):
     s.path(d, color=color, width=width, dash=dash, marker="arrow")
 
 
-SPINE1 = 715  # entre bloque 1 y 2
-SPINE2 = 715  # entre bloque 2 y 3
-SPINE3 = 715  # entre bloque 3 y 4
-SPINE4 = 715  # entre bloque 4 y 5 (promocion)
+SPINE = 715
 
-# bloque 1 -> spine -> trigger (bloque 2)
-for node in (be, fe, ai):
-    flow(f"M {node.cx} {node.bottom} L {node.cx} 232 L {SPINE1} 232", color=BLUE)
-flow(f"M {SPINE1} 232 L {trig.cx} 232 L {trig.cx} {trig.y - 3}", color=BLUE)
+# bloque 1 -> checkout: Backend y Frontend en linea continua (push o
+# workflow_dispatch); AI Module en linea punteada (solo workflow_dispatch
+# manual, sin push automatico) para no sugerir disparadores identicos.
+Y1 = 252
+flow(f"M {be.cx} {be.bottom} L {be.cx} {Y1} L {chk.cx - 40} {Y1}", color=BLUE)
+flow(f"M {fe.cx} {fe.bottom} L {fe.cx} {Y1} L {chk.cx} {Y1}", color=BLUE)
+flow(f"M {ai.cx} {ai.bottom} L {ai.cx} {Y1 + 10} L {chk.cx + 40} {Y1 + 10} "
+     f"L {chk.cx + 40} {Y1}", color=BLUE, dash="4 4")
+flow(f"M {chk.cx - 40} {Y1} L {chk.cx - 40} {chk.y - 3}", color=BLUE)
+flow(f"M {chk.cx} {Y1} L {chk.cx} {chk.y - 3}", color=BLUE)
+flow(f"M {chk.cx + 40} {Y1} L {chk.cx + 40} {chk.y - 3}", color=BLUE, dash="4 4")
 
-# cadena de pasos dentro de GitHub Actions
-flow(f"M {trig.right} {trig.cy} L {chk.x - 3} {chk.cy}", color=GREEN)
-flow(f"M {chk.right} {chk.cy} L {bx.x - 3} {bx.cy}", color=GREEN)
+# checkout -> autenticacion federada (abanico), antes de cualquier build
+flow(f"M {chk.cx} {chk.bottom} L {chk.cx} 392 L {SPINE} 392", color=GREEN)
+for node in (oidc, wif, sa):
+    flow(f"M {SPINE} 392 L {node.cx} 392 L {node.cx} {node.y - 3}", color=GREEN)
+
+# autenticacion federada -> build y push (abanico): las credenciales
+# temporales habilitan el push antes de que este ocurra
+flow(f"M {sa.cx} {sa.bottom} L {sa.cx} 602 L {SPINE} 602", color=PURPLE)
+for node in (dcfg, bx, build):
+    flow(f"M {SPINE} 602 L {node.cx} 602 L {node.cx} {node.y - 3}", color=PURPLE)
+
+# cadena de pasos dentro de build y push
+flow(f"M {dcfg.right} {dcfg.cy} L {bx.x - 3} {bx.cy}", color=GREEN)
 flow(f"M {bx.right} {bx.cy} L {build.x - 3} {build.cy}", color=GREEN)
 
-# bloque 2 -> spine -> bloque 3 (abanico)
-flow(f"M {build.cx} {build.bottom} L {build.cx} 422 L {SPINE2} 422", color=GREEN)
-for node in (oidc, wif, sa):
-    flow(f"M {SPINE2} 422 L {node.cx} 422 L {node.cx} {node.y - 3}", color=GREEN)
-
-# bloque 3 -> spine -> bloque 4 (abanico), automatizacion (linea continua)
-flow(f"M {sa.cx} {sa.bottom} L {sa.cx} 632 L {SPINE3} 632", color=PURPLE)
+# build y push -> artifact registry (abanico)
+flow(f"M {build.cx} {build.bottom} L {build.cx} 752 L {SPINE} 752", color=GREEN)
 for node in (r_be, r_fe, r_ai):
-    flow(f"M {SPINE3} 632 L {node.cx} 632 L {node.cx} {node.y - 3}", color=PURPLE)
+    flow(f"M {SPINE} 752 L {node.cx} 752 L {node.cx} {node.y - 3}", color=GREEN)
 
-# bloque 4 -> bloque 5: promocion / despliegue controlado (linea punteada)
-flow(f"M {r_be.cx} {r_be.bottom} L {r_be.cx} 842 L {SPINE4} 842",
+# artifact registry -> cloud run: promocion / despliegue controlado (linea punteada)
+flow(f"M {r_be.cx} {r_be.bottom} L {r_be.cx} 950 L {SPINE} 950",
      color=ORANGE, dash="7 5")
 for node in (cr_fe, cr_be, cr_ai):
-    flow(f"M {SPINE4} 842 L {node.cx} 842 L {node.cx} {node.y - 3}",
+    flow(f"M {SPINE} 950 L {node.cx} 950 L {node.cx} {node.y - 3}",
          color=ORANGE, dash="7 5")
-s.text(SPINE4 + 14, 838, "promocion / despliegue controlado", size=13.5,
+s.text(SPINE + 14, 946, "promocion / despliegue controlado", size=13.5,
        weight="italic", color=ORANGE, anchor="start")
 
 # ------------------------------------------------------------------ leyenda
-LEG_Y = 1000
-s.rect(LX, LEG_Y, BAND, 150, fill="#fbfcfe", stroke="#e2e8f1", width=1.0, rx=3)
+LEG_Y = 1110
+s.rect(LX, LEG_Y, BAND, 170, fill="#fbfcfe", stroke="#e2e8f1", width=1.0, rx=3)
 s.line(140, LEG_Y + 30, 210, LEG_Y + 30, color=GREY, width=2.2)
-s.text(222, LEG_Y + 35, "Flujo automatizado validado: GitHub -> Actions -> "
-       "autenticacion federada -> Artifact Registry", size=13.5, color=INK)
-s.line(140, LEG_Y + 58, 210, LEG_Y + 58, color=ORANGE, width=2.2, dash="7 5")
-s.text(222, LEG_Y + 63, "Promocion / despliegue controlado hacia Cloud Run "
+s.text(222, LEG_Y + 35, "Flujo automatizado validado: checkout -> "
+       "autenticacion federada -> build + push -> Artifact Registry", size=13.5,
+       color=INK)
+s.line(140, LEG_Y + 58, 178, LEG_Y + 58, color=BLUE, width=2.2, dash="4 4")
+s.text(222, LEG_Y + 63, "AI Module: unicamente workflow_dispatch manual "
+       "(no hay push automatico que lo dispare)", size=13.5, color=INK)
+s.line(140, LEG_Y + 86, 210, LEG_Y + 86, color=ORANGE, width=2.2, dash="7 5")
+s.text(222, LEG_Y + 91, "Promocion / despliegue controlado hacia Cloud Run "
        "(no es un despliegue automatico)", size=13.5, color=INK)
-s.text(140, LEG_Y + 100,
-       "Backend y Frontend: rama Cloud aislada o workflow_dispatch. "
-       "AI Module: publicacion mediante workflow_dispatch manual.",
+s.text(140, LEG_Y + 128,
+       "Las credenciales federadas (OIDC/WIF/service account) habilitan la "
+       "autenticacion contra Artifact Registry antes del build + push.",
        size=13, weight="italic", color=INK_SOFT)
-s.text(140, LEG_Y + 124,
+s.text(140, LEG_Y + 152,
        "Cloud Run consume imagenes ya publicadas en Artifact Registry; "
        "un push a GitHub no despliega Cloud Run automaticamente.",
        size=13, weight="italic", color=INK_SOFT)

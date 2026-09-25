@@ -413,7 +413,7 @@ Integración PACS/RIS — Fuera del alcance académico actual.
 
 \section{Vista física (despliegue)}
 
-La vista física describe el mapeo del sistema a la infraestructura: el entorno actual de validación y la arquitectura objetivo de despliegue.
+La vista física describe el mapeo del sistema a la infraestructura: el entorno de validación temporal utilizado durante la integración y la configuración final validada en Google Cloud.
 
 \subsection{Arquitectura actual de validación}
 
@@ -427,47 +427,52 @@ AI Module — contenedor Docker ejecutado en entorno controlado y expuesto tempo
 
 Esta infraestructura se documenta como entorno de validación, no como arquitectura final. Su función fue demostrar autenticación, proxy, persistencia, assets y comunicación real entre componentes. Los túneles temporales y URLs efímeras no forman parte del diseño de producción.
 
-\subsection{Arquitectura objetivo en Google Cloud}
+\subsection{Configuración validada en Google Cloud}
 
-La plataforma objetivo del sistema es Google Cloud, con una migración organizada por fases para no crear recursos cuyo costo o necesidad no estén justificados. El frontend se serviría como sitio estático o contenedor; el backend y el módulo de inteligencia artificial como servicios con escalado a cero y máximo de instancias acotado; la base de datos como instancia gestionada de PostgreSQL sin alta disponibilidad, acorde a un prototipo académico; los modelos, volúmenes y assets en almacenamiento privado con región controlada; las imágenes de contenedor en un registro con política de limpieza; y los secretos fuera del código. El uso de aceleración por GPU se contempla únicamente si el procesamiento en CPU no cumple los tiempos, con límites estrictos de duración.
+La arquitectura inicialmente planteada como objetivo fue implementada progresivamente y validada en un entorno DEV real sobre Google Cloud. La configuración final utilizada durante las pruebas integra Frontend, Backend y AI Module desplegados como servicios separados, junto con persistencia administrada y almacenamiento durable.
 
-El dimensionamiento de la infraestructura objetivo se definirá a partir del consumo observado de los componentes ejecutados en contenedores, en lugar de asignar recursos únicamente a partir de estimaciones teóricas. Para ello se consideran por separado el Backend, el AI Module y la base de datos, registrando consumo de memoria y CPU tanto en reposo como durante un recorrido representativo de procesamiento. En el caso del AI Module resulta especialmente relevante registrar el consumo con los modelos cargados y durante la inferencia, dado que constituye el componente de mayor demanda computacional. La necesidad de aceleración mediante GPU se evaluará únicamente si las mediciones sobre CPU muestran tiempos incompatibles con el flujo previsto.
+A diferencia de las mediciones locales utilizadas durante etapas tempranas de dimensionamiento, esta sección documenta la configuración efectivamente desplegada y validada en Cloud. Los resultados de rendimiento, estabilidad, durabilidad y costo medidos sobre dicha configuración se presentan en el Capítulo 13, evitando mezclar asignación de recursos con utilización observada.
 
 {\scriptsize
 \setlength{\LTleft}{0pt}
 \setlength{\LTright}{0pt}
-\setlength{\tabcolsep}{2pt}
+\setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.18}
-\phantomsection\label{tab:arch-cloud-dimensionamiento}
-\begin{longtable}{>{\raggedright\arraybackslash}p{0.14\textwidth} >{\raggedright\arraybackslash}p{0.23\textwidth} >{\raggedright\arraybackslash}p{0.13\textwidth} >{\raggedright\arraybackslash}p{0.13\textwidth} >{\raggedright\arraybackslash}p{0.13\textwidth} >{\raggedright\arraybackslash}p{0.16\textwidth}}
+\phantomsection\label{tab:arch-cloud-configuracion-validada}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.14\textwidth} >{\raggedright\arraybackslash}p{0.24\textwidth} >{\raggedright\arraybackslash}p{0.22\textwidth} >{\raggedright\arraybackslash}p{0.33\textwidth}}
 \hline
-\textbf{Componente} & \textbf{Escenario medido} & \textbf{CPU observada} & \textbf{RAM observada} & \textbf{GPU/VRAM} & \textbf{Criterio preliminar para despliegue} \\
+\textbf{Componente} & \textbf{Configuración validada} & \textbf{Escalado / concurrencia} & \textbf{Función dentro del despliegue} \\
 \hline
 \endfirsthead
 \hline
-\textbf{Componente} & \textbf{Escenario medido} & \textbf{CPU observada} & \textbf{RAM observada} & \textbf{GPU/VRAM} & \textbf{Criterio preliminar para despliegue} \\
+\textbf{Componente} & \textbf{Configuración validada} & \textbf{Escalado / concurrencia} & \textbf{Función dentro del despliegue} \\
 \hline
 \endhead
 \hline
 \endfoot
-Frontend & Navegación y serving containerizado & p95: 1,98 \%; pico: 2,69 \% & p95: 14,68 MiB; pico: 14,80 MiB & No aplica & Componente de baja demanda computacional; apto para hosting estático o un contenedor de recursos mínimos. \\
-Backend & Reposo y recorrido E2E & p95: 7,67 \%; pico: 33,40 \% & p95: 267,50 MiB; pico: 306,60 MiB & No aplica & La medición muestra una demanda moderada y ampliamente inferior a una vCPU durante el recorrido evaluado; se debe conservar margen de memoria para el runtime Java y variaciones de carga. \\
-AI Module & Modelos cargados e inferencia real & p95: 346,62 \%; pico: 405,09 \% & p95: 801,20 MiB; pico: 940,80 MiB & GPU no utilizada & Es el principal consumidor de cómputo. El p95 equivale aproximadamente al uso concurrente de 3,47 vCPU y el pico a 4,05 vCPU en el entorno medido, por lo que el dimensionamiento inicial debe priorizar capacidad de CPU y margen de memoria. \\
-PostgreSQL & Persistencia durante recorrido E2E & p95: 4,13 \%; pico: 30,81 \% & p95: 37,19 MiB; pico: 37,37 MiB & No aplica & La carga observada fue baja para un único recorrido E2E; corresponde utilizar una instancia administrada básica para el prototipo y reevaluarla bajo carga concurrente. \\
+Frontend Cloud Run & 1 vCPU / 256 MiB & min efectivo 0 / max 2; concurrency 80 & Publica la interfaz web y obtiene, mediante configuración runtime, la URL del Backend Green. \\
+Backend Green Cloud Run \newline (\textit{pfi-backend-v2-dev}) & 1 vCPU / 512 MiB & min efectivo 0 / max 2; concurrency 80; timeout 300 s & Frontera de producto: autenticación, persistencia, serving de assets y orquestación hacia la AI privada. \\
+AI Module Cloud Run \newline (\textit{pfi-ai-module}, privado) & 4 vCPU / 2 GiB & min efectivo 0 / max 1; concurrency 1; timeout 300 s & Ejecuta el runtime PyTorch, la inferencia y la generación de assets. Es el componente de mayor demanda computacional del despliegue. \\
+Cloud SQL PostgreSQL \newline (\textit{pfi-postgres-dev}) & db-f1-micro; PostgreSQL 15; 10 GB & Instancia administrada / zonal, sin alta disponibilidad para este entorno académico & Persistencia transaccional utilizada por el Backend Green. \\
+Google Cloud Storage & Bucket durable \textit{gs://pfi-backend-durable-dev}; STANDARD regional (us-central1) & No aplica (almacenamiento de objetos) & Persistencia durable de inputs y outputs del producto. El checkpoint del modelo se conserva en el bucket separado \textit{gs://pfi-rm-lumbar-artifacts-2026-ef}, consumido por el AI Module de forma controlada; ambos buckets no constituyen el mismo recurso lógico. \\
+Secret Manager & Servicio gestionado & No aplica & Gestiona los secretos operativos del Backend, incluyendo credenciales y configuración sensible utilizada en runtime. No se exponen valores de secretos. \\
+Artifact Registry & Repositorio gestionado de imágenes de contenedor & No aplica & Conserva las imágenes de contenedor utilizadas por los servicios de Cloud Run. \\
 \hline
 \end{longtable}
 }
 
-Las mediciones corresponden a una ejecución local containerizada del prototipo sobre Docker Desktop, con 16 procesadores lógicos visibles para Docker y 7,39 GiB de memoria disponible en dicho entorno. Durante la prueba se ejecutó un recorrido E2E real de 77,24 segundos que incluyó ingestión DICOM, clasificación de series, segmentación sagital y axial, procesamiento full-series, inferencia real de los hallazgos degenerativos P10.7, persistencia y revisión profesional. El AI Module fue el componente de mayor demanda, con un percentil 95 de CPU de 346,62 \% y un pico de 405,09 \%, equivalentes aproximadamente al uso concurrente de 3,47 y 4,05 núcleos de CPU respectivamente. La utilización máxima de memoria del mismo componente fue de 940,80 MiB. La GPU disponible en el host no fue utilizada por el contenedor durante esta prueba, por lo que no se considera necesaria para la configuración inicial evaluada. Estos resultados constituyen una línea base para el dimensionamiento preliminar del prototipo y deberán contrastar posteriormente con mediciones realizadas sobre la infraestructura desplegada en Google Cloud.
+La asignación de recursos refleja el estado efectivamente utilizado durante la validación técnica final. El AI Module concentra la mayor capacidad de cómputo, con 4 vCPU y 2 GiB de memoria, mientras que Backend y Frontend operan con configuraciones significativamente menores. Backend utiliza escalado automático con mínimo efectivo igual a cero, de modo que no mantiene instancias activas en ausencia de tráfico. AI Module también admite escalado a cero y limita la concurrencia a una ejecución por instancia.
+
+Cloud SQL constituye el principal componente de costo fijo del entorno DEV, mientras que Cloud Run presenta un costo dependiente del uso. Al finalizar las pruebas, Cloud SQL fue detenido temporalmente y los servicios Cloud Run quedaron configurados con mínimo efectivo cero, sin eliminar datos, imágenes, buckets, secretos ni configuraciones persistentes.
+
+Esta configuración no debe interpretarse como dimensionamiento productivo definitivo. Fue suficiente para validar el prototipo académico y su integración técnica de extremo a extremo. Una eventual operación clínica requeriría reevaluar capacidad, alta disponibilidad, monitoreo, seguridad institucional y volumen real de estudios.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.92\textwidth]{images/architecture/fig_10_07_despliegue_google_cloud.png}
-\caption{Arquitectura objetivo de despliegue en Google Cloud. Fuente: elaboración propia.}
+\caption{Arquitectura de despliegue validada en Google Cloud y servicios gestionados asociados. Fuente: elaboración propia.}
 \label{fig:arch-despliegue-google-cloud}
 \end{figure}
-
-El principio financiero adoptado es no crear un recurso cuyo costo máximo no pueda estimarse de antemano. Esta arquitectura está documentada y no implementada: el despliegue objetivo permanece como trabajo pendiente y no debe interpretarse como parte del estado actual del producto.
 
 \section{Vista de escenarios (+1)}
 

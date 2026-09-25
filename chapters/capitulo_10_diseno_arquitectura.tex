@@ -417,15 +417,13 @@ La vista física describe el mapeo del sistema a la infraestructura: el entorno 
 
 \subsection{Arquitectura actual de validación}
 
-Durante la integración se utiliza una infraestructura temporal que permite validar la comunicación distribuida antes de completar Google Cloud:
+Durante las primeras etapas de integración se utilizó un stack local containerizado (Docker) para validar la comunicación distribuida entre Frontend, Backend y AI Module antes de completar el despliegue en Google Cloud. Esa arquitectura fue posteriormente desplegada y validada en un entorno DEV real sobre Google Cloud, cuya configuración se detalla en la sección siguiente.
 
-Frontend — Vercel.
+En dicho entorno, Frontend y Backend Green se ejecutan como servicios independientes en Cloud Run; el AI Module se ejecuta como un servicio privado adicional de Cloud Run, invocado exclusivamente por el Backend mediante autenticación con Google ID Token. La persistencia transaccional se administra con Cloud SQL PostgreSQL, los secretos operativos con Secret Manager, y los inputs, outputs y checkpoints del producto con Google Cloud Storage. Las imágenes de contenedor de los tres servicios se conservan en Artifact Registry.
 
-Backend y PostgreSQL — Railway.
+El Frontend consume exclusivamente el contrato público expuesto por el Backend Green; el navegador del usuario nunca accede directamente al AI Module, que permanece privado y solo es invocado internamente por el Backend. Este entorno es un entorno de desarrollo (DEV) de alcance académico, no un entorno productivo ni clínico.
 
-AI Module — contenedor Docker ejecutado en entorno controlado y expuesto temporalmente mediante túnel seguro de prueba.
-
-Esta infraestructura se documenta como entorno de validación, no como arquitectura final. Su función fue demostrar autenticación, proxy, persistencia, assets y comunicación real entre componentes. Los túneles temporales y URLs efímeras no forman parte del diseño de producción.
+Al finalizar las pruebas, los recursos ejecutables (servicios de Cloud Run y la instancia de Cloud SQL) fueron pausados o mantenidos en inactividad para limitar costos, sin eliminar datos, imágenes, buckets, secretos ni configuraciones persistentes.
 
 \subsection{Configuración validada en Google Cloud}
 

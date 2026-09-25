@@ -234,12 +234,12 @@
 \contentsline {subsection}{\numberline {10.5.4}Alternativas evaluadas}{88}{subsection.10.5.4}%
 \contentsline {section}{\numberline {10.6}Vista física (despliegue)}{89}{section.10.6}%
 \contentsline {subsection}{\numberline {10.6.1}Arquitectura actual de validación}{89}{subsection.10.6.1}%
-\contentsline {subsection}{\numberline {10.6.2}Configuración validada en Google Cloud}{89}{subsection.10.6.2}%
-\contentsline {section}{\numberline {10.7}Vista de escenarios (+1)}{91}{section.10.7}%
+\contentsline {subsection}{\numberline {10.6.2}Configuración validada en Google Cloud}{90}{subsection.10.6.2}%
+\contentsline {section}{\numberline {10.7}Vista de escenarios (+1)}{92}{section.10.7}%
 \contentsline {section}{\numberline {10.8}Diseño de interfaz: wireframes y decisiones de diseño}{92}{section.10.8}%
 \contentsline {subsection}{\numberline {10.8.1}Criterios de diseño derivados del user research}{92}{subsection.10.8.1}%
 \contentsline {subsection}{\numberline {10.8.2}Esquemas de las pantallas principales}{92}{subsection.10.8.2}%
-\contentsline {subsection}{\numberline {10.8.3}Decisiones de diseño y alternativas descartadas}{93}{subsection.10.8.3}%
+\contentsline {subsection}{\numberline {10.8.3}Decisiones de diseño y alternativas descartadas}{94}{subsection.10.8.3}%
 \contentsline {chapter}{\numberline {11}Capacidades del prototipo}{95}{chapter.11}%
 \contentsline {section}{\numberline {11.1}Cómo leer este capítulo}{95}{section.11.1}%
 \contentsline {section}{\numberline {11.2}Ingesta y preparación del estudio}{95}{section.11.2}%

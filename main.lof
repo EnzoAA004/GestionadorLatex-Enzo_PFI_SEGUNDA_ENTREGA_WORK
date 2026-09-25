@@ -115,8 +115,8 @@
 \contentsline {figure}{\numberline {10.5}{\ignorespaces Diagrama de clases del dominio y servicios. Fuente: elaboración propia.}}{83}{figure.10.5}%
 \contentsline {figure}{\numberline {10.6}{\ignorespaces Flujo de interacción end-to-end. Fuente: elaboración propia.}}{85}{figure.10.6}%
 \contentsline {figure}{\numberline {10.7}{\ignorespaces Arquitectura de despliegue validada en Google Cloud y servicios gestionados asociados. Fuente: elaboración propia.}}{91}{figure.10.7}%
-\contentsline {figure}{\numberline {10.8}{\ignorespaces Wireframe de baja fidelidad del workspace multiplanar propuesto, incluyendo visualización sagital y axial, navegación full-series, superposición de resultados y panel de mediciones vinculadas al nivel anatómico. Fuente: elaboración propia.}}{94}{figure.10.8}%
-\contentsline {figure}{\numberline {10.9}{\ignorespaces Wireframe de baja fidelidad del flujo de revisión profesional y preinforme, mostrando la trazabilidad entre el resultado automático, la corrección del profesional, el estado de revisión y la salida estructurada revisable. Fuente: elaboración propia.}}{94}{figure.10.9}%
+\contentsline {figure}{\numberline {10.8}{\ignorespaces Wireframe de baja fidelidad del workspace multiplanar propuesto, incluyendo visualización sagital y axial, navegación full-series, superposición de resultados y panel de mediciones vinculadas al nivel anatómico. Fuente: elaboración propia.}}{93}{figure.10.8}%
+\contentsline {figure}{\numberline {10.9}{\ignorespaces Wireframe de baja fidelidad del flujo de revisión profesional y preinforme, mostrando la trazabilidad entre el resultado automático, la corrección del profesional, el estado de revisión y la salida estructurada revisable. Fuente: elaboración propia.}}{93}{figure.10.9}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {11.1}{\ignorespaces Acceso con estado de cuenta pendiente de aprobación y worklist de estudios. Fuente: elaboración propia.}}{96}{figure.11.1}%
 \contentsline {figure}{\numberline {11.2}{\ignorespaces Carga de un estudio DICOM con sus series identificadas y clasificadas. Fuente: elaboración propia.}}{97}{figure.11.2}%

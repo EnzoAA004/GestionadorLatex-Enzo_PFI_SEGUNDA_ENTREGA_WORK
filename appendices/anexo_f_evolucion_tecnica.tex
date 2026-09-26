@@ -74,7 +74,7 @@ El resultado de P10.5 fue una capacidad de navegación volumétrica que permite 
 \subsection{Estado resultante para la entrega del 50 \%}
 \label{anexo:f-estado-entrega-50}
 
-El estado del proyecto al cierre de esta versión admite tres categorías que no deben mezclarse.
+El estado del proyecto al cierre de esta versión admite tres categorías que no deben mezclarse. Este estado corresponde específicamente al hito de entrega del 50\,\% y se conserva aquí como registro histórico; el estado final de la validación profesional y del despliegue Cloud, alcanzado en etapas posteriores del proyecto, se documenta en el Capítulo 13 y en el Capítulo 10 respectivamente.
 
 \textbf{Hecho.} La separación en tres repositorios con responsabilidades delimitadas por contrato; los modelos sagital y axial entrenados, congelados y ejecutables sobre entrada real; el runtime de inferencia con gestión de artefactos verificados por hash; la persistencia de estudios, corridas, assets y revisiones sobre PostgreSQL con migraciones versionadas; la reapertura de estudios ya procesados; la navegación por cortes con el resultado vinculado a su corte de origen; la integración P10.9 en Frontend; la implementación Backend/API/persistencia del dominio Patient; la asociación explícita y auditable de Studies mediante patientId; la persistencia de un flujo visible que todavía usa principalmente subjectRef para historial y longitudinal; y la revisión profesional obligatoria.
 
@@ -154,8 +154,8 @@ La condición de disponibilidad se comprueba antes de aceptar una solicitud: deb
 \section{Cierre tecnico final y fuente canonica}
 \label{anexo:f-cierre-tecnico-final}
 
-El cierre tecnico posterior a la entrega del 50 \% siguio una secuencia trazable: post-E50, extensiones de producto, integracion \texttt{integration/final-2026}, reconciliacion del Backend y congelamiento en \texttt{main}. La fuente tecnica canonica final quedo documentada en el repositorio Backend como \texttt{docs/final/FINAL\_PRODUCT\_TECHNICAL\_SOURCE\_OF\_TRUTH.md}.
+El cierre técnico posterior a la entrega del 50 \% siguió una secuencia trazable: post-E50, extensiones de producto, integración \texttt{integration/final-2026}, reconciliación del Backend y congelamiento en \texttt{main}. La fuente técnica canónica final quedó documentada en el repositorio Backend como \texttt{docs/final/FINAL\_PRODUCT\_TECHNICAL\_SOURCE\_OF\_TRUTH.md}.
 
 Los SHAs finales usados como base documental son: Backend \texttt{33081f7cc3702afe4db04a2b63de4762408b5d50}, Frontend \texttt{ff191e1195a4e6bf06312ae8e266d37894c5b7b1} y AI Module \texttt{22b12e04ce37f5c9ba6a02f356ac2022390bf06e}. En el caso del Backend, ese SHA corresponde a un commit documental sobre el merge funcional previo: distingue la fuente de verdad escrita del estado funcional ya reconciliado.
 
-El estado final no se deriva de un unico repositorio. Backend aporta seguridad, persistencia, Patient API, reportes, PDF/JSON, Cloud Run DEV y orquestacion; Frontend aporta el flujo visible, historial basado en \texttt{subjectRef}, review panels, longitudinal, Grad-CAM wiring y Playwright final 11/11; AI aporta modelos, runtime, Demo Mode, product-analysis, 67B2/67C/P10.7 con sus gates y limitaciones. Esta separacion evita degradar o inflar una capacidad por mirar solo una capa.
+El estado final no se deriva de un único repositorio. Backend aporta seguridad, persistencia, Patient API, reportes, PDF/JSON, Cloud Run DEV y orquestación; Frontend aporta el flujo visible, historial basado en \texttt{subjectRef}, review panels, longitudinal, Grad-CAM wiring y Playwright final 11/11; AI aporta modelos, runtime, Demo Mode, product-analysis, 67B2/67C/P10.7 con sus gates y limitaciones. Esta separación evita degradar o inflar una capacidad por mirar solo una capa.

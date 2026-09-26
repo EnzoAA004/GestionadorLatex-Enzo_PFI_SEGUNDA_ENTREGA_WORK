@@ -283,7 +283,7 @@ El preinforme se construye mediante plantillas que combinan los valores derivado
 \addcontentsline{lof}{figure}{\protect\numberline{11.8}Preinforme automático revisable con estructuras, mediciones y estado de revisión. Fuente: elaboración propia.}
 Qué evidencia lo respalda. El flujo de revisión está implementado y persistido, y la reapertura de un estudio recupera el estado de revisión junto con los resultados. El relevamiento con profesionales identificó la posibilidad de corregir manualmente cada resultado como el requisito más votado para confiar en una segmentación automática, según se informa en la sección 8.12.
 
-Qué límites tiene. El preinforme es un punto de partida editable y no un informe clínico: su función es reducir la transcripción manual de valores y organizarlos en un orden anatómico previsible, mientras la redacción final, la interpretación y la responsabilidad permanecen en el profesional. La evaluación de utilidad del flujo de revisión con profesionales sobre el producto integrado permanece pendiente.
+Qué límites tiene. El preinforme es un punto de partida editable y no un informe clínico: su función es reducir la transcripción manual de valores y organizarlos en un orden anatómico previsible, mientras la redacción final, la interpretación y la responsabilidad permanecen en el profesional. La utilidad del flujo de revisión sobre el producto integrado se observó en las dos sesiones de revisión cualitativa documentadas en la sección~\ref{sec:resultados-validacion-profesional-cualitativa}; esas sesiones no equivalen a validación clínica, y la validación cruzada final, con lectura profesional independiente sobre los mismos estudios, continúa pendiente.
 
 \section{Persistencia, reapertura y trazabilidad}
 
@@ -388,16 +388,16 @@ Se entrenó y evaluó internamente un modelo de estenosis subarticular sobre cor
 Se trata de un bloqueo de capacidad y no de un trabajo pendiente de ejecución. Su resolución depende de una etapa de localización anatómica que no está disponible.
 
 
-\section{Demo Mode y validacion funcional reproducible}
+\section{Demo Mode y validación funcional reproducible}
 \label{sec:cap-demo-mode}
 
-Demo Mode es un recorrido deterministico, no clinico, construido para defensa academica, testing E2E y validacion funcional del producto. Utiliza datos sinteticos o fixtures controlados y no debe presentarse como sustituto de inferencia clinica real. La configuracion final contiene cuatro studies y dos subjects de demostracion; cuando el localizador real no puede habilitarse, el flujo usa \texttt{localizationStatus=demo\_fixture}, \texttt{source=DEMO\_FIXTURE}, \texttt{validated=false} y una advertencia explicita de no inferencia real.
+Demo Mode es un recorrido determinístico, no clínico, construido para defensa académica, testing E2E y validación funcional del producto. Utiliza datos sintéticos o fixtures controlados y no debe presentarse como sustituto de inferencia clínica real. La configuración final contiene cuatro studies y dos subjects de demostración; cuando el localizador real no puede habilitarse, el flujo usa \texttt{localizationStatus=demo\_fixture}, \texttt{source=DEMO\_FIXTURE}, \texttt{validated=false} y una advertencia explícita de no inferencia real.
 
-El valor de Demo Mode es que permite recorrer de punta a punta el producto sin fabricar un nivel anatomico no validado. En ese recorrido se ejercitan ingesta, corrida AI, mediciones, evidencia visual, revision profesional, reporte, exportacion PDF/JSON, chat contextual contra proveedor mock y comparacion longitudinal deterministica. La comparacion longitudinal usa valores controlados por \texttt{caseId}; por ejemplo, el flujo final valida una variacion absoluta de 0,6 mm luego de una correccion profesional. El resultado browser E2E final fue Playwright 11/11 PASS, interpretado como validacion funcional del prototipo y no como validacion clinica.
+El valor de Demo Mode es que permite recorrer de punta a punta el producto sin fabricar un nivel anatómico no validado. En ese recorrido se ejercitan ingesta, corrida AI, mediciones, evidencia visual, revisión profesional, reporte, exportación PDF/JSON, chat contextual contra proveedor mock y comparación longitudinal determinística. La comparación longitudinal usa valores controlados por \texttt{caseId}; por ejemplo, el flujo final valida una variación absoluta de 0,6 mm luego de una corrección profesional. El resultado browser E2E final fue Playwright 11/11 PASS, interpretado como validación funcional del prototipo y no como validación clínica.
 
 \section{Disponibilidad productiva de modelos y extensiones}
 
-La Tabla~\ref{tab:cap-modelos-disponibilidad-final} resume la diferencia entre evaluacion offline, disponibilidad runtime y exposicion de producto. Esta distincion evita presentar una metrica experimental como si habilitara automaticamente una capacidad clinica o productiva.
+La Tabla~\ref{tab:cap-modelos-disponibilidad-final} resume la diferencia entre evaluación offline, disponibilidad runtime y exposición de producto. Esta distinción evita presentar una métrica experimental como si habilitara automáticamente una capacidad clínica o productiva.
 
 {\scriptsize
 \setlength{\LTleft}{0pt}
@@ -407,30 +407,30 @@ La Tabla~\ref{tab:cap-modelos-disponibilidad-final} resume la diferencia entre e
 \begin{longtable}{>{\raggedright\arraybackslash}p{0.18\textwidth} >{\raggedright\arraybackslash}p{0.22\textwidth} >{\raggedright\arraybackslash}p{0.22\textwidth} >{\raggedright\arraybackslash}p{0.30\textwidth}}
 \caption{Estado final de modelos y extensiones.}\label{tab:cap-modelos-disponibilidad-final}\\
 \hline
-\textbf{Capacidad} & \textbf{Evidencia} & \textbf{Estado} & \textbf{Limitacion principal} \\
+\textbf{Capacidad} & \textbf{Evidencia} & \textbf{Estado} & \textbf{Limitación principal} \\
 \hline
 \endfirsthead
 \hline
-\textbf{Capacidad} & \textbf{Evidencia} & \textbf{Estado} & \textbf{Limitacion principal} \\
+\textbf{Capacidad} & \textbf{Evidencia} & \textbf{Estado} & \textbf{Limitación principal} \\
 \hline
 \endhead
 \hline
 \endfoot
-Sagital SPIDER U-Net2D & Test Dice macro 0,8934 e IoU 0,8080; quality gate aprobado & Validada tecnicamente & Dataset academico, sin validacion clinica. \\
+Sagital SPIDER U-Net2D & Test Dice macro 0,8934 e IoU 0,8080; quality gate aprobado & Validada técnicamente & Dataset académico, sin validación clínica. \\
 Axial Sudirman/Al-Kafri U-Net2D & Dice oficial 0,679348283374592; IoU 0,5699727598420694 & Experimental & \texttt{qualityGatePassed=false}; la lectura excluyendo \texttt{raw\_0} no reemplaza el gate. \\
-67B2 localizacion lumbar absoluta & DEV top1 0,9343629343629344; top2 0,972972972972973; MRR 0,9617117117117117; n=259. Locked Top1 0,9049295774647887; Top2 0,9612676056338029; MRR 0,9448356807511736; pipeline accuracy given emit 0,9909502262443439 & Parcial/offline & \texttt{67B2\_RUNTIME\_PARITY\_NOT\_PROVEN}; \texttt{productEnabled=false}; \texttt{parityVerified=false}. \\
-67C pairing sagital--axial & Algoritmo geometrico deterministico con flags de contrato & Experimental & \texttt{experimental=true}, \texttt{validated=false}, \texttt{reviewRequired=true}; depende de 67B2. \\
+67B2 localización lumbar absoluta & DEV top1 0,9343629343629344; top2 0,972972972972973; MRR 0,9617117117117117; n=259. Locked Top1 0,9049295774647887; Top2 0,9612676056338029; MRR 0,9448356807511736; pipeline accuracy given emit 0,9909502262443439 & Parcial/offline & \texttt{67B2\_RUNTIME\_PARITY\_NOT\_PROVEN}; \texttt{productEnabled=false}; \texttt{parityVerified=false}. \\
+67C pairing sagital--axial & Algoritmo geométrico determinístico con flags de contrato & Experimental & \texttt{experimental=true}, \texttt{validated=false}, \texttt{reviewRequired=true}; depende de 67B2. \\
 P10.7 hallazgos degenerativos & Checkpoints y contratos existen & Bloqueada & \texttt{blocked\_preprocessing\_parity}; \texttt{automaticInferenceEnabled=false}. \\
-Grad-CAM & Tests AI especificos PASS, contrato API validado, wiring Frontend presente & Experimental & No fue ejercitado explicitamente en el browser E2E final; no es validacion clinica. \\
+Grad-CAM & Tests AI específicos PASS, contrato API validado, wiring Frontend presente & Experimental & No fue ejercitado explícitamente en el browser E2E final; no es validación clínica. \\
 \hline
 \end{longtable}
 }
 
-\section{Capacidades extendidas de revision y analisis}
+\section{Capacidades extendidas de revisión y análisis}
 
-Ademas del flujo principal de segmentacion, medicion y reporte, el producto final incorpora extensiones de revision con alcance controlado. Concordance compara evidencia del mismo fenomeno, nivel y lado como regla descriptiva, no clinica. Review analytics agrega telemetria de revision para observar tiempos y estados, sin medir exactitud medica. Feedback curation registra candidatos de curacion profesional, pero no activa reentrenamiento automatico ni aprendizaje online. Grad-CAM expone mapas experimentales para el clasificador subarticular, siempre con \texttt{experimental=true}. Product-analysis integra resultados del flujo de producto: en Demo Mode puede completar un nivel deterministico, mientras que en entradas reales conserva el fallo seguro cuando 67B2 no prueba paridad runtime.
+Además del flujo principal de segmentación, medición y reporte, el producto final incorpora extensiones de revisión con alcance controlado. Concordance compara evidencia del mismo fenómeno, nivel y lado como regla descriptiva, no clínica. Review analytics agrega telemetría de revisión para observar tiempos y estados, sin medir exactitud médica. Feedback curation registra candidatos de curación profesional, pero no activa reentrenamiento automático ni aprendizaje online. Grad-CAM expone mapas experimentales para el clasificador subarticular, siempre con \texttt{experimental=true}. Product-analysis integra resultados del flujo de producto: en Demo Mode puede completar un nivel determinístico, mientras que en entradas reales conserva el fallo seguro cuando 67B2 no prueba paridad runtime.
 
-El chat contextual usa una abstraccion de proveedor LLM. En el recorrido demo se valida contra un mock deterministico; Qwen/self-hosted se documenta como target soportado, no como despliegue productivo ejercitado. Esta capacidad acompana la lectura del caso, pero no genera diagnostico, tratamiento ni decision automatica.
+El chat contextual usa una abstracción de proveedor LLM. En el recorrido demo se valida contra un mock determinístico; Qwen/self-hosted se documenta como target soportado, no como despliegue productivo ejercitado. Esta capacidad acompaña la lectura del caso, pero no genera diagnóstico, tratamiento ni decisión automática.
 \section{Estado consolidado de las capacidades}
 
 {\scriptsize
@@ -459,14 +459,15 @@ Asignación de nivel anatómico & 11.6 & Implementada; sin métrica de acierto \
 Visualización y navegación por cortes & 11.7 & Implementada; P10.9 integrado en frontend con catálogo full-series y visor navegable; Playwright final 11/11 PASS en recorrido funcional del prototipo \\
 Revisión profesional & 11.8 & Implementada en su flujo principal \\
 Preinforme automático revisable & 11.8 & Implementado; editable y no diagnóstico \\
-Persistencia, reapertura y trazabilidad & 11.9 & Implementadas; Patient/API/persistencia validado en Backend, con UI longitudinal todavia basada principalmente en \texttt{subjectRef} \\
+Persistencia, reapertura y trazabilidad & 11.9 & Implementadas; Patient/API/persistencia validado en Backend, con UI longitudinal todavía basada principalmente en \texttt{subjectRef} \\
 Seguridad, roles y estados degradados & 11.10 & Implementados; endurecimiento productivo posterior \\
 Estimación de hallazgos estructurales & 11.11.1 & Desarrollada y evaluada sobre partición sellada; no expuesta por desempeño heterogéneo \\
 Clasificación de estenosis subarticular & 11.11.2 & Bloqueada \\
-Recorrido extremo a extremo con interfaz & --- & Validado funcionalmente en Playwright 11/11 sobre Demo Mode y recorrido de producto; no equivale a validacion clinica \\
-Validación profesional sobre el producto & — & Pendiente \\
-Comparación longitudinal & — & Implementada y validada en flujo demo/\texttt{subjectRef}; los inputs reales no-demo dependen de localizacion anatomica resuelta \\
-Despliegue en la plataforma objetivo & — & Parcial: Artifact Registry/WIF y Cloud Run DEV Backend/Frontend desplegados; AI privado, Cloud SQL, Secret Manager, storage productivo, DEMO environment y monitoreo live no desplegados \\
+Recorrido extremo a extremo local/containerizado & --- & Validado según la evidencia de la sección~\ref{sec:resultados-validacion-final} (Playwright 11/11 sobre Demo Mode y recorrido de producto); no equivale a validación clínica \\
+Recorrido extremo a extremo en Cloud desde navegador & --- & Parcial, no cerrado, según la evidencia de la sección~\ref{sec:resultados-cloud-e2e} \\
+Validación profesional sobre el producto & — & Revisión cualitativa realizada (Dra. Susana Torres y Dra. Claudia Cejas, sección~\ref{sec:resultados-validacion-profesional-cualitativa}); no es validación clínica; la validación cruzada final continúa pendiente \\
+Comparación longitudinal & — & Parcial: disponible en el alcance Demo/\texttt{subjectRef} según la evidencia existente; no constituye validación clínica de progresión \\
+Despliegue en Google Cloud & — & Entorno DEV desplegado y validado (Backend, Frontend, AI privado, Cloud SQL, Secret Manager y storage durable); DEMO environment separado y monitoreo/alerting en vivo no desplegados \\
 \hline
 \end{longtable}
 }

@@ -98,15 +98,15 @@ Este anexo documenta las principales decisiones de arquitectura adoptadas durant
 \addcontentsline{toc}{section}{ADR-007 --- Google Cloud como arquitectura objetivo de despliegue}
 \label{adr:007-google-cloud-despliegue}
 
-\textbf{Estado:} aceptado como arquitectura objetivo; despliegue parcial DEV validado.
+\textbf{Estado:} aceptado; implementación DEV realizada y validada. El entorno DEMO separado y el monitoreo/alerting productivo en vivo continúan sin desplegarse.
 
-\textbf{Contexto.} El prototipo requiere una arquitectura que permita desplegar componentes separados, almacenar artifacts de forma durable, disponer de una base PostgreSQL y controlar el consumo de recursos sin asumir inicialmente una infraestructura de alta disponibilidad propia de un entorno clínico productivo.
+\textbf{Contexto.} El prototipo requiere una arquitectura que permita desplegar componentes separados, almacenar artifacts de forma durable, disponer de una base PostgreSQL y controlar el consumo de recursos sin asumir inicialmente una infraestructura de alta disponibilidad propia de un entorno clínico productivo. La plataforma se planteó inicialmente como arquitectura objetivo y fue luego implementada y validada de forma progresiva.
 
-\textbf{Decisión.} Utilizar Google Cloud como plataforma objetivo, manteniendo servicios diferenciados para Frontend, Backend y AI Module, una instancia administrada de PostgreSQL, almacenamiento privado para modelos y assets, registro de contenedores y gestión externa de secretos. Al cierre técnico se validaron Artifact Registry/WIF, Backend Cloud Run DEV y Frontend Cloud Run DEV. AI Cloud Run privado, Cloud SQL, Secret Manager, storage productivo, DEMO environment y monitoreo/alerting live permanecen no desplegados.
+\textbf{Decisión.} Utilizar Google Cloud como plataforma de despliegue, manteniendo servicios diferenciados para Frontend, Backend y AI Module, una instancia administrada de PostgreSQL, almacenamiento privado para modelos y assets, registro de contenedores y gestión externa de secretos. Al cierre técnico se validaron de punta a punta Artifact Registry/WIF, Backend Cloud Run DEV (legacy y Green), Frontend Cloud Run DEV, AI Cloud Run privado, Cloud SQL, Secret Manager y el storage durable, según el detalle del Capítulo 10 (Estado real del despliegue Cloud) y la evidencia técnica del Capítulo 13. El entorno DEMO separado y el monitoreo/alerting en vivo permanecen no desplegados.
 
 \textbf{Alternativas consideradas.} Mantener el sistema exclusivamente en ejecución local, administrar infraestructura propia o trasladar la misma arquitectura a otro proveedor de nube.
 
-\textbf{Consecuencias.} La plataforma permite utilizar servicios administrados y ajustar los recursos por componente, evitando incorporar inicialmente infraestructura que no esté justificada para el prototipo. Como contrapartida, introduce configuración específica de nube, necesidad de controlar costos y dependencia de los servicios seleccionados. El despliegue completo permanece fuera del estado implementado de esta entrega.
+\textbf{Consecuencias.} La plataforma permite utilizar servicios administrados y ajustar los recursos por componente, evitando incorporar inicialmente infraestructura que no esté justificada para el prototipo. Como contrapartida, introduce configuración específica de nube, necesidad de controlar costos y dependencia de los servicios seleccionados. El despliegue DEV validado cubre el alcance técnico definido para esta entrega; el entorno DEMO separado y el monitoreo/alerting productivo en vivo permanecen fuera del estado implementado.
 
 \section*{ADR-008 --- Inferencia fail-closed y revision profesional obligatoria}
 \addcontentsline{toc}{section}{ADR-008 --- Inferencia fail-closed y revision profesional obligatoria}

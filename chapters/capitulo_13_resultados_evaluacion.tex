@@ -176,7 +176,7 @@ Secret scan & Sin credenciales reales & Hallazgos revisados como falsos positivo
 \section{Validación técnica en Google Cloud}
 \label{sec:resultados-cloud-e2e}
 
-La tabla anterior valida el prototipo en un entorno local/contenedorizado. Por separado, se ejecutó una validación técnica de extremo a extremo sobre el proyecto real de Google Cloud \texttt{pfi-asplanatti-fabrello-v1} (Backend Green \texttt{pfi-backend-v2-dev}, IA privada \texttt{pfi-ai-module}, Frontend \texttt{pfi-frontend-dev}, Cloud SQL \texttt{pfi-postgres-dev}, bucket durable \texttt{gs://pfi-backend-durable-dev} y bucket de checkpoint \texttt{gs://pfi-rm-lumbar-artifacts-2026-ef}), documentada en el repositorio Backend (\texttt{docs/cloud/CLOUD\_STAGE\_6} a \texttt{10B}). Esta evidencia es técnica de infraestructura, no clínica.
+La tabla anterior valida el prototipo en un entorno local/contenedorizado. Por separado, se ejecutó una validación técnica de extremo a extremo sobre el proyecto real de Google Cloud \texttt{pfi-asplanatti-fabrello-v1} (Backend Green \texttt{pfi-backend-v2-dev}, IA privada \texttt{pfi-ai-module}, Frontend \texttt{pfi-frontend-dev}, Cloud SQL \texttt{pfi-postgres-dev}, bucket durable \texttt{gs://pfi-backend-durable-dev} y bucket de checkpoint \texttt{gs://pfi-rm-lumbar-artifacts-2026-ef}), documentada en el repositorio Backend (\texttt{docs/cloud/CLOUD\_STAGE\_6} a \texttt{10B}). La prueba se ejecutó con una fixture DICOM sintética, válida y no identificable, compuesta por cinco series y treinta cortes. Esta evidencia es técnica de infraestructura, no clínica.
 
 {\scriptsize
 \setlength{\LTleft}{0pt}
@@ -196,13 +196,13 @@ La tabla anterior valida el prototipo en un entorno local/contenedorizado. Por s
 \hline
 \endfoot
 Autenticación privada Backend--IA & PASS & Google ID Token real, audiencia validada; acceso directo no autenticado a la IA responde 403. \\
-E2E completo con DICOM real & PASS & Carga, procesamiento y persistencia de un estudio DICOM real de punta a punta sobre los servicios Cloud. \\
+Cloud DICOM E2E sobre fixture sintética & PASS & Carga, procesamiento y persistencia de la fixture DICOM sintética de punta a punta sobre los servicios Cloud. \\
 Durabilidad tras reinicio & PASS & Assets e índices recuperables tras reiniciar Backend/IA, con verificación de tamaño/checksum. \\
 Reproceso sin re-subida & PASS & \texttt{POST /studies/\{id\}/reprocess} reutiliza el ZIP durable ya almacenado; sin duplicar objetos en 16+ ejecuciones acumuladas. \\
 Persistencia final estable & Sí & Estable bajo reinicio y bajo concurrencia moderada, con evidencia cruzada (bytes en GCS, filas en SQL, checksums). \\
 Conmutación Frontend a Backend Green & PASS & \texttt{env.js} en runtime confirmado apuntando a \texttt{pfi-backend-v2-dev}. \\
 Recorrido browser completo en Cloud & Parcial & Verificado por capas (red, runtime config, autenticación); el click-through completo de subida de archivo quedó limitado por el tooling de automatización de navegador de la sesión, no por un defecto del producto. \\
-Modelo de costo real & Listo & Construido sobre mediciones reales (ver Tabla~\ref{tab:res-cloud-costos-performance}), no sobre estimaciones teóricas. \\
+Modelo de costo observado en el escenario sintético & Listo & Construido sobre mediciones reales tomadas sobre la fixture sintética (ver Tabla~\ref{tab:res-cloud-costos-performance}), no sobre estimaciones teóricas ni sobre costo de operación clínica. \\
 Cierre técnico de la etapa Cloud & Completo & Las siete verificaciones anteriores cubren el alcance técnico definido para esta etapa. \\
 \hline
 \end{longtable}
@@ -325,7 +325,7 @@ La evaluación final permite afirmar la consistencia funcional y técnica del pr
     \item 67C no se declara validado productivamente.
     \item Grad-CAM cuenta con pruebas AI específicas, contrato API y wiring Frontend, pero permanece experimental y no fue ejercitado explícitamente en el recorrido browser E2E final.
     \item El chat contextual se validó con mock determinístico; el uso de Qwen queda como ruta objetivo, no como disponibilidad productiva demostrada.
-    \item El despliegue Cloud está limitado a recursos DEV corroborados; AI Cloud Run privado, Cloud SQL, Secret Manager, storage productivo, DEMO environment y monitoreo/alerting real no fueron desplegados.
+    \item El despliegue Cloud DEV (Backend, Frontend, AI Cloud Run privado, Cloud SQL, Secret Manager y storage durable) está desplegado y validado según la evidencia de la sección~\ref{sec:resultados-cloud-e2e}; el entorno DEMO separado y el monitoreo/alerting en vivo no fueron desplegados.
     \item El escaneo de secretos no encontró credenciales reales, pero no reemplaza una auditoría de seguridad formal.
     \item El sistema no aprende automáticamente de correcciones profesionales; la curación de feedback queda como insumo controlado para entrenamiento offline futuro.
 \end{enumerate}

@@ -256,9 +256,9 @@
 \contentsline {section}{\numberline {11.11}Capacidades desarrolladas y no expuestas}{107}{section.11.11}%
 \contentsline {subsection}{\numberline {11.11.1}Estimación de hallazgos estructurales por nivel}{107}{subsection.11.11.1}%
 \contentsline {subsection}{\numberline {11.11.2}Clasificación de estenosis subarticular}{109}{subsection.11.11.2}%
-\contentsline {section}{\numberline {11.12}Demo Mode y validacion funcional reproducible}{109}{section.11.12}%
+\contentsline {section}{\numberline {11.12}Demo Mode y validación funcional reproducible}{109}{section.11.12}%
 \contentsline {section}{\numberline {11.13}Disponibilidad productiva de modelos y extensiones}{109}{section.11.13}%
-\contentsline {section}{\numberline {11.14}Capacidades extendidas de revision y analisis}{110}{section.11.14}%
+\contentsline {section}{\numberline {11.14}Capacidades extendidas de revisión y análisis}{110}{section.11.14}%
 \contentsline {section}{\numberline {11.15}Estado consolidado de las capacidades}{110}{section.11.15}%
 \contentsline {chapter}{\numberline {12}Metodología de desarrollo y validación técnica}{112}{chapter.12}%
 \contentsline {section}{\numberline {12.1}Enfoque de trabajo}{112}{section.12.1}%
@@ -315,36 +315,36 @@
 \contentsline {section}{\numberline {15.3}Gestión de cambios}{144}{section.15.3}%
 \contentsline {section}{\numberline {15.4}Riesgos de planificación}{144}{section.15.4}%
 \contentsline {section}{\numberline {15.5}Conclusión de la planificación}{145}{section.15.5}%
-\contentsline {chapter}{\numberline {A}Cronograma del proyecto}{146}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Calendario académico}{146}{appendix.A.1}%
-\contentsline {section}{\numberline {A.2}Diagrama de Gantt}{147}{appendix.A.2}%
-\contentsline {section}{\numberline {A.3}Desvíos respecto de la planificación original}{148}{appendix.A.3}%
-\contentsline {chapter}{\numberline {B}Glosario de términos}{149}{appendix.B}%
-\contentsline {chapter}{\numberline {C}Anatomía de la columna lumbar y los discos intervertebrales}{155}{appendix.C}%
-\contentsline {section}{\numberline {C.1}Esquema simplificado de columna lumbar sagital}{155}{appendix.C.1}%
-\contentsline {section}{\numberline {C.2}Esquema conceptual de segmentación.}{156}{appendix.C.2}%
-\contentsline {chapter}{\numberline {D}Transcripciones de las entrevistas}{157}{appendix.D}%
+\contentsline {chapter}{\numberline {A}Cronograma del proyecto}{146}{appendix.Alph1}%
+\contentsline {section}{\numberline {A.1}Calendario académico}{146}{section.Alph1.1}%
+\contentsline {section}{\numberline {A.2}Diagrama de Gantt}{147}{section.Alph1.2}%
+\contentsline {section}{\numberline {A.3}Desvíos respecto de la planificación original}{148}{section.Alph1.3}%
+\contentsline {chapter}{\numberline {B}Glosario de términos}{149}{appendix.Alph2}%
+\contentsline {chapter}{\numberline {C}Anatomía de la columna lumbar y los discos intervertebrales}{155}{appendix.Alph3}%
+\contentsline {section}{\numberline {C.1}Esquema simplificado de columna lumbar sagital}{155}{section.Alph3.1}%
+\contentsline {section}{\numberline {C.2}Esquema conceptual de segmentación.}{156}{section.Alph3.2}%
+\contentsline {chapter}{\numberline {D}Transcripciones de las entrevistas}{157}{appendix.Alph4}%
 \contentsline {section}{D.1 Entrevista 1 (EN-01) - Dra. Susana Torres (M.N. 179537)}{157}{section*.9}%
 \contentsline {section}{D.2 Entrevista 2 (EN-02) - Dr.~Gonzalo Brito}{161}{section*.10}%
 \contentsline {section}{D.3 Entrevista 3 (EN-03) - Dra. Claudia Cejas}{164}{section*.11}%
 \contentsline {section}{D.4 Entrevista 4 (EN-04) - Dr.~Bruno Bregonzi}{168}{section*.12}%
 \contentsline {section}{D.5 Entrevista 5 (EN-05) - Dr.~Eduardo Luis Castiglione}{171}{section*.13}%
-\contentsline {chapter}{\numberline {E}Configuración de entrenamiento de los modelos}{176}{appendix.E}%
+\contentsline {chapter}{\numberline {E}Configuración de entrenamiento de los modelos}{176}{appendix.Alph5}%
 \contentsline {section}{E.1 Parámetros de entrenamiento}{176}{section*.14}%
 \contentsline {section}{E.2 Aumentación de datos}{177}{section*.15}%
 \contentsline {section}{E.3 Controles de calidad al cierre del entrenamiento}{178}{section*.16}%
 \contentsline {section}{E.4 Trazabilidad de los artifacts}{178}{section*.17}%
-\contentsline {chapter}{\numberline {F}Evolución técnica del desarrollo}{179}{appendix.F}%
-\contentsline {section}{\numberline {F.1}Evolución técnica alcanzada}{179}{appendix.F.1}%
-\contentsline {subsection}{\numberline {F.1.1}Etapa fundacional y separación en tres repositorios}{179}{subsection.F.1.1}%
-\contentsline {subsection}{\numberline {F.1.2}Backlogs técnicos por repositorio}{180}{subsection.F.1.2}%
-\contentsline {subsection}{\numberline {F.1.3}Bloques coordinados de producto}{180}{subsection.F.1.3}%
-\contentsline {subsection}{\numberline {F.1.4}Estado resultante para la entrega del 50 \%}{184}{subsection.F.1.4}%
-\contentsline {section}{\numberline {F.2}Evolución del producto visible}{184}{appendix.F.2}%
-\contentsline {section}{\numberline {F.3}Evolución del pipeline de inferencia}{186}{appendix.F.3}%
-\contentsline {section}{\numberline {F.4}Organización interna del módulo de inteligencia artificial}{187}{appendix.F.4}%
-\contentsline {section}{\numberline {F.5}Cierre tecnico final y fuente canonica}{187}{appendix.F.5}%
-\contentsline {chapter}{\numberline {G}Registro de decisiones arquitectónicas}{189}{appendix.G}%
+\contentsline {chapter}{\numberline {F}Evolución técnica del desarrollo}{179}{appendix.Alph6}%
+\contentsline {section}{\numberline {F.1}Evolución técnica alcanzada}{179}{section.Alph6.1}%
+\contentsline {subsection}{\numberline {F.1.1}Etapa fundacional y separación en tres repositorios}{179}{subsection.Alph6.1.1}%
+\contentsline {subsection}{\numberline {F.1.2}Backlogs técnicos por repositorio}{180}{subsection.Alph6.1.2}%
+\contentsline {subsection}{\numberline {F.1.3}Bloques coordinados de producto}{180}{subsection.Alph6.1.3}%
+\contentsline {subsection}{\numberline {F.1.4}Estado resultante para la entrega del 50 \%}{184}{subsection.Alph6.1.4}%
+\contentsline {section}{\numberline {F.2}Evolución del producto visible}{184}{section.Alph6.2}%
+\contentsline {section}{\numberline {F.3}Evolución del pipeline de inferencia}{186}{section.Alph6.3}%
+\contentsline {section}{\numberline {F.4}Organización interna del módulo de inteligencia artificial}{187}{section.Alph6.4}%
+\contentsline {section}{\numberline {F.5}Cierre tecnico final y fuente canonica}{187}{section.Alph6.5}%
+\contentsline {chapter}{\numberline {G}Registro de decisiones arquitectónicas}{189}{appendix.Alph7}%
 \contentsline {section}{ADR-001 --- Separación de Frontend, Backend y AI Module}{189}{section*.18}%
 \contentsline {section}{ADR-002 --- Spring Boot para el Backend y Python/FastAPI para el AI Module}{189}{section*.19}%
 \contentsline {section}{ADR-003 --- Backend como única frontera pública hacia el AI Module}{190}{section*.20}%
@@ -356,11 +356,11 @@
 \contentsline {section}{ADR-009 --- Demo Mode deterministico y no clinico}{192}{section*.24}%
 \contentsline {section}{ADR-010 --- Integracion parcial del dominio Patient}{192}{section*.24}%
 \contentsline {section}{ADR-011 --- No aprendizaje automatico desde correcciones profesionales}{193}{section*.24}%
-\contentsline {chapter}{\numberline {H}Validaciones de producto con profesionales}{194}{appendix.H}%
-\contentsline {section}{\numberline {H.1}Validacion Susana Torres}{194}{appendix.H.1}%
-\contentsline {section}{\numberline {H.2}Validacion Claudia Cejas}{195}{appendix.H.2}%
-\contentsline {section}{\numberline {H.3}Sintesis transversal}{197}{appendix.H.3}%
-\contentsline {section}{\numberline {H.4}Validacion cruzada pendiente}{198}{appendix.H.4}%
+\contentsline {chapter}{\numberline {H}Validaciones de producto con profesionales}{194}{appendix.Alph8}%
+\contentsline {section}{\numberline {H.1}Validación Susana Torres}{194}{section.Alph8.1}%
+\contentsline {section}{\numberline {H.2}Validación Claudia Cejas}{195}{section.Alph8.2}%
+\contentsline {section}{\numberline {H.3}Síntesis transversal}{197}{section.Alph8.3}%
+\contentsline {section}{\numberline {H.4}Validación cruzada pendiente}{198}{section.Alph8.4}%
 \contentsline {chapter}{Referencias}{199}{appendix*.26}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 

@@ -356,12 +356,16 @@
 \contentsline {section}{ADR-009 --- Demo Mode deterministico y no clinico}{192}{section*.24}%
 \contentsline {section}{ADR-010 --- Integracion parcial del dominio Patient}{192}{section*.24}%
 \contentsline {section}{ADR-011 --- No aprendizaje automatico desde correcciones profesionales}{193}{section*.24}%
-\contentsline {chapter}{\numberline {H}Validaciones de producto con profesionales}{194}{appendix.Alph8}%
-\contentsline {section}{\numberline {H.1}Validación Susana Torres}{194}{section.Alph8.1}%
-\contentsline {section}{\numberline {H.2}Validación Claudia Cejas}{195}{section.Alph8.2}%
-\contentsline {section}{\numberline {H.3}Síntesis transversal}{197}{section.Alph8.3}%
-\contentsline {section}{\numberline {H.4}Validación cruzada pendiente}{198}{section.Alph8.4}%
-\contentsline {chapter}{Referencias}{199}{appendix*.26}%
+\contentsline {chapter}{\numberline {H}Validación profesional cualitativa}{194}{appendix.Alph8}%
+\contentsline {section}{\numberline {H.1}Propósito y alcance}{194}{section.Alph8.1}%
+\contentsline {section}{\numberline {H.2}Metodología de las sesiones}{194}{section.Alph8.2}%
+\contentsline {section}{\numberline {H.3}VP-01 --- Sesión con la Dra. Susana Torres}{195}{section.Alph8.3}%
+\contentsline {section}{\numberline {H.4}VP-02 --- Sesión con la Dra. Claudia Cejas}{196}{section.Alph8.4}%
+\contentsline {section}{\numberline {H.5}Síntesis transversal de hallazgos}{198}{section.Alph8.5}%
+\contentsline {section}{\numberline {H.6}Trazabilidad entre observaciones y decisiones de producto}{199}{section.Alph8.6}%
+\contentsline {section}{\numberline {H.7}Limitaciones de esta instancia}{200}{section.Alph8.7}%
+\contentsline {section}{\numberline {H.8}Validación cruzada profesional final pendiente}{200}{section.Alph8.8}%
+\contentsline {chapter}{Referencias}{201}{appendix*.26}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 

@@ -242,130 +242,130 @@
 \contentsline {subsection}{\numberline {10.8.1}Criterios de diseño derivados del user research}{96}{subsection.10.8.1}%
 \contentsline {subsection}{\numberline {10.8.2}Esquemas de las pantallas principales}{96}{subsection.10.8.2}%
 \contentsline {subsection}{\numberline {10.8.3}Decisiones de diseño y alternativas descartadas}{97}{subsection.10.8.3}%
-\contentsline {chapter}{\numberline {11}Capacidades del prototipo}{98}{chapter.11}%
-\contentsline {section}{\numberline {11.1}Cómo leer este capítulo}{98}{section.11.1}%
-\contentsline {section}{\numberline {11.2}Ingesta y preparación del estudio}{98}{section.11.2}%
-\contentsline {section}{\numberline {11.3}Segmentación sagital}{99}{section.11.3}%
-\contentsline {section}{\numberline {11.4}Segmentación axial}{100}{section.11.4}%
-\contentsline {section}{\numberline {11.5}Mediciones geométricas}{102}{section.11.5}%
-\contentsline {section}{\numberline {11.6}Asignación de nivel anatómico}{103}{section.11.6}%
-\contentsline {section}{\numberline {11.7}Visualización y navegación por cortes}{104}{section.11.7}%
-\contentsline {section}{\numberline {11.8}Revisión profesional y salida editable}{105}{section.11.8}%
-\contentsline {section}{\numberline {11.9}Persistencia, reapertura y trazabilidad}{106}{section.11.9}%
-\contentsline {section}{\numberline {11.10}Seguridad y estados degradados}{106}{section.11.10}%
-\contentsline {section}{\numberline {11.11}Capacidades desarrolladas y no expuestas}{107}{section.11.11}%
-\contentsline {subsection}{\numberline {11.11.1}Estimación de hallazgos estructurales por nivel}{107}{subsection.11.11.1}%
-\contentsline {subsection}{\numberline {11.11.2}Clasificación de estenosis subarticular}{109}{subsection.11.11.2}%
-\contentsline {section}{\numberline {11.12}Demo Mode y validación funcional reproducible}{109}{section.11.12}%
-\contentsline {section}{\numberline {11.13}Disponibilidad productiva de modelos y extensiones}{109}{section.11.13}%
-\contentsline {section}{\numberline {11.14}Capacidades extendidas de revisión y análisis}{110}{section.11.14}%
-\contentsline {section}{\numberline {11.15}Estado consolidado de las capacidades}{110}{section.11.15}%
-\contentsline {chapter}{\numberline {12}Metodología de desarrollo y validación técnica}{112}{chapter.12}%
-\contentsline {section}{\numberline {12.1}Enfoque de trabajo}{112}{section.12.1}%
+\contentsline {chapter}{\numberline {11}Capacidades del prototipo}{99}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Cómo leer este capítulo}{99}{section.11.1}%
+\contentsline {section}{\numberline {11.2}Ingesta y preparación del estudio}{99}{section.11.2}%
+\contentsline {section}{\numberline {11.3}Segmentación sagital}{100}{section.11.3}%
+\contentsline {section}{\numberline {11.4}Segmentación axial}{101}{section.11.4}%
+\contentsline {section}{\numberline {11.5}Mediciones geométricas}{103}{section.11.5}%
+\contentsline {section}{\numberline {11.6}Asignación de nivel anatómico}{104}{section.11.6}%
+\contentsline {section}{\numberline {11.7}Visualización y navegación por cortes}{105}{section.11.7}%
+\contentsline {section}{\numberline {11.8}Revisión profesional y salida editable}{106}{section.11.8}%
+\contentsline {section}{\numberline {11.9}Persistencia, reapertura y trazabilidad}{107}{section.11.9}%
+\contentsline {section}{\numberline {11.10}Seguridad y estados degradados}{107}{section.11.10}%
+\contentsline {section}{\numberline {11.11}Capacidades desarrolladas y no expuestas}{108}{section.11.11}%
+\contentsline {subsection}{\numberline {11.11.1}Estimación de hallazgos estructurales por nivel}{108}{subsection.11.11.1}%
+\contentsline {subsection}{\numberline {11.11.2}Clasificación de estenosis subarticular}{110}{subsection.11.11.2}%
+\contentsline {section}{\numberline {11.12}Demo Mode y validación funcional reproducible}{110}{section.11.12}%
+\contentsline {section}{\numberline {11.13}Disponibilidad productiva de modelos y extensiones}{110}{section.11.13}%
+\contentsline {section}{\numberline {11.14}Capacidades extendidas de revisión y análisis}{111}{section.11.14}%
+\contentsline {section}{\numberline {11.15}Estado consolidado de las capacidades}{111}{section.11.15}%
+\contentsline {chapter}{\numberline {12}Metodología de desarrollo y validación técnica}{113}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Enfoque de trabajo}{113}{section.12.1}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {section}{\numberline {12.2}Sistemas de identificación}{112}{section.12.2}%
-\contentsline {section}{\numberline {12.3}Ciclo de trabajo y coordinación}{113}{section.12.3}%
-\contentsline {subsection}{\numberline {12.3.1}Automatización de integración y publicación}{114}{subsection.12.3.1}%
-\contentsline {section}{\numberline {12.4}Criterios de listo, terminado y evidencia}{116}{section.12.4}%
-\contentsline {section}{\numberline {12.5}Validación por capas y pruebas}{116}{section.12.5}%
-\contentsline {section}{\numberline {12.6}Diferencia entre instancias de validación}{117}{section.12.6}%
-\contentsline {subsection}{\numberline {12.6.1}Validación profesional final pendiente}{117}{subsection.12.6.1}%
-\contentsline {section}{\numberline {12.7}Limitaciones metodológicas}{118}{section.12.7}%
-\contentsline {chapter}{\numberline {13}Resultados de la evaluación técnica}{119}{chapter.13}%
-\contentsline {section}{\numberline {13.1}Propósito y alcance de la evaluación}{119}{section.13.1}%
-\contentsline {section}{\numberline {13.2}Protocolo de evaluación}{119}{section.13.2}%
-\contentsline {section}{\numberline {13.3}Resultados de segmentación}{120}{section.13.3}%
-\contentsline {section}{\numberline {13.4}Umbral de calidad y estado del artifact axial}{121}{section.13.4}%
-\contentsline {section}{\numberline {13.5}Advertencia sobre la partición de prueba axial}{121}{section.13.5}%
-\contentsline {section}{\numberline {13.6}Verificación por contraste de las mediciones derivadas}{121}{section.13.6}%
-\contentsline {section}{\numberline {13.7}Una medición implementada y no publicada}{122}{section.13.7}%
-\contentsline {section}{\numberline {13.8}Resultados finales de validación técnica por capa}{123}{section.13.8}%
-\contentsline {section}{\numberline {13.9}Validación técnica en Google Cloud}{124}{section.13.9}%
-\contentsline {section}{\numberline {13.10}Niveles de validación y alcance}{125}{section.13.10}%
-\contentsline {section}{\numberline {13.11}Resultados de la validación profesional cualitativa}{125}{section.13.11}%
-\contentsline {subsection}{\numberline {13.11.1}Ficha de la sesión con la Dra. Susana Torres}{126}{subsection.13.11.1}%
-\contentsline {subsection}{\numberline {13.11.2}Ficha de la sesión con la Dra. Claudia Cejas}{126}{subsection.13.11.2}%
-\contentsline {subsection}{\numberline {13.11.3}Síntesis transversal}{127}{subsection.13.11.3}%
-\contentsline {subsection}{\numberline {13.11.4}Validación profesional final pendiente}{128}{subsection.13.11.4}%
-\contentsline {section}{\numberline {13.12}Limitaciones de la evaluación}{128}{section.13.12}%
-\contentsline {section}{\numberline {13.13}Conclusión del capítulo}{129}{section.13.13}%
-\contentsline {chapter}{\numberline {14}Modelo de negocio y viabilidad económica}{131}{chapter.14}%
-\contentsline {section}{\numberline {14.1}Alcance y política de evidencia}{131}{section.14.1}%
-\contentsline {section}{\numberline {14.2}Modelo de negocio}{132}{section.14.2}%
-\contentsline {section}{\numberline {14.3}Justificación del modelo SaaS B2B}{132}{section.14.3}%
-\contentsline {section}{\numberline {14.4}Segmentación de clientes: Starter, Professional y Enterprise}{133}{section.14.4}%
-\contentsline {section}{\numberline {14.5}Pricing por volumen de estudios}{133}{section.14.5}%
-\contentsline {section}{\numberline {14.6}Estructura de ingresos}{134}{section.14.6}%
-\contentsline {section}{\numberline {14.7}Estructura de costos}{134}{section.14.7}%
-\contentsline {subsection}{\numberline {14.7.1}Costos variables: infraestructura Cloud medida}{134}{subsection.14.7.1}%
-\contentsline {subsection}{\numberline {14.7.2}Costo variable por escenario}{135}{subsection.14.7.2}%
-\contentsline {subsection}{\numberline {14.7.3}Costos fijos del negocio}{136}{subsection.14.7.3}%
-\contentsline {section}{\numberline {14.8}Metodología financiera a 36 meses}{136}{section.14.8}%
-\contentsline {section}{\numberline {14.9}Escenarios financieros: Pesimista, Base y Optimista}{137}{section.14.9}%
-\contentsline {section}{\numberline {14.10}Resultado del escenario Base conservador}{138}{section.14.10}%
-\contentsline {section}{\numberline {14.11}Análisis de sensibilidad}{138}{section.14.11}%
-\contentsline {section}{\numberline {14.12}Propuesta de Base Comercial Objetivo}{139}{section.14.12}%
-\contentsline {section}{\numberline {14.13}Comparación entre el Base conservador y el Base Comercial Objetivo}{139}{section.14.13}%
-\contentsline {section}{\numberline {14.14}Limitaciones del modelo económico}{140}{section.14.14}%
-\contentsline {section}{\numberline {14.15}Interpretación final}{141}{section.14.15}%
-\contentsline {chapter}{\numberline {15}Planificación académica general}{143}{chapter.15}%
-\contentsline {section}{\numberline {15.1}Criterio de planificación}{143}{section.15.1}%
-\contentsline {section}{\numberline {15.2}Planificación por entregables}{143}{section.15.2}%
-\contentsline {section}{\numberline {15.3}Gestión de cambios}{144}{section.15.3}%
-\contentsline {section}{\numberline {15.4}Riesgos de planificación}{144}{section.15.4}%
-\contentsline {section}{\numberline {15.5}Conclusión de la planificación}{145}{section.15.5}%
-\contentsline {chapter}{\numberline {A}Cronograma del proyecto}{146}{appendix.Alph1}%
-\contentsline {section}{\numberline {A.1}Calendario académico}{146}{section.Alph1.1}%
-\contentsline {section}{\numberline {A.2}Diagrama de Gantt}{147}{section.Alph1.2}%
-\contentsline {section}{\numberline {A.3}Desvíos respecto de la planificación original}{148}{section.Alph1.3}%
-\contentsline {chapter}{\numberline {B}Glosario de términos}{149}{appendix.Alph2}%
-\contentsline {chapter}{\numberline {C}Anatomía de la columna lumbar y los discos intervertebrales}{155}{appendix.Alph3}%
-\contentsline {section}{\numberline {C.1}Esquema simplificado de columna lumbar sagital}{155}{section.Alph3.1}%
-\contentsline {section}{\numberline {C.2}Esquema conceptual de segmentación.}{156}{section.Alph3.2}%
-\contentsline {chapter}{\numberline {D}Transcripciones de las entrevistas}{157}{appendix.Alph4}%
-\contentsline {section}{D.1 Entrevista 1 (EN-01) - Dra. Susana Torres (M.N. 179537)}{157}{section*.9}%
-\contentsline {section}{D.2 Entrevista 2 (EN-02) - Dr.~Gonzalo Brito}{161}{section*.10}%
-\contentsline {section}{D.3 Entrevista 3 (EN-03) - Dra. Claudia Cejas}{164}{section*.11}%
-\contentsline {section}{D.4 Entrevista 4 (EN-04) - Dr.~Bruno Bregonzi}{168}{section*.12}%
-\contentsline {section}{D.5 Entrevista 5 (EN-05) - Dr.~Eduardo Luis Castiglione}{171}{section*.13}%
-\contentsline {chapter}{\numberline {E}Configuración de entrenamiento de los modelos}{176}{appendix.Alph5}%
-\contentsline {section}{E.1 Parámetros de entrenamiento}{176}{section*.14}%
-\contentsline {section}{E.2 Aumentación de datos}{177}{section*.15}%
-\contentsline {section}{E.3 Controles de calidad al cierre del entrenamiento}{178}{section*.16}%
-\contentsline {section}{E.4 Trazabilidad de los artifacts}{178}{section*.17}%
-\contentsline {chapter}{\numberline {F}Evolución técnica del desarrollo}{179}{appendix.Alph6}%
-\contentsline {section}{\numberline {F.1}Evolución técnica alcanzada}{179}{section.Alph6.1}%
-\contentsline {subsection}{\numberline {F.1.1}Etapa fundacional y separación en tres repositorios}{179}{subsection.Alph6.1.1}%
-\contentsline {subsection}{\numberline {F.1.2}Backlogs técnicos por repositorio}{180}{subsection.Alph6.1.2}%
-\contentsline {subsection}{\numberline {F.1.3}Bloques coordinados de producto}{180}{subsection.Alph6.1.3}%
-\contentsline {subsection}{\numberline {F.1.4}Estado resultante para la entrega del 50 \%}{184}{subsection.Alph6.1.4}%
-\contentsline {section}{\numberline {F.2}Evolución del producto visible}{184}{section.Alph6.2}%
-\contentsline {section}{\numberline {F.3}Evolución del pipeline de inferencia}{186}{section.Alph6.3}%
-\contentsline {section}{\numberline {F.4}Organización interna del módulo de inteligencia artificial}{187}{section.Alph6.4}%
-\contentsline {section}{\numberline {F.5}Cierre tecnico final y fuente canonica}{187}{section.Alph6.5}%
-\contentsline {chapter}{\numberline {G}Registro de decisiones arquitectónicas}{189}{appendix.Alph7}%
-\contentsline {section}{ADR-001 --- Separación de Frontend, Backend y AI Module}{189}{section*.18}%
-\contentsline {section}{ADR-002 --- Spring Boot para el Backend y Python/FastAPI para el AI Module}{189}{section*.19}%
-\contentsline {section}{ADR-003 --- Backend como única frontera pública hacia el AI Module}{190}{section*.20}%
-\contentsline {section}{ADR-004 --- PostgreSQL para persistencia transaccional}{190}{section*.21}%
-\contentsline {section}{ADR-005 --- PyTorch como runtime de inferencia y ONNX Runtime diferido}{190}{section*.22}%
-\contentsline {section}{ADR-006 --- Separación entre código fuente y artifacts de datos y modelos}{191}{section*.23}%
-\contentsline {section}{ADR-007 --- Google Cloud como arquitectura objetivo de despliegue}{191}{section*.24}%
-\contentsline {section}{ADR-008 --- Inferencia fail-closed y revision profesional obligatoria}{192}{section*.24}%
-\contentsline {section}{ADR-009 --- Demo Mode deterministico y no clinico}{192}{section*.24}%
-\contentsline {section}{ADR-010 --- Integracion parcial del dominio Patient}{192}{section*.24}%
-\contentsline {section}{ADR-011 --- No aprendizaje automatico desde correcciones profesionales}{193}{section*.24}%
-\contentsline {chapter}{\numberline {H}Validación profesional cualitativa}{194}{appendix.Alph8}%
-\contentsline {section}{\numberline {H.1}Propósito y alcance}{194}{section.Alph8.1}%
-\contentsline {section}{\numberline {H.2}Metodología de las sesiones}{194}{section.Alph8.2}%
-\contentsline {section}{\numberline {H.3}VP-01 --- Sesión con la Dra. Susana Torres}{195}{section.Alph8.3}%
-\contentsline {section}{\numberline {H.4}VP-02 --- Sesión con la Dra. Claudia Cejas}{196}{section.Alph8.4}%
-\contentsline {section}{\numberline {H.5}Síntesis transversal de hallazgos}{198}{section.Alph8.5}%
-\contentsline {section}{\numberline {H.6}Trazabilidad entre observaciones y decisiones de producto}{199}{section.Alph8.6}%
-\contentsline {section}{\numberline {H.7}Limitaciones de esta instancia}{200}{section.Alph8.7}%
-\contentsline {section}{\numberline {H.8}Validación cruzada profesional final pendiente}{200}{section.Alph8.8}%
-\contentsline {chapter}{Referencias}{201}{appendix*.26}%
+\contentsline {section}{\numberline {12.2}Sistemas de identificación}{113}{section.12.2}%
+\contentsline {section}{\numberline {12.3}Ciclo de trabajo y coordinación}{114}{section.12.3}%
+\contentsline {subsection}{\numberline {12.3.1}Automatización de integración y publicación}{115}{subsection.12.3.1}%
+\contentsline {section}{\numberline {12.4}Criterios de listo, terminado y evidencia}{117}{section.12.4}%
+\contentsline {section}{\numberline {12.5}Validación por capas y pruebas}{117}{section.12.5}%
+\contentsline {section}{\numberline {12.6}Diferencia entre instancias de validación}{118}{section.12.6}%
+\contentsline {subsection}{\numberline {12.6.1}Validación profesional final pendiente}{118}{subsection.12.6.1}%
+\contentsline {section}{\numberline {12.7}Limitaciones metodológicas}{119}{section.12.7}%
+\contentsline {chapter}{\numberline {13}Resultados de la evaluación técnica}{120}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Propósito y alcance de la evaluación}{120}{section.13.1}%
+\contentsline {section}{\numberline {13.2}Protocolo de evaluación}{120}{section.13.2}%
+\contentsline {section}{\numberline {13.3}Resultados de segmentación}{121}{section.13.3}%
+\contentsline {section}{\numberline {13.4}Umbral de calidad y estado del artifact axial}{122}{section.13.4}%
+\contentsline {section}{\numberline {13.5}Advertencia sobre la partición de prueba axial}{122}{section.13.5}%
+\contentsline {section}{\numberline {13.6}Verificación por contraste de las mediciones derivadas}{122}{section.13.6}%
+\contentsline {section}{\numberline {13.7}Una medición implementada y no publicada}{123}{section.13.7}%
+\contentsline {section}{\numberline {13.8}Resultados finales de validación técnica por capa}{124}{section.13.8}%
+\contentsline {section}{\numberline {13.9}Validación técnica en Google Cloud}{125}{section.13.9}%
+\contentsline {section}{\numberline {13.10}Niveles de validación y alcance}{126}{section.13.10}%
+\contentsline {section}{\numberline {13.11}Resultados de la validación profesional cualitativa}{126}{section.13.11}%
+\contentsline {subsection}{\numberline {13.11.1}Ficha de la sesión con la Dra. Susana Torres}{127}{subsection.13.11.1}%
+\contentsline {subsection}{\numberline {13.11.2}Ficha de la sesión con la Dra. Claudia Cejas}{127}{subsection.13.11.2}%
+\contentsline {subsection}{\numberline {13.11.3}Síntesis transversal}{128}{subsection.13.11.3}%
+\contentsline {subsection}{\numberline {13.11.4}Validación profesional final pendiente}{129}{subsection.13.11.4}%
+\contentsline {section}{\numberline {13.12}Limitaciones de la evaluación}{129}{section.13.12}%
+\contentsline {section}{\numberline {13.13}Conclusión del capítulo}{130}{section.13.13}%
+\contentsline {chapter}{\numberline {14}Modelo de negocio y viabilidad económica}{132}{chapter.14}%
+\contentsline {section}{\numberline {14.1}Alcance y política de evidencia}{132}{section.14.1}%
+\contentsline {section}{\numberline {14.2}Modelo de negocio}{133}{section.14.2}%
+\contentsline {section}{\numberline {14.3}Justificación del modelo SaaS B2B}{133}{section.14.3}%
+\contentsline {section}{\numberline {14.4}Segmentación de clientes: Starter, Professional y Enterprise}{134}{section.14.4}%
+\contentsline {section}{\numberline {14.5}Pricing por volumen de estudios}{134}{section.14.5}%
+\contentsline {section}{\numberline {14.6}Estructura de ingresos}{135}{section.14.6}%
+\contentsline {section}{\numberline {14.7}Estructura de costos}{135}{section.14.7}%
+\contentsline {subsection}{\numberline {14.7.1}Costos variables: infraestructura Cloud medida}{135}{subsection.14.7.1}%
+\contentsline {subsection}{\numberline {14.7.2}Costo variable por escenario}{136}{subsection.14.7.2}%
+\contentsline {subsection}{\numberline {14.7.3}Costos fijos del negocio}{137}{subsection.14.7.3}%
+\contentsline {section}{\numberline {14.8}Metodología financiera a 36 meses}{137}{section.14.8}%
+\contentsline {section}{\numberline {14.9}Escenarios financieros: Pesimista, Base y Optimista}{138}{section.14.9}%
+\contentsline {section}{\numberline {14.10}Resultado del escenario Base conservador}{139}{section.14.10}%
+\contentsline {section}{\numberline {14.11}Análisis de sensibilidad}{139}{section.14.11}%
+\contentsline {section}{\numberline {14.12}Propuesta de Base Comercial Objetivo}{140}{section.14.12}%
+\contentsline {section}{\numberline {14.13}Comparación entre el Base conservador y el Base Comercial Objetivo}{140}{section.14.13}%
+\contentsline {section}{\numberline {14.14}Limitaciones del modelo económico}{141}{section.14.14}%
+\contentsline {section}{\numberline {14.15}Interpretación final}{142}{section.14.15}%
+\contentsline {chapter}{\numberline {15}Planificación académica general}{144}{chapter.15}%
+\contentsline {section}{\numberline {15.1}Criterio de planificación}{144}{section.15.1}%
+\contentsline {section}{\numberline {15.2}Planificación por entregables}{144}{section.15.2}%
+\contentsline {section}{\numberline {15.3}Gestión de cambios}{145}{section.15.3}%
+\contentsline {section}{\numberline {15.4}Riesgos de planificación}{145}{section.15.4}%
+\contentsline {section}{\numberline {15.5}Conclusión de la planificación}{146}{section.15.5}%
+\contentsline {chapter}{\numberline {A}Cronograma del proyecto}{147}{appendix.Alph1}%
+\contentsline {section}{\numberline {A.1}Calendario académico}{147}{section.Alph1.1}%
+\contentsline {section}{\numberline {A.2}Diagrama de Gantt}{148}{section.Alph1.2}%
+\contentsline {section}{\numberline {A.3}Desvíos respecto de la planificación original}{149}{section.Alph1.3}%
+\contentsline {chapter}{\numberline {B}Glosario de términos}{150}{appendix.Alph2}%
+\contentsline {chapter}{\numberline {C}Anatomía de la columna lumbar y los discos intervertebrales}{156}{appendix.Alph3}%
+\contentsline {section}{\numberline {C.1}Esquema simplificado de columna lumbar sagital}{156}{section.Alph3.1}%
+\contentsline {section}{\numberline {C.2}Esquema conceptual de segmentación.}{157}{section.Alph3.2}%
+\contentsline {chapter}{\numberline {D}Transcripciones de las entrevistas}{158}{appendix.Alph4}%
+\contentsline {section}{D.1 Entrevista 1 (EN-01) - Dra. Susana Torres (M.N. 179537)}{158}{section*.9}%
+\contentsline {section}{D.2 Entrevista 2 (EN-02) - Dr.~Gonzalo Brito}{162}{section*.10}%
+\contentsline {section}{D.3 Entrevista 3 (EN-03) - Dra. Claudia Cejas}{165}{section*.11}%
+\contentsline {section}{D.4 Entrevista 4 (EN-04) - Dr.~Bruno Bregonzi}{169}{section*.12}%
+\contentsline {section}{D.5 Entrevista 5 (EN-05) - Dr.~Eduardo Luis Castiglione}{172}{section*.13}%
+\contentsline {chapter}{\numberline {E}Configuración de entrenamiento de los modelos}{177}{appendix.Alph5}%
+\contentsline {section}{E.1 Parámetros de entrenamiento}{177}{section*.14}%
+\contentsline {section}{E.2 Aumentación de datos}{178}{section*.15}%
+\contentsline {section}{E.3 Controles de calidad al cierre del entrenamiento}{179}{section*.16}%
+\contentsline {section}{E.4 Trazabilidad de los artifacts}{179}{section*.17}%
+\contentsline {chapter}{\numberline {F}Evolución técnica del desarrollo}{180}{appendix.Alph6}%
+\contentsline {section}{\numberline {F.1}Evolución técnica alcanzada}{180}{section.Alph6.1}%
+\contentsline {subsection}{\numberline {F.1.1}Etapa fundacional y separación en tres repositorios}{180}{subsection.Alph6.1.1}%
+\contentsline {subsection}{\numberline {F.1.2}Backlogs técnicos por repositorio}{181}{subsection.Alph6.1.2}%
+\contentsline {subsection}{\numberline {F.1.3}Bloques coordinados de producto}{181}{subsection.Alph6.1.3}%
+\contentsline {subsection}{\numberline {F.1.4}Estado resultante para la entrega del 50 \%}{185}{subsection.Alph6.1.4}%
+\contentsline {section}{\numberline {F.2}Evolución del producto visible}{185}{section.Alph6.2}%
+\contentsline {section}{\numberline {F.3}Evolución del pipeline de inferencia}{187}{section.Alph6.3}%
+\contentsline {section}{\numberline {F.4}Organización interna del módulo de inteligencia artificial}{188}{section.Alph6.4}%
+\contentsline {section}{\numberline {F.5}Cierre tecnico final y fuente canonica}{188}{section.Alph6.5}%
+\contentsline {chapter}{\numberline {G}Registro de decisiones arquitectónicas}{190}{appendix.Alph7}%
+\contentsline {section}{ADR-001 --- Separación de Frontend, Backend y AI Module}{190}{section*.18}%
+\contentsline {section}{ADR-002 --- Spring Boot para el Backend y Python/FastAPI para el AI Module}{190}{section*.19}%
+\contentsline {section}{ADR-003 --- Backend como única frontera pública hacia el AI Module}{191}{section*.20}%
+\contentsline {section}{ADR-004 --- PostgreSQL para persistencia transaccional}{191}{section*.21}%
+\contentsline {section}{ADR-005 --- PyTorch como runtime de inferencia y ONNX Runtime diferido}{191}{section*.22}%
+\contentsline {section}{ADR-006 --- Separación entre código fuente y artifacts de datos y modelos}{192}{section*.23}%
+\contentsline {section}{ADR-007 --- Google Cloud como arquitectura objetivo de despliegue}{192}{section*.24}%
+\contentsline {section}{ADR-008 --- Inferencia fail-closed y revision profesional obligatoria}{193}{section*.24}%
+\contentsline {section}{ADR-009 --- Demo Mode deterministico y no clinico}{193}{section*.24}%
+\contentsline {section}{ADR-010 --- Integracion parcial del dominio Patient}{193}{section*.24}%
+\contentsline {section}{ADR-011 --- No aprendizaje automatico desde correcciones profesionales}{194}{section*.24}%
+\contentsline {chapter}{\numberline {H}Validación profesional cualitativa}{195}{appendix.Alph8}%
+\contentsline {section}{\numberline {H.1}Propósito y alcance}{195}{section.Alph8.1}%
+\contentsline {section}{\numberline {H.2}Metodología de las sesiones}{195}{section.Alph8.2}%
+\contentsline {section}{\numberline {H.3}VP-01 --- Sesión con la Dra. Susana Torres}{196}{section.Alph8.3}%
+\contentsline {section}{\numberline {H.4}VP-02 --- Sesión con la Dra. Claudia Cejas}{197}{section.Alph8.4}%
+\contentsline {section}{\numberline {H.5}Síntesis transversal de hallazgos}{199}{section.Alph8.5}%
+\contentsline {section}{\numberline {H.6}Trazabilidad entre observaciones y decisiones de producto}{200}{section.Alph8.6}%
+\contentsline {section}{\numberline {H.7}Limitaciones de esta instancia}{201}{section.Alph8.7}%
+\contentsline {section}{\numberline {H.8}Validación cruzada profesional final pendiente}{201}{section.Alph8.8}%
+\contentsline {chapter}{Referencias}{202}{appendix*.26}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.5.24)  26 SEP 2026 13:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.5.24)  26 SEP 2026 14:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1811,14 +1811,10 @@ LaTeX Info: Redefining \. on input line 414.
 LaTeX Info: Redefining \% on input line 414.
 LaTeX Info: Redefining \. on input line 415.
 LaTeX Info: Redefining \% on input line 415.
-LaTeX Info: Redefining \. on input line 661.
-LaTeX Info: Redefining \% on input line 661.
-LaTeX Info: Redefining \. on input line 662.
-LaTeX Info: Redefining \% on input line 662.
-LaTeX Info: Redefining \. on input line 1025.
-LaTeX Info: Redefining \% on input line 1025.
-LaTeX Info: Redefining \. on input line 1026.
-LaTeX Info: Redefining \% on input line 1026.
+LaTeX Info: Redefining \. on input line 663.
+LaTeX Info: Redefining \% on input line 663.
+LaTeX Info: Redefining \. on input line 664.
+LaTeX Info: Redefining \% on input line 664.
 LaTeX Info: Redefining \. on input line 1027.
 LaTeX Info: Redefining \% on input line 1027.
 LaTeX Info: Redefining \. on input line 1028.
@@ -2231,6 +2227,10 @@ LaTeX Info: Redefining \. on input line 1231.
 LaTeX Info: Redefining \% on input line 1231.
 LaTeX Info: Redefining \. on input line 1232.
 LaTeX Info: Redefining \% on input line 1232.
+LaTeX Info: Redefining \. on input line 1233.
+LaTeX Info: Redefining \% on input line 1233.
+LaTeX Info: Redefining \. on input line 1234.
+LaTeX Info: Redefining \% on input line 1234.
 )
 \openout1 = `main.aux'.
 
@@ -3824,7 +3824,7 @@ LaTeX Info: Redefining \. on input line 109.
 LaTeX Info: Redefining \% on input line 109.
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
-Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 129.
+Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 128.
 (pdftex.def)             Requested size: 105.2751pt x 36.8594pt.
 
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
@@ -6364,42 +6364,42 @@ Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
 [62]
-<images/user_research/fig_08_01_encuesta_p1.png, id=2298, 446.1468pt x 241.3818
+<images/user_research/fig_08_01_encuesta_p1.png, id=2303, 446.1468pt x 241.3818
 pt>
 File: images/user_research/fig_08_01_encuesta_p1.png Graphic file (type png)
 <use images/user_research/fig_08_01_encuesta_p1.png>
 Package pdftex.def Info: images/user_research/fig_08_01_encuesta_p1.png  used o
 n input line 239.
 (pdftex.def)             Requested size: 419.4127pt x 226.9247pt.
-<images/user_research/fig_08_01_encuesta_p3.png, id=2299, 446.1468pt x 241.8636
+<images/user_research/fig_08_01_encuesta_p3.png, id=2304, 446.1468pt x 241.8636
 pt>
 File: images/user_research/fig_08_01_encuesta_p3.png Graphic file (type png)
 <use images/user_research/fig_08_01_encuesta_p3.png>
 Package pdftex.def Info: images/user_research/fig_08_01_encuesta_p3.png  used o
 n input line 242.
 (pdftex.def)             Requested size: 419.4127pt x 227.37764pt.
-<images/user_research/fig_08_02_encuesta_p9.png, id=2300, 446.1468pt x 217.7736
+<images/user_research/fig_08_02_encuesta_p9.png, id=2305, 446.1468pt x 217.7736
 pt>
 File: images/user_research/fig_08_02_encuesta_p9.png Graphic file (type png)
 <use images/user_research/fig_08_02_encuesta_p9.png>
 Package pdftex.def Info: images/user_research/fig_08_02_encuesta_p9.png  used o
 n input line 251.
 (pdftex.def)             Requested size: 419.4127pt x 204.73045pt.
-<images/user_research/fig_08_02_encuesta_p7.png, id=2301, 446.1468pt x 202.356p
+<images/user_research/fig_08_02_encuesta_p7.png, id=2306, 446.1468pt x 202.356p
 t>
 File: images/user_research/fig_08_02_encuesta_p7.png Graphic file (type png)
 <use images/user_research/fig_08_02_encuesta_p7.png>
 Package pdftex.def Info: images/user_research/fig_08_02_encuesta_p7.png  used o
 n input line 254.
 (pdftex.def)             Requested size: 419.4127pt x 190.23627pt.
-<images/user_research/fig_08_03_encuesta_p11.png, id=2302, 446.1468pt x 161.884
+<images/user_research/fig_08_03_encuesta_p11.png, id=2307, 446.1468pt x 161.884
 8pt>
 File: images/user_research/fig_08_03_encuesta_p11.png Graphic file (type png)
 <use images/user_research/fig_08_03_encuesta_p11.png>
 Package pdftex.def Info: images/user_research/fig_08_03_encuesta_p11.png  used 
 on input line 264.
 (pdftex.def)             Requested size: 419.4127pt x 152.18901pt.
-<images/user_research/fig_08_03_encuesta_p12_p13.png, id=2303, 446.1468pt x 173
+<images/user_research/fig_08_03_encuesta_p12_p13.png, id=2308, 446.1468pt x 173
 .448pt>
 File: images/user_research/fig_08_03_encuesta_p12_p13.png Graphic file (type pn
 g)
@@ -6709,7 +6709,7 @@ Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 [77]
 Cap\'{\i }tulo 10.
-<images/architecture/fig_10_01_contexto_sistema.png, id=2387, 948.54375pt x 677
+<images/architecture/fig_10_01_contexto_sistema.png, id=2392, 948.54375pt x 677
 .53125pt>
 File: images/architecture/fig_10_01_contexto_sistema.png Graphic file (type png
 )
@@ -6804,14 +6804,14 @@ Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
 [80]
-<images/architecture/fig_10_02_componentes.png, id=2404, 948.54375pt x 657.4562
+<images/architecture/fig_10_02_componentes.png, id=2409, 948.54375pt x 657.4562
 5pt>
 File: images/architecture/fig_10_02_componentes.png Graphic file (type png)
 <use images/architecture/fig_10_02_componentes.png>
 Package pdftex.def Info: images/architecture/fig_10_02_componentes.png  used on
  input line 132.
 (pdftex.def)             Requested size: 419.4127pt x 290.70618pt.
-<images/architecture/fig_10_03_visor_volumetrico.png, id=2405, 455.301pt x 341.
+<images/architecture/fig_10_03_visor_volumetrico.png, id=2410, 455.301pt x 341.
 5962pt>
 File: images/architecture/fig_10_03_visor_volumetrico.png Graphic file (type pn
 g)
@@ -6846,7 +6846,7 @@ Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
 [83 <./images/architecture/fig_10_03_visor_volumetrico.png>]
-<images/architecture/fig_10_04_modelo_datos.png, id=2422, 3758.04pt x 2168.1pt>
+<images/architecture/fig_10_04_modelo_datos.png, id=2427, 3758.04pt x 2168.1pt>
 
 File: images/architecture/fig_10_04_modelo_datos.png Graphic file (type png)
 <use images/architecture/fig_10_04_modelo_datos.png>
@@ -6883,7 +6883,7 @@ Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
 [84 <./images/architecture/fig_10_04_modelo_datos.png>]
-<images/architecture/fig_10_05_clases_dominio.png, id=2430, 3758.04pt x 2316.65
+<images/architecture/fig_10_05_clases_dominio.png, id=2435, 3758.04pt x 2316.65
 5pt>
 File: images/architecture/fig_10_05_clases_dominio.png Graphic file (type png)
 <use images/architecture/fig_10_05_clases_dominio.png>
@@ -6908,7 +6908,7 @@ Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
 [86 <./images/architecture/fig_10_05_clases_dominio.png>]
-<images/architecture/fig_10_06_flujo_end_to_end.png, id=2440, 3731.9425pt x 272
+<images/architecture/fig_10_06_flujo_end_to_end.png, id=2445, 3731.9425pt x 272
 9.19624pt>
 File: images/architecture/fig_10_06_flujo_end_to_end.png Graphic file (type png
 )
@@ -7076,7 +7076,7 @@ Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
 [93]
-<images/architecture/fig_10_07_despliegue_google_cloud.png, id=2480, 1305.07574
+<images/architecture/fig_10_07_despliegue_google_cloud.png, id=2485, 1305.07574
 pt x 993.7125pt>
 File: images/architecture/fig_10_07_despliegue_google_cloud.png Graphic file (t
 ype png)
@@ -7121,29 +7121,46 @@ Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
 [95]
-Underfull \hbox (badness 10000) in alignment at lines 561--566
+<images/wireframes/fig_10_08_wireframe_workspace_multiplanar.png, id=2502, 1927
+.2pt x 1084.05pt>
+File: images/wireframes/fig_10_08_wireframe_workspace_multiplanar.png Graphic f
+ile (type png)
+<use images/wireframes/fig_10_08_wireframe_workspace_multiplanar.png>
+Package pdftex.def Info: images/wireframes/fig_10_08_wireframe_workspace_multip
+lanar.png  used on input line 525.
+(pdftex.def)             Requested size: 428.53233pt x 241.0391pt.
+<images/wireframes/fig_10_09_wireframe_revision_preinforme.png, id=2503, 1927.2
+pt x 1084.05pt>
+File: images/wireframes/fig_10_09_wireframe_revision_preinforme.png Graphic fil
+e (type png)
+<use images/wireframes/fig_10_09_wireframe_revision_preinforme.png>
+Package pdftex.def Info: images/wireframes/fig_10_09_wireframe_revision_preinfo
+rme.png  used on input line 532.
+(pdftex.def)             Requested size: 428.53233pt x 241.0391pt.
+
+Underfull \hbox (badness 10000) in alignment at lines 542--547
 [] [] [] []
  []
 
 
-Underfull \hbox (badness 10000) in alignment at lines 566--571
+Underfull \hbox (badness 10000) in alignment at lines 547--552
 [] [] [] []
  []
 
 
-Underfull \hbox (badness 10000) in alignment at lines 571--573
+Underfull \hbox (badness 10000) in alignment at lines 552--554
 [] [] [] []
  []
 
 
-Underfull \hbox (badness 10000) in alignment at lines 573--584
+Underfull \hbox (badness 10000) in alignment at lines 554--565
 [] [] [] []
  []
 
 ignored error: Infinite glue shrinkage found in box being split
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
-Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 584.
+Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 565.
 (pdftex.def)             Requested size: 105.2751pt x 36.8594pt.
 
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
@@ -7159,6 +7176,17 @@ Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
 [97]
+File: ./images/UADE_LARGE.png Graphic file (type png)
+<use ./images/UADE_LARGE.png>
+Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 1.
+(pdftex.def)             Requested size: 105.2751pt x 36.8594pt.
+
+Overfull \vbox (36.8594pt too high) has occurred while \output is active []
+
+
+[98 <./images/wireframes/fig_10_08_wireframe_workspace_multiplanar.png (PNG cop
+y)> <./images/wireframes/fig_10_09_wireframe_revision_preinforme.png (PNG copy)
+>]
 Cap\'{\i }tulo 11.
 
 Underfull \hbox (badness 10000) in alignment at lines 25--30
@@ -7188,7 +7216,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 42.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[98
+[99
 
 ]
 File: ./images/UADE_LARGE.png Graphic file (type png)
@@ -7199,7 +7227,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 80.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[99]
+[100]
 Underfull \hbox (badness 10000) in alignment at lines 110--115
 [] [] [] []
  []
@@ -7228,7 +7256,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 129.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[100]
+[101]
 Overfull \hbox (28.14944pt too wide) in paragraph at lines 147--148
 []\T1/ptm/m/n/12 (-20) Qué evi-den-cia lo res-pal-da. El ga-te ofi-cial del ar-
 ti-fact axial re-gis-tra \T1/lmtt/m/n/12 qualityGatePassed=false\T1/ptm/m/n/12 
@@ -7250,7 +7278,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 158.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[101]
+[102]
 Underfull \hbox (badness 10000) in alignment at lines 165--170
 [] [] [] [] []
  []
@@ -7278,7 +7306,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 194.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[102]
+[103]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 223.
@@ -7287,7 +7315,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 223.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[103]
+[104]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 237.
@@ -7296,7 +7324,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 237.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[104]
+[105]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 287.
@@ -7305,7 +7333,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 287.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[105]
+[106]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 314.
@@ -7314,7 +7342,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 314.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[106]
+[107]
 Overfull \hbox (14.64104pt too wide) in alignment at lines 347--352
 [] [] [] [] [] [] []
  []
@@ -7343,7 +7371,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 368.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[107]
+[108]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 383.
@@ -7352,7 +7380,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 383.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[108]
+[109]
 Underfull \hbox (badness 10000) in alignment at lines 407--412
 [] [] [] []
  []
@@ -7381,7 +7409,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 426.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[109]
+[110]
 Underfull \hbox (badness 10000) in alignment at lines 441--446
 [] [] []
  []
@@ -7410,7 +7438,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 472.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[110]) (chapters/capitulo_12_metodologia_validacion.tex
+[111]) (chapters/capitulo_12_metodologia_validacion.tex
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 1.
@@ -7419,7 +7447,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 1.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[111]
+[112]
 Cap\'{\i }tulo 12.
 LaTeX Info: Redefining \sptext on input line 8.
 LaTeX Info: Redefining \. on input line 8.
@@ -7435,7 +7463,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 76.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[112
+[113
 
 ]
 File: ./images/UADE_LARGE.png Graphic file (type png)
@@ -7446,8 +7474,8 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 88.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[113]
-<images/methodology/fig_12_02_publicacion_cloud_wif.png, id=2583, 3731.9425pt x
+[114]
+<images/methodology/fig_12_02_publicacion_cloud_wif.png, id=2594, 3731.9425pt x
  3392.675pt>
 File: images/methodology/fig_12_02_publicacion_cloud_wif.png Graphic file (type
  png)
@@ -7463,7 +7491,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 111.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[114]
+[115]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 111.
@@ -7472,7 +7500,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 111.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[115 <./images/methodology/fig_12_02_publicacion_cloud_wif.png>]
+[116 <./images/methodology/fig_12_02_publicacion_cloud_wif.png>]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 127.
@@ -7481,7 +7509,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 127.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[116]
+[117]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 143.
@@ -7490,7 +7518,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 143.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[117]) (chapters/capitulo_13_resultados_evaluacion.tex
+[118]) (chapters/capitulo_13_resultados_evaluacion.tex
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 1.
@@ -7499,7 +7527,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 1.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[118]
+[119]
 Cap\'{\i }tulo 13.
 
 Underfull \hbox (badness 10000) in alignment at lines 21--26
@@ -7529,7 +7557,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 41.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[119
+[120
 
 ]
 Underfull \hbox (badness 10000) in alignment at lines 52--57
@@ -7579,7 +7607,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 80.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[120]
+[121]
 Underfull \hbox (badness 10000) in alignment at lines 102--107
 [] [] [] []
  []
@@ -7607,7 +7635,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 118.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[121]
+[122]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 138.
@@ -7616,7 +7644,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 138.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[122]
+[123]
 Underfull \hbox (badness 10000) in alignment at lines 144--149
 [] [] []
  []
@@ -7657,7 +7685,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 180.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[123]
+[124]
 Underfull \hbox (badness 10000) in alignment at lines 186--191
 [] [] []
  []
@@ -7705,7 +7733,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 236.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[124]
+[125]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 255.
@@ -7714,7 +7742,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 255.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[125]
+[126]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 267.
@@ -7723,7 +7751,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 267.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[126]
+[127]
 Underfull \hbox (badness 10000) in alignment at lines 275--280
 [] [] [] []
  []
@@ -7752,7 +7780,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 301.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[127]
+[128]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 322.
@@ -7761,7 +7789,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 322.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[128]
+[129]
 Overfull \hbox (39.8731pt too wide) in paragraph at lines 326--327
 []\T1/ptm/m/n/12 (-20) P10.7 man-tie-ne \T1/lmtt/m/n/12 automaticInferenceEnabl
 ed=false \T1/ptm/m/n/12 (-20) por \T1/lmtt/m/n/12 blocked_preprocessing_parity\
@@ -7776,7 +7804,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 339.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[129]) (chapters/capitulo_15_modelo_negocio.tex
+[130]) (chapters/capitulo_15_modelo_negocio.tex
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 1.
@@ -7785,7 +7813,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 1.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[130]
+[131]
 Cap\'{\i }tulo 14.
 
 Overfull \hbox (289.6858pt too wide) in paragraph at lines 22--23
@@ -7802,7 +7830,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 28.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[131
+[132
 
 ]
 Underfull \hbox (badness 10000) in alignment at lines 34--39
@@ -7832,7 +7860,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 67.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[132]
+[133]
 Overfull \hbox (10.39215pt too wide) in paragraph at lines 93--93
 []|\T1/ptm/b/n/8 (-20) Excedente/estudio|  
  []
@@ -7870,7 +7898,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 110.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[133]
+[134]
 Underfull \hbox (badness 10000) in alignment at lines 138--143
 [] [] []
  []
@@ -7899,7 +7927,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 156.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[134]
+[135]
 Overfull \hbox (0.7853pt too wide) in paragraph at lines 161--162
 []\T1/ptm/m/n/12 (-20) Adicionalmente, se confirmó durante esta medición que el
  costo fijo de Cloud (USD 11,08--
@@ -7933,7 +7961,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 200.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[135]
+[136]
 Overfull \hbox (5.29533pt too wide) detected at line 225
 []
  []
@@ -7946,7 +7974,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 232.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[136]
+[137]
 Underfull \hbox (badness 10000) in alignment at lines 256--261
 [] [] [] [] [] []
  []
@@ -7974,7 +8002,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 277.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[137]
+[138]
 Underfull \hbox (badness 10000) in alignment at lines 288--293
 [] []
  []
@@ -8023,7 +8051,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 343.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[138]
+[139]
 Underfull \hbox (badness 10000) in alignment at lines 367--372
 [] [] []
  []
@@ -8051,7 +8079,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 389.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[139]
+[140]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 404.
@@ -8060,16 +8088,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 404.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[140]) (chapters/capitulo_14_planificacion_academica.tex
-File: ./images/UADE_LARGE.png Graphic file (type png)
-<use ./images/UADE_LARGE.png>
-Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 1.
-(pdftex.def)             Requested size: 105.2751pt x 36.8594pt.
-
-Overfull \vbox (36.8594pt too high) has occurred while \output is active []
-
-
-[141]
+[141]) (chapters/capitulo_14_planificacion_academica.tex
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 1.
@@ -8079,6 +8098,15 @@ Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
 [142]
+File: ./images/UADE_LARGE.png Graphic file (type png)
+<use ./images/UADE_LARGE.png>
+Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 1.
+(pdftex.def)             Requested size: 105.2751pt x 36.8594pt.
+
+Overfull \vbox (36.8594pt too high) has occurred while \output is active []
+
+
+[143]
 Cap\'{\i }tulo 15.
 
 Underfull \hbox (badness 10000) in paragraph at lines 52--53
@@ -8104,7 +8132,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 62.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[143
+[144
 
 ])
 File: ./images/UADE_LARGE.png Graphic file (type png)
@@ -8115,7 +8143,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 276.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[144] (appendices/anexo_a_cronograma.tex
+[145] (appendices/anexo_a_cronograma.tex
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 1.
@@ -8124,7 +8152,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 1.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[145]
+[146]
 Ap\'{e}ndice A.
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
@@ -8134,7 +8162,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 97.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[146
+[147
 
 ]
 ignored error: Infinite glue shrinkage found in box being split
@@ -8146,7 +8174,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 128.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[147]) (appendices/anexo_b_glosario.tex
+[148]) (appendices/anexo_b_glosario.tex
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 1.
@@ -8155,7 +8183,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 1.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[148]
+[149]
 Ap\'{e}ndice B.
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
@@ -8165,7 +8193,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 22.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[149
+[150
 
 ]
 File: ./images/UADE_LARGE.png Graphic file (type png)
@@ -8176,7 +8204,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 41.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[150]
+[151]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 61.
@@ -8185,7 +8213,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 61.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[151]
+[152]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 83.
@@ -8194,7 +8222,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 83.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[152]
+[153]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 104.
@@ -8203,7 +8231,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 104.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[153]) (appendices/anexo_c_anatomia.tex
+[154]) (appendices/anexo_c_anatomia.tex
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 1.
@@ -8212,9 +8240,9 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 1.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[154]
+[155]
 Ap\'{e}ndice C.
-<images/anatomy/fig_c_01_columna_lumbar_sagital.png, id=2821, 282.3348pt x 200.
+<images/anatomy/fig_c_01_columna_lumbar_sagital.png, id=2833, 282.3348pt x 200.
 4288pt>
 File: images/anatomy/fig_c_01_columna_lumbar_sagital.png Graphic file (type png
 )
@@ -8230,10 +8258,10 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 24.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[155
+[156
 
 ]
-<images/anatomy/fig_c_02_segmentacion_conceptual.png, id=2827, 455.301pt x 184.
+<images/anatomy/fig_c_02_segmentacion_conceptual.png, id=2838, 455.301pt x 184.
 0476pt>
 File: images/anatomy/fig_c_02_segmentacion_conceptual.png Graphic file (type pn
 g)
@@ -8250,7 +8278,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 1.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[156 <./images/anatomy/fig_c_01_columna_lumbar_sagital.png> <./images/anatomy/f
+[157 <./images/anatomy/fig_c_01_columna_lumbar_sagital.png> <./images/anatomy/f
 ig_c_02_segmentacion_conceptual.png>]
 Ap\'{e}ndice D.
 File: ./images/UADE_LARGE.png Graphic file (type png)
@@ -8261,7 +8289,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 29.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[157
+[158
 
 ]
 File: ./images/UADE_LARGE.png Graphic file (type png)
@@ -8272,7 +8300,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 48.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[158]
+[159]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 69.
@@ -8281,7 +8309,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 69.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[159]
+[160]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 110.
@@ -8290,7 +8318,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 110.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[160]
+[161]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 125.
@@ -8299,7 +8327,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 125.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[161]
+[162]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 143.
@@ -8308,7 +8336,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 143.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[162]
+[163]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 165.
@@ -8317,7 +8345,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 165.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[163]
+[164]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 197.
@@ -8326,7 +8354,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 197.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[164]
+[165]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 217.
@@ -8335,7 +8363,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 217.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[165]
+[166]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 241.
@@ -8344,7 +8372,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 241.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[166]
+[167]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 267.
@@ -8353,7 +8381,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 267.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[167]
+[168]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 300.
@@ -8362,7 +8390,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 300.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[168]
+[169]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 324.
@@ -8371,7 +8399,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 324.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[169]
+[170]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 354.
@@ -8380,7 +8408,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 354.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[170]
+[171]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 373.
@@ -8389,7 +8417,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 373.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[171]
+[172]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 389.
@@ -8398,7 +8426,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 389.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[172]
+[173]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 405.
@@ -8407,7 +8435,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 405.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[173]
+[174]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 434.
@@ -8416,7 +8444,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 434.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[174]) (appendices/anexo_e_configuracion_entrenamiento.tex
+[175]) (appendices/anexo_e_configuracion_entrenamiento.tex
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 1.
@@ -8425,7 +8453,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 1.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[175]
+[176]
 Ap\'{e}ndice E.
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
@@ -8435,7 +8463,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 88.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[176
+[177
 
 ]
 File: ./images/UADE_LARGE.png Graphic file (type png)
@@ -8446,7 +8474,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 122.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[177]) (appendices/anexo_f_evolucion_tecnica.tex
+[178]) (appendices/anexo_f_evolucion_tecnica.tex
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 1.
@@ -8455,7 +8483,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 1.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[178]
+[179]
 Ap\'{e}ndice F.
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
@@ -8465,7 +8493,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 19.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[179
+[180
 
 ]
 Overfull \hbox (16.81567pt too wide) in alignment at lines 37--43
@@ -8520,16 +8548,6 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 64.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[180]
-ignored error: Infinite glue shrinkage found in box being split
-File: ./images/UADE_LARGE.png Graphic file (type png)
-<use ./images/UADE_LARGE.png>
-Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 64.
-(pdftex.def)             Requested size: 105.2751pt x 36.8594pt.
-
-Overfull \vbox (36.8594pt too high) has occurred while \output is active []
-
-
 [181]
 ignored error: Infinite glue shrinkage found in box being split
 File: ./images/UADE_LARGE.png Graphic file (type png)
@@ -8541,6 +8559,16 @@ Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
 [182]
+ignored error: Infinite glue shrinkage found in box being split
+File: ./images/UADE_LARGE.png Graphic file (type png)
+<use ./images/UADE_LARGE.png>
+Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 64.
+(pdftex.def)             Requested size: 105.2751pt x 36.8594pt.
+
+Overfull \vbox (36.8594pt too high) has occurred while \output is active []
+
+
+[183]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 73.
@@ -8549,7 +8577,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 73.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[183]
+[184]
 LaTeX Font Info:    Calculating math sizes for size <14> on input line 74.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 74.
@@ -8565,7 +8593,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 91.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[184]
+[185]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 117.
@@ -8574,7 +8602,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 117.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[185]
+[186]
 Overfull \hbox (13.52837pt too wide) in alignment at lines 118--124
  [] [] [] [] 
  []
@@ -8603,7 +8631,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 143.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[186]
+[187]
 Overfull \hbox (119.61092pt too wide) in paragraph at lines 159--160
 []\T1/ptm/m/n/12 (-20) Los SHAs fi-na-les usa-dos co-mo ba-se do-cu-men-tal son
 : Bac-kend \T1/lmtt/m/n/12 33081f7cc3702afe4db04a2b63de4762408b5d50\T1/ptm/m/n/
@@ -8626,7 +8654,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 1.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[187]
+[188]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 1.
@@ -8635,7 +8663,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 1.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[188]
+[189]
 Ap\'{e}ndice G.
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
@@ -8645,7 +8673,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 36.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[189
+[190
 
 ]
 File: ./images/UADE_LARGE.png Graphic file (type png)
@@ -8656,7 +8684,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 80.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[190]
+[191]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 110.
@@ -8665,7 +8693,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 110.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[191]
+[192]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 141.
@@ -8674,7 +8702,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 141.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[192]) (appendices/anexo_h_validacion_profesional.tex
+[193]) (appendices/anexo_h_validacion_profesional.tex
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 1.
@@ -8683,7 +8711,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 1.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[193]
+[194]
 Ap\'{e}ndice H.
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
@@ -8693,7 +8721,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 33.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[194
+[195
 
 ]
 Overfull \hbox (10.04445pt too wide) in paragraph at lines 37--38
@@ -8709,7 +8737,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 57.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[195]
+[196]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 88.
@@ -8718,7 +8746,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 88.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[196]
+[197]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 113.
@@ -8727,7 +8755,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 113.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[197]
+[198]
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 139.
@@ -8736,7 +8764,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 139.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[198]
+[199]
 Underfull \hbox (badness 10000) in alignment at lines 145--150
 [] [] [] []
  []
@@ -8765,7 +8793,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 171.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[199])
+[200])
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 289.
@@ -8774,7 +8802,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 289.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[200]
+[201]
 LaTeX Info: Redefining \sptext on input line 291.
 LaTeX Info: Redefining \. on input line 291.
 LaTeX Info: Redefining \% on input line 291.
@@ -8867,211 +8895,10 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 291.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[201
+[202
 
 
 ]
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-File: ./images/UADE_LARGE.png Graphic file (type png)
-<use ./images/UADE_LARGE.png>
-Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 291.
-(pdftex.def)             Requested size: 105.2751pt x 36.8594pt.
-
-Overfull \vbox (36.8594pt too high) has occurred while \output is active []
-
-
-[202]
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
-LaTeX Info: Redefining \sptext on input line 291.
-LaTeX Info: Redefining \. on input line 291.
-LaTeX Info: Redefining \% on input line 291.
 LaTeX Info: Redefining \sptext on input line 291.
 LaTeX Info: Redefining \. on input line 291.
 LaTeX Info: Redefining \% on input line 291.
@@ -9393,6 +9220,48 @@ LaTeX Info: Redefining \% on input line 291.
 LaTeX Info: Redefining \sptext on input line 291.
 LaTeX Info: Redefining \. on input line 291.
 LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 291.
@@ -9438,6 +9307,165 @@ LaTeX Info: Redefining \% on input line 291.
 LaTeX Info: Redefining \sptext on input line 291.
 LaTeX Info: Redefining \. on input line 291.
 LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+File: ./images/UADE_LARGE.png Graphic file (type png)
+<use ./images/UADE_LARGE.png>
+Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 291.
+(pdftex.def)             Requested size: 105.2751pt x 36.8594pt.
+
+Overfull \vbox (36.8594pt too high) has occurred while \output is active []
+
+
+[205]
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
+LaTeX Info: Redefining \sptext on input line 291.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
 File: ./images/UADE_LARGE.png Graphic file (type png)
 <use ./images/UADE_LARGE.png>
 Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 293.
@@ -9446,7 +9474,7 @@ Package pdftex.def Info: ./images/UADE_LARGE.png  used on input line 293.
 Overfull \vbox (36.8594pt too high) has occurred while \output is active []
 
 
-[205] 
+[206] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (main.aux
 LaTeX Info: Redefining \sptext on input line 14.
@@ -9740,18 +9768,12 @@ LaTeX Info: Redefining \% on input line 414.
 LaTeX Info: Redefining \sptext on input line 415.
 LaTeX Info: Redefining \. on input line 415.
 LaTeX Info: Redefining \% on input line 415.
-LaTeX Info: Redefining \sptext on input line 661.
-LaTeX Info: Redefining \. on input line 661.
-LaTeX Info: Redefining \% on input line 661.
-LaTeX Info: Redefining \sptext on input line 662.
-LaTeX Info: Redefining \. on input line 662.
-LaTeX Info: Redefining \% on input line 662.
-LaTeX Info: Redefining \sptext on input line 1025.
-LaTeX Info: Redefining \. on input line 1025.
-LaTeX Info: Redefining \% on input line 1025.
-LaTeX Info: Redefining \sptext on input line 1026.
-LaTeX Info: Redefining \. on input line 1026.
-LaTeX Info: Redefining \% on input line 1026.
+LaTeX Info: Redefining \sptext on input line 663.
+LaTeX Info: Redefining \. on input line 663.
+LaTeX Info: Redefining \% on input line 663.
+LaTeX Info: Redefining \sptext on input line 664.
+LaTeX Info: Redefining \. on input line 664.
+LaTeX Info: Redefining \% on input line 664.
 LaTeX Info: Redefining \sptext on input line 1027.
 LaTeX Info: Redefining \. on input line 1027.
 LaTeX Info: Redefining \% on input line 1027.
@@ -10370,6 +10392,12 @@ LaTeX Info: Redefining \% on input line 1231.
 LaTeX Info: Redefining \sptext on input line 1232.
 LaTeX Info: Redefining \. on input line 1232.
 LaTeX Info: Redefining \% on input line 1232.
+LaTeX Info: Redefining \sptext on input line 1233.
+LaTeX Info: Redefining \. on input line 1233.
+LaTeX Info: Redefining \% on input line 1233.
+LaTeX Info: Redefining \sptext on input line 1234.
+LaTeX Info: Redefining \. on input line 1234.
+LaTeX Info: Redefining \% on input line 1234.
  * soulpos - computing points - it may take a few seconds *
 \openout5 = `main.upb'.
 
@@ -10385,10 +10413,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 47175 strings out of 467871
- 955549 string characters out of 5418376
- 1810640 words of memory out of 5000000
- 73685 multiletter control sequences out of 15000+600000
+ 47194 strings out of 467871
+ 956625 string characters out of 5418376
+ 1812195 words of memory out of 5000000
+ 73701 multiletter control sequences out of 15000+600000
  759212 words of font info for 654 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,18n,108p,1498b,4824s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -10404,9 +10432,9 @@ X/fonts/type1/urw/times/utmb8a.pfb><C:/Users/enzoa/AppData/Local/Programs/MiKTe
 X/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/enzoa/AppData/Local/Programs/MiKT
 eX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/enzoa/AppData/Local/Programs/MiKT
 eX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (207 pages, 4345706 bytes).
+Output written on main.pdf (208 pages, 4512424 bytes).
 PDF statistics:
- 3288 PDF objects out of 3580 (max. 8388607)
- 644 named destinations out of 1000 (max. 500000)
- 135530 words of extra memory for PDF output out of 154059 (max. 10000000)
+ 3299 PDF objects out of 3580 (max. 8388607)
+ 647 named destinations out of 1000 (max. 500000)
+ 135540 words of extra memory for PDF output out of 154059 (max. 10000000)
 

@@ -127,51 +127,51 @@
 \contentsline {table}{\numberline {10.10}{Estado final de despliegue Cloud por recurso.}}{95}{table.10.10}%
 \contentsline {table}{\numberline {10.11}{Relación entre zonas de la interfaz, necesidades del relevamiento y requerimientos}}{96}{table.10.11}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {11.1}{Formatos admitidos y uso previsto.}}{99}{table.11.1}%
-\contentsline {table}{\numberline {11.2}{Correspondencia entre clases del modelo axial y estructuras anatómicas.}}{100}{table.11.2}%
-\contentsline {table}{\numberline {11.3}{Catálogo de mediciones derivadas de las máscaras.}}{102}{table.11.3}%
-\contentsline {table}{\numberline {11.4}{Desempeño de la estimación estructural sobre la partición sellada.}}{107}{table.11.4}%
-\contentsline {table}{\numberline {11.5}{Estado final de modelos y extensiones.}}{109}{table.11.5}%
-\contentsline {table}{\numberline {11.6}{Estado de las capacidades al cierre de esta entrega.}}{110}{table.11.6}%
+\contentsline {table}{\numberline {11.1}{Formatos admitidos y uso previsto.}}{100}{table.11.1}%
+\contentsline {table}{\numberline {11.2}{Correspondencia entre clases del modelo axial y estructuras anatómicas.}}{101}{table.11.2}%
+\contentsline {table}{\numberline {11.3}{Catálogo de mediciones derivadas de las máscaras.}}{103}{table.11.3}%
+\contentsline {table}{\numberline {11.4}{Desempeño de la estimación estructural sobre la partición sellada.}}{108}{table.11.4}%
+\contentsline {table}{\numberline {11.5}{Estado final de modelos y extensiones.}}{110}{table.11.5}%
+\contentsline {table}{\numberline {11.6}{Estado de las capacidades al cierre de esta entrega.}}{111}{table.11.6}%
 \addvspace {10\p@ }
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {13.1}{Partición de los conjuntos de datos empleados en el entrenamiento y la evaluación.}}{119}{table.13.1}%
-\contentsline {table}{\numberline {13.2}{Coeficiente Dice sobre la partición retenida, por modelo.}}{120}{table.13.2}%
-\contentsline {table}{\numberline {13.3}{Verificación por contraste de las mediciones sobre el estudio de referencia.}}{122}{table.13.3}%
-\contentsline {table}{\numberline {13.4}{Validación técnica final del prototipo.}}{123}{table.13.4}%
-\contentsline {table}{\numberline {13.5}{Validación técnica de Cloud, extremo a extremo (Etapas 6--10B).}}{124}{table.13.5}%
-\contentsline {table}{\numberline {13.6}{Costo y performance Cloud medidos (Etapa 10/10B).}}{124}{table.13.6}%
-\contentsline {table}{\numberline {13.7}{Cambios de producto derivados de la validación profesional cualitativa.}}{127}{table.13.7}%
+\contentsline {table}{\numberline {13.1}{Partición de los conjuntos de datos empleados en el entrenamiento y la evaluación.}}{120}{table.13.1}%
+\contentsline {table}{\numberline {13.2}{Coeficiente Dice sobre la partición retenida, por modelo.}}{121}{table.13.2}%
+\contentsline {table}{\numberline {13.3}{Verificación por contraste de las mediciones sobre el estudio de referencia.}}{123}{table.13.3}%
+\contentsline {table}{\numberline {13.4}{Validación técnica final del prototipo.}}{124}{table.13.4}%
+\contentsline {table}{\numberline {13.5}{Validación técnica de Cloud, extremo a extremo (Etapas 6--10B).}}{125}{table.13.5}%
+\contentsline {table}{\numberline {13.6}{Costo y performance Cloud medidos (Etapa 10/10B).}}{125}{table.13.6}%
+\contentsline {table}{\numberline {13.7}{Cambios de producto derivados de la validación profesional cualitativa.}}{128}{table.13.7}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {14.1}{Roles económicos distinguidos en el modelo de negocio.}}{132}{table.14.1}%
-\contentsline {table}{\numberline {14.2}{Planes comerciales propuestos (Base Comercial Objetivo).}}{133}{table.14.2}%
-\contentsline {table}{\numberline {14.3}{Costos Cloud observados (evidencia experimental, Etapa 10/10B).}}{134}{table.14.3}%
-\contentsline {table}{\numberline {14.4}{Costo variable Cloud por escenario.}}{135}{table.14.4}%
-\contentsline {table}{\numberline {14.5}{Comparación de escenarios financieros a 36 meses.}}{137}{table.14.5}%
-\contentsline {table}{\numberline {14.6}{Indicadores del escenario Base conservador, mes 36.}}{138}{table.14.6}%
-\contentsline {table}{\numberline {14.7}{Sensibilidad del VAN sobre el escenario Base.}}{138}{table.14.7}%
-\contentsline {table}{\numberline {14.8}{Base conservador frente a Base Comercial Objetivo.}}{140}{table.14.8}%
+\contentsline {table}{\numberline {14.1}{Roles económicos distinguidos en el modelo de negocio.}}{133}{table.14.1}%
+\contentsline {table}{\numberline {14.2}{Planes comerciales propuestos (Base Comercial Objetivo).}}{134}{table.14.2}%
+\contentsline {table}{\numberline {14.3}{Costos Cloud observados (evidencia experimental, Etapa 10/10B).}}{135}{table.14.3}%
+\contentsline {table}{\numberline {14.4}{Costo variable Cloud por escenario.}}{136}{table.14.4}%
+\contentsline {table}{\numberline {14.5}{Comparación de escenarios financieros a 36 meses.}}{138}{table.14.5}%
+\contentsline {table}{\numberline {14.6}{Indicadores del escenario Base conservador, mes 36.}}{139}{table.14.6}%
+\contentsline {table}{\numberline {14.7}{Sensibilidad del VAN sobre el escenario Base.}}{139}{table.14.7}%
+\contentsline {table}{\numberline {14.8}{Base conservador frente a Base Comercial Objetivo.}}{141}{table.14.8}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {15.1}{Estado consolidado de entregables y actividades de cierre del proyecto.}}{143}{table.15.1}%
+\contentsline {table}{\numberline {15.1}{Estado consolidado de entregables y actividades de cierre del proyecto.}}{144}{table.15.1}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {A.1}{Hitos académicos del proyecto.}}{146}{table.A.1}%
-\contentsline {table}{\numberline {A.2}{Distribución temporal de las actividades por carril.}}{147}{table.A.2}%
-\contentsline {table}{\numberline {A.3}{Desvíos registrados y justificación técnica.}}{148}{table.A.3}%
-\addvspace {10\p@ }
-\addvspace {10\p@ }
+\contentsline {table}{\numberline {A.1}{Hitos académicos del proyecto.}}{147}{table.A.1}%
+\contentsline {table}{\numberline {A.2}{Distribución temporal de las actividades por carril.}}{148}{table.A.2}%
+\contentsline {table}{\numberline {A.3}{Desvíos registrados y justificación técnica.}}{149}{table.A.3}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {E.1}{\ignorespaces Configuración comparada del entrenamiento de ambos modelos.}}{176}{table.Alph5.1}%
-\contentsline {table}{\numberline {E.2}{\ignorespaces Transformaciones de aumentación aplicadas durante el entrenamiento.}}{177}{table.Alph5.2}%
-\contentsline {table}{\numberline {E.3}{\ignorespaces Condiciones evaluadas antes de promover un artifact.}}{178}{table.Alph5.3}%
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {F.1}{Bloques coordinados de producto, de P8 a P10.9.}}{181}{table.F.1}%
-\contentsline {table}{\numberline {F.2}{Evolución de la implementación del pipeline de IA.}}{186}{table.F.2}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {H.1}{Trazabilidad entre observaciones profesionales y decisiones de producto.}}{199}{table.H.1}%
+\contentsline {table}{\numberline {E.1}{\ignorespaces Configuración comparada del entrenamiento de ambos modelos.}}{177}{table.Alph5.1}%
+\contentsline {table}{\numberline {E.2}{\ignorespaces Transformaciones de aumentación aplicadas durante el entrenamiento.}}{178}{table.Alph5.2}%
+\contentsline {table}{\numberline {E.3}{\ignorespaces Condiciones evaluadas antes de promover un artifact.}}{179}{table.Alph5.3}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {F.1}{Bloques coordinados de producto, de P8 a P10.9.}}{182}{table.F.1}%
+\contentsline {table}{\numberline {F.2}{Evolución de la implementación del pipeline de IA.}}{187}{table.F.2}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {H.1}{Trazabilidad entre observaciones profesionales y decisiones de producto.}}{200}{table.H.1}%
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 

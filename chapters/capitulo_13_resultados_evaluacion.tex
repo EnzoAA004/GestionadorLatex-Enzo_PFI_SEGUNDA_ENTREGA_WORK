@@ -63,7 +63,7 @@ En el caso axial, la separación a nivel de paciente está confirmada en el mani
 \endfoot
 Sagital, SPIDER & Vértebras, canal y discos, sin fondo & 0,893 & 0,70 & Supera el umbral \\
 Axial, Sudirman y Al-Kafri & Primer plano oficial, incluyendo \texttt{raw\_0} & 0,679348283374592 (IoU 0,5699727598420694) & 0,70 & No alcanza el umbral \\
-Axial, excluyendo \texttt{raw\_0} & Analisis secundario de estructuras & 0,8105661875685084 (IoU 0,6915400877715925) & 0,70 & Lectura secundaria; no reemplaza el gate \\
+Axial, excluyendo \texttt{raw\_0} & Análisis secundario de estructuras & 0,8105661875685084 (IoU 0,6915400877715925) & 0,70 & Lectura secundaria; no reemplaza el gate \\
 \hline
 \end{longtable}
 }
@@ -72,7 +72,7 @@ El valor informado corresponde al promedio macro del coeficiente Dice, es decir 
 
 La diferencia entre las dos lecturas del modelo axial requiere explicación, porque es de una magnitud considerable y no responde a un cambio en el modelo sino en el conjunto de clases sobre el que se promedia. Según establece la Tabla~\ref{tab:cap-clases-modelo-axial}, el modelo axial distingue seis clases, de las cuales dos corresponden a fondo. Una de ellas, la que designa la región exterior al paciente en el conjunto de origen, obtiene un coeficiente Dice de 0,15 y arrastra el promedio macro cuando se la incluye entre las clases de primer plano.
 
-El desempeño secundario excluyendo \texttt{raw\_0} es de 0,8105661875685084 para Dice y 0,6915400877715925 para IoU. Esa lectura ayuda a describir la segmentación de las estructuras de interes, pero no sustituye la metrica oficial del artifact: \texttt{qualityGatePassed=false}, con razon \texttt{dice\_macro\_foreground\_below\_threshold}.
+El desempeño secundario excluyendo \texttt{raw\_0} es de 0,8105661875685084 para Dice y 0,6915400877715925 para IoU. Esa lectura ayuda a describir la segmentación de las estructuras de interés, pero no sustituye la métrica oficial del artifact: \texttt{qualityGatePassed=false}, con razón \texttt{dice\_macro\_foreground\_below\_threshold}.
 
 \section{Umbral de calidad y estado del artifact axial}
 
@@ -131,10 +131,10 @@ El contraste con el ángulo segmentario, que sí se publica con carácter experi
 La decisión se documenta porque describe un criterio que el proyecto aplica de forma general: una medición se publica cuando puede verificarse, y no cuando puede calcularse.
 
 
-\section{Resultados finales de validacion tecnica por capa}
+\section{Resultados finales de validación técnica por capa}
 \label{sec:resultados-validacion-final}
 
-Ademas de la evaluacion offline de modelos, el cierre tecnico del producto incluyo verificaciones de software, integracion y recorrido browser. Estas pruebas validan el comportamiento funcional del prototipo bajo condiciones controladas; no constituyen validacion clinica.
+Además de la evaluación offline de modelos, el cierre técnico del producto incluyó verificaciones de software, integración y recorrido browser. Estas pruebas validan el comportamiento funcional del prototipo bajo condiciones controladas; no constituyen validación clínica.
 
 {\scriptsize
 \setlength{\LTleft}{0pt}
@@ -142,32 +142,32 @@ Ademas de la evaluacion offline de modelos, el cierre tecnico del producto inclu
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.18}
 \begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} >{\raggedright\arraybackslash}p{0.28\textwidth} >{\raggedright\arraybackslash}p{0.38\textwidth}}
-\caption{Validacion tecnica final del prototipo.}\label{tab:res-validacion-tecnica-final}\\
+\caption{Validación técnica final del prototipo.}\label{tab:res-validacion-tecnica-final}\\
 \hline
-\textbf{Validacion} & \textbf{Resultado} & \textbf{Interpretacion} \\
+\textbf{Validación} & \textbf{Resultado} & \textbf{Interpretación} \\
 \hline
 \endfirsthead
 \hline
-\textbf{Validacion} & \textbf{Resultado} & \textbf{Interpretacion} \\
+\textbf{Validación} & \textbf{Resultado} & \textbf{Interpretación} \\
 \hline
 \endhead
 \hline
 \endfoot
 Backend Java 21, suite reconciliada & 1053 tests, 0 failures, 0 errors, 78 skipped & Suite final verde para el alcance ejecutado; los skipped corresponden a tests condicionados por Postgres/Testcontainers. No mezclar con conteos baseline previos. \\
-Backend focal & 67/67 PASS & Cubre Patient API, controlador AI, seguridad, validadores y asociacion Study--Patient a nivel Backend. \\
-Frontend & lint PASS, typecheck PASS, build PASS, unit tests PASS & Valida calidad estatica y construccion de la interfaz final. \\
+Backend focal & 67/67 PASS & Cubre Patient API, controlador AI, seguridad, validadores y asociación Study--Patient a nivel Backend. \\
+Frontend & lint PASS, typecheck PASS, build PASS, unit tests PASS & Valida calidad estática y construcción de la interfaz final. \\
 AI focal/product regressions & PASS; 67 passed y 1 skipped en el recorte focal & Valida product orchestration, multiplanar, real baseline, Grad-CAM y subarticular en el alcance focal. \\
-AI full suite & 479 passed / 40 failed & No se presenta como suite totalmente verde: los fallos son brechas ambientales preexistentes asociadas a \texttt{highdicom} y resolucion de subprocess. \\
-Docker full stack & PASS & Construccion del stack completo con imagenes requeridas. \\
-Browser E2E & Playwright 11/11 PASS & Validacion funcional del producto en recorrido demo/final; no equivale a validacion clinica ni a Patient entity browser-level completo. \\
+AI full suite & 479 passed / 40 failed & No se presenta como suite totalmente verde: los fallos son brechas ambientales preexistentes asociadas a \texttt{highdicom} y resolución de subprocess. \\
+Docker full stack & PASS & Construcción del stack completo con imágenes requeridas. \\
+Browser E2E & Playwright 11/11 PASS & Validación funcional del producto en recorrido demo/final; no equivale a validación clínica ni a Patient entity browser-level completo. \\
 Patient API smoke & 8/8 PASS & Valida create/associate/list/detail/longitudinal/report/reload/persist-after-restart a nivel API/Backend. \\
 Persistencia & PASS & Resultados, asociaciones y series sobreviven reinicio del Backend. \\
-Product-analysis & PASS en demo path; bloqueado en path real sin 67B2 parity & El producto no fabrica nivel anatomico cuando la paridad runtime no esta probada. \\
-Longitudinal & PASS & Comparacion deterministica en Demo Mode y flujo \texttt{subjectRef}. \\
+Product-analysis & PASS en demo path; bloqueado en path real sin 67B2 parity & El producto no fabrica nivel anatómico cuando la paridad runtime no está probada. \\
+Longitudinal & PASS & Comparación determinística en Demo Mode y flujo \texttt{subjectRef}. \\
 Reporte / PDF / JSON & PASS & Reporte estructurado \texttt{pfi.study-report.v1}; exportaciones PDF y JSON verificadas. \\
-Chat contextual & PASS en mock LLM & Valida integracion funcional con proveedor deterministico; no despliegue productivo de Qwen. \\
-Evidencia visual & PASS & Overlays/assets servidos por Backend; limitados por registro AI efimero tras reinicio. \\
-DICOM invalido & 422 \texttt{UNSUPPORTED\_INPUT} PASS & El sistema falla de forma controlada ante input no procesable. \\
+Chat contextual & PASS en mock LLM & Valida integración funcional con proveedor determinístico; no despliegue productivo de Qwen. \\
+Evidencia visual & PASS & Overlays/assets servidos por Backend; limitados por registro AI efímero tras reinicio. \\
+DICOM inválido & 422 \texttt{UNSUPPORTED\_INPUT} PASS & El sistema falla de forma controlada ante input no procesable. \\
 Secret scan & Sin credenciales reales & Hallazgos revisados como falsos positivos; no se detectaron secretos productivos. \\
 \hline
 \end{longtable}
@@ -236,36 +236,36 @@ El costo variable observado fue de aproximadamente USD~0,00236 por estudio (Back
 
 Al cierre de este documento, el entorno Cloud fue pausado intencionalmente para minimizar consumo de crédito mientras continúa el trabajo de documentación (ningún recurso fue eliminado; Cloud SQL detenido, Cloud Run en su estado de costo cero por inactividad). El procedimiento de pausa y los comandos de restauración están documentados en el repositorio Backend (\texttt{docs/cloud/CLOUD\_PAUSE\_RESTORE\_COMMANDS.md}).
 
-\section{Niveles de validacion y alcance}
+\section{Niveles de validación y alcance}
 \label{sec:resultados-niveles-validacion}
 
-El cierre distingue seis niveles. La validacion de modelo offline mide desempeno contra anotaciones o particiones congeladas. La validacion tecnica de software verifica contratos, persistencia, seguridad y errores controlados. La validacion E2E recorre el producto integrado en browser y stack containerizado. La validacion profesional cualitativa recoge observaciones de profesionales sobre una version funcional/intermedia del prototipo y se informa en la seccion siguiente. La validacion cruzada profesional, todavia pendiente, requiere comparar lecturas independientes de profesionales contra resultados del sistema sobre los mismos estudios. La validacion clinica requeriria un protocolo especifico con datos, comparadores y criterios clinicos; no fue realizada y no se afirma.
+El cierre distingue seis niveles. La validación de modelo offline mide desempeño contra anotaciones o particiones congeladas. La validación técnica de software verifica contratos, persistencia, seguridad y errores controlados. La validación E2E recorre el producto integrado en browser y stack containerizado. La validación profesional cualitativa recoge observaciones de profesionales sobre una versión funcional/intermedia del prototipo y se informa en la sección siguiente. La validación cruzada profesional, todavía pendiente, requiere comparar lecturas independientes de profesionales contra resultados del sistema sobre los mismos estudios. La validación clínica requeriría un protocolo específico con datos, comparadores y criterios clínicos; no fue realizada y no se afirma.
 
-Esta separacion es central para interpretar las metricas. Por ejemplo, 67B2 tiene resultados offline altos, pero conserva \texttt{67B2\_RUNTIME\_PARITY\_NOT\_PROVEN}, \texttt{productEnabled=false} y \texttt{parityVerified=false}; por lo tanto no habilita inferencia productiva real. Del mismo modo, Playwright 11/11 valida el recorrido funcional del prototipo, no la exactitud clinica de sus salidas.
-\section{Resultados de la validacion profesional cualitativa}
+Esta separación es central para interpretar las métricas. Por ejemplo, 67B2 tiene resultados offline altos, pero conserva \texttt{67B2\_RUNTIME\_PARITY\_NOT\_PROVEN}, \texttt{productEnabled=false} y \texttt{parityVerified=false}; por lo tanto no habilita inferencia productiva real. Del mismo modo, Playwright 11/11 valida el recorrido funcional del prototipo, no la exactitud clínica de sus salidas.
+\section{Resultados de la validación profesional cualitativa}
 \label{sec:resultados-validacion-profesional-cualitativa}
 
-Se realizaron dos sesiones de validacion profesional del prototipo, una con la Dra. Susana Torres y otra con la Dra. Claudia Cejas. Estas sesiones no fueron entrevistas exploratorias iniciales: ocurrieron sobre una version funcional/intermedia del producto y se orientaron a observar utilidad, flujo, comprension, priorizacion funcional y confianza. Tampoco constituyen validacion clinica, diagnostica, ensayo clinico ni comparacion contra ground truth.
+Se realizaron dos sesiones de validación profesional del prototipo, una con la Dra. Susana Torres y otra con la Dra. Claudia Cejas. Estas sesiones no fueron entrevistas exploratorias iniciales: ocurrieron sobre una versión funcional/intermedia del producto y se orientaron a observar utilidad, flujo, comprensión, priorización funcional y confianza. Tampoco constituyen validación clínica, diagnóstica, ensayo clínico ni comparación contra ground truth.
 
-Las funcionalidades observadas o discutidas incluyeron segmentacion visual, overlays, posibilidad de activar o desactivar mascaras, correccion manual de mediciones, evidencia visual, revision de multiples cortes, correlacion sagital--axial, mediciones priorizadas, comparacion longitudinal y salida estructurada editable. La muestra es pequena e intencional, por lo que se informa narrativamente y no mediante porcentajes.
+Las funcionalidades observadas o discutidas incluyeron segmentación visual, overlays, posibilidad de activar o desactivar máscaras, corrección manual de mediciones, evidencia visual, revisión de múltiples cortes, correlación sagital--axial, mediciones priorizadas, comparación longitudinal y salida estructurada editable. La muestra es pequeña e intencional, por lo que se informa narrativamente y no mediante porcentajes.
 
-\subsection{Ficha de la sesion con la Dra. Susana Torres}
+\subsection{Ficha de la sesión con la Dra. Susana Torres}
 
-La sesion con la Dra. Susana Torres registro interes en la comparacion con resonancias previas y en el historial longitudinal como apoyo para observar evolucion de cambios degenerativos. La segmentacion fue valorada como apoyo visual, siempre que el profesional pueda revisar la imagen original, activar la asistencia luego de una primera lectura y apagar mascaras para evitar sesgo o confusion visual. Tambien surgio la necesidad de corregir manualmente mediciones, mantener colores consistentes entre estructuras y evitar superposiciones que dificulten la interpretacion.
+La sesión con la Dra. Susana Torres registró interés en la comparación con resonancias previas y en el historial longitudinal como apoyo para observar evolución de cambios degenerativos. La segmentación fue valorada como apoyo visual, siempre que el profesional pueda revisar la imagen original, activar la asistencia luego de una primera lectura y apagar máscaras para evitar sesgo o confusión visual. También surgió la necesidad de corregir manualmente mediciones, mantener colores consistentes entre estructuras y evitar superposiciones que dificulten la interpretación.
 
-En cuanto a contenido anatomico y funcional, la profesional remarco la relevancia del diametro anteroposterior y transverso del saco o canal, la diferenciacion de neuroforamenes, la grasa alrededor de raices, la utilidad para valorar estenosis y la importancia de revisar multiples cortes en lugar de limitarse al corte central. Tambien menciono cambios degenerativos, hipertrofia del ligamento amarillo como posible futuro, cambios Modic, perdida de altura discal, correlacion sagital--axial y respeto de la inclinacion del disco en esa correlacion. La valoracion general fue favorable al uso como asistencia revisable, con revision profesional obligatoria. Como limitacion, varias sugerencias corresponden a capacidades futuras o parciales y no deben presentarse como implementadas por el solo hecho de haber sido propuestas.
+En cuanto a contenido anatómico y funcional, la profesional remarcó la relevancia del diámetro anteroposterior y transverso del saco o canal, la diferenciación de neuroforámenes, la grasa alrededor de raíces, la utilidad para valorar estenosis y la importancia de revisar múltiples cortes en lugar de limitarse al corte central. También mencionó cambios degenerativos, hipertrofia del ligamento amarillo como posible futuro, cambios Modic, pérdida de altura discal, correlación sagital--axial y respeto de la inclinación del disco en esa correlación. La valoración general fue favorable al uso como asistencia revisable, con revisión profesional obligatoria. Como limitación, varias sugerencias corresponden a capacidades futuras o parciales y no deben presentarse como implementadas por el solo hecho de haber sido propuestas.
 
-\subsection{Ficha de la sesion con la Dra. Claudia Cejas}
+\subsection{Ficha de la sesión con la Dra. Claudia Cejas}
 
-La sesion con la Dra. Claudia Cejas destaco el contador o identificacion de nivel como apoyo practico, la utilidad de la segmentacion visual, la correccion manual de mediciones y la prioridad del diametro del canal. Tambien surgio la recomendacion de medir perpendicular al eje del canal y la necesidad de verificar bibliograficamente cualquier numero o rango verbal antes de transformarlo en umbral del sistema.
+La sesión con la Dra. Claudia Cejas destacó el contador o identificación de nivel como apoyo práctico, la utilidad de la segmentación visual, la corrección manual de mediciones y la prioridad del diámetro del canal. También surgió la recomendación de medir perpendicular al eje del canal y la necesidad de verificar bibliográficamente cualquier número o rango verbal antes de transformarlo en umbral del sistema.
 
-En cuanto a estructuras y hallazgos, la profesional remarco la importancia del neuroforamen, la estenosis foraminal, el receso subarticular o canal lateral, la distincion entre canal central, canal lateral y neuroforamen, la revision de multiples cortes, la deteccion de protrusiones focales o laterales, los cambios Modic, la degeneracion discal y la perdida de altura. En terminos operativos, vinculo la utilidad de colores y asistencia visual con la reduccion de omisiones en contextos de carga laboral y fatiga. Tambien considero aceptable cierta sobredeteccion si el profesional conserva la posibilidad de revisar, corregir o descartar. La preferencia expresada fue deteccion y asistencia antes que diagnostico automatico, con valor potencial para comparacion longitudinal e informe estructurado editable.
+En cuanto a estructuras y hallazgos, la profesional remarcó la importancia del neuroforamen, la estenosis foraminal, el receso subarticular o canal lateral, la distinción entre canal central, canal lateral y neuroforamen, la revisión de múltiples cortes, la detección de protrusiones focales o laterales, los cambios Modic, la degeneración discal y la pérdida de altura. En términos operativos, vinculó la utilidad de colores y asistencia visual con la reducción de omisiones en contextos de carga laboral y fatiga. También consideró aceptable cierta sobredetección si el profesional conserva la posibilidad de revisar, corregir o descartar. La preferencia expresada fue detección y asistencia antes que diagnóstico automático, con valor potencial para comparación longitudinal e informe estructurado editable.
 
-\subsection{Sintesis transversal}
+\subsection{Síntesis transversal}
 
-Los hallazgos comunes se agrupan en cinco categorias. En usabilidad, ambas sesiones respaldan overlays utiles, mascaras activables o desactivables, edicion manual, precision visual y colores consistentes. En valor clinico-operativo, aparecen deteccion asistida, reduccion de omisiones, apoyo ante carga elevada, seguimiento longitudinal y correlacion sagital--axial. En mediciones priorizadas, se destacan canal central, neuroforamen, receso lateral o subarticular y altura discal; otras medidas deben incorporarse solo si aportan valor real y pueden verificarse. En hallazgos relevantes, se repiten protrusion o herniacion, estenosis, perdida de altura, cambios degenerativos o Modic, foramenes y raices. En confianza, las dos sesiones refuerzan revision profesional obligatoria, posibilidad de corregir, comunicacion de confianza cuando corresponda y rechazo de la IA como diagnostico autonomo.
+Los hallazgos comunes se agrupan en cinco categorías. En usabilidad, ambas sesiones respaldan overlays útiles, máscaras activables o desactivables, edición manual, precisión visual y colores consistentes. En valor clínico-operativo, aparecen detección asistida, reducción de omisiones, apoyo ante carga elevada, seguimiento longitudinal y correlación sagital--axial. En mediciones priorizadas, se destacan canal central, neuroforamen, receso lateral o subarticular y altura discal; otras medidas deben incorporarse solo si aportan valor real y pueden verificarse. En hallazgos relevantes, se repiten protrusión o herniación, estenosis, pérdida de altura, cambios degenerativos o Modic, foramenes y raíces. En confianza, las dos sesiones refuerzan revisión profesional obligatoria, posibilidad de corregir, comunicación de confianza cuando corresponda y rechazo de la IA como diagnóstico autónomo.
 
-La diferencia principal entre las sesiones esta en el enfasis. La Dra. Torres profundizo en comparacion longitudinal, control visual de mascaras, correlacion sagital--axial e inclinacion discal. La Dra. Cejas enfatizo la protocolizacion de mediciones, la distincion entre canal central/lateral/neuroforamen, la carga laboral y la aceptabilidad de sobredeteccion bajo revision profesional.
+La diferencia principal entre las sesiones está en el énfasis. La Dra. Torres profundizó en comparación longitudinal, control visual de máscaras, correlación sagital--axial e inclinación discal. La Dra. Cejas enfatizó la protocolización de mediciones, la distinción entre canal central/lateral/neuroforamen, la carga laboral y la aceptabilidad de sobredetección bajo revisión profesional.
 
 {\scriptsize
 \setlength{\LTleft}{0pt}
@@ -273,38 +273,38 @@ La diferencia principal entre las sesiones esta en el enfasis. La Dra. Torres pr
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.18}
 \begin{longtable}{>{\raggedright\arraybackslash}p{0.24\textwidth} >{\raggedright\arraybackslash}p{0.14\textwidth} >{\raggedright\arraybackslash}p{0.28\textwidth} >{\raggedright\arraybackslash}p{0.24\textwidth}}
-\caption{Cambios de producto derivados de la validacion profesional cualitativa.}\label{tab:res-cambios-producto-validacion-profesional}\\
+\caption{Cambios de producto derivados de la validación profesional cualitativa.}\label{tab:res-cambios-producto-validacion-profesional}\\
 \hline
-\textbf{Observacion profesional} & \textbf{Profesional} & \textbf{Decision de producto} & \textbf{Estado actual} \\
+\textbf{Observación profesional} & \textbf{Profesional} & \textbf{Decisión de producto} & \textbf{Estado actual} \\
 \hline
 \endfirsthead
 \hline
-\textbf{Observacion profesional} & \textbf{Profesional} & \textbf{Decision de producto} & \textbf{Estado actual} \\
+\textbf{Observación profesional} & \textbf{Profesional} & \textbf{Decisión de producto} & \textbf{Estado actual} \\
 \hline
 \endhead
 \hline
 \endfoot
-Activar/desactivar mascaras y evitar confusion visual & Torres & Mantener overlays revisables y controles de visibilidad por estructura. & PARTIAL: overlays implementados; controles finos por estructura quedan como mejora de interfaz. \\
-Correccion manual de mediciones & Torres/Cejas & Permitir que el profesional corrija valores y conserve trazabilidad. & IMPLEMENTED: mediciones editables y revision profesional implementadas. \\
-Evidencia visual verificable & Torres/Cejas & Mostrar mascaras, assets y regiones de evidencia asociadas al resultado. & IMPLEMENTED: overlays y evidencia visual servidos por Backend; limitados por registro AI efimero. \\
-Comparacion con estudios previos & Torres/Cejas & Mantener historial y comparacion longitudinal descriptiva. & PARTIAL: implementado en Demo Mode/\texttt{subjectRef}; no es evaluacion clinica de progresion. \\
-Correlacion sagital--axial y multiples cortes & Torres/Cejas & Priorizar visor volumetrico, revision por corte y no solo corte central. & PARTIAL: visor y catalogo full-series implementados; pairing sagital--axial 67C sigue experimental. \\
-Medicion de neuroforamen & Torres/Cejas & Registrar como medicion prioritaria futura si se valida tecnica y bibliograficamente. & PLANNED: no debe presentarse como medicion productiva validada. \\
-Receso lateral/subarticular & Cejas & Mantener linea subarticular como capacidad asistiva bajo gates. & PARTIAL: clasificador subarticular existe, pero P10.7/product path sigue bloqueado. \\
-Transparencia Demo/IA y revision humana & Torres/Cejas & Declarar modo demo/no clinico y mantener revision obligatoria. & PARTIAL: flags tecnicos existen; indicador persistente de Demo Mode en UI queda pendiente. \\
-Informe estructurado editable & Cejas & Generar salida estructurada revisable y exportable. & IMPLEMENTED: reporte \texttt{pfi.study-report.v1}, PDF/JSON y revision profesional. \\
-Mostrar confianza cuando corresponda & Cejas & Comunicar confianza/estado solo cuando el modelo lo respalde. & PARTIAL: existen estados y gates; visualizacion sistematica de confianza queda pendiente. \\
-Cambios Modic & Torres/Cejas & Documentar como hallazgo relevante, sin exponerlo productivamente sin validacion. & PLANNED: P10.7 contiene tarea relacionada pero no esta habilitada productivamente. \\
-Hipertrofia del ligamento amarillo & Torres & Registrar como posible extension futura. & PLANNED: no implementado en producto. \\
-Diagnostico automatico & Torres/Cejas & Mantener enfoque asistivo, no diagnostico. & OUT\_OF\_SCOPE: el sistema no diagnostica ni recomienda tratamiento. \\
+Activar/desactivar máscaras y evitar confusión visual & Torres & Mantener overlays revisables y controles de visibilidad por estructura. & PARTIAL: overlays implementados; controles finos por estructura quedan como mejora de interfaz. \\
+Corrección manual de mediciones & Torres/Cejas & Permitir que el profesional corrija valores y conserve trazabilidad. & IMPLEMENTED: mediciones editables y revisión profesional implementadas. \\
+Evidencia visual verificable & Torres/Cejas & Mostrar máscaras, assets y regiones de evidencia asociadas al resultado. & IMPLEMENTED: overlays y evidencia visual servidos por Backend; limitados por registro AI efímero. \\
+Comparación con estudios previos & Torres/Cejas & Mantener historial y comparación longitudinal descriptiva. & PARTIAL: implementado en Demo Mode/\texttt{subjectRef}; no es evaluación clínica de progresión. \\
+Correlación sagital--axial y múltiples cortes & Torres/Cejas & Priorizar visor volumétrico, revisión por corte y no solo corte central. & PARTIAL: visor y catálogo full-series implementados; pairing sagital--axial 67C sigue experimental. \\
+Medición de neuroforamen & Torres/Cejas & Registrar como medición prioritaria futura si se valida técnica y bibliográficamente. & PLANNED: no debe presentarse como medición productiva validada. \\
+Receso lateral/subarticular & Cejas & Mantener línea subarticular como capacidad asistiva bajo gates. & PARTIAL: clasificador subarticular existe, pero P10.7/product path sigue bloqueado. \\
+Transparencia Demo/IA y revisión humana & Torres/Cejas & Declarar modo demo/no clínico y mantener revisión obligatoria. & PARTIAL: flags técnicos existen; indicador persistente de Demo Mode en UI queda pendiente. \\
+Informe estructurado editable & Cejas & Generar salida estructurada revisable y exportable. & IMPLEMENTED: reporte \texttt{pfi.study-report.v1}, PDF/JSON y revisión profesional. \\
+Mostrar confianza cuando corresponda & Cejas & Comunicar confianza/estado solo cuando el modelo lo respalde. & PARTIAL: existen estados y gates; visualización sistemática de confianza queda pendiente. \\
+Cambios Modic & Torres/Cejas & Documentar como hallazgo relevante, sin exponerlo productivamente sin validación. & PLANNED: P10.7 contiene tarea relacionada pero no está habilitada productivamente. \\
+Hipertrofia del ligamento amarillo & Torres & Registrar como posible extensión futura. & PLANNED: no implementado en producto. \\
+Diagnóstico automático & Torres/Cejas & Mantener enfoque asistivo, no diagnóstico. & OUT\_OF\_SCOPE: el sistema no diagnostica ni recomienda tratamiento. \\
 \hline
 \end{longtable}
 }
 
-\subsection{Validacion profesional final pendiente}
+\subsection{Validación profesional final pendiente}
 \label{sec:resultados-validacion-cruzada-pendiente}
 
-La validacion cruzada profesional sigue pendiente. Para realizarla, un profesional debe analizar estudios de manera independiente; luego el sistema debe procesar esos mismos estudios; despues deben compararse niveles, segmentaciones, mediciones, hallazgos, omisiones y falsos positivos; finalmente el profesional debe revisar discrepancias y documentar concordancias. Esa evidencia permitira evaluar utilidad y errores sobre casos concretos, pero todavia no fue obtenida.
+La validación cruzada profesional sigue pendiente. Para realizarla, un profesional debe analizar estudios de manera independiente; luego el sistema debe procesar esos mismos estudios; después deben compararse niveles, segmentaciones, mediciones, hallazgos, omisiones y falsos positivos; finalmente el profesional debe revisar discrepancias y documentar concordancias. Esa evidencia permitirá evaluar utilidad y errores sobre casos concretos, pero todavía no fue obtenida.
 \section{Limitaciones de la evaluación}
 \label{sec:resultados-limitaciones}
 

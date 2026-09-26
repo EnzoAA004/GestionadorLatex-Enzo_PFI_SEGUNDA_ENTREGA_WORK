@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.9.20)  25 SEP 2026 23:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.9.20)  26 SEP 2026 00:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -10250,7 +10250,7 @@ LaTeX2e <2026-06-01>
 L3 programming layer <2026-08-10>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A0EF432B16FBB643A0E5E670155EC752;25945.
+(rerunfilecheck)             Checksum: A6D535BCBF063BB13C781737D7545934;25975.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
@@ -10258,7 +10258,7 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 Here is how much of TeX's memory you used:
  48005 strings out of 467099
  970597 string characters out of 5408265
- 1838740 words of memory out of 5000000
+ 1839748 words of memory out of 5000000
  74977 multiletter control sequences out of 15000+600000
  759082 words of font info for 652 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -10274,7 +10274,7 @@ exlive/2026/texmf-dist/fonts/type1/public/lm/lmtt8.pfb></usr/local/texlive/2026
 e1/urw/times/utmbi8a.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/ti
 mes/utmr8a.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmri8
 a.pfb>
-Output written on main.pdf (205 pages, 3801184 bytes).
+Output written on main.pdf (205 pages, 3801350 bytes).
 PDF statistics:
  3250 PDF objects out of 3580 (max. 8388607)
  2930 compressed objects within 30 object streams

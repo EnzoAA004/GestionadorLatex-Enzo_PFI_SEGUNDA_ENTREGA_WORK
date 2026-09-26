@@ -269,8 +269,8 @@
 \contentsline {subsection}{\numberline {12.3.1}Automatización de integración y publicación}{114}{subsection.12.3.1}%
 \contentsline {section}{\numberline {12.4}Criterios de listo, terminado y evidencia}{116}{section.12.4}%
 \contentsline {section}{\numberline {12.5}Validación por capas y pruebas}{116}{section.12.5}%
-\contentsline {section}{\numberline {12.6}Diferencia entre instancias de validacion}{117}{section.12.6}%
-\contentsline {subsection}{\numberline {12.6.1}Validacion profesional final pendiente}{117}{subsection.12.6.1}%
+\contentsline {section}{\numberline {12.6}Diferencia entre instancias de validación}{117}{section.12.6}%
+\contentsline {subsection}{\numberline {12.6.1}Validación profesional final pendiente}{117}{subsection.12.6.1}%
 \contentsline {section}{\numberline {12.7}Limitaciones metodológicas}{118}{section.12.7}%
 \contentsline {chapter}{\numberline {13}Resultados de la evaluación técnica}{119}{chapter.13}%
 \contentsline {section}{\numberline {13.1}Propósito y alcance de la evaluación}{119}{section.13.1}%
@@ -280,14 +280,14 @@
 \contentsline {section}{\numberline {13.5}Advertencia sobre la partición de prueba axial}{121}{section.13.5}%
 \contentsline {section}{\numberline {13.6}Verificación por contraste de las mediciones derivadas}{121}{section.13.6}%
 \contentsline {section}{\numberline {13.7}Una medición implementada y no publicada}{122}{section.13.7}%
-\contentsline {section}{\numberline {13.8}Resultados finales de validacion tecnica por capa}{123}{section.13.8}%
+\contentsline {section}{\numberline {13.8}Resultados finales de validación técnica por capa}{123}{section.13.8}%
 \contentsline {section}{\numberline {13.9}Validación técnica en Google Cloud}{124}{section.13.9}%
-\contentsline {section}{\numberline {13.10}Niveles de validacion y alcance}{125}{section.13.10}%
-\contentsline {section}{\numberline {13.11}Resultados de la validacion profesional cualitativa}{125}{section.13.11}%
-\contentsline {subsection}{\numberline {13.11.1}Ficha de la sesion con la Dra. Susana Torres}{126}{subsection.13.11.1}%
-\contentsline {subsection}{\numberline {13.11.2}Ficha de la sesion con la Dra. Claudia Cejas}{126}{subsection.13.11.2}%
-\contentsline {subsection}{\numberline {13.11.3}Sintesis transversal}{127}{subsection.13.11.3}%
-\contentsline {subsection}{\numberline {13.11.4}Validacion profesional final pendiente}{128}{subsection.13.11.4}%
+\contentsline {section}{\numberline {13.10}Niveles de validación y alcance}{125}{section.13.10}%
+\contentsline {section}{\numberline {13.11}Resultados de la validación profesional cualitativa}{125}{section.13.11}%
+\contentsline {subsection}{\numberline {13.11.1}Ficha de la sesión con la Dra. Susana Torres}{126}{subsection.13.11.1}%
+\contentsline {subsection}{\numberline {13.11.2}Ficha de la sesión con la Dra. Claudia Cejas}{126}{subsection.13.11.2}%
+\contentsline {subsection}{\numberline {13.11.3}Síntesis transversal}{127}{subsection.13.11.3}%
+\contentsline {subsection}{\numberline {13.11.4}Validación profesional final pendiente}{128}{subsection.13.11.4}%
 \contentsline {section}{\numberline {13.12}Limitaciones de la evaluación}{128}{section.13.12}%
 \contentsline {section}{\numberline {13.13}Conclusión del capítulo}{129}{section.13.13}%
 \contentsline {chapter}{\numberline {14}Modelo de negocio y viabilidad económica}{131}{chapter.14}%

@@ -153,9 +153,9 @@ La superposición automática no se presupone para todos los cortes de todas las
 
 \subsection{Modelo de datos}
 
-La persistencia se apoya en un modelo relacional en PostgreSQL organizado alrededor de tres ejes: la identidad y el control de acceso (usuarios, roles), la organización de los estudios (sujeto de-identificado, estudio) y la evidencia de cada análisis (corrida, mediciones, revisiones, assets y catálogo de cortes), complementados con el registro de modelos/artifacts y la auditoría. La Figura~\ref{fig:arch-modelo-datos} presenta el diagrama entidad-relación con sus claves primarias, foráneas y cardinalidades.
+La persistencia se apoya en un modelo relacional en PostgreSQL organizado alrededor de tres ejes: la identidad y el control de acceso (usuarios, roles), la identidad longitudinal de-identificada y la organización de estudios (\texttt{Patient}, \texttt{Study}) y la evidencia de cada análisis (corrida, mediciones, revisiones, assets y catálogo de cortes), complementados con el registro de modelos/artifacts y la auditoría. La Figura~\ref{fig:arch-modelo-datos} presenta el diagrama entidad-relación con sus claves primarias, foráneas y cardinalidades.
 
-El diseño refleja las decisiones descritas en los capítulos anteriores: los datos identificatorios del paciente se almacenan de forma segura (Ley N.º 25.326) y los estudios se vinculan mediante una referencia de sujeto seudonimizada (subject\_ref); cada corrida conserva su linaje técnico (model\_key, artifact\_hash, requested/effective\_inference\_mode y trace\_id); las mediciones y los assets quedan vinculados a la corrida y al corte de origen; y la revisión profesional se registra sin sobrescribir el resultado automático original, preservando la trazabilidad y la auditabilidad.
+El diseño refleja las decisiones descritas en los capítulos anteriores: la identidad longitudinal canónica del prototipo se representa mediante \texttt{Patient}, con \texttt{patientReference} de-identificado, y cada \texttt{Study} se asocia explícitamente mediante \texttt{patientId}. El campo \texttt{subjectRef} permanece en \texttt{Study} como atributo opcional de compatibilidad y no es clave primaria ni foránea hacia una entidad de sujeto. Cada corrida conserva su linaje técnico (model\_key, artifact\_hash, requested/effective\_inference\_mode y trace\_id); las mediciones y los assets quedan vinculados a la corrida y al corte de origen; y la revisión profesional se registra sin sobrescribir el resultado automático original, preservando la trazabilidad y la auditabilidad.
 % CROSS_REFERENCE_MAPPING_REQUIRED
 
 \begin{figure}[htbp]
@@ -186,8 +186,8 @@ Entidades principales
 \endfoot
 usuario & Cuenta del sistema. Atributos: id (PK), email, password\_hash, estado\_aprobacion, fecha\_registro. \\
 rol / usuario\_rol & Roles ADMIN, DOCTOR y REVIEWER, asociados a usuarios mediante una tabla intermedia (relación muchos a muchos). \\
-sujeto & Referencia de-identificada del paciente. Atributos: subject\_ref (PK). No almacena datos identificatorios. \\
-estudio & Contenedor lógico de un caso. Atributos: study\_id (PK), subject\_ref (FK), creado\_por (FK usuario), fecha, metadata. \\
+Patient / domain\_patients & Identidad longitudinal de-identificada. Atributos principales: id (UUID, PK), patient\_reference único y normalizado, created\_at y updated\_at. Se gestiona mediante la API \texttt{/api/patients}. \\
+Study / domain\_studies & Contenedor lógico de un caso. Incluye id, case\_id, status, patient\_id opcional como FK hacia \texttt{Patient}, subject\_ref opcional de compatibilidad, study\_date, modality, description y review\_priority. \\
 corrida (run) & Ejecución de análisis por plano. Atributos: run\_id (PK), study\_id (FK), model\_key (FK), plano, multiplanar\_run\_id, artifact\_hash, requested/effective\_inference\_mode, trace\_id, estado. \\
 modelo / artifact & Modelo registrado y su artifact verificable. Atributos: model\_key (PK), plano, version, artifact\_hash, manifest\_uri, arquitectura. \\
 medicion & Valor geométrico derivado de una máscara. Atributos: id (PK), run\_id (FK), estructura/label, plano, slice\_index, valor, unidad, confidence, estado\_revision. \\
@@ -202,7 +202,7 @@ evento\_auditoria & Registro de trazabilidad. Atributos: id (PK), usuario\_id (F
 Relaciones principales
 
 \begin{itemize}
-  \item Un sujeto agrupa uno o varios estudios; un estudio contiene una o varias corridas.
+  \item Un \texttt{Patient} agrupa uno o varios estudios mediante la asociación explícita \texttt{patientId}; \texttt{subjectRef} no define esa relación longitudinal y se conserva solo por compatibilidad.
   \item Cada corrida referencia el modelo/artifact ejecutado y genera múltiples mediciones, assets y entradas del catálogo de cortes.
   \item Una corrida acumula una o varias revisiones profesionales sin eliminar el resultado automático original.
   \item Los usuarios se asocian con roles (muchos a muchos) y quedan registrados como autores de estudios, revisiones y eventos de auditoría.
@@ -528,7 +528,7 @@ A estas condiciones se suma un criterio de eficiencia señalado en las entrevist
 \hline
 \endfoot
 Worklist de estudios & Identificar casos disponibles, pendientes y revisados sin abrir cada uno. & N-07 & HU-02 \\
-Alta de estudio y carga & Asociar el volumen a una referencia de sujeto seudonimizada e informar las series compatibles detectadas. & N-09, N-11 & HU-03, HU-04 \\
+Alta de estudio y carga & Crear o seleccionar un \texttt{Patient} de-identificado, asociar el estudio mediante \texttt{patientId} e informar las series compatibles detectadas. & N-09, N-11 & HU-03, HU-04 \\
 Visor con superposición conmutable & Comparar imagen original y máscara en el mismo encuadre. & N-01 & HU-06 \\
 Selector de plano y navegación por cortes & Recorrer el volumen conservando la relación entre resultado y corte de origen. & N-03, N-12 & HU-07 \\
 Panel de mediciones & Presentar cada valor junto con su estructura, plano y corte. & N-04 & HU-08 \\

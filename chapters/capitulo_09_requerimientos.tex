@@ -120,7 +120,7 @@ FA-08 — Asset faltante o corrupto. El sistema informa la ausencia, conserva la
 \endfoot
 HU-01 & Como usuario autorizado, quiero iniciar y cerrar sesión para acceder únicamente a las funciones permitidas por mi cuenta. & Alta & Implementado \\
 HU-02 & Como profesional, quiero consultar una worklist de estudios para identificar casos disponibles, pendientes y revisados. & Alta & Implementado \\
-HU-03 & Como profesional, quiero crear un estudio asociado a una referencia de sujeto de-identificada para organizar casos sin almacenar identidad clínica innecesaria. & Alta & Implementado \\
+HU-03 & Como profesional, quiero crear o seleccionar una identidad longitudinal de-identificada y asociarle un estudio para organizar casos sin almacenar identidad clínica innecesaria. & Alta & Implementado mediante \texttt{Patient}/\texttt{patientReference} y asociación Study--Patient por \texttt{patientId}. \\
 HU-04 & Como profesional, quiero cargar un estudio DICOM completo y utilizar las series compatibles identificadas por el sistema para ejecutar el análisis. & Alta & Implementado \\
 HU-05 & Como profesional, quiero ejecutar el análisis y conocer el estado de la corrida para distinguir procesamiento, resultado, degradación y error. & Alta & Implementado \\
 HU-06 & Como profesional, quiero observar la imagen original con el overlay automático para comprobar visualmente la segmentación. & Alta & Implementado \\
@@ -131,7 +131,7 @@ HU-10 & Como profesional, quiero reabrir un estudio ya procesado sin repetir la 
 HU-11 & Como usuario, quiero recibir mensajes claros cuando la IA no está disponible o falta información para no confundir una degradación con un resultado válido. & Alta & Parcial \\
 HU-12 & Como administrador, quiero consultar salud, modelos y configuración operativa para diagnosticar fallas del sistema. & Media & Implementado \\
 HU-13 & Como administrador, quiero gestionar activación y roles de usuarios para controlar el acceso al producto. & Alta & Implementado \\
-HU-14 & Como profesional, quiero comparar mediciones de estudios previos del mismo sujeto para observar cambios descriptivos en el tiempo. & Baja & Futuro \\
+HU-14 & Como profesional, quiero comparar mediciones de estudios previos asociados al mismo \texttt{Patient} para observar cambios descriptivos en el tiempo. & Baja & Parcial: identidad longitudinal Patient y consulta de estudios asociada implementadas; la comparación descriptiva dispone de evidencia Demo/legacy, pero el flujo longitudinal completo y su validación profesional final no están cerrados. \\
 \hline
 \end{longtable}
 }
@@ -163,7 +163,7 @@ RF-04 & Generar mediciones geométricas trazables por estructura, plano, máscar
 RF-05 & Generar una salida estructurada editable y no diagnóstica. & La salida reúne estructuras, mediciones, observaciones, advertencias y revisión, sin cerrar diagnóstico ni recomendar tratamiento. & Prioridad: Alta Estado: Implementado Fuente: N-05, N-07; HU-08, HU-09 \\
 RF-06 & Registrar discrepancias, correcciones u observaciones del usuario. & El sistema persiste al menos el estado de revisión, comentario y usuario responsable vinculados con la corrida. & Prioridad: Media Estado: Implementado Fuente: N-08; HU-09 \\
 RF-07 & Incorporar un módulo axial complementario sin fusionar artificialmente las taxonomías de los datasets. & La corrida multiplanar ejecuta o registra un resultado axial diferenciado, con modelo, clases y limitaciones propias. & Prioridad: Alta Estado: Implementado Fuente: N-03; HU-04, HU-05 \\
-RF-08 & Documentar y habilitar progresivamente la comparación con estudios previos del mismo subjectRef. & La evolución longitudinal se mantiene separada del MVP inmediato y define datos, comparabilidad, deltas descriptivos y revisión profesional. & Prioridad: Baja Estado: Futuro Fuente: N-10; HU-14 \\
+RF-08 & Documentar y habilitar progresivamente la comparación con estudios previos asociados al mismo \texttt{Patient}. & La identidad longitudinal usa \texttt{patientReference}/\texttt{patientId}; existen consultas longitudinales y una comparación descriptiva demostrada en Demo Mode mediante el path legacy \texttt{subjectRef}. Los deltas avanzados y la validación profesional final permanecen parciales. & Prioridad: Baja Estado: Parcial Fuente: N-10; HU-14 \\
 RF-09 & Permitir la navegación ordenada de todos los cortes del volumen MHA. & El usuario puede recorrer series y cortes del estudio mediante scroll, teclado y modo cine, con controles de imagen (window/level, zoom) e indicador de corte actual/total; los cortes sin inferencia se muestran como imagen base. & Prioridad: Alta Estado: Implementado (Backend + AI en full-series; contrato P10.9 integrado y visor navegable en Frontend). El cierre de evidencia Browser E2E global permanece parcial. Fuente: N-12 \\
 RF-10 & Comunicar planos, cortes, modelos, assets o resultados ausentes sin completar artificialmente la información. & El Frontend muestra un estado explícito y el contrato diferencia ausencia, degradación y error. & Prioridad: Alta Estado: Parcial Fuente: N-11; HU-11 \\
 RF-11 & Autenticar usuarios y administrar una sesión renovable. & Los endpoints protegidos requieren credenciales válidas, la sesión puede renovarse y el cierre de sesión invalida el acceso desde la interfaz. & Prioridad: Alta Estado: Implementado Fuente: Alcance de seguridad; HU-01 \\
@@ -211,7 +211,7 @@ RNF-03 & El desarrollo debe ser reproducible sobre datos públicos o documentado
 RNF-04 & El sistema debe preservar trazabilidad y auditabilidad. & Una salida puede vincularse con estudio, plano, corrida, modelo, artifact, input, corte, medición, asset y revisión. & Prioridad: Alta Estado: Implementado \\
 RNF-05 & El sistema debe degradarse de forma explícita ante indisponibilidad del AI Module. & La interfaz y la API distinguen servicio disponible, degradado y error; no presentan fallback contractual como inferencia real. & Prioridad: Alta Estado: Parcial \\
 RNF-06 & La comunicación y el acceso deben aplicar controles de seguridad. & Las APIs protegidas exigen autenticación, autorización por rol y manejo seguro de secretos y variables de entorno. & Prioridad: Alta Estado: Consolidado para el checkpoint P10.9; hardening productivo posterior. \\
-RNF-07 & Los datos personales del paciente deben protegerse conforme a la Ley N.º 25.326. & La identidad del paciente se almacena de forma segura y con acceso restringido; los estudios se vinculan mediante una referencia seudonimizada (subjectRef). & Prioridad: Alta Estado: Implementado como criterio de diseño \\
+RNF-07 & Los datos personales del paciente deben protegerse conforme a la Ley N.º 25.326. & La identidad longitudinal de-identificada se representa mediante \texttt{Patient}/\texttt{patientReference}, y los estudios se asocian mediante \texttt{patientId}. \texttt{subjectRef} se conserva únicamente como atributo legacy/de compatibilidad de \texttt{Study}. & Prioridad: Alta Estado: Implementado como criterio de diseño \\
 RNF-08 & La solución debe ser modular y mantenible. & Frontend, Backend y AI Module conservan responsabilidades separadas, contratos explícitos y pruebas por repositorio. & Prioridad: Alta Estado: Implementado \\
 RNF-09 & Los contratos deben ser interoperables y versionados. & Los cambios incompatibles se identifican mediante versión, fixtures y estrategia legacy; no se dependen de paths internos. & Prioridad: Alta Estado: En curso \\
 RNF-10 & El rendimiento debe ser compatible con un flujo interactivo y con límites controlados. & Las cargas, timeouts y tamaños máximos se configuran; el usuario recibe estado de procesamiento y no queda ante una espera silenciosa. & Prioridad: Media Estado: Parcial \\
@@ -281,7 +281,7 @@ HU-10 & N-07 & RF-17, RF-18; RNF-11 & Frontend + Backend + storage & Reapertura 
 HU-11 & N-11 & RF-10, RF-18, RF-19; RNF-05, RNF-12 & Tres repositorios & Estado degradado comprensible y logs correlacionables \\
 HU-12 & Operación técnica & RF-19; RNF-12 & Frontend + Backend + AI Module & Pantalla o endpoint protegido de salud y modelos \\
 HU-13 & Seguridad & RF-12; RNF-06 & Frontend + Backend & Activación de cuenta y control de roles \\
-HU-14 & N-10 & RF-08, RF-14; RNF-07, RNF-09 & Backend + datos + futura IA & Especificación longitudinal y deltas descriptivos revisables \\
+HU-14 & N-10 & RF-08, RF-14; RNF-07, RNF-09 & Backend + datos + Frontend/Demo & Identidad Patient y consulta longitudinal implementadas; comparación descriptiva parcial con evidencia Demo/legacy y sin validación clínica de progresión. \\
 \hline
 \end{longtable}
 }

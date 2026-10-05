@@ -270,7 +270,7 @@ RV-03 & Validar usabilidad y recorrido end-to-end del producto actualizado. & Se
 \endfoot
 HU-01 & N-05, seguridad & RF-11, RF-12; RNF-06 & Frontend + Backend & Tests de autenticación, renovación, logout y autorización \\
 HU-02 & N-07 & RF-13, RF-17 & Frontend + Backend + PostgreSQL & Captura de worklist y prueba de consulta persistida \\
-HU-03 & N-10, privacidad & RF-14; RNF-07 & Frontend + Backend + PostgreSQL & Caso creado con subjectRef y sin datos identificatorios obligatorios \\
+HU-03 & N-10, privacidad & RF-14; RNF-07 & Frontend + Backend + PostgreSQL & \texttt{Patient} creado o seleccionado mediante \texttt{patientReference} de-identificado y estudio asociado por \texttt{patientId}; \texttt{subjectRef} queda fuera del criterio canónico y solo persiste por compatibilidad. \\
 HU-04 & N-03 & RF-01, RF-07, RF-15 & Frontend + Backend + AI Module & Carga de estudio DICOM completo, identificación/registro de series compatibles y corrida multiplanar registrada. \\
 HU-05 & N-03, N-06 & RF-15, RF-16; RNF-03, RNF-04 & Backend + AI Module & Contrato con runId, traceId, modelo, hash y modo efectivo \\
 HU-06 & N-01 & RF-02, RF-20 & Frontend + Backend + AI Module & Overlay autorizado sobre la imagen correspondiente \\

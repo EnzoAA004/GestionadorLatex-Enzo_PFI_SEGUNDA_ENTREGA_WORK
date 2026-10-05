@@ -1,0 +1,20 @@
+name: Temporary LaTeX Block4 Build
+on:
+  push:
+    branches: [master]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          latexmk_use_xelatex: false
+          args: -pdf -interaction=nonstopmode -file-line-error
+      - name: Check references and appendix H
+        run: |
+          if grep -E "LaTeX Warning: (Reference|There were undefined references)" main.log; then
+            exit 1
+          fi
+          grep -F '\\numberline {H}Validación profesional cualitativa' main.toc

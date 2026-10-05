@@ -9,12 +9,14 @@ Esta separación evita medir el avance únicamente por cantidad de código. Cada
 
 \section{Planificación por entregables}
 
+Antes de presentar el estado actual conviene separar el corte histórico del 50 \% de la evolución posterior. Las filas del primer bloque reconstruyen el estado alcanzado alrededor de ese hito académico; las del segundo reflejan capacidades y actividades que avanzaron después de esa entrega. De este modo, un estado que fue legítimamente «pendiente» al 50 \% no se confunde con el estado actual del proyecto.
+
 \begingroup
 \scriptsize
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.18}
 \begin{longtable}{|p{0.28\textwidth}|p{0.25\textwidth}|p{0.39\textwidth}|}
-\caption{Roadmap actualizado para la entrega del 50 \%.}\label{tab:plan-roadmap-50}\\
+\caption{Estado consolidado de entregables y actividades de cierre del proyecto.}\label{tab:plan-roadmap-consolidado}\\
 \hline
 \textbf{Entregable} & \textbf{Estado} & \textbf{Evidencia} \\
 \hline
@@ -23,7 +25,9 @@ Esta separación evita medir el avance únicamente por cantidad de código. Cada
 \textbf{Entregable} & \textbf{Estado} & \textbf{Evidencia} \\
 \hline
 \endhead
-Fundamentación y entrega del 25 \% & terminado & capítulos 1–9 y propuesta aprobada. \\
+\multicolumn{3}{|l|}{\textbf{Hito histórico: estado consolidado para la entrega del 50 \%}} \\
+\hline
+Fundamentación y entrega del 25 \% & terminado & capítulos 1--9 y propuesta aprobada. \\
 \hline
 User research inicial & realizado; corte consolidado para la entrega del 50 \% & cinco entrevistas y encuesta cuantitativa con 167 respuestas. \\
 \hline
@@ -33,29 +37,35 @@ Modelo axial & entrenado y evaluado; el artifact permanece por debajo del umbral
 \hline
 P9 integración multiplanar & terminado & ejecución, persistencia, workspace y reapertura. \\
 \hline
-P10 seguridad y observabilidad & consolidado para P10.9 & criterios de seguridad del checkpoint P10.9 consolidados; hardening productivo posterior \\
+P10 seguridad y observabilidad & consolidado para P10.9 & criterios de seguridad del checkpoint P10.9 consolidados; hardening productivo posterior. \\
 \hline
-P10.5-A contrato volumétrico & terminado & commits coordinados en AI Module, backend y frontend. \\
+P10.5-A contrato volumétrico & terminado & commits coordinados en AI Module, Backend y Frontend. \\
 \hline
-P10.5-B a P10.5-F evolución del visor volumétrico & implementado & catálogo de series, serving de cortes, shell de visor, vinculación por corte y reapertura E2E Implementados y congelados por checkpoint en sus ramas correspondientes; navegación volumétrica disponible además en la rama principal del frontend. \\
+P10.5-B a P10.5-F evolución del visor volumétrico & implementado dentro del alcance del hito & catálogo de series, serving de cortes, visor, vinculación por corte y reapertura verificados por checkpoint. \\
 \hline
-Documentación del 50 \% & en integración & documento maestro, capítulos revisados, matrices y diagramas. \\
+P10.6 clasificador subarticular (Axial T2) & modelo entrenado y evaluado; capacidad automática bloqueada & checkpoint congelado sobre RSNA / LumbarDISC; falta ROI axial automática validada. \\
 \hline
-Google Cloud & cerrado técnicamente / validado en DEV & servicios, costos, seguridad y prueba de despliegue; no equivale a operación clínica/productiva. \\
+P10.7 hallazgos degenerativos asistivos por nivel & implementado en Backend + AI & checkpoint congelado; ocho tipos de hallazgo por contrato, sin probabilidades expuestas y con revisión profesional requerida. \\
 \hline
-Validación profesional sobre producto & pendiente de ampliar & recorrido, observaciones y ajustes priorizados. \\
+P10.8 preflight y guardas & cerrado sin entrenamiento adicional & verificación de factibilidad y guardas de contrato, congeladas en su rama de checkpoint. \\
+\hline
+P10.9 consolidación de producto (Backend + AI) & congelado para traspaso al Frontend & Backend\ensuremath{\leftrightarrow}AI validado, contrato público sanitizado, fixtures y evidencia del runner técnico. \\
+\hline
+Documentación del 50 \% & entregada; hito histórico cerrado con correcciones & documento maestro, capítulos, matrices, diagramas y devolución docente del hito. \\
+\hline
+\multicolumn{3}{|l|}{\textbf{Evolución posterior al 50 \% y estado actual}} \\
+\hline
+Documentación del 100 \% & en integración & documento maestro, capítulos revisados, matrices y diagramas. \\
+\hline
+Google Cloud & cerrado técnicamente / validado en DEV & servicios, costos, seguridad y prueba de despliegue; no equivale a operación clínica o productiva. \\
+\hline
+Validación profesional sobre producto & revisión cualitativa realizada; validación cruzada final pendiente & dos sesiones sobre una versión funcional/intermedia, con observaciones y ajustes priorizados; no constituye validación clínica. \\
+\hline
+Integración P10.9 en Frontend & implementada & contratos P10.9 consumidos por el Frontend, catálogo full-series, visor navegable, reapertura integrada y flujo de producto según el alcance implementado. \\
+\hline
+Recorrido Full Product UI E2E sobre stack real & parcial; pendiente de cierre de evidencia desde navegador & existe evidencia técnica de integración y recorrido; el cierre Browser E2E global permanece parcial y no debe confundirse con validación clínica. \\
 \hline
 Entrega del 75 \% y defensa & futura & producto consolidado, resultados, discusión y presentación. \\
-\hline
-P10.6 clasificador subarticular (Axial T2) & modelo entrenado y evaluado; capacidad automática bloqueada & checkpoint congelado sobre RSNA / LumbarDISC; falta ROI axial automática validada \\
-\hline
-P10.7 hallazgos degenerativos asistivos por nivel & implementado e integrado & checkpoint congelado; ocho tipos de hallazgo por contrato; salida sin probabilidades; revisión profesional Implementado e integrado en Backend + AI dentro del checkpoint congelado (rama de checkpoint + commit + evidencia). \\
-\hline
-P10.8 preflight y guardas & cerrado sin entrenamiento adicional & verificación de factibilidad y guardas de contrato Cerrado sin entrenamiento adicional; estado congelado en su rama de checkpoint. \\
-\hline
-P10.9 consolidación de producto (Backend + AI) & congelado para traspaso de Frontend & commits coordinados; Backend\ensuremath{\leftrightarrow}AI validado; contrato público sanitizado; fixtures P10.9 Backend + AI congelados para handoff de Frontend en rama de checkpoint identificable, con commit y evidencia del runner técnico. \\
-\hline
-Integración P10.9 en Frontend y E2E con interfaz & pendiente & próximo tramo antes de la validación profesional \\
 \hline
 \end{longtable}
 \endgroup
@@ -68,10 +78,10 @@ Cada cambio debe actualizar requerimientos, roadmap, arquitectura, contratos, pr
 
 \section{Riesgos de planificación}
 
-Los principales riesgos son: sobrealcance clínico, apertura de funcionalidades antes de cerrar dependencias, falta de evidencia, divergencia entre repositorios, costos cloud no controlados, ausencia de validación profesional sobre la versión integrada e inconsistencias entre documentación y producto.
+Los principales riesgos son: sobrealcance clínico, apertura de funcionalidades antes de cerrar dependencias, falta de evidencia final, divergencia entre repositorios, costos cloud no controlados, cierre incompleto de la evidencia Browser E2E, validación cruzada profesional final todavía pendiente e inconsistencias entre documentación y producto.
 
 Las mitigaciones son: checkpoints compartidos, commits coordinados, criterios de aceptación, separación entre implementado y planificado, control presupuestario, pruebas por capas y uso del documento maestro como fuente editorial común.
 
 \section{Conclusión de la planificación}
 
-La planificación no reinicia el proyecto después del 25 \%: toma como base los modelos, la integración multiplanar y la arquitectura ya desarrollados. El camino crítico ya no pasa por generar y persistir las vistas previas de todos los cortes, capacidad hoy resuelta, sino por integrar en el frontend los contratos congelados en P10.9, cerrar el recorrido extremo a extremo con interfaz, realizar la validación profesional y avanzar hacia el despliegue. La región de interés axial automática constituye una línea paralela que no condiciona ninguno de esos pasos.
+La planificación no reinicia el proyecto después del 25 \%: toma como base los modelos, la integración multiplanar y la arquitectura ya desarrollados. El camino crítico ya no pasa por generar y persistir las vistas previas de todos los cortes ni por integrar los contratos P10.9 en el Frontend, capacidades actualmente implementadas. El tramo pendiente consiste en cerrar y documentar la evidencia Browser E2E, completar la validación cruzada profesional final, congelar la evidencia visual definitiva y consolidar la documentación, la discusión, las conclusiones y los trabajos futuros. La región de interés axial automática constituye una línea paralela que no condiciona ninguno de esos pasos.

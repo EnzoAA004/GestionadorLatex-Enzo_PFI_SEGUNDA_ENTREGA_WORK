@@ -159,7 +159,7 @@ Browser E2E & Playwright 11/11 PASS & Valida el recorrido funcional demo/final; 
 Patient API smoke & 8/8 PASS & Valida creación, asociación, listado, detalle, longitudinal, reporte, recarga y persistencia tras reinicio a nivel API/Backend. \\
 Persistencia & PASS & Resultados, asociaciones y series sobreviven al reinicio del Backend. \\
 Product-analysis & PASS en demo path; bloqueado en path real sin paridad 67B2 & El producto no fabrica nivel anatómico cuando la paridad del runtime no está demostrada. \\
-Longitudinal & PASS & Comparación determinística en Demo Mode y flujo subjectRef. \\
+Longitudinal & PASS & Comparación determinística verificada en Demo Mode mediante el path legacy/compatibilidad \texttt{subjectRef}; la identidad longitudinal canónica actual es \texttt{Patient}/\texttt{patientReference}. \\
 Reporte / PDF / JSON & PASS & Reporte estructurado pfi.study-report.v1 y exportaciones PDF/JSON verificadas. \\
 Chat contextual & PASS con LLM simulado & Valida la integración funcional con un proveedor determinístico; no implica despliegue productivo de Qwen. \\
 Evidencia visual & PASS & Overlays y assets servidos por Backend; limitados por el registro efímero del AI Module tras reinicio. \\
@@ -236,7 +236,7 @@ Las dos sesiones coinciden en que la utilidad potencial depende de overlays veri
 Activar/desactivar máscaras y evitar confusión & Torres & Mantener overlays revisables y controles de visibilidad por estructura. & PARTIAL: overlays implementados; controles finos quedan como mejora. \\
 Corrección manual de mediciones & Torres/Cejas & Permitir corrección de valores con trazabilidad. & IMPLEMENTED \\
 Evidencia visual verificable & Torres/Cejas & Asociar máscaras, assets y evidencia al resultado. & IMPLEMENTED, con limitación por registro AI efímero. \\
-Comparación con estudios previos & Torres/Cejas & Mantener historial y comparación longitudinal descriptiva. & PARTIAL: Demo Mode/subjectRef; no es evaluación clínica de progresión. \\
+Comparación con estudios previos & Torres/Cejas & Mantener historial y comparación longitudinal descriptiva. & PARTIAL: identidad \texttt{Patient} implementada; comparación demostrada en Demo Mode mediante el path legacy/compatibilidad \texttt{subjectRef}. No es evaluación clínica de progresión. \\
 Correlación sagital--axial y múltiples cortes & Torres/Cejas & Priorizar visor volumétrico y revisión por corte. & PARTIAL: visor full-series implementado; pairing sagital--axial experimental. \\
 Medición de neuroforamen & Torres/Cejas & Mantener como medición prioritaria futura si se valida. & PLANNED \\
 Receso lateral/subarticular & Cejas & Mantener línea subarticular bajo gates. & PARTIAL: clasificador disponible; path productivo bloqueado. \\

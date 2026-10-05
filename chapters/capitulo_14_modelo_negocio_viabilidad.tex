@@ -1,0 +1,207 @@
+\chapter{Modelo de negocio y viabilidad económica}
+\label{chap:modelo-negocio-viabilidad}
+
+\section{Alcance y política de evidencia}
+
+Este capítulo evalúa la viabilidad económica del producto como complemento a la evaluación técnica del Capítulo~\ref{chap:resultados-evaluacion}. No busca demostrar desempeño clínico, sino analizar si un modelo comercial construido sobre el prototipo podría sostenerse financieramente bajo supuestos explícitos.
+
+Las cifras se distinguen en cuatro categorías:
+\begin{itemize}
+  \item \textbf{Evidencia técnica medida:} obtenida de la infraestructura Google Cloud validada con fixtures DICOM sintéticas y no identificables.
+  \item \textbf{Supuesto de negocio:} precio, adquisición de clientes, churn y costos operativos necesarios para construir el flujo de fondos, sin respaldo en ventas reales.
+  \item \textbf{Escenario proyectado:} resultado posible derivado de esos supuestos sobre 36 meses.
+  \item \textbf{Propuesta comercial pendiente de validación:} ajuste de pricing derivado del modelo financiero, todavía no contrastado con willingness-to-pay ni compra institucional real.
+\end{itemize}
+
+La fuente primaria de las cifras es el modelo financiero editable del proyecto, utilizado únicamente como fuente de lectura. No se incorporan precios obtenidos de fuentes externas. Tampoco se afirma que exista demanda institucional demostrada ni que un VAN positivo garantice éxito comercial.
+
+\section{Modelo de negocio}
+
+El producto se dirige a instituciones, no a pacientes individuales. El profesional de diagnóstico por imágenes opera el sistema; la institución contrata y paga el servicio.
+
+{\small
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.19\textwidth} >{\raggedright\arraybackslash}p{0.31\textwidth} >{\raggedright\arraybackslash}p{0.42\textwidth}}
+\caption{Roles económicos distinguidos en el modelo de negocio.}\label{tab:negocio-roles}\\
+\hline
+\textbf{Rol} & \textbf{Descripción} & \textbf{Relación con el producto} \\
+\hline
+\endfirsthead
+Usuario & Radiólogo o profesional de diagnóstico por imágenes & Revisa, edita, valida y exporta resultados; conserva la responsabilidad de interpretación. \\
+Comprador económico & Centro de diagnóstico por imágenes, clínica u hospital & Contrata y paga suscripción, integración y soporte. \\
+Referente técnico & Equipo de TI o infraestructura institucional & Evalúa despliegue, seguridad, integración y gobierno de datos. \\
+Beneficiario indirecto & Paciente y equipo médico referente & Se beneficia mediante un flujo mediado por el profesional. \\
+\hline
+\end{longtable}
+}
+
+La propuesta de valor es asistiva y no diagnóstica: organiza segmentación, mediciones, evidencia visual, contexto longitudinal y reporte estructurado en un flujo trazable donde el profesional conserva la interpretación final.
+
+\subsection{Identidad del producto y branding}
+
+El producto se presenta comercialmente bajo el nombre MIRA·L, síntesis de \textit{Mapeo Integrado y Revisión Anatómica Lumbar}. El nombre no se presenta como marca registrada, sino como identidad comercial propuesta para este trabajo. El isotipo utiliza cinco módulos geométricos como referencia abstracta a los cinco niveles lumbares, sin representar anatomía real, una lesión ni un resultado diagnóstico.
+
+{\small
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.20\textwidth} >{\raggedright\arraybackslash}p{0.18\textwidth} >{\raggedright\arraybackslash}p{0.54\textwidth}}
+\caption{Paleta cromática de MIRA·L y función de cada color.}\label{tab:negocio-paleta}\\
+\hline
+\textbf{Color} & \textbf{Valor} & \textbf{Función} \\
+\hline
+Grafito & \#282E34 & Wordmark y jerarquía tipográfica institucional. \\
+Azul petróleo & \#176B78 & Acento e identificación del isotipo. \\
+Blanco & \#FFFFFF & Fondo principal y contraste. \\
+Gris auxiliar & \#EEF1F3 & Superficies secundarias y fondos documentales. \\
+\hline
+\end{longtable}
+}
+
+\section{Justificación del modelo SaaS B2B}
+
+Se adopta un esquema business-to-business tipo Software as a Service. La arquitectura ya validada utiliza Backend, AI Module privado, base de datos y almacenamiento durable desplegados como servicios gestionados. Además, el costo técnico combina un componente variable por estudio con un componente fijo de base de datos, lo que resulta compatible con suscripción con volumen incluido y cobro de excedentes. La revisión profesional es obligatoria en todos los planes.
+
+\section{Segmentación de clientes}
+
+Se distinguen tres segmentos institucionales:
+\begin{itemize}
+  \item \textbf{Starter:} centros pequeños o pilotos institucionales.
+  \item \textbf{Professional:} centros de diagnóstico de volumen medio u hospitales docentes.
+  \item \textbf{Enterprise:} instituciones grandes o redes de centros con mayores requisitos de soporte y seguridad.
+\end{itemize}
+
+\section{Pricing por volumen de estudios}
+
+{\scriptsize
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.13\textwidth} >{\raggedright\arraybackslash}p{0.15\textwidth} >{\raggedright\arraybackslash}p{0.13\textwidth} >{\raggedright\arraybackslash}p{0.13\textwidth} >{\raggedright\arraybackslash}p{0.22\textwidth} >{\raggedright\arraybackslash}p{0.18\textwidth}}
+\caption{Planes comerciales propuestos (Base Comercial Objetivo).}\label{tab:negocio-pricing}\\
+\hline
+\textbf{Plan} & \textbf{Cuota} & \textbf{Incluidos} & \textbf{Excedente} & \textbf{Destinatario} & \textbf{Validación} \\
+\hline
+Starter & USD 700 & 120 & USD 9 & Centro pequeño o piloto & Pendiente de willingness-to-pay \\
+Professional & USD 1.850 & 500 & USD 7 & Centro medio u hospital docente & Pendiente de willingness-to-pay \\
+Enterprise & USD 5.200 & 1.500 & USD 4,50 & Institución grande o red & Pendiente de willingness-to-pay \\
+\hline
+\end{longtable}
+}
+
+El escenario Base conservador utilizó precios de USD 600, USD 1.600 y USD 4.500, con excedentes de USD 8, USD 6 y USD 4. Ninguno de los dos conjuntos de precios está validado por mercado.
+
+\section{Estructura de ingresos}
+
+El ingreso mensual combina cuota de suscripción e ingreso por excedente. El MRR suma ambos componentes para los clientes activos y el ARR run-rate se estima como doce veces el MRR mensual, por lo que constituye una proyección y no un contrato anual real.
+
+\section{Estructura de costos}
+
+\subsection{Costos variables: infraestructura Cloud medida}
+
+La evidencia proviene del entorno Google Cloud validado con una fixture DICOM sintética y no identificable, en 35 ejecuciones exitosas distribuidas en dos lotes de 10 y 25 estudios.
+
+{\small
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.27\textwidth} >{\raggedright\arraybackslash}p{0.22\textwidth} >{\raggedright\arraybackslash}p{0.43\textwidth}}
+\caption{Costos Cloud observados.}\label{tab:negocio-costos-cloud}\\
+\hline
+\textbf{Componente} & \textbf{Costo} & \textbf{Observación} \\
+\hline
+Backend (Cloud Run) & USD 0,000485/estudio & Cómputo durante ingesta y espera de IA. \\
+IA (Cloud Run privado) & USD 0,001869/estudio & Componente dominante; inferencia real sobre checkpoint PyTorch. \\
+Almacenamiento (GCS) & USD 0,0000078/estudio & 391.490 bytes por estudio. \\
+Total variable observado & USD 0,00236/estudio & Piso empírico; no representa resolución clínica productiva. \\
+Costo fijo Cloud & USD 11,08--13,08/mes & Dominado por Cloud SQL. \\
+\hline
+\end{longtable}
+}
+
+El valor observado corresponde a una fixture de menor resolución y complejidad que un estudio clínico real y no se utiliza como costo productivo definitivo.
+
+\subsection{Costo variable por escenario}
+
+{\small
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.20\textwidth} >{\raggedright\arraybackslash}p{0.22\textwidth} >{\raggedright\arraybackslash}p{0.50\textwidth}}
+\caption{Costo variable Cloud por escenario.}\label{tab:negocio-costo-variable}\\
+\hline
+Optimista & USD 0,0024 & Igual al valor medido. \\
+Base & USD 0,0067 & Aproximadamente 2,8 veces el valor medido. \\
+Pesimista & USD 0,020 & Aproximadamente 8,5 veces el valor medido. \\
+\hline
+\end{longtable}
+}
+
+\subsection{Costos fijos del negocio}
+
+El modelo incorpora mantenimiento y desarrollo, soporte, administración/contabilidad/legal, comercialización y gastos misceláneos. En el escenario Base, esos rubros junto con el costo fijo Cloud totalizan aproximadamente USD 8.112 mensuales; el costo técnico Cloud representa cerca del 0,15\% del total. También se contempla soporte variable por cliente y una inversión inicial para desarrollo remanente, configuración Cloud y preparación de lanzamiento.
+
+\section{Metodología financiera a 36 meses}
+
+El flujo mensual modela clientes activos, ingresos de suscripción y excedentes, costos variables y fijos, flujo operativo, flujo neto y flujo acumulado. Sobre esa serie se calculan punto de equilibrio operativo, payback, Valor Actual Neto (VAN) y Tasa Interna de Retorno (TIR). El escenario Base utiliza una tasa de descuento anual del 25\%, que es un supuesto de modelado y no una tasa sectorial validada.
+
+\section{Escenarios financieros}
+
+El horizonte de 36 meses compara escenarios pesimista, Base, optimista y Base Comercial Objetivo. Se varían adquisición de clientes, volumen por cliente, churn, pricing y costo Cloud.
+
+{\scriptsize
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.23\textwidth} >{\raggedright\arraybackslash}p{0.15\textwidth} >{\raggedright\arraybackslash}p{0.16\textwidth} >{\raggedright\arraybackslash}p{0.15\textwidth} >{\raggedright\arraybackslash}p{0.13\textwidth} >{\raggedright\arraybackslash}p{0.12\textwidth}}
+\caption{Comparación de escenarios financieros a 36 meses.}\label{tab:negocio-escenarios}\\
+\hline
+\textbf{Escenario} & \textbf{MRR mes 36} & \textbf{ARR} & \textbf{VAN} & \textbf{TIR} & \textbf{Payback} \\
+\hline
+Pesimista & USD 2.147 & USD 25.769 & -USD 105.094 & n/a & No alcanzado \\
+Base conservador & USD 16.175 & USD 194.098 & -USD 18.492 & 7,3\% & Mes 35 \\
+Optimista & USD 74.020 & USD 888.237 & +USD 678.867 & 541,3\% & Mes 11 \\
+Base Comercial Objetivo & USD 18.735 & USD 224.826 & +USD 17.477 & 41,9\% & Mes 29 \\
+\hline
+\end{longtable}
+}
+
+\section{Resultado del escenario Base conservador}
+
+Al mes 36, el escenario Base conservador alcanza MRR de USD 16.175, ARR run-rate de USD 194.098, 13,41 clientes activos y 4.185 estudios procesados. El equilibrio operativo se alcanza en el mes 16 y el payback en el mes 35. El VAN es -USD 18.492 y la TIR anualizada 7,3\%, por debajo de la tasa de descuento del 25\%.
+
+\section{Análisis de sensibilidad}
+
+Una variación de $\pm20\%$ en pricing desplaza el VAN desde -USD 63.896 hasta +USD 26.911. Una variación de $\pm30\%$ del costo variable Cloud lo mueve solamente entre -USD 18.376 y -USD 18.609, sin cambiar equilibrio operativo ni payback. El modelo es, por lo tanto, mucho más sensible al pricing institucional que al costo de infraestructura. Adquisición, churn, mantenimiento, soporte y comercialización también permanecen como supuestos no medidos empíricamente.
+
+\section{Propuesta de Base Comercial Objetivo}
+
+La Base Comercial Objetivo modifica únicamente pricing y excedentes respecto del Base conservador, manteniendo adquisición, churn, volumen, costo Cloud, soporte y costos fijos. La propuesta de la Tabla~\ref{tab:negocio-pricing} deriva de un barrido de incrementos de +10\%, +12,5\% y +15\%. Es una hipótesis comercial pendiente de validación.
+
+\section{Comparación entre el Base conservador y el Base Comercial Objetivo}
+
+{\small
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.33\textwidth} >{\raggedright\arraybackslash}p{0.27\textwidth} >{\raggedright\arraybackslash}p{0.28\textwidth}}
+\caption{Base conservador frente a Base Comercial Objetivo.}\label{tab:negocio-comparacion-base}\\
+\hline
+\textbf{Indicador} & \textbf{Base conservador} & \textbf{Base Comercial Objetivo} \\
+\hline
+MRR mes 36 & USD 16.175 & USD 18.735 \\
+ARR run-rate & USD 194.098 & USD 224.826 \\
+Clientes activos mes 36 & 13,41 & 13,41 \\
+Estudios procesados mes 36 & 4.185 & 4.185 \\
+VAN & -USD 18.492 & +USD 17.477 \\
+TIR anualizada & 7,3\% & 41,9\% \\
+Punto de equilibrio & Mes 16 & Mes 13 \\
+Payback & Mes 35 & Mes 29 \\
+Margen bruto técnico mes 36 & $\approx99,83\%$ & $\approx99,85\%$ \\
+\hline
+\end{longtable}
+}
+
+Los clientes y el volumen son idénticos por construcción. El único ajuste es pricing/excedente; bajo ese cambio el VAN pasa a positivo, la TIR supera la tasa de descuento seleccionada, el equilibrio se adelanta tres meses y el payback seis meses.
+
+\section{Limitaciones del modelo económico}
+
+\begin{enumerate}
+  \item Ningún precio fue validado mediante investigación de mercado, willingness-to-pay ni compras reales.
+  \item No existen clientes, contratos, cartas de intención ni ventas; adopción, churn y volumen son supuestos.
+  \item El costo Cloud medido proviene de una fixture sintética de menor resolución que un estudio clínico real.
+  \item Los costos fijos son supuestos sin cotizaciones reales.
+  \item La tasa de descuento del 25\% es una elección de modelado.
+  \item El horizonte de 36 meses y la ausencia de eventos posteriores son simplificaciones.
+  \item Un VAN positivo bajo los supuestos no garantiza éxito comercial.
+  \item No se incorporan costos regulatorios ni de certificación sanitaria.
+  \item El pricing por volumen no fue comparado sistemáticamente contra competidores, más allá del relevamiento general.
+  \item El costo Cloud fue medido en un único entorno DEV y no en una infraestructura productiva con alta disponibilidad.
+\end{enumerate}
+
+\section{Interpretación final}
+
+La infraestructura técnica no aparece como principal condicionante económico dentro del modelo. El Base conservador alcanza equilibrio operativo y recupera la inversión dentro del horizonte, pero mantiene VAN negativo. El análisis de sensibilidad identifica al pricing como variable de mayor impacto.
+
+La Base Comercial Objetivo produce indicadores positivos bajo los mismos supuestos de adopción y operación, pero sigue siendo una propuesta pendiente de validación comercial. En consecuencia, este capítulo no concluye que el producto sea comercialmente viable en condiciones reales; documenta cómo se comporta el modelo financiero bajo supuestos explícitos y separa la evidencia técnica medida de las proyecciones de negocio.

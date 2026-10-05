@@ -248,7 +248,7 @@ Qué límites tiene. El preinforme es un punto de partida editable y no un infor
 
 Qué hace. Conserva cada corrida con su modelo, su artifact, sus resultados, sus mediciones y su estado de revisión, de modo que un estudio pueda recuperarse más tarde sin volver a ejecutar la inferencia.
 
-Cómo funciona. Un estudio actúa como contenedor lógico y una corrida representa una ejecución concreta, de manera que ejecutar de nuevo no sobrescribe la evidencia anterior. Los estudios de un mismo paciente se vinculan mediante una referencia de sujeto seudonimizada, sin exponer datos identificatorios en el flujo de trabajo. Cada corrida genera identificadores que permiten seguirla: el del caso, el de la ejecución, el que agrupa ambos planos y el que correlaciona solicitudes y registros técnicos.
+Cómo funciona. Un estudio actúa como contenedor lógico y una corrida representa una ejecución concreta, de manera que ejecutar de nuevo no sobrescribe la evidencia anterior. La identidad longitudinal canónica se representa mediante \texttt{Patient}, con un \texttt{patientReference} de-identificado, y los estudios se asocian a esa identidad mediante \texttt{patientId}. El campo \texttt{subjectRef} se conserva únicamente como compatibilidad para estudios o recorridos legacy y no define la identidad longitudinal actual. Cada corrida genera identificadores que permiten seguirla: el del caso, el de la ejecución, el que agrupa ambos planos y el que correlaciona solicitudes y registros técnicos.
 
 \begin{figure}[htbp]
 \centering

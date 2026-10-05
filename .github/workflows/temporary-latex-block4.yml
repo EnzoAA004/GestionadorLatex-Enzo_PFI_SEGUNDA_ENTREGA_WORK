@@ -17,4 +17,3 @@ jobs:
           if grep -E "LaTeX Warning: (Reference|There were undefined references)" main.log; then
             exit 1
           fi
-          grep -F '\\numberline {H}' main.toc

@@ -61,7 +61,7 @@ Las capacidades desarrolladas durante el proyecto que quedan fuera de este alcan
 
 \section{Privacidad y gestión de datos}
 
-En el alcance actual, el desarrollo y la validación se realizan sobre datasets públicos o de-identificados. Durante la ingesta de estudios DICOM se minimizan y sanitizan los identificadores, y los contratos públicos utilizan identificadores seudónimos (subjectRef). No se afirma uso clínico real de datos de pacientes. Para habilitar, a futuro, una historia clínica por paciente, se preservaría esta separación y seudonimización conforme a la Ley 25.326.
+En el alcance actual, el desarrollo y la validación se realizan sobre datasets públicos o de-identificados. Durante la ingesta de estudios DICOM se minimizan y sanitizan los identificadores. La identidad longitudinal canónica del prototipo se representa mediante la entidad \texttt{Patient}, identificada externamente por un \texttt{patientReference} de-identificado; los estudios se asocian a esa entidad mediante \texttt{patientId}. El atributo \texttt{subjectRef} permanece únicamente como campo legacy/de compatibilidad en \texttt{Study} y no constituye la identidad longitudinal principal. No se afirma uso clínico real de datos de pacientes ni integración con una historia clínica hospitalaria.
 
 \section{Alcance del documento final}
 

@@ -5,7 +5,7 @@
 
 Este capítulo reúne los resultados obtenidos al evaluar los modelos de segmentación contra las anotaciones de referencia de sus conjuntos de origen. Su función es responder, con valores concretos, al objetivo específico que compromete la evaluación técnica del prototipo mediante métricas de segmentación.
 
-El alcance de lo que aquí se informa está acotado y conviene delimitarlo antes de presentar cifra alguna. Se evalúa la coincidencia entre las máscaras que produce cada modelo y las anotaciones de referencia del conjunto correspondiente. No se evalúa la exactitud clínica de las mediciones derivadas, para lo cual sería necesario un conjunto de mediciones realizadas por profesionales sobre los mismos estudios, ni la utilidad del prototipo en un flujo de trabajo real, que corresponde a la validación cualitativa prevista para la instancia siguiente.
+El alcance de lo que aquí se informa está acotado y conviene delimitarlo antes de presentar cifra alguna. Se evalúa la coincidencia entre las máscaras que produce cada modelo y las anotaciones de referencia del conjunto correspondiente. No se evalúa la exactitud clínica de las mediciones derivadas, para lo cual sería necesario un conjunto de mediciones realizadas por profesionales sobre los mismos estudios, ni, por sí sola, la utilidad del prototipo en un flujo de trabajo real. Esa dimensión se complementó posteriormente con validación técnica del producto integrado y con dos sesiones de revisión cualitativa profesional, cuyos alcances y limitaciones se desarrollan en las secciones finales de este capítulo.
 
 La distinción importa porque una segmentación con buen desempeño métrico no garantiza que las mediciones derivadas de ella sean correctas, del mismo modo que una medición correcta no implica que la interpretación clínica que se haga de ella lo sea. El Capítulo 7 desarrolla esta separación en términos conceptuales; aquí se sostiene en la presentación de los resultados.
 
@@ -130,23 +130,148 @@ El contraste con el ángulo segmentario, que sí se publica con carácter experi
 
 La decisión se documenta porque describe un criterio que el proyecto aplica de forma general: una medición se publica cuando puede verificarse, y no cuando puede calcularse.
 
+\section{Resultados finales de validación técnica por capa}
+
+Además de la evaluación offline de modelos, el cierre técnico del producto incluyó verificaciones de software, integración y recorrido browser. Estas pruebas validan el comportamiento funcional del prototipo bajo condiciones controladas; no constituyen validación clínica.
+
+{\scriptsize
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.14}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.22\textwidth} >{\raggedright\arraybackslash}p{0.24\textwidth} >{\raggedright\arraybackslash}p{0.46\textwidth}}
+\caption{Validación técnica final del prototipo.}\label{tab:res-validacion-tecnica-final}\\
+\hline
+\textbf{Validación} & \textbf{Resultado} & \textbf{Interpretación} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Validación} & \textbf{Resultado} & \textbf{Interpretación} \\
+\hline
+\endhead
+Backend Java 21, suite reconciliada & 1053 tests, 0 failures, 0 errors, 78 skipped & Suite final verde para el alcance ejecutado; los skipped corresponden a pruebas condicionadas por PostgreSQL/Testcontainers. \\
+Backend focal & 67/67 PASS & Cubre Patient API, controlador de IA, seguridad, validadores y asociación Study--Patient a nivel Backend. \\
+Frontend & lint PASS, typecheck PASS, build PASS, unit tests PASS & Valida calidad estática y construcción de la interfaz final. \\
+AI focal/product regressions & 67 passed, 1 skipped & Valida orquestación de producto, multiplanar, real baseline, Grad-CAM y subarticular en el alcance focal. \\
+AI full suite & 479 passed / 40 failed & No se presenta como suite totalmente verde; los fallos corresponden a brechas ambientales preexistentes asociadas a highdicom y resolución de subprocess. \\
+Docker full stack & PASS & Construcción del stack completo con las imágenes requeridas. \\
+Browser E2E & Playwright 11/11 PASS & Valida el recorrido funcional demo/final; no equivale a validación clínica ni a cobertura browser completa de la entidad Patient. \\
+Patient API smoke & 8/8 PASS & Valida creación, asociación, listado, detalle, longitudinal, reporte, recarga y persistencia tras reinicio a nivel API/Backend. \\
+Persistencia & PASS & Resultados, asociaciones y series sobreviven al reinicio del Backend. \\
+Product-analysis & PASS en demo path; bloqueado en path real sin paridad 67B2 & El producto no fabrica nivel anatómico cuando la paridad del runtime no está demostrada. \\
+Longitudinal & PASS & Comparación determinística en Demo Mode y flujo subjectRef. \\
+Reporte / PDF / JSON & PASS & Reporte estructurado pfi.study-report.v1 y exportaciones PDF/JSON verificadas. \\
+Chat contextual & PASS con LLM simulado & Valida la integración funcional con un proveedor determinístico; no implica despliegue productivo de Qwen. \\
+Evidencia visual & PASS & Overlays y assets servidos por Backend; limitados por el registro efímero del AI Module tras reinicio. \\
+DICOM inválido & 422 UNSUPPORTED\_INPUT PASS & El sistema falla de forma controlada ante una entrada no procesable. \\
+Secret scan & Sin credenciales reales & Los hallazgos fueron revisados como falsos positivos; no se detectaron secretos productivos. \\
+\hline
+\end{longtable}
+}
+
+La lectura de esta tabla debe mantenerse separada de la evaluación de los modelos de las secciones anteriores. Un test funcional demuestra que una capacidad se ejecuta conforme a su contrato; no demuestra exactitud diagnóstica ni utilidad clínica.
+
+\section{Validación técnica en Google Cloud}
+
+La validación en Google Cloud se ejecutó sobre una fixture DICOM sintética, válida y no identificable, compuesta por cinco series y treinta cortes. Su objetivo fue ejercitar el camino técnico distribuido del prototipo, no representar un estudio clínico real ni medir desempeño diagnóstico.
+
+La ejecución permitió verificar comunicación autenticada entre Backend y AI Module privado, persistencia transaccional y durable, recuperación posterior a reinicios y reprocesamiento sin necesidad de volver a cargar el estudio. En dos lotes controlados se obtuvieron 10/10 y 25/25 ejecuciones exitosas. El primer lote registró una mediana de 19,465 s y p95 de 20,814 s; el segundo, una mediana de 18,794 s y p95 de 21,812 s. Una prueba adicional de estabilidad sobre cuarenta solicitudes concurrentes de endpoint/reproceso completó 40/40, con p95 aproximado de 0,703 s para ese recorrido específico, valor que no representa una inferencia completa.
+
+La evidencia económica reutilizada posteriormente registró un costo variable observado aproximado de USD 0,00236 por estudio y una persistencia en Google Cloud Storage cercana a 391.490 bytes por estudio. Estos valores corresponden a la fixture sintética y a la configuración DEV medida; no deben extrapolarse de forma directa a estudios clínicos reales ni a una operación productiva.
+
+En consecuencia, la validación Cloud demuestra factibilidad técnica de la arquitectura desplegada en el entorno académico del PFI. No demuestra escalabilidad clínica, alta disponibilidad, costos productivos definitivos ni cumplimiento regulatorio.
+
+\section{Niveles de validación y alcance}
+
+Para evitar que evidencias de naturaleza distinta se interpreten como equivalentes, el proyecto distingue seis niveles:
+
+\begin{enumerate}
+  \item \textbf{Validación offline de modelos:} comparación de máscaras contra anotaciones de referencia sobre particiones documentadas.
+  \item \textbf{Validación técnica de software:} suites, contratos, persistencia, seguridad, procesamiento y comportamiento ante errores.
+  \item \textbf{Validación end-to-end:} recorridos que atraviesan Frontend, Backend, AI Module y persistencia. El Browser E2E dispone de 11/11 pruebas Playwright exitosas dentro del alcance ejecutado.
+  \item \textbf{Revisión cualitativa profesional:} sesiones con profesionales sobre una versión funcional/intermedia del producto, orientadas a utilidad, claridad, priorización y confianza.
+  \item \textbf{Validación cruzada profesional final:} comparación independiente entre lectura profesional y resultados del sistema sobre los mismos estudios, seguida por revisión de discrepancias. Esta instancia permanece pendiente.
+  \item \textbf{Validación clínica:} evaluación de eficacia diagnóstica, sensibilidad, especificidad o impacto asistencial. No fue realizada y se encuentra fuera del alcance del PFI.
+\end{enumerate}
+
+Las guardas técnicas también preservan esta distinción: cuando la paridad requerida por el runtime no está probada, el producto no debe promover el resultado ni fabricar una asignación anatómica. Del mismo modo, una prueba Browser E2E exitosa acredita funcionamiento del recorrido, no exactitud clínica.
+
+\section{Resultados de la revisión profesional cualitativa}
+
+Con posterioridad al user research exploratorio se realizaron dos sesiones de revisión cualitativa del producto, una con la Dra. Susana Torres y otra con la Dra. Claudia Cejas. Ambas observaron una versión funcional/intermedia del prototipo y evaluaron elementos de utilidad, flujo, comprensión, priorización de mediciones, evidencia visual y confianza. Estas sesiones son metodológicamente distintas de las entrevistas iniciales: no constituyen validación clínica, no comparan resultados contra ground truth y no sustituyen la validación cruzada profesional final.
+
+\subsection{Sesión con la Dra. Susana Torres}
+
+La revisión reforzó el valor del control visual de las segmentaciones, la posibilidad de activar o desactivar máscaras, la corrección manual y la necesidad de evitar superposiciones que dificulten la lectura. También destacó la utilidad potencial de disponer de estudios previos y de una comparación longitudinal descriptiva, así como la revisión de múltiples cortes y la correlación sagital--axial.
+
+Entre las mediciones y estructuras discutidas se señalaron el diámetro anteroposterior y transversal del canal o saco tecal, los neuroforámenes, la relación con las raíces, la estenosis, la altura discal, los cambios Modic y la inclinación discal. La hipertrofia del ligamento amarillo quedó registrada como posible extensión futura. La valoración fue favorable hacia una herramienta de asistencia revisable, manteniendo en todo momento la decisión final en el profesional.
+
+\subsection{Sesión con la Dra. Claudia Cejas}
+
+La sesión enfatizó la protocolización de mediciones y la necesidad de diferenciar canal central, canal lateral o receso subarticular y neuroforamen. Se priorizó el diámetro del canal y se remarcó que la medición debe respetar el eje anatómico correspondiente. También se señaló que cualquier número o rango mencionado durante una sesión profesional debe verificarse bibliográficamente antes de convertirse en un umbral del sistema.
+
+La revisión valoró la inspección de múltiples cortes, la detección asistida de protrusiones focales o laterales, cambios degenerativos y pérdida de altura, y el uso de asistencia visual como mecanismo para reducir omisiones en contextos de carga laboral. Cierta sobredetección fue considerada tolerable únicamente si el profesional conserva la posibilidad de revisar, corregir o descartar. El énfasis se mantuvo en detección y asistencia, no en diagnóstico autónomo.
+
+\subsection{Síntesis transversal y decisiones derivadas}
+
+Las dos sesiones coinciden en que la utilidad potencial depende de overlays verificables, control de máscaras, edición manual, colores consistentes, revisión humana obligatoria y transparencia sobre el estado de la IA. También convergen en el valor de revisar múltiples cortes, mantener contexto longitudinal y estructurar la salida sin reemplazar la interpretación profesional.
+
+{\scriptsize
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.14}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.25\textwidth} >{\raggedright\arraybackslash}p{0.16\textwidth} >{\raggedright\arraybackslash}p{0.29\textwidth} >{\raggedright\arraybackslash}p{0.22\textwidth}}
+\caption{Trazabilidad entre observaciones profesionales y decisiones de producto.}\label{tab:res-trazabilidad-profesional}\\
+\hline
+\textbf{Observación} & \textbf{Profesional} & \textbf{Decisión de producto} & \textbf{Estado} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Observación} & \textbf{Profesional} & \textbf{Decisión de producto} & \textbf{Estado} \\
+\hline
+\endhead
+Activar/desactivar máscaras y evitar confusión & Torres & Mantener overlays revisables y controles de visibilidad por estructura. & PARTIAL: overlays implementados; controles finos quedan como mejora. \\
+Corrección manual de mediciones & Torres/Cejas & Permitir corrección de valores con trazabilidad. & IMPLEMENTED \\
+Evidencia visual verificable & Torres/Cejas & Asociar máscaras, assets y evidencia al resultado. & IMPLEMENTED, con limitación por registro AI efímero. \\
+Comparación con estudios previos & Torres/Cejas & Mantener historial y comparación longitudinal descriptiva. & PARTIAL: Demo Mode/subjectRef; no es evaluación clínica de progresión. \\
+Correlación sagital--axial y múltiples cortes & Torres/Cejas & Priorizar visor volumétrico y revisión por corte. & PARTIAL: visor full-series implementado; pairing sagital--axial experimental. \\
+Medición de neuroforamen & Torres/Cejas & Mantener como medición prioritaria futura si se valida. & PLANNED \\
+Receso lateral/subarticular & Cejas & Mantener línea subarticular bajo gates. & PARTIAL: clasificador disponible; path productivo bloqueado. \\
+Transparencia Demo/IA & Torres/Cejas & Declarar modo no clínico y mantener revisión obligatoria. & PARTIAL: flags técnicos disponibles; indicador persistente de Demo Mode pendiente. \\
+Informe estructurado editable & Cejas & Generar salida revisable y exportable. & IMPLEMENTED: pfi.study-report.v1, PDF/JSON. \\
+Mostrar confianza cuando corresponda & Cejas & Comunicar confianza solo si el modelo la respalda. & PARTIAL \\
+Cambios Modic & Torres/Cejas & Documentar sin exponer productivamente sin validación. & PLANNED \\
+Hipertrofia del ligamento amarillo & Torres & Registrar como posible extensión. & PLANNED \\
+Diagnóstico automático & Torres/Cejas & Mantener enfoque asistivo. & OUT\_OF\_SCOPE \\
+\hline
+\end{longtable}
+}
+
+La muestra de esta instancia es de dos profesionales seleccionadas de forma intencional. La evidencia se informa cualitativamente y no permite generalizar resultados a toda la población de usuarios potenciales.
+
 \section{Limitaciones de la evaluación}
 
-Corresponde declarar seis limitaciones que acotan el alcance de los resultados presentados.
+Corresponde declarar las siguientes limitaciones que acotan el alcance de los resultados presentados:
 
 \begin{itemize}
-\item La evaluación mide coincidencia con anotaciones de referencia, no exactitud clínica. Una máscara que coincide con la anotación reproduce también los criterios y los errores del anotador.
+\item La evaluación de segmentación mide coincidencia con anotaciones de referencia, no exactitud clínica. Una máscara que coincide con la anotación reproduce también los criterios y los errores del anotador.
 \item Los conteos de la partición de entrenamiento del módulo axial no están publicados y su recuperación permanece pendiente.
 \item La partición de prueba axial fue evaluada previamente, de modo que el resultado es comparativo y no independiente.
 \item Las mediciones no cuentan con validación contra mediciones profesionales, solo con verificación por contraste sobre un estudio de referencia.
-\item No se informan métricas de distancia como la distancia de Hausdorff en su percentil 95, definidas en el Capítulo 7. Su cálculo está previsto para la instancia siguiente y aportaría información sobre la precisión del contorno que el coeficiente Dice no captura en estructuras de tamaño considerable.
-\item La revisión cualitativa profesional sobre el producto integrado no se ha realizado.
+\item No se informan métricas de distancia como HD95, definidas en el Capítulo 7. Su cálculo permanece pendiente y aportaría información sobre la precisión del contorno que el coeficiente Dice no captura.
+\item La revisión cualitativa profesional sobre una versión funcional/intermedia del producto ya fue realizada; sin embargo, permanece pendiente la validación cruzada final en la que profesionales analicen independientemente los mismos estudios procesados por el sistema y posteriormente revisen las discrepancias.
+\item La validación de infraestructura en Google Cloud se ejecutó con una fixture DICOM sintética de tamaño controlado; por lo tanto, los valores observados de latencia, almacenamiento y costo no deben extrapolarse directamente a estudios clínicos reales de tamaño o complejidad arbitrarios.
 \end{itemize}
 
 \section{Conclusión del capítulo}
 
 El módulo sagital alcanza un coeficiente Dice macro de 0,893 sobre una partición retenida separada a nivel de paciente, supera el umbral establecido y se documenta como baseline técnico del prototipo. El módulo axial alcanza 0,811 sobre las estructuras anatómicas y 0,679 cuando se incluye la clase de fondo del conjunto de origen; bajo el criterio vigente no supera el umbral, y su artifact permanece registrado como candidato.
 
-Los resultados sostienen que la segmentación de estructuras lumbares en el plano sagital es viable con los datos y la arquitectura empleados, y que el módulo axial requiere trabajo adicional antes de considerarse consolidado. Ninguno de los dos resultados autoriza afirmaciones sobre desempeño clínico, que dependen de una validación que este trabajo no realiza y declara como fuera de su alcance.
+Los resultados sostienen que la segmentación de estructuras lumbares en el plano sagital es viable con los datos y la arquitectura empleados, y que el módulo axial requiere trabajo adicional antes de considerarse consolidado. Ninguno de los dos resultados autoriza afirmaciones sobre desempeño clínico.
 
-El aporte de este capítulo no reside únicamente en las cifras. Reside también en documentar un control de calidad que se aplicó y no se superó, una partición de prueba cuya independencia es parcial, una verificación de mediciones que no equivale a validación y una medición que se decidió no publicar. Un prototipo académico se evalúa por la correspondencia entre lo que afirma y lo que puede demostrar, y esa correspondencia exige informar también lo que no funcionó como se esperaba.
+En paralelo, la validación realizada sobre Google Cloud permitió verificar la factibilidad técnica de la arquitectura distribuida propuesta, incluyendo la comunicación autenticada con el módulo de inteligencia artificial privado, la persistencia transaccional y durable, la recuperación posterior a reinicios y el reprocesamiento. Las suites de software y el Browser E2E aportan evidencia adicional de integración funcional, sin convertir esas pruebas en validación clínica.
+
+Las dos sesiones de revisión profesional aportaron evidencia cualitativa sobre utilidad potencial, claridad visual, prioridades de medición y necesidad de mantener al profesional dentro del circuito. Esa evidencia no reemplaza la validación cruzada final, que permanece pendiente, ni permite afirmar sensibilidad, especificidad o eficacia clínica.
+
+El aporte de este capítulo no reside únicamente en las cifras. Reside también en documentar un control de calidad que se aplicó y no se superó, una partición de prueba cuya independencia es parcial, una verificación de mediciones que no equivale a validación y límites explícitos de la evidencia de integración e infraestructura.

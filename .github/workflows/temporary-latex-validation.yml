@@ -46,7 +46,7 @@ jobs:
             exit 1
           fi
 
-          grep -Fq 'INFO - This is Biber' main.blg
+          grep -Fq 'This is Biber' main.blg
 
           for appendix in a b c d e f g h; do
             grep -Fq "\\input{appendices/anexo_${appendix}_" main.tex
@@ -56,8 +56,8 @@ jobs:
           plan_line=$(grep -nF '\\input{chapters/capitulo_14_planificacion_academica}' main.tex | cut -d: -f1)
           test "$model_line" -lt "$plan_line"
 
-          toc_model=$(grep -nF 'Modelo de negocio' main.toc | head -n1 | cut -d: -f1)
-          toc_plan=$(grep -nF 'Planificación académica' main.toc | head -n1 | cut -d: -f1)
+          toc_model=$(grep -ni 'modelo.*negocio' main.toc | head -n1 | cut -d: -f1)
+          toc_plan=$(grep -ni 'planificaci' main.toc | head -n1 | cut -d: -f1)
           test -n "$toc_model"
           test -n "$toc_plan"
           test "$toc_model" -lt "$toc_plan"

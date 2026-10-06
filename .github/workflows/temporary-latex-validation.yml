@@ -69,11 +69,13 @@ jobs:
           test "$toc_model" -lt "$toc_plan"
           echo "Chapter TOC order: PASS"
 
-          pdfinfo main.pdf | tee pdfinfo.txt
-          pages=$(awk -F: '/^Pages:/ {gsub(/ /, "", $2); print $2}' pdfinfo.txt)
-          bytes=$(stat -c '%s' main.pdf)
+          pdf_line=$(grep -E 'Output written on main\.pdf \([0-9]+ pages, [0-9]+ bytes\)' main.log | tail -n1 || true)
+          test -n "$pdf_line"
+          pages=$(printf '%s\n' "$pdf_line" | sed -E 's/.*\(([0-9]+) pages.*/\1/')
+          bytes=$(printf '%s\n' "$pdf_line" | sed -E 's/.*pages, ([0-9]+) bytes.*/\1/')
           test "${pages:-0}" -gt 0
           test "$bytes" -gt 0
+          printf 'PDF pages: %s\nPDF bytes: %s\n' "$pages" "$bytes" | tee pdfinfo.txt
           echo "PDF pages: $pages"
           echo "PDF bytes: $bytes"
 

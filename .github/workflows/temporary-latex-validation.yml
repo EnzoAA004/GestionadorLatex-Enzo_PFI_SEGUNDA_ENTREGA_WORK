@@ -17,7 +17,7 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: main.tex
-          args: -pdf -use-biber -interaction=nonstopmode -file-line-error
+          args: -pdf -interaction=nonstopmode -file-line-error
 
       - name: Validate build outputs and document structure
         shell: bash

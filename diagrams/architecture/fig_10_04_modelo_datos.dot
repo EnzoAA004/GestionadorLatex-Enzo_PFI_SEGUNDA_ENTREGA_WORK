@@ -1,0 +1,281 @@
+// Figura 10.4 - Modelo de datos relacional (PostgreSQL).
+//
+// Fuente editable del bitmap images/architecture/fig_10_04_modelo_datos.png.
+// Regenerar con: diagrams/architecture/render.sh
+//
+// Contrastado contra el esquema real del Backend (PFI_MVPTest_Enzo_Backend @ 646f4a1):
+//   docs/postgres_schema.sql
+//   docs/migrations/V20260716_005_study_input_run_model.sql
+//   docs/migrations/V20260725_008_study_worklist_metadata.sql
+//   docs/migrations/V20260805_015_study_series_catalog.sql
+//   docs/migrations/V20260812_016_patient_domain_foundation.sql
+//
+// La identidad longitudinal es domain_patients; domain_studies.patient_id es la
+// asociacion explicita (nullable, ON DELETE RESTRICT). subject_ref permanece como
+// atributo opcional de compatibilidad: no es PK de ningun Subject ni FK hacia el.
+//
+// El bitmap NO incluye titulo ni caption: los aporta LaTeX.
+
+digraph modelo_datos {
+  graph [
+    bgcolor="white",
+    rankdir="LR",
+    splines="ortho",
+    nodesep="0.42",
+    ranksep="1.15",
+    fontname="Liberation Sans",
+    margin="0.18",
+    newrank="true"
+  ];
+  node [shape="plaintext", fontname="Liberation Sans", fontsize="11"];
+  edge [
+    fontname="Liberation Sans",
+    fontsize="10",
+    color="#54606E",
+    penwidth="1.1",
+    arrowsize="0.85",
+    fontcolor="#3C4650"
+  ];
+
+  // ---------------------------------------------------------------- identidad
+  subgraph cluster_identidad {
+    label="  IDENTIDAD Y CONTROL DE ACCESO  ";
+    labeljust="l";
+    fontsize="12";
+    fontcolor="#44546A";
+    color="#C3CAD3";
+    style="rounded";
+    penwidth="1.0";
+    margin="14";
+
+    doctor_accounts [label=<
+      <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#B9C1CB">
+        <TR><TD BGCOLOR="#44546A" ALIGN="CENTER"><FONT COLOR="white" POINT-SIZE="12"><B>USUARIO</B></FONT><BR/><FONT COLOR="#D6DBE2" POINT-SIZE="9">doctor_accounts</FONT></TD></TR>
+        <TR><TD BGCOLOR="#EDEFF3" ALIGN="LEFT" PORT="pk"><B>PK</B>  id</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT" PORT="email"><B>UQ</B>  email</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">password_hash</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">roles {ADMIN|DOCTOR|REVIEWER}</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">verified, approved</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">created_at, updated_at</TD></TR>
+      </TABLE>>];
+
+    auth_refresh_tokens [label=<
+      <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#B9C1CB">
+        <TR><TD BGCOLOR="#44546A" ALIGN="CENTER"><FONT COLOR="white" POINT-SIZE="12"><B>SESION / REFRESH</B></FONT><BR/><FONT COLOR="#D6DBE2" POINT-SIZE="9">auth_refresh_tokens</FONT></TD></TR>
+        <TR><TD BGCOLOR="#EDEFF3" ALIGN="LEFT"><B>PK</B>  token_hash</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT" PORT="fk"><B>FK</B>  email</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">issued_at, expires_at</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">revoked_at</TD></TR>
+      </TABLE>>];
+
+    doctor_accounts:email -> auth_refresh_tokens:fk [taillabel="1", headlabel="0..*", arrowhead="crow", labeldistance="1.7", labelangle="12"];
+  }
+
+  // ------------------------------------------------- identidad longitudinal
+  subgraph cluster_longitudinal {
+    label="  IDENTIDAD LONGITUDINAL DE-IDENTIFICADA  ";
+    labeljust="l";
+    fontsize="12";
+    fontcolor="#0F5E52";
+    color="#9EC5BC";
+    style="rounded";
+    penwidth="1.2";
+    margin="14";
+
+    domain_patients [label=<
+      <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#A9C6C0">
+        <TR><TD BGCOLOR="#0F5E52" ALIGN="CENTER"><FONT COLOR="white" POINT-SIZE="13"><B>PATIENT</B></FONT><BR/><FONT COLOR="#CFE3DF" POINT-SIZE="9">domain_patients</FONT></TD></TR>
+        <TR><TD BGCOLOR="#E7F1EF" ALIGN="LEFT" PORT="pk"><B>PK</B>  id : UUID</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT"><B>UQ</B>  patient_reference</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#5A6B66">indice unico normalizado<BR ALIGN="LEFT"/>lower(btrim(patient_reference))</FONT></TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">created_at</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">updated_at</TD></TR>
+        <TR><TD BGCOLOR="#F4F8F7" ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#5A6B66">no almacena identificadores<BR ALIGN="LEFT"/>directos del paciente</FONT></TD></TR>
+      </TABLE>>];
+  }
+
+  // ------------------------------------------------------------------ estudio
+  subgraph cluster_estudio {
+    label="  ESTUDIOS  ";
+    labeljust="l";
+    fontsize="12";
+    fontcolor="#1F4E79";
+    color="#A9C0D8";
+    style="rounded";
+    penwidth="1.2";
+    margin="14";
+
+    domain_studies [label=<
+      <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#AEC2D6">
+        <TR><TD BGCOLOR="#1F4E79" ALIGN="CENTER"><FONT COLOR="white" POINT-SIZE="13"><B>STUDY</B></FONT><BR/><FONT COLOR="#CFDDEA" POINT-SIZE="9">domain_studies</FONT></TD></TR>
+        <TR><TD BGCOLOR="#E8EFF7" ALIGN="LEFT" PORT="pk"><B>PK</B>  id : UUID</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT"><B>UQ</B>  case_id</TD></TR>
+        <TR><TD BGCOLOR="#EFF5FB" ALIGN="LEFT" PORT="patient_id"><B>FK</B>  patient_id : UUID NULL</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">subject_ref : TEXT NULL<BR ALIGN="LEFT"/><FONT POINT-SIZE="9" COLOR="#6B7480">referencia opcional / compatibilidad<BR ALIGN="LEFT"/>sin relacion longitudinal</FONT></TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">status</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">study_date, modality</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">description</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">review_priority {low|medium|high}</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">created_at, updated_at</TD></TR>
+      </TABLE>>];
+
+    domain_input_resources [label=<
+      <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#C9BC9C">
+        <TR><TD BGCOLOR="#7A5C1E" ALIGN="CENTER"><FONT COLOR="white" POINT-SIZE="12"><B>SERIE / CATALOGO DE CORTES</B></FONT><BR/><FONT COLOR="#E6DCC5" POINT-SIZE="9">domain_input_resources</FONT></TD></TR>
+        <TR><TD BGCOLOR="#F8F2E5" ALIGN="LEFT"><B>PK</B>  id</TD></TR>
+        <TR><TD BGCOLOR="#FBF7EE" ALIGN="LEFT" PORT="fk"><B>FK</B>  study_id</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT"><B>UQ</B>  input_id</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">plane {sagittal|axial|coronal|unknown}</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">weighting, description</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">slice_count, format, size_bytes</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">analyzable, derived, multiplanar</TD></TR>
+      </TABLE>>];
+  }
+
+  // ------------------------------------------------------------------ corrida
+  subgraph cluster_corrida {
+    label="  CORRIDA DE ANALISIS  ";
+    labeljust="l";
+    fontsize="12";
+    fontcolor="#4A3A80";
+    color="#B4AAD4";
+    style="rounded";
+    penwidth="1.2";
+    margin="14";
+
+    domain_study_runs [label=<
+      <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#BAB1D6">
+        <TR><TD BGCOLOR="#4A3A80" ALIGN="CENTER"><FONT COLOR="white" POINT-SIZE="13"><B>CORRIDA (RUN)</B></FONT><BR/><FONT COLOR="#D8D2EC" POINT-SIZE="9">domain_study_runs</FONT></TD></TR>
+        <TR><TD BGCOLOR="#EEEBF7" ALIGN="LEFT" PORT="pk"><B>PK</B>  id</TD></TR>
+        <TR><TD BGCOLOR="#F3F1FA" ALIGN="LEFT" PORT="fk"><B>FK</B>  study_id</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT"><B>UQ</B>  multiplanar_run_id</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">trace_id</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT" PORT="model">sagittal/axial_model_key<BR ALIGN="LEFT"/>sagittal/axial_artifact_hash</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">requested_inference_mode<BR ALIGN="LEFT"/>effective_inference_mode</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">metrics_snapshot : JSONB<BR ALIGN="LEFT"/><FONT POINT-SIZE="9" COLOR="#6B6486">mediciones y landmarks de la corrida</FONT></TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">assets : JSONB, status</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">review_status {pending|accepted|<BR ALIGN="LEFT"/>observed|rejected|edited}</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">reviewer, reviewed_at, comments</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">created_at, updated_at</TD></TR>
+      </TABLE>>];
+  }
+
+  // ---------------------------------------------------------------- evidencia
+  subgraph cluster_evidencia {
+    label="  EVIDENCIA DE LA CORRIDA  ";
+    labeljust="l";
+    fontsize="12";
+    fontcolor="#7A5C1E";
+    color="#CFC2A4";
+    style="rounded";
+    penwidth="1.2";
+    margin="14";
+
+    domain_reviewer_annotations [label=<
+      <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#C9BC9C">
+        <TR><TD BGCOLOR="#7A5C1E" ALIGN="CENTER"><FONT COLOR="white" POINT-SIZE="12"><B>MEDICION / ANOTACION</B></FONT><BR/><FONT COLOR="#E6DCC5" POINT-SIZE="9">domain_reviewer_annotations</FONT></TD></TR>
+        <TR><TD BGCOLOR="#F8F2E5" ALIGN="LEFT"><B>PK</B>  id</TD></TR>
+        <TR><TD BGCOLOR="#FBF7EE" ALIGN="LEFT" PORT="fk"><B>FK</B>  study_run_id</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">scope {study|level|slice}</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">kind {measurement|marker|note}</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">measurement_kind {distance|angle|<BR ALIGN="LEFT"/>listhesis|roi|probe}</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">plane, series_id, slice_index, level</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">points : JSONB, value, unit {mm|px}</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">text, author, created_at</TD></TR>
+      </TABLE>>];
+
+    domain_review_corrections [label=<
+      <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#C9BC9C">
+        <TR><TD BGCOLOR="#7A5C1E" ALIGN="CENTER"><FONT COLOR="white" POINT-SIZE="12"><B>REVISION / CORRECCION</B></FONT><BR/><FONT COLOR="#E6DCC5" POINT-SIZE="9">domain_review_corrections</FONT></TD></TR>
+        <TR><TD BGCOLOR="#F8F2E5" ALIGN="LEFT"><B>PK</B>  id</TD></TR>
+        <TR><TD BGCOLOR="#FBF7EE" ALIGN="LEFT" PORT="fk"><B>FK</B>  study_run_id</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">measurement_id, label</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">before_value : JSONB</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">after_value : JSONB</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">comment, created_at</TD></TR>
+        <TR><TD BGCOLOR="#FDFBF6" ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#6E6046">no sobrescribe el resultado<BR ALIGN="LEFT"/>automatico original</FONT></TD></TR>
+      </TABLE>>];
+
+    domain_run_artifacts [label=<
+      <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#C9BC9C">
+        <TR><TD BGCOLOR="#7A5C1E" ALIGN="CENTER"><FONT COLOR="white" POINT-SIZE="12"><B>ASSET</B></FONT><BR/><FONT COLOR="#E6DCC5" POINT-SIZE="9">domain_run_artifacts</FONT></TD></TR>
+        <TR><TD BGCOLOR="#F8F2E5" ALIGN="LEFT" PORT="pk"><B>PK</B>  id</TD></TR>
+        <TR><TD BGCOLOR="#FBF7EE" ALIGN="LEFT" PORT="fk"><B>FK</B>  study_run_id</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">run_id, plane, asset_name</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">content_type, artifact_ref</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">storage_status {stored|upstream_only|<BR ALIGN="LEFT"/>missing|rejected}</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">storage_kind, size_bytes, sha256</TD></TR>
+      </TABLE>>];
+
+    domain_run_asset_payloads [label=<
+      <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#C9BC9C">
+        <TR><TD BGCOLOR="#96772E" ALIGN="CENTER"><FONT COLOR="white" POINT-SIZE="12"><B>PAYLOAD DEL ASSET</B></FONT><BR/><FONT COLOR="#EDE4D0" POINT-SIZE="9">domain_run_asset_payloads</FONT></TD></TR>
+        <TR><TD BGCOLOR="#FBF7EE" ALIGN="LEFT" PORT="pk"><B>PK/FK</B>  artifact_id</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">content : BYTEA</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">sha256, size_bytes</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">storage_kind, stored_at</TD></TR>
+      </TABLE>>];
+  }
+
+  // -------------------------------------------------------- modelos/auditoria
+  subgraph cluster_gobierno {
+    label="  MODELOS Y AUDITORIA  ";
+    labeljust="l";
+    fontsize="12";
+    fontcolor="#7A3B3B";
+    color="#CFB2B2";
+    style="rounded";
+    penwidth="1.0";
+    margin="14";
+
+    modelo_artifact [label=<
+      <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#C0BBB0" STYLE="dashed">
+        <TR><TD BGCOLOR="#6E6A60" ALIGN="CENTER"><FONT COLOR="white" POINT-SIZE="12"><B>MODELO / ARTIFACT</B></FONT><BR/><FONT COLOR="#DCDAD4" POINT-SIZE="9">registro de artifacts (fuera de la base)</FONT></TD></TR>
+        <TR><TD BGCOLOR="#F2F1EF" ALIGN="LEFT" PORT="key">model_key</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">plano, version</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">artifact_hash</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">manifest_uri, arquitectura</TD></TR>
+      </TABLE>>];
+
+    domain_audit_events [label=<
+      <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" COLOR="#CBB4B4">
+        <TR><TD BGCOLOR="#7A3B3B" ALIGN="CENTER"><FONT COLOR="white" POINT-SIZE="12"><B>EVENTO DE AUDITORIA</B></FONT><BR/><FONT COLOR="#E9D6D6" POINT-SIZE="9">domain_audit_events</FONT></TD></TR>
+        <TR><TD BGCOLOR="#F7EBEB" ALIGN="LEFT" PORT="pk"><B>PK</B>  id</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">actor, action</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#6E5252">PATIENT_CREATED, PATIENT_UPDATED,<BR ALIGN="LEFT"/>STUDY_PATIENT_ASSIGNED,<BR ALIGN="LEFT"/>STUDY_PATIENT_REASSIGNED</FONT></TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT" PORT="entity">entity_id, trace_id</TD></TR>
+        <TR><TD BGCOLOR="white" ALIGN="LEFT">metadata : JSONB, created_at</TD></TR>
+      </TABLE>>];
+  }
+
+  // ------------------------------------------------------------------ aristas
+  domain_patients:pk -> domain_studies:patient_id [
+    taillabel="1", headlabel="0..*", arrowhead="crow", penwidth="1.6", color="#0F5E52",
+    xlabel=<<FONT POINT-SIZE="9" COLOR="#0F5E52">fk_domain_studies_patient<BR/>ON DELETE RESTRICT</FONT>>,
+    labeldistance="2.0", labelangle="10"];
+
+  domain_studies:pk -> domain_input_resources:fk [taillabel="1", headlabel="1..*", arrowhead="crow", labeldistance="1.8", labelangle="10"];
+  domain_studies:pk -> domain_study_runs:fk [taillabel="1", headlabel="1..*", arrowhead="crow", penwidth="1.4", color="#1F4E79", labeldistance="1.8", labelangle="10"];
+
+  domain_study_runs:pk -> domain_reviewer_annotations:fk [taillabel="1", headlabel="0..*", arrowhead="crow", labeldistance="1.8", labelangle="10"];
+  domain_study_runs:pk -> domain_review_corrections:fk [taillabel="1", headlabel="0..*", arrowhead="crow", labeldistance="1.8", labelangle="10"];
+  domain_study_runs:pk -> domain_run_artifacts:fk [taillabel="1", headlabel="0..*", arrowhead="crow", labeldistance="1.8", labelangle="10"];
+  domain_run_artifacts:pk -> domain_run_asset_payloads:pk [taillabel="1", headlabel="0..1", arrowhead="none", labeldistance="1.8", labelangle="10"];
+
+  domain_study_runs:model -> modelo_artifact:key [style="dashed", arrowhead="vee", constraint="false",
+    xlabel=<<FONT POINT-SIZE="9" COLOR="#5B6570">model_key / artifact_hash</FONT>>];
+
+  doctor_accounts:pk -> domain_audit_events:entity [style="dashed", arrowhead="vee", color="#7A3B3B",
+    xlabel=<<FONT POINT-SIZE="9" COLOR="#7A3B3B">actor</FONT>>];
+  domain_studies:pk -> domain_audit_events:entity [style="dashed", arrowhead="vee", color="#7A3B3B", constraint="false",
+    xlabel=<<FONT POINT-SIZE="9" COLOR="#7A3B3B">entity_id</FONT>>];
+
+  // Leyenda sobria, sin titulo de figura.
+  leyenda [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" COLOR="#C3CAD3" BGCOLOR="#FAFBFC">
+      <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="10" COLOR="#3C4650"><B>PK</B> clave primaria    <B>FK</B> clave foranea    <B>UQ</B> restriccion de unicidad</FONT></TD></TR>
+      <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="10" COLOR="#3C4650">pata de gallo = lado "muchos" de la cardinalidad    linea punteada = referencia logica sin FK</FONT></TD></TR>
+      <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="10" COLOR="#3C4650">Los estudios historicos permanecen con patient_id = NULL: no se infieren pacientes desde subject_ref.</FONT></TD></TR>
+    </TABLE>>];
+  { rank="sink"; leyenda; }
+}

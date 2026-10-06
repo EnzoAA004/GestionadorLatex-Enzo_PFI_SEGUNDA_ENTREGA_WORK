@@ -46,28 +46,19 @@ La preparación normaliza la intensidad recortando por los percentiles 1 y 99 y 
 
 Antes de ejecutar, el sistema valida el formato y los límites aceptados. La ausencia del plano axial no invalida una corrida sagital.
 
-% FIGURE_PENDING_MIGRATION
-% DOCX_FIGURE_NUMBER: 11.1
-% DOCX_CAPTION: Acceso con estado de cuenta pendiente de aprobación y worklist de estudios. Fuente: elaboración propia.
-% WORD_PARAGRAPH: 911
-% DRAWING_COUNT: 0
-% RELATIONSHIP_IDS: NONE
-% MEDIA_FILES: NONE
-% FIGURE_TYPE: UI_SCREENSHOT
-% SOURCE_VISUAL_MISSING_FROM_DOCX
-% VISUAL_SOURCE_REQUIRED_FROM_AUTHOR: YES
-\addcontentsline{lof}{figure}{\protect\numberline{11.1}Acceso con estado de cuenta pendiente de aprobación y worklist de estudios. Fuente: elaboración propia.}
-% FIGURE_PENDING_MIGRATION
-% DOCX_FIGURE_NUMBER: 11.2
-% DOCX_CAPTION: Carga de un estudio DICOM con sus series identificadas y clasificadas. Fuente: elaboración propia.
-% WORD_PARAGRAPH: 913
-% DRAWING_COUNT: 0
-% RELATIONSHIP_IDS: NONE
-% MEDIA_FILES: NONE
-% FIGURE_TYPE: UI_SCREENSHOT
-% SOURCE_VISUAL_MISSING_FROM_DOCX
-% VISUAL_SOURCE_REQUIRED_FROM_AUTHOR: YES
-\addcontentsline{lof}{figure}{\protect\numberline{11.2}Carga de un estudio DICOM con sus series identificadas y clasificadas. Fuente: elaboración propia.}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{images/product_screenshots/fig_11_01_acceso_worklist.png}
+\caption{Acceso con estado de cuenta pendiente de aprobación y worklist de estudios. Fuente: elaboración propia.}
+\label{fig:cap11-acceso-worklist}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{images/product_screenshots/fig_11_02_carga_estudio_dicom.png}
+\caption{Carga de un estudio DICOM con sus series identificadas y clasificadas. Fuente: elaboración propia.}
+\label{fig:cap11-carga-estudio-dicom}
+\end{figure}
 Qué evidencia lo respalda. Pruebas automatizadas de lectura de volúmenes, de preprocesamiento y de selección de corte, y regresión sobre fixtures de-identificados. El acceso requiere autenticación y una cuenta nueva permanece pendiente de aprobación hasta que un administrador la habilite.
 
 Qué límites tiene. Cuando la fuente no aporta espaciado válido, las mediciones derivadas se expresan en píxeles y la unidad lo declara: el sistema no infiere geometría física ausente. Las series y modalidades no soportadas quedan disponibles como imagen base e informan que no poseen inferencia automática.
@@ -80,18 +71,12 @@ Cómo funciona. Una red convolucional bidimensional de tipo U-Net, entrenada sob
 
 Cada corrida resuelve el artifact correspondiente al plano solicitado, verifica que su manifest y su arquitectura sean compatibles y ejecuta la inferencia. La carga es estricta: si los nombres de capa del artifact no coinciden con los de la arquitectura declarada, la carga falla de forma explícita en lugar de completar los pesos faltantes.
 
-% FIGURE_PENDING_MIGRATION
-% DOCX_FIGURE_NUMBER: 11.3
-% DOCX_CAPTION: Workspace sagital con la máscara superpuesta sobre la imagen original. Fuente: elaboración propia.
-% WORD_PARAGRAPH: 923
-% DRAWING_COUNT: 0
-% RELATIONSHIP_IDS: NONE
-% MEDIA_FILES: NONE
-% FIGURE_TYPE: OVERLAY
-% SOURCE_VISUAL_MISSING_FROM_DOCX
-% VISUAL_SOURCE_REQUIRED_FROM_AUTHOR: YES
-% CROSS_REFERENCE_MAPPING_REQUIRED
-\addcontentsline{lof}{figure}{\protect\numberline{11.3}Workspace sagital con la máscara superpuesta sobre la imagen original. Fuente: elaboración propia.}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{images/product_screenshots/fig_11_03_workspace_sagital.png}
+\caption{Workspace sagital con la máscara superpuesta sobre la imagen original. Fuente: elaboración propia.}
+\label{fig:cap11-workspace-sagital}
+\end{figure}
 Qué evidencia lo respalda. Coeficiente Dice macro de 0,893 sobre una partición retenida separada a nivel de paciente, con 152 pacientes de entrenamiento, 33 de validación y 33 de prueba. El artifact supera el umbral de calidad del proyecto y está registrado como baseline técnico validado. El protocolo completo, las particiones y el criterio del umbral se desarrollan en el Capítulo 13; la configuración de entrenamiento, en el Anexo E.
 
 Qué límites tiene. El modelo produce clases agrupadas: no distingue una vértebra de otra ni un disco de otro. Toda afirmación sobre niveles anatómicos individuales depende del mecanismo descrito en la sección~\ref{sec:cap-asignacion-nivel-anatomico} y no del modelo. La evaluación mide coincidencia con las anotaciones del conjunto, de modo que reproduce también los criterios de quien anotó. No se informan métricas de distancia, que aportarían información sobre la precisión del contorno que el coeficiente Dice no captura en estructuras de tamaño considerable.
@@ -145,7 +130,6 @@ La correspondencia queda congelada en el manifest del artifact y replicada en la
 % VISUAL_SOURCE_REQUIRED_FROM_AUTHOR: YES
 \addcontentsline{lof}{figure}{\protect\numberline{11.4}Workspace axial con la máscara superpuesta sobre la imagen original. Fuente: elaboración propia.}
 Qué evidencia lo respalda. El gate oficial del artifact axial registra \texttt{qualityGatePassed=false}. La métrica oficial de primer plano es Dice macro \(0{,}679348283374592\) e IoU macro \(0{,}5699727598420694\), con razón \texttt{dice\_macro\_foreground\_below\_threshold}. Como análisis secundario, excluyendo la clase \texttt{raw\_0}, el Dice es \(0{,}8105661875685084\) y el IoU \(0{,}6915400877715925\). Esta segunda lectura ayuda a interpretar el comportamiento sobre estructuras anatómicas, pero no reemplaza la métrica oficial del gate.
-
 % CROSS_REFERENCE_MAPPING_REQUIRED
 Qué límites tiene. El artifact no alcanzó el umbral de calidad de 0,70 en la métrica que lo evalúa, que incluye las clases de fondo, y permanece registrado como candidato sin promoverse a baseline técnico. El umbral no se modificó para acomodar el resultado. La partición de prueba había sido evaluada previamente para una versión anterior del mismo modelo, de modo que el resultado es comparativo y no una validación sobre datos enteramente no observados. Los conteos de la partición de entrenamiento no fueron publicados en el manifest y su recuperación permanece pendiente. El capítulo 13 desarrolla estos tres puntos.
 
@@ -192,18 +176,12 @@ El área no requiere esa corrección, porque el recuento de píxeles no depende 
 
 El diámetro anteroposterior del canal se mide fila por fila. La primera implementación empleaba la caja delimitadora y devolvía 47 milímetros, valor incompatible con un canal lumbar: ese número correspondía al recorrido de la lordosis, dado que el centro del canal se desplaza alrededor de 35 milímetros entre los extremos de la serie. La medición fila por fila, acotada a la banda del disco, devuelve una componente conexa de 230 milímetros de extensión y entre 10 y 15 de ancho, con mediana de 13,1.
 
-% FIGURE_PENDING_MIGRATION
-% DOCX_FIGURE_NUMBER: 11.5
-% DOCX_CAPTION: Panel de mediciones con la estructura, el plano y el corte de origen de cada valor. Fuente: elaboración propia.
-% WORD_PARAGRAPH: 952
-% DRAWING_COUNT: 0
-% RELATIONSHIP_IDS: NONE
-% MEDIA_FILES: NONE
-% FIGURE_TYPE: MEASUREMENT_VIEW
-% SOURCE_VISUAL_MISSING_FROM_DOCX
-% VISUAL_SOURCE_REQUIRED_FROM_AUTHOR: YES
-% CROSS_REFERENCE_MAPPING_REQUIRED
-\addcontentsline{lof}{figure}{\protect\numberline{11.5}Panel de mediciones con la estructura, el plano y el corte de origen de cada valor. Fuente: elaboración propia.}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{images/product_screenshots/fig_11_05_panel_mediciones.png}
+\caption{Panel de mediciones con la estructura, el plano y el corte de origen de cada valor. Fuente: elaboración propia.}
+\label{fig:cap11-panel-mediciones}
+\end{figure}
 Qué evidencia lo respalda. Una verificación por contraste contra rangos conocidos, desarrollada en el Capítulo 13. El diámetro anteroposterior del canal arroja una mediana compatible con el saco tecal lumbar, y la suma de ángulos segmentarios entre la primera y la quinta vértebra lumbar da 36 grados frente a una lordosis habitual de entre 40 y 60.
 
 Qué límites tiene. Esa verificación no equivale a una validación. Un contraste con rangos poblacionales permite descartar valores manifiestamente incompatibles, pero no establece la exactitud de una medición individual. No existe comparación contra mediciones realizadas por profesionales sobre los mismos estudios, que requeriría un conjunto anotado específicamente para ese fin.
@@ -249,7 +227,6 @@ Cómo funciona. El contrato volumétrico define, por serie, el plano, la cantida
 Qué evidencia lo respalda. El procesamiento de la serie completa está implementado y los assets se persisten y se sirven por corte. El frontend consume la integración contractual P10.9 y presenta el catálogo full-series en un visor navegable. Las pruebas verifican la cantidad y el orden de los cortes, el eje, el índice computacional y la numeración mostrada, con índice interno desde cero y numeración de interfaz desde uno.
 
 Qué límites tiene. La superposición automática no se presupone para todos los cortes de todas las series: solo se muestra donde hay resultado, y los cortes sin inferencia lo declaran en lugar de presentarse vacíos. El visor no simula una correspondencia espacial entre el plano sagital y el axial cuando la metadata geométrica no permite demostrarla; la relación entre planos se establece por la asignación de nivel de la sección~\ref{sec:cap-asignacion-nivel-anatomico} y no por una superposición supuesta. La integración de los contratos congelados en el frontend está implementada. El recorrido browser E2E final obtuvo 11/11 en Playwright sobre el stack final, pero ese resultado valida el flujo funcional del prototipo y Demo Mode; no convierte a Patient en una entidad browser-level completa ni habilita inferencia clínica.
-
 \section{Revisión profesional y salida editable}
 
 Qué hace. Permite que el profesional acepte, observe, corrija o descarte cada resultado, y reúne las estructuras, las mediciones y las observaciones en una salida editable que incluye un preinforme automático revisable.
@@ -258,50 +235,34 @@ Cómo funciona. La revisión no es una etapa posterior sino parte del flujo: los
 
 El preinforme se construye mediante plantillas que combinan los valores derivados de las máscaras con formulaciones fijas asociadas a cada estructura, nivel y medición. No proviene de un modelo de lenguaje ni de una inferencia clínica, sino de una transformación determinística de datos geométricos ya calculados y visibles. Esa distinción importa: dado un mismo conjunto de máscaras y mediciones, produce siempre el mismo texto, y cada afirmación puede rastrearse hasta la estructura y el corte que la originan.
 
-% FIGURE_PENDING_MIGRATION
-% DOCX_FIGURE_NUMBER: 11.7
-% DOCX_CAPTION: Controles de revisión profesional sobre una estructura segmentada. Fuente: elaboración propia.
-% WORD_PARAGRAPH: 983
-% DRAWING_COUNT: 0
-% RELATIONSHIP_IDS: NONE
-% MEDIA_FILES: NONE
-% FIGURE_TYPE: MEASUREMENT_VIEW
-% SOURCE_VISUAL_MISSING_FROM_DOCX
-% VISUAL_SOURCE_REQUIRED_FROM_AUTHOR: YES
-\addcontentsline{lof}{figure}{\protect\numberline{11.7}Controles de revisión profesional sobre una estructura segmentada. Fuente: elaboración propia.}
-% FIGURE_PENDING_MIGRATION
-% DOCX_FIGURE_NUMBER: 11.8
-% DOCX_CAPTION: Preinforme automático revisable con estructuras, mediciones y estado de revisión. Fuente: elaboración propia.
-% WORD_PARAGRAPH: 985
-% DRAWING_COUNT: 0
-% RELATIONSHIP_IDS: NONE
-% MEDIA_FILES: NONE
-% FIGURE_TYPE: RESULT_VIEW
-% SOURCE_VISUAL_MISSING_FROM_DOCX
-% VISUAL_SOURCE_REQUIRED_FROM_AUTHOR: YES
-% CROSS_REFERENCE_MAPPING_REQUIRED
-\addcontentsline{lof}{figure}{\protect\numberline{11.8}Preinforme automático revisable con estructuras, mediciones y estado de revisión. Fuente: elaboración propia.}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{images/product_screenshots/fig_11_07_revision_profesional.png}
+\caption{Controles de revisión profesional sobre una estructura segmentada. Fuente: elaboración propia.}
+\label{fig:cap11-revision-profesional}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{images/product_screenshots/fig_11_08_preinforme_revisable.png}
+\caption{Preinforme automático revisable con estructuras, mediciones y estado de revisión. Fuente: elaboración propia.}
+\label{fig:cap11-preinforme-revisable}
+\end{figure}
 Qué evidencia lo respalda. El flujo de revisión está implementado y persistido, y la reapertura de un estudio recupera el estado de revisión junto con los resultados. El relevamiento con profesionales identificó la posibilidad de corregir manualmente cada resultado como el requisito más votado para confiar en una segmentación automática, según se informa en la sección 8.12.
 
-Qué límites tiene. El preinforme es un punto de partida editable y no un informe clínico: su función es reducir la transcripción manual de valores y organizarlos en un orden anatómico previsible, mientras la redacción final, la interpretación y la responsabilidad permanecen en el profesional. La utilidad del flujo de revisión sobre el producto integrado se observó en las dos sesiones de revisión cualitativa documentadas en la sección~\ref{sec:resultados-validacion-profesional-cualitativa}; esas sesiones no equivalen a validación clínica, y la validación cruzada final, con lectura profesional independiente sobre los mismos estudios, continúa pendiente.
+Qué límites tiene. El preinforme es un punto de partida editable y no un informe clínico: su función es reducir la transcripción manual de valores y organizarlos en un orden anatómico previsible, mientras la redacción final, la interpretación y la responsabilidad permanecen en el profesional. La revisión cualitativa profesional sobre una versión funcional/intermedia del producto ya fue realizada y se sintetiza en el Capítulo~\ref{chap:resultados-evaluacion}, con detalle en el Anexo~\ref{anexo:validacion-profesional}. Esa instancia no constituye validación clínica ni sustituye la validación cruzada profesional final, que permanece pendiente.
 
 \section{Persistencia, reapertura y trazabilidad}
 
 Qué hace. Conserva cada corrida con su modelo, su artifact, sus resultados, sus mediciones y su estado de revisión, de modo que un estudio pueda recuperarse más tarde sin volver a ejecutar la inferencia.
 
 Cómo funciona. Un estudio actúa como contenedor lógico y una corrida representa una ejecución concreta, de manera que ejecutar de nuevo no sobrescribe la evidencia anterior. Backend permite vincular Studies con una entidad Patient mediante \texttt{patientId}, y esa asociación se persiste y se valida por API. En la interfaz final, sin embargo, el historial y la comparación longitudinal siguen recorriendo principalmente la identidad \texttt{subjectRef}. Por lo tanto, \texttt{patientId} debe leerse como dominio de Backend implementado, no como flujo visual completo de gestión de pacientes. Cada corrida genera identificadores que permiten seguirla: el del caso, el de la ejecución, el que agrupa ambos planos y el que correlaciona solicitudes y registros técnicos.
-
-% FIGURE_PENDING_MIGRATION
-% DOCX_FIGURE_NUMBER: 11.9
-% DOCX_CAPTION: Historial de corridas y reapertura de un estudio ya procesado. Fuente: elaboración propia.
-% WORD_PARAGRAPH: 994
-% DRAWING_COUNT: 0
-% RELATIONSHIP_IDS: NONE
-% MEDIA_FILES: NONE
-% FIGURE_TYPE: RESULT_VIEW
-% SOURCE_VISUAL_MISSING_FROM_DOCX
-% VISUAL_SOURCE_REQUIRED_FROM_AUTHOR: YES
-\addcontentsline{lof}{figure}{\protect\numberline{11.9}Historial de corridas y reapertura de un estudio ya procesado. Fuente: elaboración propia.}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{images/product_screenshots/fig_11_09_persistencia_nueva_sesion.png}
+\caption{Historial de corridas y reapertura de un estudio ya procesado. Fuente: elaboración propia.}
+\label{fig:cap11-persistencia-nueva-sesion}
+\end{figure}
 Qué evidencia lo respalda. La prueba de aceptación de esta capacidad consiste en abrir un estudio persistido con el módulo de inferencia apagado y comprobar que recupera resultados, mediciones y estado de revisión. Esa prueba está incorporada al repositorio y se ejecuta como regresión.
 
 Qué límites tiene. Las corridas anteriores a la incorporación del catálogo de cortes conservan únicamente los assets que existían en su momento y se abren en modo de compatibilidad, sin fabricar un catálogo que no se generó. Los registros históricos pueden no tener un Patient asociado, porque \texttt{patientId} es nullable y no se infiere retroactivamente desde \texttt{subjectRef}. Cuando la evidencia ya existe, la reapertura utiliza los datos persistidos y no requiere repetir la inferencia.
@@ -314,17 +275,12 @@ Cómo funciona. Las operaciones protegidas requieren autenticación y autorizaci
 
 El sistema distingue el modo de ejecución solicitado del modo efectivamente aplicado. Una corrida solo se informa como inferencia real cuando existieron un artifact identificable, un manifest coherente, una arquitectura compatible, una entrada procesable y una ejecución exitosa. Si alguna de esas condiciones falta, la respuesta declara el estado degradado y no se registra como resultado válido.
 
-% FIGURE_PENDING_MIGRATION
-% DOCX_FIGURE_NUMBER: 11.10
-% DOCX_CAPTION: Estado degradado informado de forma explícita ante indisponibilidad del módulo de inferencia. Fuente: elaboración propia.
-% WORD_PARAGRAPH: 1004
-% DRAWING_COUNT: 0
-% RELATIONSHIP_IDS: NONE
-% MEDIA_FILES: NONE
-% FIGURE_TYPE: UI_SCREENSHOT
-\addcontentsline{lof}{figure}{\protect\numberline{11.10}Estado degradado informado de forma explícita ante indisponibilidad del módulo de inferencia. Fuente: elaboración propia.}
-% SOURCE_VISUAL_MISSING_FROM_DOCX
-% VISUAL_SOURCE_REQUIRED_FROM_AUTHOR: YES
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{images/product_screenshots/fig_11_10_estado_degradado_ai_no_disponible.png}
+\caption{Estado degradado informado de forma explícita ante indisponibilidad del módulo de inferencia. Fuente: elaboración propia.}
+\label{fig:cap11-estado-degradado-ai}
+\end{figure}
 Qué evidencia lo respalda. Pruebas de autenticación, autorización, contratos, auditoría y comportamiento ante archivo inválido, artifact ausente, rol insuficiente y asset faltante. El contrato público no expone probabilidades, salidas crudas, mapas de confianza ni rutas internas.
 
 Qué límites tiene. El endurecimiento de la configuración de seguridad para un entorno productivo permanece como evolución posterior. Las medidas descritas corresponden a un prototipo académico y no constituyen una evaluación formal de cumplimiento normativo.
@@ -467,9 +423,8 @@ Recorrido extremo a extremo local/containerizado & --- & Validado según la evid
 Recorrido extremo a extremo en Cloud desde navegador & --- & Parcial, no cerrado, según la evidencia de la sección~\ref{sec:resultados-cloud-e2e} \\
 Validación profesional sobre el producto & — & Revisión cualitativa realizada (Dra. Susana Torres y Dra. Claudia Cejas, sección~\ref{sec:resultados-validacion-profesional-cualitativa}); no es validación clínica; la validación cruzada final continúa pendiente \\
 Comparación longitudinal & — & Parcial: disponible en el alcance Demo/\texttt{subjectRef} según la evidencia existente; no constituye validación clínica de progresión \\
-Despliegue en Google Cloud & — & Entorno DEV desplegado y validado (Backend, Frontend, AI privado, Cloud SQL, Secret Manager y storage durable); DEMO environment separado y monitoreo/alerting en vivo no desplegados \\
-\hline
+Despliegue en Google Cloud & — & Entorno DEV desplegado y validado (Backend, Frontend, AI privado, Cloud SQL, Secret Manager y storage durable); DEMO environment separado y monitoreo/alerting en vivo no desplegados \\\hline
 \end{longtable}
 }
 
-Esta tabla describe el estado del producto y no sustituye el backlog técnico. Una capacidad solo se declara implementada cuando existe en el flujo, cuenta con pruebas y su evidencia puede localizarse. Las tres capacidades cuya evidencia visual todavía no se incorporó al documento se identifican mediante los espacios reservados de las figuras correspondientes.
+Esta tabla describe el estado consolidado del producto y no sustituye el backlog técnico. Una capacidad solo se declara implementada cuando existe evidencia funcional y técnica localizable que respalda ese estado. La disponibilidad de una captura definitiva en la tesis es un plano de evidencia distinto: algunas vistas de interfaz se actualizarán una vez congelada la versión final del Frontend, sin modificar por ello el estado técnico de las capacidades ya verificadas.

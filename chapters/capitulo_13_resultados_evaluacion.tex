@@ -5,7 +5,7 @@
 
 Este capítulo reúne los resultados obtenidos al evaluar los modelos de segmentación contra las anotaciones de referencia de sus conjuntos de origen. Su función es responder, con valores concretos, al objetivo específico que compromete la evaluación técnica del prototipo mediante métricas de segmentación.
 
-El alcance de lo que aquí se informa está acotado y conviene delimitarlo antes de presentar cifra alguna. Se evalúa la coincidencia entre las máscaras que produce cada modelo y las anotaciones de referencia del conjunto correspondiente. No se evalúa la exactitud clínica de las mediciones derivadas, para lo cual sería necesario un conjunto de mediciones realizadas por profesionales sobre los mismos estudios, ni la utilidad del prototipo en un flujo de trabajo real, que corresponde a la validación cualitativa prevista para la instancia siguiente.
+El alcance de lo que aquí se informa está acotado y conviene delimitarlo antes de presentar cifra alguna. Se evalúa la coincidencia entre las máscaras que produce cada modelo y las anotaciones de referencia del conjunto correspondiente. No se evalúa la exactitud clínica de las mediciones derivadas, para lo cual sería necesario un conjunto de mediciones realizadas por profesionales sobre los mismos estudios, ni, por sí sola, la utilidad del prototipo en un flujo de trabajo real. Esa dimensión se complementó posteriormente con validación técnica del producto integrado y con dos sesiones de revisión cualitativa profesional, cuyos alcances y limitaciones se desarrollan en las secciones finales de este capítulo.
 
 La distinción importa porque una segmentación con buen desempeño métrico no garantiza que las mediciones derivadas de ella sean correctas, del mismo modo que una medición correcta no implica que la interpretación clínica que se haga de ella lo sea. El Capítulo 7 desarrolla esta separación en términos conceptuales; aquí se sostiene en la presentación de los resultados.
 
@@ -133,7 +133,6 @@ La decisión se documenta porque describe un criterio que el proyecto aplica de 
 
 \section{Resultados finales de validación técnica por capa}
 \label{sec:resultados-validacion-final}
-
 Además de la evaluación offline de modelos, el cierre técnico del producto incluyó verificaciones de software, integración y recorrido browser. Estas pruebas validan el comportamiento funcional del prototipo bajo condiciones controladas; no constituyen validación clínica.
 
 {\scriptsize
@@ -141,8 +140,7 @@ Además de la evaluación offline de modelos, el cierre técnico del producto in
 \setlength{\LTright}{0pt}
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.18}
-\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} >{\raggedright\arraybackslash}p{0.28\textwidth} >{\raggedright\arraybackslash}p{0.38\textwidth}}
-\caption{Validación técnica final del prototipo.}\label{tab:res-validacion-tecnica-final}\\
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} >{\raggedright\arraybackslash}p{0.28\textwidth} >{\raggedright\arraybackslash}p{0.38\textwidth}}\caption{Validación técnica final del prototipo.}\label{tab:res-validacion-tecnica-final}\\
 \hline
 \textbf{Validación} & \textbf{Resultado} & \textbf{Interpretación} \\
 \hline
@@ -168,8 +166,7 @@ Reporte / PDF / JSON & PASS & Reporte estructurado \texttt{pfi.study-report.v1};
 Chat contextual & PASS en mock LLM & Valida integración funcional con proveedor determinístico; no despliegue productivo de Qwen. \\
 Evidencia visual & PASS & Overlays/assets servidos por Backend; limitados por registro AI efímero tras reinicio. \\
 DICOM inválido & 422 \texttt{UNSUPPORTED\_INPUT} PASS & El sistema falla de forma controlada ante input no procesable. \\
-Secret scan & Sin credenciales reales & Hallazgos revisados como falsos positivos; no se detectaron secretos productivos. \\
-\hline
+Secret scan & Sin credenciales reales & Hallazgos revisados como falsos positivos; no se detectaron secretos productivos. \\\hline
 \end{longtable}
 }
 
@@ -266,7 +263,6 @@ En cuanto a estructuras y hallazgos, la profesional remarcó la importancia del 
 Los hallazgos comunes se agrupan en cinco categorías. En usabilidad, ambas sesiones respaldan overlays útiles, máscaras activables o desactivables, edición manual, precisión visual y colores consistentes. En valor clínico-operativo, aparecen detección asistida, reducción de omisiones, apoyo ante carga elevada, seguimiento longitudinal y correlación sagital--axial. En mediciones priorizadas, se destacan canal central, neuroforamen, receso lateral o subarticular y altura discal; otras medidas deben incorporarse solo si aportan valor real y pueden verificarse. En hallazgos relevantes, se repiten protrusión o herniación, estenosis, pérdida de altura, cambios degenerativos o Modic, foramenes y raíces. En confianza, las dos sesiones refuerzan revisión profesional obligatoria, posibilidad de corregir, comunicación de confianza cuando corresponda y rechazo de la IA como diagnóstico autónomo.
 
 La diferencia principal entre las sesiones está en el énfasis. La Dra. Torres profundizó en comparación longitudinal, control visual de máscaras, correlación sagital--axial e inclinación discal. La Dra. Cejas enfatizó la protocolización de mediciones, la distinción entre canal central/lateral/neuroforamen, la carga laboral y la aceptabilidad de sobredetección bajo revisión profesional.
-
 {\scriptsize
 \setlength{\LTleft}{0pt}
 \setlength{\LTright}{0pt}
@@ -296,8 +292,7 @@ Informe estructurado editable & Cejas & Generar salida estructurada revisable y 
 Mostrar confianza cuando corresponda & Cejas & Comunicar confianza/estado solo cuando el modelo lo respalde. & PARTIAL: existen estados y gates; visualización sistemática de confianza queda pendiente. \\
 Cambios Modic & Torres/Cejas & Documentar como hallazgo relevante, sin exponerlo productivamente sin validación. & PLANNED: P10.7 contiene tarea relacionada pero no está habilitada productivamente. \\
 Hipertrofia del ligamento amarillo & Torres & Registrar como posible extensión futura. & PLANNED: no implementado en producto. \\
-Diagnóstico automático & Torres/Cejas & Mantener enfoque asistivo, no diagnóstico. & OUT\_OF\_SCOPE: el sistema no diagnostica ni recomienda tratamiento. \\
-\hline
+Diagnóstico automático & Torres/Cejas & Mantener enfoque asistivo, no diagnóstico. & OUT\_OF\_SCOPE: el sistema no diagnostica ni recomienda tratamiento. \\\hline
 \end{longtable}
 }
 
@@ -306,12 +301,10 @@ Diagnóstico automático & Torres/Cejas & Mantener enfoque asistivo, no diagnós
 
 La validación cruzada profesional sigue pendiente. Para realizarla, un profesional debe analizar estudios de manera independiente; luego el sistema debe procesar esos mismos estudios; después deben compararse niveles, segmentaciones, mediciones, hallazgos, omisiones y falsos positivos; finalmente el profesional debe revisar discrepancias y documentar concordancias. Esa evidencia permitirá evaluar utilidad y errores sobre casos concretos, pero todavía no fue obtenida.
 
-El detalle ampliado de las sesiones VP-01 y VP-02, su metodología, la trazabilidad hacia decisiones de producto y las limitaciones de esta instancia se documentan en el Anexo~\ref{anexo:validacion-profesional}.
-\section{Limitaciones de la evaluación}
+El detalle ampliado de las sesiones VP-01 y VP-02, su metodología, la trazabilidad hacia decisiones de producto y las limitaciones de esta instancia se documentan en el Anexo~\ref{anexo:validacion-profesional}.\section{Limitaciones de la evaluación}
 \label{sec:resultados-limitaciones}
 
 La evaluación final permite afirmar la consistencia funcional y técnica del prototipo académico, pero no habilita conclusiones clínicas ni productivas fuera del alcance declarado. Las limitaciones principales son:
-
 \begin{enumerate}
     \item No se realizó validación clínica prospectiva ni retrospectiva con profesionales sobre una cohorte independiente.
     \item Las dos sesiones profesionales incorporadas son cualitativas, con muestra pequeña e intencional, y se realizaron sobre una versión intermedia del producto.
@@ -335,6 +328,10 @@ La evaluación final permite afirmar la consistencia funcional y técnica del pr
 
 El módulo sagital alcanza un coeficiente Dice macro de 0,893 sobre una partición retenida separada a nivel de paciente, supera el umbral establecido y se documenta como baseline técnico del prototipo. El módulo axial registra una métrica oficial Dice 0,679348283374592 e IoU 0,5699727598420694, por debajo del umbral; la lectura secundaria que excluye \texttt{raw\_0} alcanza Dice 0,8105661875685084 e IoU 0,6915400877715925, pero no reemplaza el gate oficial.
 
-Los resultados sostienen que la segmentación de estructuras lumbares en el plano sagital es viable con los datos y la arquitectura empleados, y que el módulo axial requiere trabajo adicional antes de considerarse consolidado. Ninguno de los dos resultados autoriza afirmaciones sobre desempeño clínico, que dependen de una validación que este trabajo no realiza y declara como fuera de su alcance.
+Los resultados sostienen que la segmentación de estructuras lumbares en el plano sagital es viable con los datos y la arquitectura empleados, y que el módulo axial requiere trabajo adicional antes de considerarse consolidado. Ninguno de los dos resultados autoriza afirmaciones sobre desempeño clínico.
 
-El aporte de este capítulo no reside únicamente en las cifras. Reside también en documentar un control de calidad que se aplicó y no se superó, una partición de prueba cuya independencia es parcial, una verificación de mediciones que no equivale a validación y una medición que se decidió no publicar. Un prototipo académico se evalúa por la correspondencia entre lo que afirma y lo que puede demostrar, y esa correspondencia exige informar también lo que no funcionó como se esperaba.
+En paralelo, la validación realizada sobre Google Cloud permitió verificar la factibilidad técnica de la arquitectura distribuida propuesta, incluyendo la comunicación autenticada con el módulo de inteligencia artificial privado, la persistencia transaccional y durable, la recuperación posterior a reinicios y el reprocesamiento. Las suites de software y el Browser E2E aportan evidencia adicional de integración funcional, sin convertir esas pruebas en validación clínica.
+
+Las dos sesiones de revisión profesional aportaron evidencia cualitativa sobre utilidad potencial, claridad visual, prioridades de medición y necesidad de mantener al profesional dentro del circuito. Esa evidencia no reemplaza la validación cruzada final, que permanece pendiente, ni permite afirmar sensibilidad, especificidad o eficacia clínica.
+
+El aporte de este capítulo no reside únicamente en las cifras. Reside también en documentar un control de calidad que se aplicó y no se superó, una partición de prueba cuya independencia es parcial, una verificación de mediciones que no equivale a validación y límites explícitos de la evidencia de integración e infraestructura.

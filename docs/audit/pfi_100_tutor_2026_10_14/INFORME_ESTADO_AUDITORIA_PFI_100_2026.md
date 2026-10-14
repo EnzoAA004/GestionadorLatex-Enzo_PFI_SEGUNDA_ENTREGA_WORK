@@ -6,8 +6,8 @@
 
 | Estado | Hallazgos |
 |---|---:|
-| Corrección aplicada | 19 |
-| Cerrado con evidencia | 3 |
+| Corrección aplicada | 18 |
+| Cerrado con evidencia | 4 |
 | Confirmado | 37 |
 | En investigación | 2 |
 | Bloqueado por evidencia | 6 |
@@ -25,7 +25,7 @@
 | 7 | Corrección aplicada | Sí | Gestionador LaTeX; Frontend; Backend | 304153cbdbc0a1908efa9d361d03bbe148d30a92 | Precisar alcances; no atribuir 11/11 al flujo global. |
 | 8 | Corrección aplicada | Parcial | Gestionador LaTeX | ecaf4cf6e4c57bb08f506167b430ca7b8289feb6 | Se alineó el cronograma académico con la entrega del 75 % y la defensa, separándolos del cierre de software y la validación profesional posterior. |
 | 9 | Corrección aplicada | Parcial | Gestionador LaTeX; Backend; Frontend | 11568e2e8d5a80b6551288fbca74c6d13bb0ffa3 | Se reconcilió el uso actual: Patient/patientId en API y persistencia Backend; subjectRef sigue activo en historial/comparación del Frontend; Demo Mode es descriptivo y el alta/selección completa desde navegador es parcial. |
-| 10 | En investigación | Parcial | Gestionador LaTeX; Backend; Frontend; AI Module |  | Cruzar cada elemento con alcance, RF y código; resolver solo los casos sin definición/estado consistente. |
+| 10 | Cerrado con evidencia | Sí | Gestionador LaTeX; Backend; Frontend; AI Module | pendiente de commit de esta fase | Se incorporó §5.5 con catálogo de extensiones complementarias y límites de aceptación, referenciado a §11 y sus estados técnicos. Demo Mode, PDF/JSON, Grad-CAM experimental, 67B2 con paridad no probada, 67C experimental y chat mock quedaron delimitados. “Sin LLM” se atribuye al preinforme por plantillas, no al chat auxiliar. Compilación correcta; revisión visual p. física 25. |
 | 11 | Corrección aplicada | Sí | Gestionador LaTeX; AI Module | 461cd1a5a7efed8840f7008116e713208cda125a | H11-A documenta 610 registros/184 pacientes y SHA del CSV. H11-B reporta 610/610 pares de rutas resueltos, 1.162 hashes sin fallos, cero grupos repetidos de imágenes/pares entre splits, y 55 grupos de máscaras repetidas (113 filas) dentro del mismo split/paciente. No valida alineación anatómica/semántica; test reutilizado y split histórico alternativo siguen como límites. |
 | 12 | Confirmado | Parcial | Gestionador LaTeX; AI Module |  | Se localizaron IoU agregadas axial y sagital en manifests/model cards; no se encontró HD95/NSD reportado. Mantener sus valores ligados a modelo, split y agregación, y declarar HD95/NSD no calculados. |
 | 13 | Corrección aplicada | Parcial | Gestionador LaTeX | 643e657502440e933c59f1356e3beae1edd5df44 | Se transcribieron los supuestos verificados del libro canónico y se aclaró que los clientes fraccionarios son equivalentes esperados del modelo, no observaciones comerciales. |
@@ -86,7 +86,7 @@
 
 ## Evidencia final de compilación
 
-La tesis compila en el worktree local con pdfLaTeX (MiKTeX 25.12) y Biber 2.21; el PDF tiene 232 páginas físicas (230 páginas numeradas en el cuerpo). SHA-256 del PDF: `903848C2013B2E5574FA702B71386BB2FAC1B68AD50959C2C6B5A15BB577F554`. La búsqueda del log final no reporta errores fatales, citas indefinidas ni referencias cruzadas indefinidas. En esta fase se revisaron visualmente las páginas físicas 29 (H63) y 42 (FODA); también se verificaron Lista de Figuras p.15 y Tabla 6.2 p.35. Las advertencias de composición en tablas preexistentes se mantienen como limitación visual menor.
+La tesis compila en el worktree local con pdfLaTeX (MiKTeX 25.12) y Biber 2.21; el PDF tiene 233 páginas físicas (231 páginas numeradas en el cuerpo). SHA-256 del PDF: `22303A2F5F9A4F51A2BB5CC236D025591C0950DBD8ADC174CAF406867DCE318A`. La búsqueda del log final no reporta errores fatales, citas indefinidas ni referencias cruzadas indefinidas. En esta fase se revisaron visualmente la nueva delimitación H10 (p. física 25), H63 (p.29) y la FODA (p.43); también se verificaron Lista de Figuras p.15 y Tabla 6.2 p.35. Las advertencias de composición en tablas preexistentes se mantienen como limitación visual menor.
 
 ## Hallazgos que mantienen límites o requieren evidencia adicional
 

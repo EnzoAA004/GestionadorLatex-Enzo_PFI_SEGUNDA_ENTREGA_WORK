@@ -6,7 +6,7 @@
 
 | Estado | Hallazgos |
 |---|---:|
-| Corrección aplicada | 18 |
+| Corrección aplicada | 19 |
 | Cerrado con evidencia | 4 |
 | Confirmado | 37 |
 | En investigación | 2 |

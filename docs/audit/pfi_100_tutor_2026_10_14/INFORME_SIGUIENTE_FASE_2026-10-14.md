@@ -19,4 +19,6 @@ pdfLaTeX/Biber/pdfLaTeX/pdfLaTeX finalizó con código 0. PDF: 233 páginas fís
 - Los hallazgos editoriales confirmados restantes requieren lotes separados con evidencia y QA individual. Los bloqueos H14/H31/H45/H56/H63/H66 no se cierran sin sus fuentes originales.
 - El acuerdo RSNA, artefactos de checkpoint/pesos, encuesta original, soportes de entrevistas y paquete fuente de máscaras aún no fueron aportados.
 
-Los únicos commits de esta fase son locales. No se modificaron los snapshots de integración ni Google Docs; no hubo push, merge o rebase.
+**Dictamen provisional H67:** permanece “En investigación”. La verificación previa solo cubría parcialmente las referencias citadas en la matriz; en esta tanda no se hizo cotejo primario completo de [1]–[40], sus DOI, metadatos editoriales y afirmaciones asociadas. No se alteraron citas ni bibliografía por conjetura. Para cerrarlo hace falta un barrido referenciado registro por registro, con una fuente editorial/DOI verificable y revisión de pertinencia para cada afirmación sustantiva.
+
+Commits locales de esta fase: `de37d9c` (H63/H56/H04 y PDF), `5688ffb` (referencias en matriz), `b549056` (alcance H10), `3d34839` (registro de H10) y `aca3d08` (matriz H10). No se modificaron los snapshots de integración ni Google Docs; no hubo push, merge o rebase.

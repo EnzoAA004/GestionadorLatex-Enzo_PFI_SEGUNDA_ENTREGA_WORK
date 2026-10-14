@@ -1,0 +1,60 @@
+\chapter{Conclusiones y trabajo futuro}
+\label{chap:conclusiones}
+
+\section{Conclusiones}
+
+El objetivo general consistió en diseñar y desarrollar un prototipo funcional que asistiera el análisis de RM lumbar mediante segmentación, mediciones y una salida revisable, sin reemplazar el criterio clínico. El trabajo integró esos componentes en un producto académico de alcance acotado y documentó tanto los resultados favorables como las capacidades que no superaron sus criterios de aceptación. La evidencia respalda factibilidad técnica e integración de software; no respalda una afirmación de eficacia diagnóstica ni de preparación para uso clínico.
+
+La revisión del estado del arte, el relevamiento exploratorio y la definición del alcance sustentaron la selección de SPIDER para el plano sagital y de Sudirman y Al-Kafri como fuente axial complementaria. Cinco entrevistas exploratorias y una encuesta informada con 167 respuestas aportaron necesidades de uso y criterios de diseño; dos sesiones posteriores permitieron recoger observaciones cualitativas sobre una versión intermedia. Estas actividades describen perspectivas de participantes y no constituyen una muestra representativa ni una validación clínica.
+
+La evaluación sagital sobre la partición retenida informada para SPIDER obtuvo Dice macro de 0,893, por encima del umbral de 0,70 adoptado en el proyecto. El resultado axial oficial fue Dice macro de 0,679348283374592 e IoU de 0,5699727598420694, por debajo del umbral. La lectura secundaria axial que excluye \texttt{raw\_0} no sustituye el criterio oficial. Además, la documentación reconoce discrepancias en los conteos de entrenamiento axial y que la partición de prueba ya había sido usada en una versión previa; esas condiciones limitan la reproducibilidad y la independencia de esa evaluación.
+
+El prototipo incorpora segmentación, mediciones geométricas, visualización superpuesta, revisión y edición profesional, persistencia y generación de resultados estructurados. La integración técnica y las pruebas de software informadas en el Capítulo~\ref{chap:resultados-evaluacion} demuestran recorridos funcionales dentro de los alcances descritos. No demuestran que las mediciones sean clínicamente exactas: falta compararlas contra mediciones realizadas por especialistas sobre los mismos estudios. Tampoco se realizó una comparación diagnóstica independiente ni una validación clínica.
+
+La viabilidad económica se estudió mediante escenarios y supuestos explícitos. Las cifras de adopción y disposición a pagar son proyecciones del modelo, no observaciones de mercado; el costo técnico informado deriva de una fixture sintética y de tarifas aplicadas, no de facturación ni de operación clínica. Por lo tanto, el análisis permite explorar sensibilidad financiera, pero no afirmar viabilidad comercial observada.
+
+\section{Cumplimiento de objetivos}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.40\textwidth} >{\raggedright\arraybackslash}p{0.43\textwidth} >{\raggedright\arraybackslash}p{0.12\textwidth}}
+\caption{Relación entre objetivos específicos, evidencia y grado de cumplimiento.}\label{tab:conclusiones-objetivos}\\
+\hline
+\textbf{Objetivo} & \textbf{Evidencia y límite} & \textbf{Grado} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Objetivo} & \textbf{Evidencia y límite} & \textbf{Grado} \\
+\hline
+\endhead
+\hline
+\endfoot
+Relevar antecedentes, datasets, herramientas y soluciones relacionadas. & Capítulos 6 y 7; quedan pendientes verificaciones bibliográficas señaladas en la auditoría. & Parcial \\
+Identificar la brecha funcional para un prototipo académico. & Capítulos 3 y 6: integración de segmentación, mediciones, visualización y salida editable. & Cumplido \\
+Definir el alcance del MVP y sus exclusiones. & Capítulo 5 y requisitos; la inferencia degenerativa automática permanece bloqueada y la validación clínica está excluida. & Cumplido \\
+Analizar necesidades de usuarios potenciales. & Cinco entrevistas exploratorias y encuesta informada con 167 respuestas; evidencia y denominadores de la encuesta requieren trazabilidad primaria. & Parcial \\
+Diseñar e implementar el pipeline de procesamiento y visualización. & Capítulos 10, 11 y 13 documentan ingesta, procesamiento, segmentación y visor; pruebas informadas en el Capítulo 13. & Cumplido \\
+Adaptar modelos sagital y axial para segmentar estructuras anatómicas. & El modelo sagital supera el umbral; el axial no lo alcanza y presenta conteos de entrenamiento pendientes de recuperación. & Parcial \\
+Desarrollar mediciones geométricas derivadas de máscaras. & Mediciones implementadas y contrastadas con rangos; no existe comparación formal con mediciones profesionales. & Parcial \\
+Diseñar interfaz, salida editable y preinforme revisable. & Producto integrado y recorridos funcionales informados; Patient en interfaz y algunas capacidades de inferencia permanecen parciales o bloqueadas. & Parcial \\
+Evaluar técnicamente el prototipo contra anotaciones de referencia. & Resultados Dice/IoU documentados; el axial no alcanza el gate y su partición aún no es plenamente reproducible. & Parcial \\
+Complementar la validación con revisión profesional y documentar límites. & Dos sesiones cualitativas; no se ejecutó comparación independiente contra profesionales ni validación clínica. & Parcial \\
+\hline
+\end{longtable}
+
+\section{Limitaciones}
+
+Los resultados dependen de datasets públicos concretos y no establecen generalización a otros centros, protocolos o poblaciones. La partición y los conteos del módulo axial requieren recuperar evidencia primaria. Las mediciones geométricas no se compararon con un patrón profesional común. Las sesiones cualitativas no miden exactitud ni impacto sobre el flujo de trabajo. Los recorridos de software se circunscriben al producto y fixtures descritos; no acreditan disponibilidad productiva, seguridad clínica ni cumplimiento regulatorio. Las restricciones de licencia de los datos y modelos utilizados requieren revisión por dataset y por uso previsto antes de cualquier explotación comercial.
+
+\section{Trabajo futuro}
+
+Las siguientes tareas se desprenden de los límites observados:
+\begin{itemize}
+  \item recuperar y reconciliar los manifests, notebooks y conteos de la partición axial; repetir una evaluación solo si se dispone de un protocolo independiente, documentado y autorizado;
+  \item realizar una comparación previamente protocolizada de mediciones con profesionales sobre estudios comunes, con criterios de anotación y análisis de variabilidad definidos;
+  \item verificar resultados por clase y paciente, y agregar análisis cualitativos únicamente cuando existan predicciones y referencias trazables;
+  \item completar el recorrido de identidad longitudinal Patient en la interfaz y mantener bloqueadas las inferencias degenerativas cuya paridad de preprocesamiento no esté demostrada;
+  \item revisar las licencias de datasets y modelos, privacidad, seguridad y requisitos regulatorios antes de considerar usos distintos del académico;
+  \item validar con usuarios el flujo, la usabilidad y los tiempos sobre estudios representativos, sin confundir esa evaluación con exactitud diagnóstica;
+  \item contrastar los supuestos de adopción, precios y costos con investigación de mercado y datos observados antes de formular conclusiones comerciales.
+\end{itemize}
+
+En síntesis, el proyecto deja un prototipo integrado y una base técnica reproducible en varios de sus componentes, junto con una evaluación que hace visibles sus propios límites. La contribución defendible es la factibilidad del flujo de apoyo y la trazabilidad de sus resultados; la validación clínica y la adopción real permanecen fuera de la evidencia obtenida.

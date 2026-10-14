@@ -14,7 +14,7 @@ La especificación adopta la distinción habitual entre requerimientos funcional
   \item User research: necesidades N-01 a N-12 y decisiones derivadas de las entrevistas EN-01 a EN-05.
   \item Alcance del producto: separación sagital–axial, revisión humana, salida no diagnóstica, ingesta de estudios DICOM completos (con MHA/NIfTI como compatibilidad técnica) y exclusiones clínicas.
   \item Implementación real: Frontend, Backend y AI Module, junto con PostgreSQL, assets durables, contratos y pruebas.
-  \item Roadmap técnico: P9, P10, P10.5 a P10.9, despliegue y validación DEV en Google Cloud y evolución posterior de la comparación longitudinal descriptiva.
+  \item Roadmap técnico: P9, P10, P10.5 a P10.9, despliegue y validación DEV en Google Cloud, y evolución de la comparación longitudinal descriptiva para estudios reales no demo.
 \end{itemize}
 
 No se incorporan requerimientos únicamente para completar una cantidad. Cada elemento debe estar vinculado con una necesidad, una capacidad comprobable o una decisión explícita de alcance. Cuando una función todavía no está implementada, se indica como «En curso» o «Futuro»; no se la presenta como terminada.
@@ -211,7 +211,7 @@ RNF-03 & El desarrollo debe ser reproducible sobre datos públicos o documentado
 RNF-04 & El sistema debe preservar trazabilidad y auditabilidad. & Una salida puede vincularse con estudio, plano, corrida, modelo, artifact, input, corte, medición, asset y revisión. & Prioridad: Alta Estado: Implementado \\
 RNF-05 & El sistema debe degradarse de forma explícita ante indisponibilidad del AI Module. & La interfaz y la API distinguen servicio disponible, degradado y error; no presentan fallback contractual como inferencia real. & Prioridad: Alta Estado: Parcial \\
 RNF-06 & La comunicación y el acceso deben aplicar controles de seguridad. & Las APIs protegidas exigen autenticación, autorización por rol y manejo seguro de secretos y variables de entorno. & Prioridad: Alta Estado: Consolidado para el checkpoint P10.9; hardening productivo posterior. \\
-RNF-07 & Los datos personales del paciente deben protegerse conforme a la Ley N.º 25.326. & La identidad longitudinal de-identificada se representa mediante \texttt{Patient}/\texttt{patientReference}, y los estudios se asocian mediante \texttt{patientId}. \texttt{subjectRef} se conserva únicamente como atributo legacy/de compatibilidad de \texttt{Study}. & Prioridad: Alta Estado: Implementado como criterio de diseño \\
+RNF-07 & Los datos personales del paciente deben protegerse conforme a la Ley N.º 25.326. & La identidad canónica de-identificada se representa mediante \texttt{Patient}/\texttt{patientReference}, y los estudios se asocian mediante \texttt{patientId}. \texttt{subjectRef} se conserva como atributo legacy/de compatibilidad de \texttt{Study} y aún sirve de clave al historial visible del Frontend; no reemplaza la asociación canónica ni habilita uso de identificadores clínicos directos. La gestión completa de Patient desde el navegador permanece parcial. & Prioridad: Alta Estado: Implementado como criterio de diseño \\
 RNF-08 & La solución debe ser modular y mantenible. & Frontend, Backend y AI Module conservan responsabilidades separadas, contratos explícitos y pruebas por repositorio. & Prioridad: Alta Estado: Implementado \\
 RNF-09 & Los contratos deben ser interoperables y versionados. & Los cambios incompatibles se identifican mediante versión, fixtures y estrategia legacy; no se dependen de paths internos. & Prioridad: Alta Estado: En curso \\
 RNF-10 & El rendimiento debe ser compatible con un flujo interactivo y con límites controlados. & Las cargas, timeouts y tamaños máximos se configuran; el usuario recibe estado de procesamiento y no queda ante una espera silenciosa. & Prioridad: Media Estado: Parcial \\
@@ -270,7 +270,7 @@ RV-03 & Validar usabilidad y recorrido end-to-end del producto actualizado. & Se
 \endfoot
 HU-01 & N-05, seguridad & RF-11, RF-12; RNF-06 & Frontend + Backend & Tests de autenticación, renovación, logout y autorización \\
 HU-02 & N-07 & RF-13, RF-17 & Frontend + Backend + PostgreSQL & Captura de worklist y prueba de consulta persistida \\
-HU-03 & N-10, privacidad & RF-14; RNF-07 & Frontend + Backend + PostgreSQL & \texttt{Patient} creado o seleccionado mediante \texttt{patientReference} de-identificado y estudio asociado por \texttt{patientId}; \texttt{subjectRef} queda fuera del criterio canónico y solo persiste por compatibilidad. \\
+HU-03 & N-10, privacidad & RF-14; RNF-07 & Frontend + Backend + PostgreSQL & \texttt{Patient} creado o seleccionado mediante \texttt{patientReference} de-identificado y estudio asociado por \texttt{patientId}; el historial actual puede usar \texttt{subjectRef} legacy, sin sustituir la relación canónica Patient--Study ni completar todavía la gestión de Patient en navegador. \\
 HU-04 & N-03 & RF-01, RF-07, RF-15 & Frontend + Backend + AI Module & Carga de estudio DICOM completo, identificación/registro de series compatibles y corrida multiplanar registrada. \\
 HU-05 & N-03, N-06 & RF-15, RF-16; RNF-03, RNF-04 & Backend + AI Module & Contrato con runId, traceId, modelo, hash y modo efectivo \\
 HU-06 & N-01 & RF-02, RF-20 & Frontend + Backend + AI Module & Overlay autorizado sobre la imagen correspondiente \\

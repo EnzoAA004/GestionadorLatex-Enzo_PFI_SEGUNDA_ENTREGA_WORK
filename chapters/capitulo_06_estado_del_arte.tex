@@ -133,7 +133,7 @@ Los antecedentes técnicos demuestran que la segmentación lumbar automática es
 
 \section{Mediciones cuantitativas derivadas de segmentaciones}
 
-Las máscaras de segmentación pueden emplearse como base para obtener mediciones geométricas, como alturas discales, áreas aproximadas, diámetros del canal y dimensiones vertebrales. Perumal et al. proponen un pipeline de aprendizaje profundo que mide de forma automática el diámetro anteroposterior del saco tecal en RM lumbar sagital, evidenciando el interés por reducir la subjetividad y la variabilidad entre observadores en las mediciones de estructuras espinales \parencite{perumal_thecal_sac_2026}.
+Las máscaras de segmentación pueden emplearse como base para obtener mediciones geométricas, como alturas discales, áreas aproximadas, diámetros del canal y dimensiones vertebrales. Nixon et al. proponen un pipeline de aprendizaje profundo para medir el diámetro anteroposterior del saco tecal en RM lumbar sagital. Validaron la medición contra el promedio de dos radiólogos en cohortes interna y externa e informaron MAE global de 0,994 mm; esos resultados pertenecen a dicho estudio y no se trasladan al PFI \parencite{perumal_thecal_sac_2026}.
 
 En el contexto del PFI, las mediciones no deben presentarse como inferencias diagnósticas autónomas. Deben formularse como salidas geométricas derivadas de máscaras, revisables por el profesional. Esta precisión evita confundir cuantificación anatómica con diagnóstico clínico. Por ejemplo, un diámetro del canal puede ser un dato cuantitativo útil, pero su interpretación como estenosis leve, moderada o severa excede el MVP si no existe validación clínica específica.
 
@@ -163,19 +163,19 @@ Además de los antecedentes académicos, existen soluciones comerciales que abor
 
 CoLumbo fue registrado ante la FDA como software de postprocesamiento y medición para imágenes DICOM de RM lumbar. Su documentación indica que provee mediciones cuantitativas, segmentación de características, etiquetado por umbrales y exportación de resultados a un reporte revisable por el usuario \parencite{fda_columbo_2022}. Además, declara explícitamente que no produce ni recomienda diagnóstico o tratamiento médico, y que el usuario debe revisar y aprobar los resultados.
 
-Este producto es la referencia comercial más cercana al flujo funcional del PFI. Sin embargo, su naturaleza es distinta: se trata de software médico regulado y cerrado. El PFI no busca replicar su madurez clínica ni regulatoria, sino construir un prototipo académico reproducible que permita auditar datos, arquitectura, mediciones y validación.
+La base de datos de la FDA registra además una decisión de equivalencia sustancial para CoLumbo K241211 el 15 de agosto de 2024 \parencite{fda_columbo_2024}; se trata de un registro distinto del K220497 citado en el documento. Este producto es la referencia comercial más cercana al flujo funcional del PFI. Sin embargo, su naturaleza es distinta: se trata de software médico regulado y cerrado. El PFI no busca replicar su madurez clínica ni regulatoria, sino construir un prototipo académico reproducible que permita auditar datos, arquitectura, mediciones y validación.
 
 \subsection{MSKai}
 
 MSKai también fue registrado como software automatizado de procesamiento radiológico aplicado a RM lumbar T2 \parencite{fda_mskai_2024}. Su documentación lo vincula con identificación, segmentación, medición y exportación de resultados para revisión profesional. Esto confirma que la categoría tecnológica no es aislada y que existe más de una solución orientada a automatizar mediciones y reporte en columna lumbar.
 
-La diferencia con el PFI reside nuevamente en el alcance. MSKai apunta a un entorno clínico comercial; el prototipo académico se limita a segmentación anatómica primaria, mediciones simples, visualización superpuesta y salida editable, sin diagnóstico autónomo ni certificación.
+La base de datos de la FDA registra la decisión de equivalencia sustancial de MSKai K240793 el 16 de diciembre de 2024. La indicación y las funciones concretas deben leerse en el resumen regulatorio del dispositivo, no inferirse únicamente del registro. La diferencia con el PFI reside nuevamente en el alcance. MSKai apunta a un entorno clínico comercial; el prototipo académico se limita a segmentación anatómica primaria, mediciones simples, visualización superpuesta y salida editable, sin diagnóstico autónomo ni certificación.
 
 \subsection{RemedyLogic AI MRI Lumbar Spine Reader}
 
 RemedyLogic AI MRI Lumbar Spine Reader (RAI) fue registrado como software de procesamiento radiológico automatizado para RM lumbar \parencite{fda_remedylogic_2024}. Su foco se relaciona con mediciones cuantitativas y asistencia a la revisión por usuarios calificados. Este antecedente refuerza que la automatización de mediciones lumbares constituye una línea real dentro del software médico.
 
-RAI, al igual que los otros productos comerciales, opera como una solución cerrada de mercado. Para el PFI, su valor principal es contextual: confirma necesidad y madurez de la categoría, pero no reemplaza el aporte académico de construir un pipeline transparente y reproducible.
+La base de datos de la FDA también incluye ScanDiags Ortho L-Spine MR-Q (K242607), con decisión de equivalencia sustancial del 21 de febrero de 2025 \parencite{fda_scandiags_2025}. Su inclusión amplía el panorama de soluciones regulatorias para RM lumbar, pero no permite asumir equivalencia de indicación o desempeño con los productos anteriores. RAI, al igual que los otros productos comerciales, opera como una solución cerrada de mercado. Para el PFI, su valor principal es contextual: confirma necesidad y madurez de la categoría, pero no reemplaza el aporte académico de construir un pipeline transparente y reproducible.
 
 \subsection{Prenuvo}
 
@@ -183,7 +183,7 @@ Prenuvo opera servicios de resonancia magnética de cuerpo completo (whole-body 
 
 \subsection{Conclusión parcial sobre competencia}
 
-La existencia de CoLumbo, MSKai y RAI no invalida el proyecto. Por el contrario, confirma que el flujo de RM lumbar, segmentación, mediciones y salida revisable responde a una necesidad real. La diferencia es que estos productos son cerrados, comerciales y regulados, mientras que el PFI se formula como prototipo académico auditable. La Tabla~\ref{tab:estado-arte-soluciones} sintetiza esta comparación entre las cuatro soluciones comerciales o cuasi-comerciales relevadas y el alcance del PFI.
+La existencia de CoLumbo, MSKai, RAI y ScanDiags Ortho L-Spine MR-Q no invalida el proyecto. Por el contrario, confirma que el flujo de RM lumbar, segmentación, mediciones y salida revisable responde a una necesidad real. La diferencia es que estos productos son cerrados, comerciales y regulados, mientras que el PFI se formula como prototipo académico auditable. La Tabla~\ref{tab:estado-arte-soluciones} sintetiza esta comparación entre las soluciones comerciales o cuasi-comerciales relevadas y el alcance del PFI.
 
 \begingroup
 \small
@@ -209,8 +209,11 @@ CoLumbo & Software médico regulado & Segmentación, medición, etiquetado por u
 MSKai & Software médico regulado & Análisis de RM lumbar T2 con segmentación, medición y exportación de resultados. & Enfoque comercial. El PFI se limita a prototipo técnico validable sobre datos públicos. \\
 \hline
 RemedyLogic RAI & Software médico regulado & Postprocesamiento y mediciones cuantitativas para revisión profesional. & Orientado a integración clínica. El PFI no contempla PACS/RIS ni uso clínico real. \\
+ScanDiags Ortho L-Spine MR-Q & Software médico regulado & Procesamiento automatizado de imágenes radiológicas; revisar indicación en el resumen FDA. & Solución cerrada; su registro no demuestra equivalencia de alcance o desempeño con el PFI. \\
 \hline
 Prenuvo & Servicio comercial de imagen + IA (no regulado como dispositivo médico) & Segmentación de cuerpo completo y reporte estructurado, con revisión médica en triple chequeo. & Servicio comercial cerrado y centrado en whole-body. El PFI es académico, acotado a lumbar y reproducible sobre datos públicos. \\
+\hline
+PACS nativo (EN-03/EN-05) & Sustituto institucional & Delimitación de niveles vertebrales y mediciones manuales en algunos flujos existentes, según entrevistas. & El alcance depende del centro y producto. El PFI no demostró superioridad comparativa; propone mediciones trazables y revisión en un prototipo académico. \\
 \hline
 PFI propuesto & Prototipo académico & Segmentación sagital de vértebras, discos y canal sobre SPIDER; módulo axial complementario sobre los niveles L3/L4-L5/S1 con anotaciones nativas de Sudirman; mediciones simples derivadas de ambos planos; visualización superpuesta; salida editable. & Aporte centrado en integración reproducible, trazabilidad y validación técnica/cualitativa sobre dos planos de adquisición, sin diagnóstico autónomo ni integración hospitalaria. \\
 \hline
@@ -324,7 +327,9 @@ LumbarDISC [2] & Dataset complementario & 2.697 pacientes; 8.593 series. & Clasi
 \hline
 SpineNetV2 [6, 7] & Sistema académico & Dataset clínico privado. & Detección, etiquetado y gradación radiológica. & Antecedente de análisis lumbar automatizado. & Clasifica/gradúa; no entrega máscaras para mediciones del MVP. Uso: contexto, no base principal. \\
 \hline
-Perumal et al. [9] & Trabajo técnico & Propuesta técnica (revisada por pares). & Segmentación y medición cuantitativa. & Refuerza la viabilidad de medir estructuras espinales. & No resuelve salida editable ni validación del usuario. Uso: justificación del módulo de medición. \\
+Nixon et al. [9] & Trabajo técnico & Propuesta técnica (revisada por pares). & Segmentación y medición cuantitativa. & Refuerza la viabilidad de medir estructuras espinales. & No resuelve salida editable ni validación del usuario. Uso: justificación del módulo de medición. \\
+\hline
+PACS nativo (EN-03/EN-05) & Sustituto institucional & Delimitación de niveles vertebrales y herramientas manuales de medición, según las entrevistas. & Disponible dentro de algunos flujos existentes, pero su alcance varía por centro y producto. & No se evaluó comparativamente; el PFI busca integrar mediciones trazables y revisión en un prototipo académico. Uso: alternativa parcial a contrastar. \\
 \hline
 CoLumbo [10] & Producto regulado & RM lumbar DICOM. & Segmentación, medición y reporte revisable. & Valida relevancia comercial del flujo propuesto. & Producto cerrado y clínico. Uso: competencia directa. \\
 \hline

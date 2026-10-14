@@ -2,8 +2,8 @@
 
 Fecha de corte: 2026-10-14. Compilador: pdfTeX/pdfLaTeX de MiKTeX 25.12. Bibliografía: Biber 2.21. Flujo limpio: pdfLaTeX, Biber, pdfLaTeX, pdfLaTeX; tras el ajuste visual de encabezados se ejecutó una última pasada pdfLaTeX exitosa.
 
-Resultado de esta revisión: PDF válido de 233 páginas físicas (231 numeradas en el cuerpo), 8,890,965 bytes. SHA-256: 22303A2F5F9A4F51A2BB5CC236D025591C0950DBD8ADC174CAF406867DCE318A. Flujo ejecutado: pdfLaTeX 25.12, Biber 2.21, pdfLaTeX y pdfLaTeX; las cuatro ejecuciones finalizaron con código 0.
+Resultado de esta revisión: PDF válido de 234 páginas físicas (232 numeradas en el cuerpo), 8,897,438 bytes. SHA-256: `01aa7b349a782dc95a49d561f5c31c8ca38da6252d8e67f471936f56737512b0`. El flujo final de pdfLaTeX concluyó con código 0 en todas las pasadas; Biber 2.21 finalizó con código 0. Se revisaron el log final y referencias cruzadas, sin errores fatales ni citas/referencias indefinidas.
 
-El log final no contiene error fatal ni referencias o citas indefinidas. En esta revisión se inspeccionaron visualmente H63 en la página física 29, la FODA en la página 43 y la nueva delimitación H10 en la página 25; se extrajo texto de la Lista de Figuras física 15 y Tabla 6.2 física 35. También se revisaron figuras de arquitectura representativas y el bloque H11 actualizado. El PDF y los logs conservados permiten reproducir la verificación.
+En esta revisión se inspeccionaron visualmente el desglose histórico H04 del Anexo E (página física 205), su explicación en el Capítulo 13 (página física 139) y el panel de contenido actualizado. Se confirmó que la tabla de H04 no superpone valores ni desborda hashes/rutas. Se mantienen como referencia las revisiones visuales previas de H63 (p. física 29), FODA (p. 43), H10 (p. 25), Lista de Figuras (p. 15), Tabla 6.2 (p. 35), arquitectura y H11.
 
-Persisten avisos de composición en algunas tablas preexistentes; no se detectaron solapamientos en la nueva tabla de supuestos ni defectos visuales en las páginas revisadas.
+Persisten avisos de composición en algunas tablas preexistentes; no se detectaron defectos visuales en las páginas H04 revisadas.

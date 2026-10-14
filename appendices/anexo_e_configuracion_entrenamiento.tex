@@ -150,3 +150,38 @@ El handoff de H11-A, junto con el resumen y reporte JSON anonimizado de H11-B, s
 Cada artifact final conserva en su manifest la correspondencia de clases, la configuración de la arquitectura, la dimensión de entrada, las métricas obtenidas, el estado de entrenamiento y un conjunto de identificadores criptográficos que vinculan el modelo con el código y los datos que lo produjeron: el resumen del índice de entrenamiento, el del código de la arquitectura, el commit del repositorio y la referencia al cuaderno de origen.
 
 El runtime valida esa correspondencia antes de habilitar un modelo. Si los nombres de clase declarados en el código no coinciden con los del manifest, el modelo queda deshabilitado en lugar de ejecutarse con una interpretación distinta de sus salidas.
+
+\phantomsection
+\section*{E.6 Desglose histórico sagital recuperado}
+\addcontentsline{toc}{section}{E.6 Desglose histórico sagital recuperado}
+\label{anexo:entrenamiento-e6-h04-historico}
+
+El paquete anonimizado de auditoría H04 contiene un inventario de un archivo histórico llamado \texttt{final\_test\_metrics.json}, con las métricas resumidas en la Tabla~\ref{tab:anexo-e-h04-metricas-historicas}. El SHA-256 del archivo original que informa ese inventario es \texttt{0b23514d\allowbreak 88f75436\allowbreak 154fc66c\allowbreak bcf1e62a\allowbreak 71c2b220\allowbreak 86624473\allowbreak 44e081b2\allowbreak d344818eb}; el archivo completo no se encuentra en el paquete ni en el snapshot local inspeccionado, por lo que no fue posible recalcular ese hash. En consecuencia, las cifras son evidencia histórica secundaria pendiente de autenticación binaria y no representan una nueva inferencia ni un recálculo efectuado durante esta auditoría.
+
+\begin{table}[H]
+\small
+\centering
+\caption{Métricas por clase transcritas del inventario anonimizado del reporte histórico sagital.}
+\label{tab:anexo-e-h04-metricas-historicas}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{0.23\textwidth}|>{\centering\arraybackslash}p{0.18\textwidth}|>{\centering\arraybackslash}p{0.18\textwidth}|>{\centering\arraybackslash}p{0.19\textwidth}|>{\centering\arraybackslash}X|}
+\hline
+\textbf{Clase} & \textbf{Dice} & \textbf{IoU} & \textbf{Cortes GT} & \textbf{Cortes con predicción} \\
+\hline
+Fondo (excluido del macro) & 0,993858 & 0,987790 & 1.218 & 1.218 \\
+\hline
+Grupo vertebral & 0,908631 & 0,832561 & 1.113 & 1.107 \\
+\hline
+Canal & 0,907121 & 0,830029 & 465 & 483 \\
+\hline
+Grupo discal & 0,864543 & 0,761405 & 887 & 885 \\
+\hline
+Macro de primer plano (clases 1--3) & 0,893432 & 0,807998 & -- & -- \\
+\hline
+\end{tabularx}
+\end{table}
+
+Los valores Dice e IoU de la tabla se redondean a seis decimales para facilitar la lectura; la precisión completa permanece en el JSON anonimizado archivado.
+
+El inventario atribuye el reporte a 1.218 cortes de $256 \times 256$ y a 33 pacientes de prueba según el manifest; este cuaderno no vuelve a contar pacientes. El macro es aritmético entre las tres clases de primer plano, después de agregar por clase sobre píxeles/cortes; no es un macro por paciente ni un resultado del benchmark oculto SPIDER. El hash del índice de entrenamiento consignado es \texttt{2720b721\allowbreak 8c92870f\allowbreak 6f0a000b\allowbreak 57111ed3\allowbreak 6b5cf3b7\allowbreak 8c716f24\allowbreak 4f427ca7\allowbreak fee4a4ba}, coincidente con el manifest y el cuaderno de entrenamiento inspeccionados. Sin embargo, el snapshot contiene el checkpoint runtime de SHA-256 \texttt{cf11dcc0\allowbreak ad77a7c7\allowbreak 87e64a79\allowbreak 6a2fd739\allowbreak 8ef906ad\allowbreak d461cef4\allowbreak b3d61f1a\allowbreak 5238e944}, mientras que el inventario informa un best checkpoint de entrenamiento con SHA-256 \texttt{fb124f0b\allowbreak 1e73a5f3\allowbreak e548769b\allowbreak f8370892\allowbreak 95ce8e02\allowbreak c33fb34e\allowbreak d3be7fc3\allowbreak c2142a39}. No se estableció equivalencia de tensores, mapping, arquitectura y protocolo entre ambos; no se infiere esa equivalencia a partir de la coincidencia de métricas.
+
+El paquete anonimizado conserva además el resultado \texttt{NO\_RECALCULADO}: no contenía las predicciones/arrays ni el checkpoint original requeridos para repetir la evaluación. El ZIP, el cuaderno H04 y el handoff recibido se archivan en \path{docs/audit/pfi_100_tutor_2026-10-14/evidencias/fuentes_h04_2026-10-14/}. H04 permanece parcial hasta localizar el JSON original y resolver la procedencia del checkpoint y del protocolo.

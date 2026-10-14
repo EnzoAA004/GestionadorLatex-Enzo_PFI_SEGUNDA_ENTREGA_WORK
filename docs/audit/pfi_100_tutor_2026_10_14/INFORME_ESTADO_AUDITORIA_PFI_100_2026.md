@@ -86,11 +86,11 @@
 
 ## Evidencia final de compilación
 
-La tesis compila en el worktree local con pdfLaTeX (MiKTeX 25.12) y Biber 2.21; el PDF tiene 233 páginas físicas (231 páginas numeradas en el cuerpo). SHA-256 del PDF: `22303A2F5F9A4F51A2BB5CC236D025591C0950DBD8ADC174CAF406867DCE318A`. La búsqueda del log final no reporta errores fatales, citas indefinidas ni referencias cruzadas indefinidas. En esta fase se revisaron visualmente la nueva delimitación H10 (p. física 25), H63 (p.29) y la FODA (p.43); también se verificaron Lista de Figuras p.15 y Tabla 6.2 p.35. Las advertencias de composición en tablas preexistentes se mantienen como limitación visual menor.
+La tesis compila en el worktree local con pdfLaTeX (MiKTeX 25.12) y Biber 2.21; el PDF tiene 234 páginas físicas (232 páginas numeradas en el cuerpo). SHA-256 del PDF: `01AA7B349A782DC95A49D561F5C31C8CA38DA6252D8E67F471936F56737512B0`. La búsqueda del log final no reporta errores fatales, citas indefinidas ni referencias cruzadas indefinidas. En esta fase se revisaron visualmente H04 en el Capítulo 13 (p. física 139) y el Anexo E (p.205), además de las revisiones previas de H10, H63, FODA, Lista de Figuras y Tabla 6.2. Las advertencias de composición en tablas preexistentes se mantienen como limitación visual menor.
 
 ## Hallazgos que mantienen límites o requieren evidencia adicional
 
-- **H04:** el artefacto axial trae métricas por clase; el sagital solo trae macro Dice/IoU. No se reentrenó ni se extrapolaron métricas.
+- **H04:** el ZIP anonimizado aporta un inventario de un reporte histórico sagital con métricas Dice/IoU por clase; el JSON original no está incluido y su SHA-256 no pudo recalcularse. Los valores se documentan como evidencia histórica secundaria, no como evaluación nueva. El checkpoint del snapshot coincide con el SHA runtime `cf11…`, pero no se resolvió su diferencia con el SHA del mejor checkpoint de entrenamiento `fb124…`. H04 sigue parcial.
 - **H63:** las 1.545 no son un inventario verificado de máscaras del proyecto; la cifra se conserva únicamente como 515×3 combinaciones nominales y H63 sigue bloqueado.
 - **H56:** se matizó la afirmación de reproducibilidad; el acuerdo RSNA y términos de checkpoint/pesos siguen sin verificarse.
 - **H12:** se localizaron IoU por modelo; no se localizaron valores HD95/NSD, que quedan como no calculados.

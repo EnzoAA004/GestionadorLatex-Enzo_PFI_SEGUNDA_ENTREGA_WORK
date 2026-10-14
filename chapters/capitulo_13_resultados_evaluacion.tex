@@ -74,6 +74,8 @@ La diferencia entre las dos lecturas del modelo axial requiere explicación, por
 
 El desempeño secundario excluyendo \texttt{raw\_0} es de 0,8105661875685084 para Dice y 0,6915400877715925 para IoU. Esa lectura ayuda a describir la segmentación de las estructuras de interés, pero no sustituye la métrica oficial del artifact: \texttt{qualityGatePassed=false}, con razón \texttt{dice\_macro\_foreground\_below\_threshold}.
 
+Para el modelo sagital SPIDER se recuperó posteriormente un inventario anonimizado que transcribe valores por clase de un reporte histórico \texttt{final\_test\_metrics.json}. La fuente original no está incluida en el paquete y su hash informado no se pudo recalcular; por eso estos valores se presentan como evidencia histórica secundaria, no como una evaluación repetida o una verificación independiente del artifact. El detalle y sus límites de procedencia se consignan en la sección E.6 del Anexo E. El macro de primer plano coincide con el valor del manifest, pero esta coincidencia no demuestra por sí sola identidad de pesos ni autenticidad del reporte.
+
 \section{Umbral de calidad y estado del artifact axial}
 
 El proyecto estableció un umbral de 0,70 sobre el coeficiente Dice macro de primer plano como condición para promover un artifact a la categoría de baseline técnico. El umbral se acompaña de tres condiciones adicionales no configurables: la partición retenida debe estar separada a nivel de paciente, el informe debe reportar de forma explícita el desempeño sobre la clase de fondo del conjunto de origen, y debe incluir la intersección sobre unión además del coeficiente Dice. La generación de una partición nueva requiere además una habilitación manual.

@@ -51,6 +51,14 @@ Incorporar explicación concisa:
 
 > La partición E9 del subconjunto axial curado comprende 610 registros asociados a 184 identificadores de paciente, distribuidos en 427 registros de entrenamiento (128 pacientes), 81 de validación (27 pacientes) y 102 de prueba (29 pacientes). El archivo `E9_t2_final_labels_curated_split.csv` coincide por SHA-256 con el manifest del artifact V2, y la auditoría de sus identificadores no encontró pacientes compartidos entre particiones ni filas idénticas duplicadas. Estos 610 registros no representan la totalidad del dataset original. La evaluación del test axial es comparativa, dado que esa partición ya había sido utilizada con un baseline anterior. La auditoría de duplicados por contenido y la comparación con un split histórico alternativo quedan delimitadas como verificaciones no ejecutadas.
 
+## H11-B — auditoría posterior de contenido
+
+El 14 de octubre de 2026 se aportó un reporte anonimizado adicional generado en Colab. Para las 610 filas del CSV se resolvieron exactamente 610 rutas de imagen y 610 rutas de máscara, sin filas no resueltas. Se calcularon hashes de contenido de 1.162 archivos distintos, sin errores de lectura. El reporte no encontró grupos repetidos de imágenes ni de pares imagen-máscara entre splits. Encontró 55 grupos de contenido repetido en máscaras (113 filas); esos grupos se mantuvieron dentro del mismo split y paciente, sin cruces entre splits o pacientes.
+
+La igualdad de contenido no demuestra que una máscara esté alineada anatómicamente con la imagen ni que sus etiquetas sean semánticamente correctas. La repetición de máscaras (por ejemplo, vacías) tampoco prueba leakage por sí sola. H11-B no evalúa predicciones, no modifica métricas/manifests/gates y no convierte el test axial E9 —usado previamente en `axial-full-v1`— en una evaluación independiente. La diferencia con el split histórico alternativo sigue sin resolverse.
+
+Se preservaron el ZIP con el resumen y el JSON anonimizados y el notebook v2 bajo `evidencias/fuentes_francisco_2026-10-14/`; los contenidos extraídos están en `evidencias/H11B_resultado_anonimizado/`. No se incorporaron rutas, identificadores de pacientes, CSV crudo, imágenes médicas ni credenciales.
+
 Conservar una precisión sobre los “estudios”: los números 128/27/29 provienen de identificadores de paciente; no dar por probados estudios únicos adicionales.
 
 También revisar `chapters/capitulo_11_capacidades_prototipo.tex` y `appendices/anexo_e_configuracion_entrenamiento.tex` para quitar únicamente afirmaciones ya refutadas por la auditoría (como que falta recuperar el conteo de entrenamiento). Mantener métricas Dice/IoU originales, calidad `candidate` y advertencia por reutilización de test.

@@ -128,7 +128,10 @@ La correspondencia queda congelada en el manifest del artifact y replicada en la
 % FIGURE_TYPE: OVERLAY
 % SOURCE_VISUAL_MISSING_FROM_DOCX
 % VISUAL_SOURCE_REQUIRED_FROM_AUTHOR: YES
-\addcontentsline{lof}{figure}{\protect\numberline{11.4}Workspace axial con la máscara superpuesta sobre la imagen original. Fuente: elaboración propia.}
+% La entrada de lista representa una figura pendiente; avanzar el contador
+% evita duplicar el número de la figura siguiente con caption automático.
+\refstepcounter{figure}\label{fig:cap11-workspace-axial}
+\addcontentsline{lof}{figure}{\protect\numberline{\thefigure}Workspace axial con la máscara superpuesta sobre la imagen original. Fuente: elaboración propia.}
 Qué evidencia lo respalda. El gate oficial del artifact axial registra \texttt{qualityGatePassed=false}. La métrica oficial de primer plano es Dice macro \(0{,}679348283374592\) e IoU macro \(0{,}5699727598420694\), con razón \texttt{dice\_macro\_foreground\_below\_threshold}. Como análisis secundario, excluyendo la clase \texttt{raw\_0}, el Dice es \(0{,}8105661875685084\) y el IoU \(0{,}6915400877715925\). Esta segunda lectura ayuda a interpretar el comportamiento sobre estructuras anatómicas, pero no reemplaza la métrica oficial del gate.
 % CROSS_REFERENCE_MAPPING_REQUIRED
 Qué límites tiene. El artifact no alcanzó el umbral de calidad de 0,70 en la métrica que lo evalúa, que incluye las clases de fondo, y permanece registrado como candidato sin promoverse a baseline técnico. El umbral no se modificó para acomodar el resultado. La partición de prueba había sido evaluada previamente para una versión anterior del mismo modelo, de modo que el resultado es comparativo y no una validación sobre datos enteramente no observados. La partición E9 del subconjunto axial curado comprende 427 registros de entrenamiento (128 pacientes), 81 de validación (27 pacientes) y 102 de prueba (29 pacientes); la identidad del CSV frente al manifest y la separación por identificador de paciente fueron verificadas. Estos valores no representan el conjunto completo. Permanecen sin verificar los duplicados por contenido y la comparación con el split histórico alternativo. El hallazgo documental \#11 queda parcialmente resuelto, con esos controles pendientes. El capítulo 13 desarrolla el alcance de la auditoría.
@@ -223,7 +226,9 @@ Cómo funciona. El contrato volumétrico define, por serie, el plano, la cantida
 % FIGURE_TYPE: RESULT_VIEW
 % SOURCE_VISUAL_MISSING_FROM_DOCX
 % VISUAL_SOURCE_REQUIRED_FROM_AUTHOR: YES
-\addcontentsline{lof}{figure}{\protect\numberline{11.6}Navegación por cortes del volumen con el resultado vinculado a su corte. Fuente: elaboración propia.}
+% La entrada pendiente también ocupa su número para preservar la secuencia.
+\refstepcounter{figure}\label{fig:cap11-navegacion-cortes}
+\addcontentsline{lof}{figure}{\protect\numberline{\thefigure}Navegación por cortes del volumen con el resultado vinculado a su corte. Fuente: elaboración propia.}
 Qué evidencia lo respalda. El procesamiento de la serie completa está implementado y los assets se persisten y se sirven por corte. El frontend consume la integración contractual P10.9 y presenta el catálogo full-series en un visor navegable. Las pruebas verifican la cantidad y el orden de los cortes, el eje, el índice computacional y la numeración mostrada, con índice interno desde cero y numeración de interfaz desde uno.
 
 Qué límites tiene. La superposición automática no se presupone para todos los cortes de todas las series: solo se muestra donde hay resultado, y los cortes sin inferencia lo declaran en lugar de presentarse vacíos. El visor no simula una correspondencia espacial entre el plano sagital y el axial cuando la metadata geométrica no permite demostrarla; la relación entre planos se establece por la asignación de nivel de la sección~\ref{sec:cap-asignacion-nivel-anatomico} y no por una superposición supuesta. La integración de los contratos congelados en el frontend está implementada. El Browser E2E Stage 87 documenta tres ejecuciones satisfactorias del flujo principal sobre stack Docker, con fixture sintética y mock de IA; la automatización de algunas interacciones de UI quedó parcial y se contrastó por API. Esto no convierte a Patient en una entidad browser-level completa ni habilita inferencia clínica.

@@ -1,0 +1,69 @@
+{
+  "hallazgo": "H11-B - contenido y emparejamiento de la particion axial E9",
+  "fecha_utc": "2026-10-14T20:07:55.604133+00:00",
+  "csv_sha256": "17f78265b93cca59b0680c5fe336943acee78c4fbe34bd86a23df06ce80d051e",
+  "csv_coincide_manifest_v2": true,
+  "registros_csv": 610,
+  "particion_registros": {
+    "train": 427,
+    "val": 81,
+    "test": 102
+  },
+  "resolver_archivos": {
+    "estados": {
+      "imagen_exacta": 610,
+      "mascara_exacta": 610
+    },
+    "filas_no_resueltas": 0,
+    "filas_resueltas_con_imagen_y_mascara": 610
+  },
+  "hash_contenido": {
+    "activado": true,
+    "archivos_distintos": 1162,
+    "archivos_hasheados": 1162,
+    "errores_lectura": 0
+  },
+  "relacion_de_rutas": {
+    "registros_resueltos_ambos": 610,
+    "imagenes_con_multiples_mascaras_por_ruta": 0,
+    "mascaras_usadas_por_varias_imagenes_por_ruta": 55,
+    "mascaras_usadas_por_varios_pacientes_por_ruta": 0,
+    "mascaras_compartidas_entre_splits_por_ruta": 0,
+    "filas_asociadas_a_mascaras_reutilizadas": 113
+  },
+  "duplicados_por_contenido": {
+    "imagenes": {
+      "grupos_de_contenido_repetido": 0,
+      "registros_en_grupos_repetidos": 0,
+      "grupos_repetidos_entre_splits": 0,
+      "grupos_repetidos_entre_pacientes": 0,
+      "grupos_repetidos_dentro_de_un_split": 0
+    },
+    "mascaras": {
+      "grupos_de_contenido_repetido": 55,
+      "registros_en_grupos_repetidos": 113,
+      "grupos_repetidos_entre_splits": 0,
+      "grupos_repetidos_entre_pacientes": 0,
+      "grupos_repetidos_dentro_de_un_split": 55,
+      "hashes_que_se_asocian_a_diferentes_imagenes": 55,
+      "hashes_que_se_asocian_a_diferentes_pacientes": 0
+    },
+    "pares_imagen_mascara": {
+      "grupos_de_contenido_repetido": 0,
+      "registros_en_grupos_repetidos": 0,
+      "grupos_repetidos_entre_splits": 0,
+      "grupos_repetidos_entre_pacientes": 0,
+      "grupos_repetidos_dentro_de_un_split": 0
+    }
+  },
+  "cobertura_completa": true,
+  "dictamen": "SIN_DUPLICADOS_DE_IMAGEN_ENTRE_SPLITS_POR_CONTENIDO",
+  "limitaciones": [
+    "La igualdad SHA-256 confirma contenido idéntico, no alineación anatómica correcta ni correspondencia semántica de etiquetas.",
+    "La repetición de máscaras de contenido (por ejemplo máscaras vacías) NO demuestra leakage por sí sola.",
+    "El control de contenidos no reemplaza auditoría de metadatos de paciente, series o geometría de imágenes.",
+    "Los conteos de estudios no son independientes si se usa case_id_norm para estudio y paciente.",
+    "El test axial E9 se usó previamente en axial-full-v1; no es evidencia de test histórico completamente virgen.",
+    "Este notebook no realiza inferencia, entrenamiento, evaluación clínica, ni actualiza metrics/manifest."
+  ]
+}

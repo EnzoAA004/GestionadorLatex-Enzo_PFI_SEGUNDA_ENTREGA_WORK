@@ -250,7 +250,7 @@ El preinforme se construye mediante plantillas que combinan los valores derivado
 \end{figure}
 Qué evidencia lo respalda. El flujo de revisión está implementado y persistido, y la reapertura de un estudio recupera el estado de revisión junto con los resultados. El relevamiento con profesionales identificó la posibilidad de corregir manualmente cada resultado como el requisito más votado para confiar en una segmentación automática, según se informa en la sección 8.12.
 
-Qué límites tiene. El preinforme es un punto de partida editable y no un informe clínico: su función es reducir la transcripción manual de valores y organizarlos en un orden anatómico previsible, mientras la redacción final, la interpretación y la responsabilidad permanecen en el profesional. La revisión cualitativa profesional sobre una versión funcional/intermedia del producto ya fue realizada y se sintetiza en el Capítulo~\ref{chap:resultados-evaluacion}, con detalle en el Anexo~\ref{anexo:validacion-profesional}. Esa instancia no constituye validación clínica ni sustituye la validación cruzada profesional final, que permanece pendiente.
+Qué límites tiene. El preinforme es un punto de partida editable y no un informe clínico: su función es reducir la transcripción manual de valores y organizarlos en un orden anatómico previsible, mientras la redacción final, la interpretación y la responsabilidad permanecen en el profesional. La revisión cualitativa profesional sobre una versión funcional/intermedia del producto ya fue realizada y se sintetiza en el Capítulo~\ref{chap:resultados-evaluacion}, con detalle en el Anexo~\ref{anexo:validacion-profesional}. Esa instancia no constituye validación clínica ni una comparación diagnóstica independiente sobre los mismos estudios, que no se ejecutó en el proyecto.
 
 \section{Persistencia, reapertura y trazabilidad}
 
@@ -395,7 +395,7 @@ El chat contextual usa una abstracción de proveedor LLM. En el recorrido demo s
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.18}
 \begin{longtable}{>{\raggedright\arraybackslash}p{0.35\textwidth} >{\raggedright\arraybackslash}p{0.12\textwidth} >{\raggedright\arraybackslash}p{0.45\textwidth}}
-\caption{Estado de las capacidades al cierre de esta entrega.}\label{tab:cap-estado-capacidades}\\
+\caption{Estado consolidado de las capacidades del prototipo.}\label{tab:cap-estado-capacidades}\\
 \hline
 \textbf{Capacidad} & \textbf{Sección} & \textbf{Estado} \\
 \hline
@@ -421,7 +421,7 @@ Estimación de hallazgos estructurales & 11.11.1 & Desarrollada y evaluada sobre
 Clasificación de estenosis subarticular & 11.11.2 & Bloqueada \\
 Recorrido extremo a extremo local/containerizado & --- & Validado según la evidencia de la sección~\ref{sec:resultados-validacion-final} (Playwright 11/11 sobre Demo Mode y recorrido de producto); no equivale a validación clínica \\
 Recorrido extremo a extremo en Cloud desde navegador & --- & Parcial, no cerrado, según la evidencia de la sección~\ref{sec:resultados-cloud-e2e} \\
-Validación profesional sobre el producto & — & Revisión cualitativa realizada (Dra. Susana Torres y Dra. Claudia Cejas, sección~\ref{sec:resultados-validacion-profesional-cualitativa}); no es validación clínica; la validación cruzada final continúa pendiente \\
+Validación profesional sobre el producto & — & Revisión cualitativa realizada (Dra. Susana Torres y Dra. Claudia Cejas, sección~\ref{sec:resultados-validacion-profesional-cualitativa}); no es validación clínica; no se ejecutó una comparación diagnóstica independiente sobre los mismos estudios \\
 Comparación longitudinal & — & Parcial: disponible en el alcance Demo/\texttt{subjectRef} según la evidencia existente; no constituye validación clínica de progresión \\
 Despliegue en Google Cloud & — & Entorno DEV desplegado y validado (Backend, Frontend, AI privado, Cloud SQL, Secret Manager y storage durable); DEMO environment separado y monitoreo/alerting en vivo no desplegados \\\hline
 \end{longtable}

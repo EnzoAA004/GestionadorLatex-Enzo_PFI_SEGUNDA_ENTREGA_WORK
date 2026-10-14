@@ -12,12 +12,7 @@ La documentación sigue el modelo de vistas «4+1» de Kruchten [38], que organi
 \caption{Diagrama de contexto del sistema. Fuente: elaboración propia.}
 \label{fig:arch-contexto-sistema}
 \end{figure}
-% STRUCTURE_REVIEW_REQUIRED
-% SOURCE_NUMBERING_GAP: 10.2
-% DOCX_INLINE_TEXT_AFTER_CAPTION: 10.2 Visión general del flujo
-% STRUCTURE_REVIEW_REQUIRED
-% SOURCE_NUMBERING_GAP: 10.2
-% DOCX_INLINE_TEXT_AFTER_CAPTION: 10.2 Visión general del flujo
+\section{Visión general del flujo}
 
 El prototipo recibe un estudio de resonancia magnética lumbar que puede incluir el plano sagital, el axial o ambos, y lo recorre en seis etapas. La entrada se carga y se prepara mediante normalización de intensidades y ajuste de formato. La segmentación genera máscaras para las estructuras contempladas en cada plano. El postprocesamiento organiza esas máscaras, las asocia a un nivel anatómico cuando resulta posible y calcula los valores geométricos. La visualización superpone las máscaras sobre la imagen original. La revisión profesional permite aceptar, corregir, observar o descartar cada resultado. La salida editable reúne estructuras, mediciones, unidades, observaciones y estado de revisión, e incluye un preinforme automático revisable.
 
@@ -133,10 +128,7 @@ La Figura~\ref{fig:arch-componentes} muestra la separación entre Frontend, Back
 \caption{Arquitectura general por componentes. Fuente: elaboración propia.}
 \label{fig:arch-componentes}
 \end{figure}
-% STRUCTURE_REVIEW_REQUIRED
-% DOCX_INLINE_TEXT_AFTER_CAPTION: 10.3.2 Arquitectura volumétrica y visualización de secciones.
-% STRUCTURE_REVIEW_REQUIRED
-% DOCX_INLINE_TEXT_AFTER_CAPTION: 10.3.2 Arquitectura volumétrica y visualización de secciones.
+\subsection*{Arquitectura volumétrica y visualización de secciones}
 
 El sistema ingesta el estudio como DICOM completo, identifica las series y las clasifica por plano y ponderación; los formatos MHA y NIfTI se conservan como compatibilidad técnica. El contrato volumétrico define por serie el plano, el identificador, la cantidad de cortes, el corte seleccionado, el eje, las dimensiones nativa y normalizada, el espaciado y un catálogo en el que cada corte puede asociarse con una vista previa, un indicador de resultados y, cuando corresponda, superposición, puntos de referencia y mediciones.
 
@@ -220,12 +212,6 @@ El diagrama de clases presenta las entidades del dominio y los servicios princip
 \caption{Diagrama de clases del dominio y servicios. Fuente: elaboración propia.}
 \label{fig:arch-clases-dominio}
 \end{figure}
-% STRUCTURE_REVIEW_REQUIRED
-% DOCX_INLINE_TEXT_AFTER_CAPTION: 10.5 Vista de procesos.
-% STRUCTURE_REVIEW_REQUIRED
-% DOCX_INLINE_TEXT_AFTER_CAPTION: 10.5 Vista de procesos.
-
-La vista de procesos describe el comportamiento en ejecución: la secuencia de una corrida, la persistencia y reapertura, y la comunicación entre servicios.
 
 \section{Vista de procesos}
 
@@ -247,10 +233,7 @@ La Figura~\ref{fig:arch-flujo-end-to-end} resume la secuencia completa desde la 
 \caption{Flujo de interacción end-to-end. Fuente: elaboración propia.}
 \label{fig:arch-flujo-end-to-end}
 \end{figure}
-% STRUCTURE_REVIEW_REQUIRED
-% DOCX_INLINE_TEXT_AFTER_CAPTION: 10.4.2 Persistencia, assets y reapertura.
-% STRUCTURE_REVIEW_REQUIRED
-% DOCX_INLINE_TEXT_AFTER_CAPTION: 10.4.2 Persistencia, assets y reapertura.
+\subsection{Persistencia, assets y reapertura}
 
 La persistencia se diseña alrededor de la corrida de análisis. Cada estudio conserva contratos canónicos, mediciones, estados de revisión, referencias a assets y datos de auditoría. Los paths internos del AI Module (por ejemplo rutas temporales de contenedor) no forman parte del contrato público.
 
@@ -457,7 +440,7 @@ Las mediciones corresponden a una ejecución local containerizada del prototipo 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.92\textwidth]{images/architecture/fig_10_07_despliegue_google_cloud.png}
-\caption{Arquitectura objetivo de despliegue en Google Cloud. Fuente: elaboración propia.}
+\caption{Topología de Google Cloud V2 — configuración DEV/E2E observada el 13 de octubre de 2026. Fuente: elaboración propia.}
 \label{fig:arch-despliegue-google-cloud}
 \end{figure}
 

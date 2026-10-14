@@ -9,7 +9,7 @@
 | Corrección aplicada | 19 |
 | Cerrado con evidencia | 4 |
 | Confirmado | 37 |
-| En investigación | 2 |
+| En investigación | 1 |
 | Bloqueado por evidencia | 6 |
 
 ## Registro de los 67 hallazgos

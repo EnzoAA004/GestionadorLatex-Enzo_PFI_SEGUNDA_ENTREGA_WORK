@@ -129,13 +129,19 @@ Según se informa en la sección 13.4, el umbral no se alcanzó en el modelo axi
 \addcontentsline{toc}{section}{E.4 Auditoría documental de la partición axial E9}
 \label{anexo:entrenamiento-e4-auditoria-e9}
 
-La partición E9 del subconjunto axial curado reúne 610 registros: 427 de entrenamiento (128 identificadores de paciente), 81 de validación (27) y 102 de prueba (29), para 184 identificadores de paciente sin intersecciones entre particiones. El CSV auditado, \texttt{E9\_t2\_final\_labels\_curated\_split.csv}, tiene SHA-256 \texttt{17f78265b93cca59b0680c5fe336943acee78c4fbe34bd86a23df06ce80d051e}, coincidente con el registrado en el manifest del artifact axial V2. La auditoría reportó cero filas idénticas duplicadas y ninguna intersección de identificadores de pacientes entre entrenamiento, validación y prueba.
+La partición E9 del subconjunto axial curado reúne 610 registros: 427 de entrenamiento (128 identificadores de paciente), 81 de validación (27) y 102 de prueba (29), para 184 identificadores de paciente sin intersecciones entre particiones.
+
+El CSV auditado es \path{E9_t2_final_labels_curated_split.csv}. Su SHA-256 coincide con el registrado en el manifest del artifact axial V2:
+
+{\small\ttfamily 17f78265\allowbreak b93cca59\allowbreak b0680c5f\allowbreak e336943a\allowbreak cee78c4f\allowbreak be34bd86\allowbreak a23df06c\allowbreak e80d051e}.
+
+La auditoría reportó cero filas idénticas duplicadas y ninguna intersección de identificadores de pacientes entre entrenamiento, validación y prueba.
 
 Estos controles no equivalen a una comprobación de duplicados por contenido: no se calcularon hashes de imágenes o máscaras ni se verificaron existencia y correspondencia de archivos. Tampoco se comparó con la otra partición histórica porque no se dispuso del segundo CSV. Los identificadores de estudio informados derivan de \texttt{case\_id\_norm}, igual que los identificadores de paciente, por lo que no prueban de manera independiente el número de estudios clínicos distintos. Las rutas de máscara se repiten dentro de entrenamiento (384 rutas para 427 registros) y prueba (87 para 102); esta observación requiere auditar la correspondencia, pero por sí sola no indica solapamiento entre particiones ni duplicación de contenido.
 
 La partición de prueba ya había sido utilizada con \texttt{axial-full-v1}; el resultado V2 es comparativo y no constituye una evaluación sobre un test completamente intacto. En consecuencia, el hallazgo \#11 se registra como parcialmente resuelto: los conteos, el hash y la separación por identificadores están documentados, mientras que los controles anteriores permanecen pendientes o son una limitación confirmada. Esta incorporación no modifica las métricas ni el estado de candidato del artifact.
 
-La evidencia recibida y su procedencia se conserva en \texttt{docs/audit/pfi\_100\_tutor\_2026\_10\_14/H11\_HANDOFF\_RESULTADO\_COLAB\_AXIAL\_E9\_2026-10-14.md}.
+El handoff íntegro de esta auditoría se conserva en el expediente local de evidencias.
 \phantomsection
 \section*{E.5 Trazabilidad de los artifacts}
 \addcontentsline{toc}{section}{E.5 Trazabilidad de los artifacts}

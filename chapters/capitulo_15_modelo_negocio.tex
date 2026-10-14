@@ -259,7 +259,34 @@ A esto se suma un costo variable de soporte por cliente activo, que escala con l
 \section{Metodología financiera a 36 meses}
 \label{sec:mn-metodologia}
 
-El modelo proyecta un flujo de fondos mensual a 36 meses, con la siguiente estructura de cálculo:
+El modelo proyecta un flujo de fondos mensual a 36 meses. Los valores de adquisición, churn y volumen de estudios son supuestos de entrada; no proceden de ventas, clientes ni uso observado. La Tabla~\ref{tab:mn-supuestos-adopcion} transcribe las variables de adopción e inversión del libro canónico. Los precios y costos Cloud se detallan por separado en las Tablas~\ref{tab:mn-planes} y~\ref{tab:mn-costo-escenarios}.
+
+{\scriptsize
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.16}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.10\textwidth} >{\raggedright\arraybackslash}p{0.105\textwidth} >{\raggedright\arraybackslash}p{0.115\textwidth} >{\raggedright\arraybackslash}p{0.07\textwidth} >{\raggedright\arraybackslash}p{0.13\textwidth} >{\raggedright\arraybackslash}p{0.11\textwidth} >{\raggedright\arraybackslash}p{0.10\textwidth} >{\raggedright\arraybackslash}p{0.09\textwidth} >{\raggedright\arraybackslash}p{0.08\textwidth}}
+\caption{Supuestos de adopción, volumen e inversión del modelo a 36 meses.}\label{tab:mn-supuestos-adopcion}\\
+\hline
+\textbf{Escenario} & \shortstack{\textbf{Clientes}\\\textbf{inic. S/P/E}} & \shortstack{\textbf{Altas/mes}\\\textbf{S/P/E}} & \shortstack{\textbf{Churn}\\\textbf{mensual}} & \shortstack{\textbf{Estudios/}\\\textbf{cliente/mes}\\\textbf{S/P/E}} & \shortstack{\textbf{Fijos/mes}\\\textbf{USD}} & \shortstack{\textbf{Soporte/}\\\textbf{cliente/mes}\\\textbf{USD}} & \shortstack{\textbf{CAPEX}\\\textbf{mes 1 USD}} & \shortstack{\textbf{Descuento}\\\textbf{anual}} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Escenario} & \shortstack{\textbf{Clientes}\\\textbf{inic. S/P/E}} & \shortstack{\textbf{Altas/mes}\\\textbf{S/P/E}} & \shortstack{\textbf{Churn}\\\textbf{mensual}} & \shortstack{\textbf{Estudios/}\\\textbf{cliente/mes}\\\textbf{S/P/E}} & \shortstack{\textbf{Fijos/mes}\\\textbf{USD}} & \shortstack{\textbf{Soporte/}\\\textbf{cliente/mes}\\\textbf{USD}} & \shortstack{\textbf{CAPEX}\\\textbf{mes 1 USD}} & \shortstack{\textbf{Descuento}\\\textbf{anual}} \\
+\hline
+\endhead
+\hline
+\endfoot
+Pesimista & 0/0/0 & 0,15/0,04/0 & 3,5\% & 70/260/800 & 5.063,08 & 90 & 9.500 & 35\% \\
+Base & 1/0/0 & 0,35/0,12/0,03 & 2\% & 130/550/1.600 & 8.112,08 & 60 & 23.000 & 25\% \\
+Optimista & 2/1/0 & 0,75/0,30/0,08 & 1\% & 190/850/2.600 & 13.311,08 & 45 & 42.000 & 18\% \\
+Base Comercial Objetivo & 1/0/0 & 0,35/0,12/0,03 & 2\% & 130/550/1.600 & 8.112,08 & 60 & 23.000 & 25\% \\
+\hline
+\end{longtable}
+}
+
+Las altas mensuales se aplican de manera determinística y el churn se aplica a los clientes activos del mes anterior. Por ello el modelo produce equivalentes esperados fraccionarios: los 13,41 clientes del mes 36 representan el resultado matemático de los supuestos, no 13,41 instituciones observadas ni una cantidad literal de contratos. El CAPEX de la tabla suma desarrollo, configuración Cloud y lanzamiento, imputados una sola vez al mes 1. El libro permite seguir estas entradas en \texttt{01\_SUPUESTOS} y las fórmulas del escenario Base en \texttt{04\_BASE}; la hoja \texttt{02\_RESULTADOS} resume los indicadores por escenario.
 
 \begin{align*}
 \text{Clientes activos}(t) &= \text{Clientes activos}(t-1) + \text{Nuevos}(t) - \text{Bajas}(t) \\

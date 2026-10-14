@@ -1,0 +1,22 @@
+MIRA·L — imágenes de la presentación
+
+Diapositivas principales generadas con IA (16:9)
+01_portada.png
+02_solucion.png
+03_arquitectura_cloud_v2.png
+04_entrenamiento.png
+05_secuencia_inferencia.png
+06_resultados_segmentacion.png
+07_clasificador.png
+08_demostracion.png
+09_validacion_profesional.png
+10_monetizacion.png
+11_finanzas.png
+12_conclusiones.png
+13_preguntas.png
+
+Anexos tomados de los diagramas existentes del proyecto, para conservar fidelidad técnica:
+14_modelo_datos_der.png — modelo de datos / DER.
+15_arquitectura_google_cloud_documentada.png — despliegue documentado en Google Cloud.
+
+Las diapositivas 01–13 son imágenes planas generadas con IA, no diseños editables de Canva. Conviene revisar los textos y las cifras antes de exponer; las métricas y el contenido se transcribieron de los documentos adjuntos. Los diagramas 14 y 15 no fueron inventados por IA: son gráficos existentes en la documentación técnica del proyecto.

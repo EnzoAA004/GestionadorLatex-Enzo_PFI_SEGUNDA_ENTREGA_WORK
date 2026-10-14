@@ -11,12 +11,12 @@ Este trabajo distingue tres instancias de validación que no deben mezclarse ent
 \begin{itemize}
     \item \textbf{User research inicial (EN-01 a EN-05).} Entrevistas exploratorias documentadas en el Anexo~\ref{anexo:entrevistas} y en el Capítulo~8. Su objetivo fue descubrir necesidades y ajustar el alcance del prototipo antes de su desarrollo.
     \item \textbf{Validación profesional cualitativa (VP-01 y VP-02).} Las dos sesiones documentadas en este anexo. Su objetivo fue revisar una versión funcional/intermedia del producto ya construido, observando utilidad, flujo, comprensión, riesgos, confianza y prioridades de mejora.
-    \item \textbf{Validación cruzada profesional final.} Todavía pendiente. Su objetivo futuro es que profesionales y el sistema analicen de forma independiente los mismos estudios, para luego revisar y documentar las discrepancias entre ambas lecturas (sección~\ref{anexo:h-validacion-cruzada-pendiente}).
+    \item \textbf{Comparación diagnóstica independiente.} No se ejecutó en este PFI. Habría requerido que profesionales y sistema analizaran de forma independiente los mismos estudios y luego compararan sus resultados; sus límites metodológicos se detallan en H.8.
 \end{itemize}
 
 Se utiliza la identificación VP-01 y VP-02 para las sesiones de este anexo, reservando la numeración EN- para las entrevistas exploratorias iniciales y evitando así que ambas instancias se confundan en la trazabilidad del proyecto.
 
-Ninguna de las tres instancias, ni individual ni en conjunto, constituye validación clínica, validación diagnóstica, ensayo clínico, comparación contra ground truth ni evaluación de eficacia clínica.
+Las entrevistas exploratorias y las sesiones cualitativas VP-01/VP-02, individualmente o en conjunto, no constituyen validación clínica, validación diagnóstica, ensayo clínico, comparación contra ground truth ni evaluación de eficacia clínica. La comparación diagnóstica independiente se delimita como no ejecutada en H.8.
 
 \section{Metodología de las sesiones}
 \label{anexo:h-metodologia}
@@ -139,7 +139,7 @@ La Dra. Torres profundizó en comparación longitudinal, control visual de másc
 \section{Trazabilidad entre observaciones y decisiones de producto}
 \label{anexo:h-trazabilidad}
 
-La Tabla~\ref{tab:h-cambios-producto-validacion-profesional} reproduce la trazabilidad de la Tabla~\ref{tab:res-cambios-producto-validacion-profesional} del Capítulo~13 entre observaciones cualitativas, capacidades existentes, decisiones de diseño y posibles evoluciones del producto. Esta correspondencia no demuestra que cada funcionalidad haya surgido causalmente de las sesiones ni que haya sido ejecutada frente a las profesionales. Los estados \texttt{IMPLEMENTED}, \texttt{PARTIAL}, \texttt{PLANNED} y \texttt{OUT\_OF\_SCOPE} describen la situación técnica documentada al corte del 6 de octubre de 2026, no grados de validación profesional ni clínica. Los cambios posteriores, incluida la evidencia Cloud V2 del 9 de octubre y la integración final del frontend, requieren una revisión específica de estados antes del cierre editorial integral.
+La Tabla~\ref{tab:h-cambios-producto-validacion-profesional} reproduce la trazabilidad de la Tabla~\ref{tab:res-cambios-producto-validacion-profesional} del Capítulo~13 entre observaciones cualitativas, capacidades existentes, decisiones de diseño y posibles evoluciones del producto. Esta correspondencia no demuestra que cada funcionalidad haya surgido causalmente de las sesiones ni que haya sido ejecutada frente a las profesionales. Los estados \texttt{IMPLEMENTED}, \texttt{PARTIAL}, \texttt{PLANNED} y \texttt{OUT\_OF\_SCOPE} describen la situación técnica documentada al corte del 6 de octubre de 2026, no grados de validación profesional ni clínica; las pruebas posteriores de Cloud V2 y Browser E2E se informan separadamente y no actualizan por sí solas cada fila de esta trazabilidad.
 
 {\scriptsize
 \setlength{\LTleft}{0pt}
@@ -192,7 +192,7 @@ Diagnóstico automático & Torres/Cejas & Mantener enfoque asistivo, no diagnós
 \end{itemize}
 
 \section{Alcance y límites de la comparación diagnóstica independiente}
-\label{anexo:h-validacion-cruzada-pendiente}
+\label{anexo:h-validacion-cruzada-no-ejecutada}
 
 La validación profesional documentada se limita a la observación cualitativa de demostraciones guiadas. Una comparación diagnóstica independiente de concordancia clínica exigiría un diseño diferente, con estos componentes metodológicos:
 

@@ -241,9 +241,9 @@ RNF-12 & La solución debe ofrecer observabilidad suficiente para diagnosticar f
 \endhead
 \hline
 \endfoot
-RV-01 & Evaluar segmentación con métricas técnicas. & Se calculan Dice, IoU y métricas por clase o equivalentes sobre conjuntos de prueba documentados. & Implementado experimentalmente; requiere consolidación final \\
-RV-02 & Complementar métricas con revisión cualitativa profesional. & Profesionales revisan ejemplos, flujo, overlays, mediciones y limitaciones; sus observaciones quedan documentadas. & En curso: revisión cualitativa realizada en dos sesiones; validación cruzada profesional final pendiente. No constituye validación clínica. \\
-RV-03 & Validar usabilidad y recorrido end-to-end del producto actualizado. & Se ejecuta un protocolo que cubre login, carga, análisis, persistencia, reapertura, degradación y revisión, registrando incidencias y evidencia. & En curso: integración P10.9 y recorrido técnico E2E disponibles; el cierre de evidencia Browser E2E y la validación final de usabilidad permanecen pendientes. \\
+RV-01 & Evaluar segmentación con métricas técnicas. & Se calculan Dice, IoU y métricas por clase o equivalentes sobre conjuntos de prueba documentados. & Evaluación experimental offline documentada en el Capítulo~13 sobre particiones y artifacts identificados; el modelo axial no supera el umbral definido y no se promueve a baseline. No constituye validación clínica. \\
+RV-02 & Complementar métricas con revisión cualitativa profesional. & Profesionales revisan ejemplos, flujo, overlays, mediciones y limitaciones; sus observaciones quedan documentadas. & Revisión cualitativa realizada en dos sesiones (VP-01 y VP-02) sobre una versión funcional/intermedia. La comparación diagnóstica independiente sobre estudios comunes no se ejecutó; no constituye validación clínica. \\
+RV-03 & Validar usabilidad y recorrido end-to-end del producto actualizado. & Se ejecuta un protocolo que cubre login, carga, análisis, persistencia, reapertura, degradación y revisión, registrando incidencias y evidencia. & Playwright Browser E2E: 11/11 PASS para el recorrido funcional documentado. El E2E base Cloud V2 valida infraestructura con fixture sintética. No se realizó una evaluación formal de usabilidad con tareas autónomas de profesionales ni una validación clínica. \\
 \hline
 \end{longtable}
 }

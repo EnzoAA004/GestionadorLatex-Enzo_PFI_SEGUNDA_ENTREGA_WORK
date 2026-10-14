@@ -82,7 +82,7 @@ Aplicado al modelo axial, el umbral no se alcanzó en su lectura de primer plano
 
 Esta decisión merece explicitarse porque describe el papel que el control cumple en el proyecto. Un umbral que se ajusta cuando un modelo no lo alcanza no ejerce ninguna función de control; su utilidad reside precisamente en registrar los casos en que no se supera. El módulo axial, en consecuencia, se documenta como componente complementario evaluado y no como baseline consolidado, y esa condición se refleja en el estado de las capacidades del Capítulo 11.
 
-Corresponde señalar que el criterio del umbral es discutible en un aspecto concreto: promediar una clase de fondo junto con las estructuras anatómicas penaliza al modelo por una clase que ninguna medición utiliza. La revisión de ese criterio, o su sustitución por el promedio sobre estructuras anatómicas exclusivamente, es una de las tareas previstas para la instancia siguiente.
+Corresponde señalar que el criterio del umbral es discutible en un aspecto concreto: promediar una clase de fondo junto con las estructuras anatómicas penaliza al modelo por una clase que ninguna medición utiliza. Esta es una limitación metodológica del criterio evaluado: en este trabajo se conserva el umbral y el cálculo originales, sin recalcular resultados ni sustituir el promedio por otro indicador.
 
 \section{Advertencia sobre la partición de prueba axial}
 
@@ -173,7 +173,7 @@ Secret scan & Sin credenciales reales & Hallazgos revisados como falsos positivo
 \section{Validación técnica en Google Cloud}
 \label{sec:resultados-cloud-e2e}
 
-La tabla anterior valida el prototipo en un entorno local/contenedorizado. Por separado, se ejecutó una validación técnica de extremo a extremo sobre el proyecto real de Google Cloud \texttt{pfi-asplanatti-fabrello-v1} (Backend Green \texttt{pfi-backend-v2-dev}, IA privada \texttt{pfi-ai-module}, Frontend \texttt{pfi-frontend-dev}, Cloud SQL \texttt{pfi-postgres-dev}, bucket durable \texttt{gs://pfi-backend-durable-dev} y bucket de checkpoint \texttt{gs://pfi-rm-lumbar-artifacts-2026-ef}), documentada en el repositorio Backend (\texttt{docs/cloud/CLOUD\_STAGE\_6} a \texttt{10B}). La prueba se ejecutó con una fixture DICOM sintética, válida y no identificable, compuesta por cinco series y treinta cortes. Esta evidencia es técnica de infraestructura, no clínica.
+La tabla siguiente conserva como antecedente histórico los ensayos Cloud Stage 6--10B de septiembre en V1, proyecto \texttt{pfi-asplanatti-fabrello-v1} (Backend Green \texttt{pfi-backend-v2-dev}, IA \texttt{pfi-ai-module}, Frontend \texttt{pfi-frontend-dev}, Cloud SQL \texttt{pfi-postgres-dev} y almacenamiento documentado en el repositorio Backend). Esos ensayos utilizaron fixtures DICOM sintéticas, válidas y no identificables, y aportaron las métricas de lotes, estabilidad y costo modelado que se informan abajo. Son evidencia técnica de V1, no clínica, y no representan el cierre Cloud actual.
 
 {\scriptsize
 \setlength{\LTleft}{0pt}
@@ -181,7 +181,7 @@ La tabla anterior valida el prototipo en un entorno local/contenedorizado. Por s
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.18}
 \begin{longtable}{>{\raggedright\arraybackslash}p{0.30\textwidth} >{\raggedright\arraybackslash}p{0.14\textwidth} >{\raggedright\arraybackslash}p{0.48\textwidth}}
-\caption{Validación técnica de Cloud, extremo a extremo (Etapas 6--10B).}\label{tab:res-cloud-e2e}\\
+\caption{Validación técnica histórica de Cloud V1, extremo a extremo (Etapas 6--10B).}\label{tab:res-cloud-e2e}\\
 \hline
 \textbf{Verificación} & \textbf{Resultado} & \textbf{Interpretación} \\
 \hline
@@ -211,7 +211,7 @@ Cierre técnico de la etapa Cloud & Completo & Las siete verificaciones anterior
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.18}
 \begin{longtable}{>{\raggedright\arraybackslash}p{0.20\textwidth} >{\raggedright\arraybackslash}p{0.16\textwidth} >{\raggedright\arraybackslash}p{0.16\textwidth} >{\raggedright\arraybackslash}p{0.16\textwidth} >{\raggedright\arraybackslash}p{0.28\textwidth}}
-\caption{Costo y performance Cloud medidos (Etapa 10/10B).}\label{tab:res-cloud-costos-performance}\\
+\caption{Costo y performance medidos en Cloud V1 (Etapa 10/10B).}\label{tab:res-cloud-costos-performance}\\
 \hline
 \textbf{Lote} & \textbf{Éxito} & \textbf{p50} & \textbf{p95} & \textbf{Nota} \\
 \hline
@@ -229,14 +229,14 @@ Cierre técnico de la etapa Cloud & Completo & Las siete verificaciones anterior
 \end{longtable}
 }
 
-El costo variable observado fue de aproximadamente USD~0,00236 por estudio (Backend + IA + almacenamiento), sobre una \textit{fixture} sintética de menor resolución que un estudio clínico real; se trata de un piso empírico de referencia, no del costo de operación clínica productiva. El desarrollo completo de este costo, su traducción a escenarios financieros (Optimista/Base/Pesimista) y su papel en el análisis de sensibilidad se presentan en el Capítulo~\ref{chap:modelo-negocio}, que reutiliza esta misma evidencia sin remedirla.
+El costo variable modelado fue de aproximadamente USD~0,00236 por estudio (Backend + IA + almacenamiento), a partir de los ensayos V1 sobre una \textit{fixture} sintética de menor resolución que un estudio clínico real. Es un valor de escenario sintético V1, no una factura observada ni un costo de operación clínica/productiva. El Capítulo~\ref{chap:modelo-negocio} reutiliza esa misma evidencia sin atribuirla a V2.
 
-Al cierre de este documento, el entorno Cloud fue pausado intencionalmente para minimizar consumo de crédito mientras continúa el trabajo de documentación (ningún recurso fue eliminado; Cloud SQL detenido, Cloud Run en su estado de costo cero por inactividad). El procedimiento de pausa y los comandos de restauración están documentados en el repositorio Backend (\texttt{docs/cloud/CLOUD\_PAUSE\_RESTORE\_COMMANDS.md}).
+El cierre posterior corresponde a la migración base V2, ejecutada el 9 de octubre de 2026 en el proyecto \texttt{pfi-asplanatti-fabrello-v2}. Con una fixture DICOM sintética de cinco series y treinta cortes se verificaron el flujo integrado de carga, la invocación autenticada Backend--IA, PostgreSQL, la recuperación de contexto en navegador y el reproceso después de reinicios. Se trata de un E2E base de infraestructura; no equivale al cierre global de todas las capacidades del producto ni a pruebas de rendimiento. No se informan benchmarks de V2. La consulta de Google Cloud SDK del 13 de octubre observó Cloud SQL \texttt{pfi-postgres-v2} en estado RUNNABLE y política \texttt{ALWAYS}; ese inventario de configuración no demuestra disponibilidad HTTP de los servicios en ese momento. La pausa/restauración documentada el 23 de septiembre corresponde al entorno V1, no a V2. V2 es un entorno académico DEV/E2E y no una plataforma productiva o clínica.
 
 \section{Niveles de validación y alcance}
 \label{sec:resultados-niveles-validacion}
 
-El cierre distingue seis niveles. La validación de modelo offline mide desempeño contra anotaciones o particiones congeladas. La validación técnica de software verifica contratos, persistencia, seguridad y errores controlados. La validación E2E recorre el producto integrado en browser y stack containerizado. La validación profesional cualitativa recoge observaciones de profesionales sobre una versión funcional/intermedia del prototipo y se informa en la sección siguiente. La validación cruzada profesional, todavía pendiente, requiere comparar lecturas independientes de profesionales contra resultados del sistema sobre los mismos estudios. La validación clínica requeriría un protocolo específico con datos, comparadores y criterios clínicos; no fue realizada y no se afirma.
+El cierre distingue niveles de evidencia que no deben confundirse. La evaluación offline mide desempeño de segmentación contra anotaciones o particiones congeladas. La validación técnica de software verifica contratos, persistencia, seguridad y errores controlados. Playwright 11/11 acredita el recorrido funcional de browser documentado; el E2E Cloud V2 acredita el alcance base de infraestructura descrito en la sección anterior. La revisión cualitativa profesional recoge observaciones de VP-01 y VP-02 sobre una versión funcional/intermedia del prototipo. La comparación diagnóstica independiente entre lecturas profesionales y resultados del sistema sobre los mismos estudios no se ejecutó. Tampoco se realizó validación clínica.
 
 Esta separación es central para interpretar las métricas. Por ejemplo, 67B2 tiene resultados offline altos, pero conserva \texttt{67B2\_RUNTIME\_PARITY\_NOT\_PROVEN}, \texttt{productEnabled=false} y \texttt{parityVerified=false}; por lo tanto no habilita inferencia productiva real. Del mismo modo, Playwright 11/11 valida el recorrido funcional del prototipo, no la exactitud clínica de sus salidas.
 \section{Resultados de la validación profesional cualitativa}
@@ -263,7 +263,7 @@ En cuanto a estructuras y hallazgos, la profesional remarcó la importancia del 
 Los hallazgos del conjunto de las sesiones se organizan en cinco categorías. En usabilidad se identificó valor en la asistencia visual revisable, el control de máscaras, la edición manual y la claridad de colores y superposiciones, con énfasis diferentes según la profesional. En utilidad potencial se abordaron detección asistida, prevención de omisiones, seguimiento longitudinal y revisión de múltiples cortes, sin medir mejoras de tiempo ni tasas de omisión. En mediciones prioritarias se señalaron canal central, neuroforamen, receso lateral o subarticular y altura discal, sujetos a verificación técnica y bibliográfica. Entre los hallazgos de interés aparecieron protrusión o herniación, estenosis y cambios degenerativos o Modic, sin que su mención implique detección automática validada. Como criterio transversal se destacó la revisión profesional y el rechazo del diagnóstico autónomo.
 
 La diferencia principal entre las sesiones está en el énfasis. La Dra. Torres profundizó en comparación longitudinal, control visual de máscaras, correlación sagital--axial e inclinación discal. La Dra. Cejas enfatizó la protocolización de mediciones, la distinción entre canal central/lateral/neuroforamen, la carga laboral y la aceptabilidad de sobredetección bajo revisión profesional.
-La Tabla~\ref{tab:res-cambios-producto-validacion-profesional} relaciona observaciones de VP-01 y VP-02 con capacidades existentes, decisiones de diseño y posibles evoluciones del producto. Esta trazabilidad no implica que cada función haya sido creada a partir de las sesiones, ni demostrada en ellas. Los estados técnicos reflejan el corte documental de la versión revisada al 6 de octubre de 2026 y requieren actualización si se incorpora evidencia posterior, incluida la migración Cloud V2 del 9 de octubre y la integración final del frontend.
+La Tabla~\ref{tab:res-cambios-producto-validacion-profesional} relaciona observaciones de VP-01 y VP-02 con capacidades existentes, decisiones de diseño y posibles evoluciones del producto. En Google Docs esta tabla figura como 13.5; en esta versión LaTeX se numera automáticamente como 13.7 porque la preceden dos tablas Cloud (13.5 y 13.6). La diferencia refleja la distinta secuencia de tablas entre documentos y se mantiene pendiente de una decisión de reconciliación editorial; las referencias LaTeX permanecen automáticas. Esta trazabilidad no implica que cada función haya sido creada a partir de las sesiones ni demostrada en ellas. Los estados técnicos de la tabla son un corte documental al 6 de octubre de 2026; la evidencia posterior incluye el E2E base Cloud V2 del 9 de octubre y el recorrido Browser E2E final, sin que ello convierta las sesiones profesionales en pruebas de esas capacidades.
 {\scriptsize
 \setlength{\LTleft}{0pt}
 \setlength{\LTright}{0pt}
@@ -298,7 +298,7 @@ Diagnóstico automático & Torres/Cejas & Mantener enfoque asistivo, no diagnós
 }
 
 \subsection{Comparación diagnóstica independiente no ejecutada}
-\label{sec:resultados-validacion-cruzada-pendiente}
+\label{sec:resultados-validacion-cruzada-no-ejecutada}
 
 La comparación diagnóstica independiente no se ejecutó en el proyecto. Habría requerido confrontar lecturas profesionales y resultados del sistema obtenidos sobre los mismos estudios. Las dos sesiones realizadas corresponden a revisión cualitativa del producto y no aportan esa evidencia.
 

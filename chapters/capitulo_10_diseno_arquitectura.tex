@@ -233,13 +233,7 @@ La Figura~\ref{fig:arch-flujo-end-to-end} resume la secuencia completa desde la 
 \caption{Flujo de interacción end-to-end. Fuente: elaboración propia.}
 \label{fig:arch-flujo-end-to-end}
 \end{figure}
-\subsection{Persistencia, assets y reapertura}
-
-La persistencia se diseña alrededor de la corrida de análisis. Cada estudio conserva contratos canónicos, mediciones, estados de revisión, referencias a assets y datos de auditoría. Los paths internos del AI Module (por ejemplo rutas temporales de contenedor) no forman parte del contrato público.
-
-Los assets se describen mediante nombre, rol, tipo de contenido, hash, tamaño y URL autorizada del Backend. Esta estrategia desacopla el navegador de la ubicación física del archivo y permite mover el almacenamiento sin alterar la interfaz.
-
-La reapertura es un requisito arquitectónico central. Una corrida persistida debe poder visualizarse aunque el AI Module esté detenido. Por esa razón, los previews del stack no se generan bajo demanda desde el motor de IA: deben producirse durante la corrida y persistirse junto con el resto de la evidencia.
+\textbf{Persistencia, assets y reapertura.} La persistencia se diseña alrededor de la corrida de análisis. Cada estudio conserva contratos canónicos, mediciones, estados de revisión, referencias a assets y datos de auditoría. Los paths internos del AI Module (por ejemplo rutas temporales de contenedor) no forman parte del contrato público. Los assets se describen mediante nombre, rol, tipo de contenido, hash, tamaño y URL autorizada del Backend. Esta estrategia desacopla el navegador de la ubicación física del archivo y permite mover el almacenamiento sin alterar la interfaz. La reapertura es un requisito arquitectónico central. Una corrida persistida debe poder visualizarse aunque el AI Module esté detenido. Por esa razón, los previews del stack no se generan bajo demanda desde el motor de IA: deben producirse durante la corrida y persistirse junto con el resto de la evidencia.
 
 \subsection{Arquitectura de red, protocolos y seguridad}
 
@@ -402,7 +396,7 @@ La vista física describe el mapeo del sistema a la infraestructura: el entorno 
 
 \subsection{Arquitectura actual de validación}
 
-Durante la integración final se utilizaron dos niveles de infraestructura. El primero fue el stack local containerizado para validar el producto completo con PostgreSQL, AI Module, mock LLM, Backend y Frontend. El segundo fue el despliegue DEV parcial en Google Cloud, donde quedaron corroborados Artifact Registry/WIF y servicios Cloud Run para Backend y Frontend. Esta evidencia no equivale a un despliegue productivo completo: el AI Module privado en Cloud Run, Cloud SQL, Secret Manager, storage productivo, DEMO environment y monitoreo/alerting live permanecen no desplegados.
+Durante la integración final se utilizaron el stack local containerizado y dos entornos Cloud diferenciados. En V1 se realizaron los ensayos de septiembre; en V2 se completó el 9 de octubre un E2E base con Frontend, Backend, AI Module, PostgreSQL y almacenamiento sobre una fixture sintética. La auditoría de configuración del 13 de octubre observó Cloud SQL V2 RUNNABLE/ALWAYS, sin que ese inventario pruebe disponibilidad HTTP en esa fecha. La evidencia acredita validación técnica académica, no un despliegue productivo ni una plataforma clínica; el entorno DEMO y el monitoreo/alerting live no están desplegados.
 
 \subsection{Arquitectura objetivo en Google Cloud}
 
@@ -444,7 +438,7 @@ Las mediciones corresponden a una ejecución local containerizada del prototipo 
 \label{fig:arch-despliegue-google-cloud}
 \end{figure}
 
-El principio financiero adoptado es no crear un recurso cuyo costo máximo no pueda estimarse de antemano. Esta arquitectura debe leerse por estado de madurez: Artifact Registry/WIF, Backend Cloud Run DEV (legacy y Green), Frontend Cloud Run DEV, AI Cloud Run privado, Cloud SQL, Secret Manager y storage durable están desplegados y validados de punta a punta (Capítulo~\ref{chap:resultados-evaluacion}, Sección~\ref{sec:resultados-validacion-final}); DEMO environment y monitoreo/alerting live no están desplegados y no deben presentarse como parte del estado operativo actual. El entorno Cloud se encuentra además pausado intencionalmente al cierre de este documento para minimizar consumo de crédito mientras continúa el trabajo de documentación; el procedimiento de pausa y el de restauración están documentados en el repositorio Backend (\texttt{docs/cloud/CLOUD\_PAUSE\_RESTORE\_COMMANDS.md}).
+El principio financiero adoptado es no crear un recurso cuyo costo máximo no pueda estimarse de antemano. En V2, el E2E base del 9 de octubre corroboró los servicios y persistencia dentro del alcance de esa prueba; la consulta SDK del 13 de octubre registró Cloud SQL RUNNABLE/ALWAYS, sin validar disponibilidad HTTP. Esa evidencia no acredita disponibilidad continua, operación productiva ni validación global de todas las funciones. DEMO environment y monitoreo/alerting live no están desplegados. La pausa y restauración documentadas el 23 de septiembre corresponden a V1.
 
 \subsection{Estado real del despliegue Cloud}
 

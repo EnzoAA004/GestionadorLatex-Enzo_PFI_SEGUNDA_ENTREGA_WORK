@@ -31,7 +31,7 @@ La evaluación se realiza sobre una partición retenida que no interviene en el 
 \hline
 \endfoot
 SPIDER, plano sagital & Paciente & 152 pacientes, 5.271 cortes & 33 pacientes, 1.174 cortes & 33 pacientes, 1.218 cortes \\
-Sudirman y Al-Kafri, plano axial & Paciente & Pendiente de recuperación & 81 casos evaluables & 102 casos evaluables \\
+Sudirman y Al-Kafri, plano axial & Paciente & 427 registros, 128 pacientes & 81 registros, 27 pacientes & 102 registros, 29 pacientes \\
 \hline
 \end{longtable}
 }
@@ -40,7 +40,7 @@ La selección de cortes del conjunto sagital se realiza mediante una distribuci�
 
 La trazabilidad del entrenamiento sagital se conserva mediante identificadores criptográficos del índice de entrenamiento, del código de la arquitectura y del commit del repositorio, junto con la referencia al cuaderno que produjo el artifact.
 
-En el caso axial, la separación a nivel de paciente está confirmada en el manifest del artifact, pero los conteos de la partición de entrenamiento no fueron publicados en él. El proyecto conserva dos particiones axiales que no coinciden: la congelada en una etapa anterior y la derivada por el cuaderno que produjo el artifact en uso. La recuperación de los conteos definitivos permanece como tarea pendiente y se declara como tal, en lugar de informar cifras de una partición que no corresponde al modelo evaluado.
+Para el artifact axial V2 se auditó la partición E9 del subconjunto curado: 427 registros y 128 pacientes en entrenamiento, 81 registros y 27 pacientes en validación, y 102 registros y 29 pacientes en prueba (610 registros y 184 identificadores de paciente en total). El CSV \path{E9_t2_final_labels_curated_split.csv} coincide por SHA-256 con el valor del manifest V2 (\texttt{17f78265b93cca59b0680c5fe336943acee78c4fbe34bd86a23df06ce80d051e}). No se observaron intersecciones de identificadores entre particiones ni filas idénticas duplicadas. La auditoría confirma el conteo de entrenamiento y la trazabilidad documental; no demuestra ausencia de duplicados por contenido ni resuelve la diferencia con el split histórico alternativo, cuya comparación no se realizó. Los identificadores de estudio reportados reutilizan \path{case_id_norm} y no constituyen una verificación independiente de estudios clínicos distintos. Estos conteos describen el subconjunto curado E9, no la totalidad del conjunto de origen.
 
 \section{Resultados de segmentación}
 

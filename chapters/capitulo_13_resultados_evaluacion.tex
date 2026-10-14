@@ -157,7 +157,7 @@ Frontend & lint PASS, typecheck PASS, build PASS, unit tests PASS & Valida calid
 AI focal/product regressions & PASS; 67 passed y 1 skipped en el recorte focal & Valida product orchestration, multiplanar, real baseline, Grad-CAM y subarticular en el alcance focal. \\
 AI full suite & 479 passed / 40 failed & No se presenta como suite totalmente verde: los fallos son brechas ambientales preexistentes asociadas a \texttt{highdicom} y resolución de subprocess. \\
 Docker full stack & PASS & Construcción del stack completo con imágenes requeridas. \\
-Browser E2E & Playwright 11/11 PASS & Validación funcional del producto en recorrido demo/final; no equivale a validación clínica ni a Patient entity browser-level completo. \\
+Browser E2E (Stage 87) & PASS en tres ejecuciones & El flujo principal de alta, análisis, revisión e historial se probó con bytes sintéticos y mock de IA. Corrección y chat no quedaron automatizados en navegador y se contrastaron por API; no se procesó un DICOM real ni se validó inferencia clínica. \\
 Patient API smoke & 8/8 PASS & Valida create/associate/list/detail/longitudinal/report/reload/persist-after-restart a nivel API/Backend. \\
 Persistencia & PASS & Resultados, asociaciones y series sobreviven reinicio del Backend. \\
 Product-analysis & PASS en demo path; bloqueado en path real sin 67B2 parity & El producto no fabrica nivel anatómico cuando la paridad runtime no está probada. \\
@@ -236,9 +236,9 @@ El cierre posterior corresponde a la migración base V2, ejecutada el 9 de octub
 \section{Niveles de validación y alcance}
 \label{sec:resultados-niveles-validacion}
 
-El cierre distingue niveles de evidencia que no deben confundirse. La evaluación offline mide desempeño de segmentación contra anotaciones o particiones congeladas. La validación técnica de software verifica contratos, persistencia, seguridad y errores controlados. Playwright 11/11 acredita el recorrido funcional de browser documentado; el E2E Cloud V2 acredita el alcance base de infraestructura descrito en la sección anterior. La revisión cualitativa profesional recoge observaciones de VP-01 y VP-02 sobre una versión funcional/intermedia del prototipo. La comparación diagnóstica independiente entre lecturas profesionales y resultados del sistema sobre los mismos estudios no se ejecutó. Tampoco se realizó validación clínica.
+El cierre distingue niveles de evidencia que no deben confundirse. La evaluación offline mide desempeño de segmentación contra anotaciones o particiones congeladas. La validación técnica de software verifica contratos, persistencia, seguridad y errores controlados. El Browser E2E de Stage 87 documenta el flujo principal del producto sobre un stack local con fixture sintética y mock de IA; los pasos de corrección de mediciones y chat se contrastaron por API porque sus selectores no fueron estables en navegador. No acredita procesamiento de DICOM real ni inferencia clínica. El E2E Cloud V2 acredita el alcance base de infraestructura descrito en la sección anterior. La revisión cualitativa profesional recoge observaciones de VP-01 y VP-02 sobre una versión funcional/intermedia del prototipo. La comparación diagnóstica independiente entre lecturas profesionales y resultados del sistema sobre los mismos estudios no se ejecutó. Tampoco se realizó validación clínica.
 
-Esta separación es central para interpretar las métricas. Por ejemplo, 67B2 tiene resultados offline altos, pero conserva \texttt{67B2\_RUNTIME\_PARITY\_NOT\_PROVEN}, \texttt{productEnabled=false} y \texttt{parityVerified=false}; por lo tanto no habilita inferencia productiva real. Del mismo modo, Playwright 11/11 valida el recorrido funcional del prototipo, no la exactitud clínica de sus salidas.
+Esta separación es central para interpretar las métricas. Por ejemplo, 67B2 tiene resultados offline altos, pero conserva \texttt{67B2\_RUNTIME\_PARITY\_NOT\_PROVEN}, \texttt{productEnabled=false} y \texttt{parityVerified=false}; por lo tanto no habilita inferencia productiva real. Del mismo modo, el Browser E2E de Stage 87 valida el flujo principal de integración con entradas sintéticas y mock de IA, no la exactitud clínica de sus salidas.
 \section{Resultados de la validación profesional cualitativa}
 \label{sec:resultados-validacion-profesional-cualitativa}
 
@@ -312,7 +312,7 @@ La evaluación final permite afirmar la consistencia funcional y técnica del pr
     \item No se realizó validación clínica prospectiva ni retrospectiva con profesionales sobre una cohorte independiente.
     \item Las dos sesiones profesionales incorporadas son cualitativas, con muestra pequeña e intencional, y se realizaron sobre una versión intermedia del producto.
     \item Las sesiones de producto no compararon resultados del sistema contra ground truth, sensibilidad, especificidad ni lectura independiente de profesionales.
-    \item El recorrido Playwright 11/11 valida comportamiento funcional de interfaz, no desempeño clínico.
+    \item El Browser E2E de Stage 87 valida el flujo principal con fixture sintética y mock de IA, no procesamiento de imágenes reales ni desempeño clínico; corrección y chat se contrastaron por API.
     \item El modo demo usa fixtures determinísticos y no debe interpretarse como inferencia médica real.
     \item La integración Patient está implementada en Backend/API/persistencia, pero la interfaz conserva flujos basados en \texttt{subjectRef} y no ofrece creación/selección completa de Patient en navegador.
     \item La prueba Patient E2E 8/8 corresponde a validación API-level/smoke, no a recorrido browser-level completo.

@@ -1,0 +1,12 @@
+# Baselines de la auditoría PFI
+
+Inventario G0 verificado el 14/10/2026. Los checkouts habituales no fueron modificados. Cada worktree parte del SHA local confirmado; no se sincronizaron ramas con remotos.
+
+| Repositorio | Ruta local | Rama base | SHA base | Rama audit local | SHA audit actual | Cambios locales previos | Pruebas disponibles (no ejecutadas en G0) |
+|---|---|---|---|---|---|---|---|
+| Gestionador LaTeX | `C:\Users\enzoa\OneDrive\Documentos\1.ReposGitHub-Backends\GestionadorLatex-Enzo_PFI_SEGUNDA_ENTREGA_WORK` | `audit/pfi-2026-modelo-financiero-documental` | `0454dc38ce0e12c3267e73b5fcb4b852c3cfde89` | `audit/pfi-100-tutor-2026-10-14` | `0454dc38ce0e12c3267e73b5fcb4b852c3cfde89` | limpio | `latexmk -pdf -use-biber main.tex`; README también documenta flujo directo pdfLaTeX/Biber |
+| Backend | `C:\Users\enzoa\OneDrive\Documentos\1.ReposGitHub-Backends\PFI_MVP_Juntos\PFI_MVPTest_Enzo_Backend_final_integration` | `integration/final-2026` (snapshot local) | `9bca0532cc3f2541337e5e395f98cc37a30f7fb8` | `audit/pfi-100-tutor-2026-10-14` | `9bca0532cc3f2541337e5e395f98cc37a30f7fb8` | limpio; referencia remota local mostraba 1 commit por delante, no se hizo fetch/pull | `mvn test` |
+| Frontend | `C:\Users\enzoa\OneDrive\Documentos\1.ReposGitHub-Backends\PFI_MVP_Juntos\PFI_MVPTest_Enzo_Frontend_final_integration` | `integration/final-2026` | `5ec83e15aafd13ae3d944178a4f9f169a76eb3f7` | `audit/pfi-100-tutor-2026-10-14` | `5ec83e15aafd13ae3d944178a4f9f169a76eb3f7` | limpio | `npm test`, `npm run build`, `npm run lint`, `npm run typecheck` |
+| AI Module | `C:\Users\enzoa\OneDrive\Documentos\1.ReposGitHub-Backends\PFI_MVP_Juntos\PFI_MVPTest_Enzo_AImodule_final_integration` | `integration/final-2026` | `d363113d46284205233aede3f1f48e32b7ebf186` | `audit/pfi-100-tutor-2026-10-14` | `d363113d46284205233aede3f1f48e32b7ebf186` | limpio | `python -m pytest --cov` (según `pyproject.toml`) |
+
+Los cuatro worktrees de auditoría están bajo `C:\Users\enzoa\OneDrive\Documentos\1.ReposGitHub-Backends\PFI_MVP_Juntos\_worktrees_auditoria_pfi_100\` (`latex`, `backend`, `frontend`, `ai-module`). El snapshot de Backend es deliberadamente el SHA local provisto; no incluye el commit que su referencia remota local indicaba como posterior.

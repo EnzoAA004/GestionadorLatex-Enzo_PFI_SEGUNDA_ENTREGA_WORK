@@ -78,7 +78,7 @@
 | 60 | Corrección aplicada | Sí | Gestionador LaTeX | 1126134521c79d5858b220c5a163e0dd7f84610e | No clasificar el estudio ni el método a partir de un único corte/medición. |
 | 61 | Corrección aplicada | Parcial | Gestionador LaTeX | 475570dabc211261c0b8f6733bb197b910fb1b68 | El inventario comercial completo y comparación de estudios clínicos siguen parciales; revisar cada resumen/indicación antes de comparaciones de desempeño. |
 | 62 | Corrección aplicada | Sí | Gestionador LaTeX | 475570dabc211261c0b8f6733bb197b910fb1b68 | Usar el artículo como ejemplo metodológico externo, no como resultado propio ni umbral de aceptación del PFI. |
-| 63 | Bloqueado por evidencia | Parcial | Gestionador LaTeX; AI Module |  | Los notebooks procesan máscaras y hay manifests, pero no se localizaron máscaras fuente ni paquete de anotaciones con autoría/protocolo/conteos trazables; el manifest axial mantiene IDs opacos. Solicitar esos artefactos antes de corregir cifras. |
+| 63 | Bloqueado por evidencia | Parcial | Gestionador LaTeX; AI Module |  | Se retiró “cobertura completa” y “1.545 máscaras finales”: 515×3 queda como combinaciones paciente-nivel nominales, no conteo auditado. Faltan máscaras fuente, índice por archivo/paciente/nivel, mapping T1→T2, manifest enlazado y protocolo/autoría. El manifest axial mantiene IDs opacos. |
 | 64 | Corrección aplicada | Sí | Gestionador LaTeX | 475570dabc211261c0b8f6733bb197b910fb1b68 | Comparación directa de utilidad/esfuerzo contra los PACS de los centros no fue realizada. |
 | 65 | Corrección aplicada | Parcial | Gestionador LaTeX | 784066e6723fab9cb90bf5794783c3e667a1b415 | No se implementa ni valida interpretación diagnóstica automática; decisión de alcance explícita. |
 | 66 | Bloqueado por evidencia | Parcial | Gestionador LaTeX |  | Limitar perfiles a datos respaldados por las fuentes disponibles; localizar fechas/consentimientos/autorización antes de publicar información personal adicional. |
@@ -86,11 +86,13 @@
 
 ## Evidencia final de compilación
 
-La tesis compila en el worktree local con pdfLaTeX (MiKTeX 25.12) y Biber 2.21; el PDF tiene 232 páginas físicas (230 páginas numeradas en el cuerpo). SHA-256 del PDF: `A725AA2916F3739B1680E70EA5735A6D093B566BCDB8A6509D6B96A1F74251BB`. La búsqueda del log final no reporta errores fatales, citas indefinidas ni referencias cruzadas indefinidas. Se revisaron visualmente la tabla financiera (p. física 156), H09 (p. 25), y las figuras 10.4/10.5/10.7/12.2 (pp. físicas 94/96/105/132). Las advertencias de composición en tablas preexistentes se mantienen como limitación visual menor.
+La tesis compila en el worktree local con pdfLaTeX (MiKTeX 25.12) y Biber 2.21; el PDF tiene 232 páginas físicas (230 páginas numeradas en el cuerpo). SHA-256 del PDF: `903848C2013B2E5574FA702B71386BB2FAC1B68AD50959C2C6B5A15BB577F554`. La búsqueda del log final no reporta errores fatales, citas indefinidas ni referencias cruzadas indefinidas. En esta fase se revisaron visualmente las páginas físicas 29 (H63) y 42 (FODA); también se verificaron Lista de Figuras p.15 y Tabla 6.2 p.35. Las advertencias de composición en tablas preexistentes se mantienen como limitación visual menor.
 
 ## Hallazgos que mantienen límites o requieren evidencia adicional
 
 - **H04:** el artefacto axial trae métricas por clase; el sagital solo trae macro Dice/IoU. No se reentrenó ni se extrapolaron métricas.
+- **H63:** las 1.545 no son un inventario verificado de máscaras del proyecto; la cifra se conserva únicamente como 515×3 combinaciones nominales y H63 sigue bloqueado.
+- **H56:** se matizó la afirmación de reproducibilidad; el acuerdo RSNA y términos de checkpoint/pesos siguen sin verificarse.
 - **H12:** se localizaron IoU por modelo; no se localizaron valores HD95/NSD, que quedan como no calculados.
 - **H11:** H11-B agrega hashes de contenido de 1.162 archivos y no encuentra duplicados de imagen/pares entre splits; sí hay 55 grupos de máscaras repetidas dentro de mismo paciente/split. No verifica alineación anatómica ni resuelve el split histórico; el test se usó en axial-full-v1.
 - **H14:** faltan registros fechados de sesiones, consentimientos y autorizaciones; la resolución queda bloqueada por evidencia.

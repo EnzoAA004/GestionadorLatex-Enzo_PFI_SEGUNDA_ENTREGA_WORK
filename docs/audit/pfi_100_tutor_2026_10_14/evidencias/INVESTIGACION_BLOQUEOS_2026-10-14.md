@@ -16,6 +16,8 @@ Fecha de corte: 2026-10-14. Los repositorios de integración se inspeccionaron e
 
 | ID | Aportar |
 |---|---|
+| H04 | Para el modelo sagital: archivo JSON/CSV de métricas Dice/IoU por clase del split de prueba asociado al checkpoint final, con mapping de clases y manifest/hash del split. El snapshot solo contiene las métricas macro en `models/final/sagittal_spider_multiclass_final_best.pt.modelcard.md` y su manifest. |
+| H12 | Si se mantiene HD95/NSD como criterio o resultado esperado: reporte de evaluación fuente con dichos valores, vinculado a checkpoint, split y unidad de agregación. Si nunca se calcularon, basta con mantenerlos explícitamente como no calculados y no se requiere archivo adicional. |
 | H14 | Audios originales de las sesiones citadas, registro fechado de cada sesión y consentimientos/autorizaciones de uso y publicación aplicables. |
 | H31 | Exportación original de respuestas (CSV/XLSX del formulario) y versión exacta del cuestionario aplicado, con fechas/campos necesarios para verificar denominadores. |
 | H45 | Audio fuente de las entrevistas cuya atribución cuestiona el hallazgo y registro fechado que permita cotejarlo; consentimiento/autorización aplicable. |

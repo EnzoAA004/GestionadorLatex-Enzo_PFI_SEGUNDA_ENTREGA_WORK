@@ -49,7 +49,7 @@ Para el artifact axial V2 se auditó la partición E9 del subconjunto curado: 42
 \setlength{\LTright}{0pt}
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.18}
-\begin{longtable}{>{\raggedright\arraybackslash}p{0.20\textwidth} >{\raggedright\arraybackslash}p{0.27\textwidth} >{\raggedright\arraybackslash}p{0.12\textwidth} >{\raggedright\arraybackslash}p{0.16\textwidth} >{\raggedright\arraybackslash}p{0.18\textwidth}}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.18\textwidth} >{\raggedright\arraybackslash}p{0.23\textwidth} >{\raggedright\arraybackslash}p{0.22\textwidth} >{\raggedright\arraybackslash}p{0.14\textwidth} >{\raggedright\arraybackslash}p{0.16\textwidth}}
 \caption{Coeficiente Dice sobre la partición retenida, por modelo.}\label{tab:res-dice-modelos}\\
 \hline
 \textbf{Modelo} & \textbf{Clases evaluadas} & \textbf{Dice macro} & \textbf{Umbral del proyecto} & \textbf{Resultado} \\
@@ -62,8 +62,8 @@ Para el artifact axial V2 se auditó la partición E9 del subconjunto curado: 42
 \hline
 \endfoot
 Sagital, SPIDER & Vértebras, canal y discos, sin fondo & 0,893 & 0,70 & Supera el umbral \\
-Axial, Sudirman y Al-Kafri & Primer plano oficial, incluyendo \texttt{raw\_0} & 0,679348283374592 (IoU 0,5699727598420694) & 0,70 & No alcanza el umbral \\
-Axial, excluyendo \texttt{raw\_0} & Análisis secundario de estructuras & 0,8105661875685084 (IoU 0,6915400877715925) & 0,70 & Lectura secundaria; no reemplaza el gate \\
+Axial, Sudirman y Al-Kafri & Primer plano oficial, incluyendo \texttt{raw\_0} & \shortstack[l]{0,679348283374592\\(IoU 0,5699727598420694)} & 0,70 & No alcanza el umbral \\
+Axial, excluyendo \texttt{raw\_0} & Análisis secundario de estructuras & \shortstack[l]{0,8105661875685084\\(IoU 0,6915400877715925)} & 0,70 & Lectura secundaria; no reemplaza el gate \\
 \hline
 \end{longtable}
 }
